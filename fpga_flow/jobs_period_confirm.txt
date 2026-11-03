@@ -1,0 +1,5 @@
+# period confirmation: re-run at the achieved period (5.0 - WNS) to show the
+# design closes with ~0 slack, i.e. the reported f_max is real, not an estimate
+rep 3 2:1 xcvu9p-flga2104-2L-e 4.3
+surface 3 2:1 xcvu9p-flga2104-2L-e 7.0
+rep 5 2:1 xcvu9p-flga2104-2L-e 4.8

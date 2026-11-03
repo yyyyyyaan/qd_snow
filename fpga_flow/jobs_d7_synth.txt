@@ -1,0 +1,5 @@
+# d=7 points for the linear area fit -- synthesis only (much faster than P&R)
+rep 7 2:1 xcvu9p-flga2104-2L-e 5.0
+rep 7 1:1 xcvu9p-flga2104-2L-e 5.0
+surface 7 2:1 xcvu9p-flga2104-2L-e 5.0
+surface 7 1:1 xcvu9p-flga2104-2L-e 5.0

@@ -1,0 +1,57 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1280 720" font-family="微软雅黑, Arial, PingFang SC, Noto Sans CJK SC, sans-serif" data-pptx-page-role="content">
+  <defs>
+    <marker id="arrow-bit" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto">
+      <path d="M0 0L10 5L0 10z" fill="#2C6E9B"/>
+    </marker>
+  </defs>
+  <rect id="bg" data-pptx-role="background" x="0" y="0" width="1280" height="720" fill="#FFFFFF"/>
+
+  <g id="page-head" data-pptx-bounds="72 36 1136 80">
+    <text x="72" y="52" font-size="15" fill="#5A6672" letter-spacing="1.4">03 / 硬件架构与关键模块</text>
+    <text x="72" y="100" font-size="38" font-weight="bold" fill="#12263A">我不发消息包，我只传一根位线</text>
+    <rect x="1160" y="40" width="8" height="8" fill="#2C6E9B"/>
+    <text x="1208" y="49" font-size="15" fill="#2C6E9B" text-anchor="end">已完成</text>
+    <line x1="72" y1="118" x2="1208" y2="118" stroke="#D8DEE5" stroke-width="1"/>
+  </g>
+
+  <g id="helios-packet" data-pptx-bounds="72 176 468 300">
+    <text x="72" y="206" font-size="15" fill="#5A6672" letter-spacing="1.2">Helios：带收件人地址的数据包</text>
+    <rect x="72" y="228" width="380" height="42" fill="#F2F4F7" stroke="#5A6672" stroke-width="1"/>
+    <text x="92" y="256" font-size="22" fill="#1B2632">receiver（收件人）</text>
+    <rect x="72" y="276" width="380" height="42" fill="#F2F4F7" stroke="#5A6672" stroke-width="1"/>
+    <text x="92" y="304" font-size="22" fill="#1B2632">is_odd_cardinality_root</text>
+    <rect x="72" y="324" width="380" height="42" fill="#F2F4F7" stroke="#5A6672" stroke-width="1"/>
+    <text x="92" y="352" font-size="22" fill="#1B2632">is_touching_boundary</text>
+    <rect x="72" y="382" width="380" height="64" fill="#FFFFFF" stroke="#12263A" stroke-width="1.4"/>
+    <text x="92" y="410" font-size="22" fill="#12263A">blocking_channel = FIFO(16)</text>
+    <text x="92" y="436" font-size="15" font-family="Consolas, Cascadia Mono, Courier New, monospace" fill="#5A6672">data / valid / is_full / is_taken</text>
+  </g>
+
+  <g id="bitlines" data-pptx-bounds="600 176 608 300">
+    <text x="600" y="206" font-size="15" fill="#2C6E9B" letter-spacing="1.2">本项目：每个方向只有几根位线</text>
+    <text x="600" y="256" font-size="16" font-family="Consolas, Cascadia Mono, Courier New, monospace" fill="#12263A">nb_valid</text>
+    <line x1="720" y1="250" x2="1148" y2="250" stroke="#2C6E9B" stroke-width="1.6" marker-end="url(#arrow-bit)"/>
+    <text x="600" y="306" font-size="16" font-family="Consolas, Cascadia Mono, Courier New, monospace" fill="#12263A">nb_active</text>
+    <line x1="720" y1="300" x2="1148" y2="300" stroke="#2C6E9B" stroke-width="1.6" marker-end="url(#arrow-bit)"/>
+    <text x="600" y="356" font-size="16" font-family="Consolas, Cascadia Mono, Courier New, monospace" fill="#12263A">nb_grown</text>
+    <line x1="720" y1="350" x2="1148" y2="350" stroke="#2C6E9B" stroke-width="1.6" marker-end="url(#arrow-bit)"/>
+    <text x="600" y="406" font-size="16" font-family="Consolas, Cascadia Mono, Courier New, monospace" fill="#12263A">nb_push</text>
+    <line x1="720" y1="400" x2="1148" y2="400" stroke="#2C6E9B" stroke-width="1.6" marker-end="url(#arrow-bit)"/>
+    <text x="600" y="450" font-size="15" fill="#5A6672">每链路每拍最多一项流量，收发不可能失配</text>
+  </g>
+
+  <g id="what-removed" data-pptx-bounds="72 480 530 120">
+    <text x="72" y="510" font-size="15" fill="#B23A2E" letter-spacing="1.2">删掉的是什么</text>
+    <text x="72" y="546" font-size="22" fill="#1B2632">为不确定速率、未知目的地<tspan x="72" dy="32">而准备的缓冲与寻址</tspan></text>
+  </g>
+
+  <g id="cost-moved" data-pptx-bounds="640 480 568 120">
+    <text x="640" y="510" font-size="15" fill="#2C6E9B" letter-spacing="1.2">代价挪到哪里</text>
+    <text x="640" y="546" font-size="22" fill="#1B2632">多跳多拍；关键路径移到最小比较<tspan x="640" dy="32">跨片接缝还要做半拍寄存器</tspan></text>
+  </g>
+
+  <g id="page-foot" data-pptx-role="footer" data-pptx-bounds="72 636 1136 44">
+    <line x1="72" y1="640" x2="1208" y2="640" stroke="#D8DEE5" stroke-width="1"/>
+    <text x="72" y="666" font-size="15" fill="#5A6672">每边只摊约 5.6 LUT；91–92% 的成本在节点逻辑</text>
+  </g>
+</svg>

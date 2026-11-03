@@ -1,0 +1,27 @@
+# d7 timing closure attempt: SNOW_MINTS + SNOW_BUSYREG (report 6.14 / 6.17 / 6.18).
+#
+# Both attack the same critical path from opposite ends:
+#   MINTS   cuts the 12-deep merging argmin compare chain into 4-deep groups
+#           (d7 measured alone: 72,982 -> 90,455 LUT, 11.446 -> 6.710 ns,
+#            WNS -6.446 -> -1.710, logic levels 33 -> 20)
+#   BUSYREG removes the whole-array OR of the *combinational* busy signal from
+#           the far end of that path (report 6.14: -17% period, -3% area)
+# MINTS alone still misses the 5 ns target by 1.710 ns; a -17% period move on
+# 6.710 ns would land at ~5.57 ns, so this is "much closer, probably still
+# short" -- worth measuring because it tells us whether d7 closure needs a
+# third lever or just a relaxed target.
+#
+# Semantics are ALREADY verified: report 6.17's 13/13 matrix includes the
+# MINTS+BUSYREG combination, and its cycle cost is measured (rep d3 221,
+# surface d3 298, surface d5 307 -- BUSYREG's extra exit cycle is worth G
+# cycles under MINTS, so the latency bill roughly doubles).  Only the
+# implementation numbers are missing, so no regression gate is needed here.
+#
+# Baselines for comparison (same flow, bus on):
+#   surface d3:  4,091 LUT /  7.243 ns / 138.1 MHz   (pearearray)
+#   surface d5: 23,168 LUT /  9.603 ns / 104.1 MHz
+#   surface d7: 72,982 LUT / 11.446 ns /  87.4 MHz
+#   + MINTS:     5,529 / 4.799 / 208.4    29,248 / 5.282 / 189.3    90,455 / 6.710 / 149.0
+surface 3 2:1 xcvu9p-flga2104-2L-e 5.0 SNOW_MINTS;SNOW_BUSYREG
+surface 5 2:1 xcvu9p-flga2104-2L-e 5.0 SNOW_MINTS;SNOW_BUSYREG
+surface 7 2:1 xcvu9p-flga2104-2L-e 5.0 SNOW_MINTS;SNOW_BUSYREG

@@ -1,0 +1,41 @@
+
+****** Vivado v2020.2 (64-bit)
+  **** SW Build 3064766 on Wed Nov 18 09:12:45 MST 2020
+  **** IP Build 3064653 on Wed Nov 18 14:17:31 MST 2020
+    ** Copyright 1986-2020 Xilinx, Inc. All Rights Reserved.
+
+source {D:\ycz\doc\deepseek_workzone\decoder\fpga_flow\netlist_synth.tcl}
+# set repo   $::env(FLOW_REPO)
+# set top    $::env(FLOW_TOP)
+# set part   $::env(FLOW_PART)
+# set tag    $::env(FLOW_TAG)
+# set outdir $::env(FLOW_OUT)
+# set srcs   [expr {[info exists ::env(FLOW_SRCS)] ? [split $::env(FLOW_SRCS) ";"] \
+#                   : [list "$repo/design/snowflake/snowflake_core.sv"]}]
+# set defs   [expr {[info exists ::env(FLOW_DEFS)] ? [split $::env(FLOW_DEFS) ";"] : [list]}]
+# file mkdir $outdir
+# if {[info exists ::env(FLOW_GRAPH)] && $::env(FLOW_GRAPH) ne ""} {
+#   set dst "$repo/design/generated/snowflake_graph.svh"
+#   if {![string equal -nocase [file normalize $::env(FLOW_GRAPH)] [file normalize $dst]]} {
+#     file copy -force $::env(FLOW_GRAPH) $dst
+#   }
+#   puts "NETLIST_GRAPH_PINNED [file tail $::env(FLOW_GRAPH)]"
+# }
+NETLIST_GRAPH_PINNED rep_d3.svh
+# foreach s $srcs { read_verilog -sv $s }
+# set synth_args [list -top $top -part $part -mode out_of_context -flatten_hierarchy none]
+# if {[llength $defs]} { lappend synth_args -verilog_define [join $defs " "] }
+# synth_design {*}$synth_args
+Command: synth_design -top snowflake_core -part xcvu9p-flga2104-2L-e -mode out_of_context -flatten_hierarchy none
+Starting synth_design
+Attempting to get a license for feature 'Synthesis' and/or device 'xcvu9p'
+INFO: [Common 17-349] Got license for feature 'Synthesis' and/or device 'xcvu9p'
+INFO: [Synth 8-7079] Multithreading enabled for synth_design using a maximum of 2 processes.
+INFO: [Synth 8-7078] Launching helper process for spawning children vivado processes
+INFO: [Synth 8-7075] Helper process launched with PID 8296
+couldn't read file "D:/ycz/vivado/Vivado/2020.2/scripts/rt/data/retarget/retarget_vhdl.tcl": No error
+INFO: [Common 17-83] Releasing license: Synthesis
+5 Infos, 0 Warnings, 0 Critical Warnings and 1 Errors encountered.
+synth_design failed
+ERROR: [Common 17-69] Command failed: Vivado Synthesis failed
+INFO: [Common 17-206] Exiting Vivado at Wed Sep 16 02:01:44 2026...

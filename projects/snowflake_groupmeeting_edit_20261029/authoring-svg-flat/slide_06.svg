@@ -1,0 +1,39 @@
+<svg xmlns="http://www.w3.org/2000/svg" version="1.1" width="1280" height="720" viewBox="0 0 1280 720" font-family="Arial, &quot;Microsoft YaHei&quot;, sans-serif"><rect x="0" y="0" width="1280" height="720" fill="#FFFFFF" />
+<g id="shape-9" data-pptx-object="group" data-pptx-frame="94.93 142.33 1068.03 371.33" data-pptx-source-ref="slide:9">
+<g id="shape-7" data-pptx-object="shape" data-pptx-frame="94.93 142.33 1068.03 371.33" data-pptx-prst="roundRect" data-pptx-av-adj="val 1449" data-pptx-source-ref="slide:7" data-pptx-semantic-object="shape">
+<path d="M 94.93 147.71 A 5.38 5.38 0 0 1 100.31 142.33 L 1157.57 142.33 A 5.38 5.38 0 0 1 1162.95 147.71 L 1162.95 508.29 A 5.38 5.38 0 0 1 1157.57 513.67 L 100.31 513.67 A 5.38 5.38 0 0 1 94.93 508.29 Z" fill="#FFFFFF" stroke-width="1" stroke="#D8DEE5" data-pptx-part="geometry" />
+
+</g>
+<g id="shape-8" data-pptx-object="picture" data-pptx-frame="110.87 158.48 1036.15 339.04" data-pptx-source-ref="slide:8">
+<image data-pptx-object="picture" data-pptx-frame="110.87 158.48 1036.15 339.04" href="../images/image5.png" x="110.87" y="158.48" width="1036.15" height="339.04" preserveAspectRatio="none" />
+</g>
+</g>
+<g id="shape-26" data-pptx-object="group" data-pptx-frame="110.16 551.93 1036.86 113.62" data-pptx-source-ref="slide:26">
+<g id="shape-22" data-pptx-object="shape" data-pptx-frame="110.16 551.93 1036.86 113.62" data-pptx-prst="roundRect" data-pptx-av-adj="val 4000" data-pptx-source-ref="slide:22" data-pptx-semantic-object="shape">
+<path d="M 110.16 556.48 A 4.54 4.54 0 0 1 114.7 551.93 L 1142.47 551.93 A 4.54 4.54 0 0 1 1147.01 556.48 L 1147.01 661.01 A 4.54 4.54 0 0 1 1142.47 665.56 L 114.7 665.56 A 4.54 4.54 0 0 1 110.16 661.01 Z" fill="#F2F4F7" stroke="none" data-pptx-part="geometry" />
+
+</g>
+<g id="shape-23" data-pptx-object="shape" data-pptx-frame="135.17 569.36 1001.17 47.18" data-pptx-prst="rect" data-pptx-source-ref="slide:23" data-pptx-semantic-object="shape">
+<path d="M 135.17 569.36 L 1136.34 569.36 L 1136.34 616.54 L 135.17 616.54 Z" fill="none" stroke="none" data-pptx-part="geometry" />
+
+
+<text x="135.17" y="584" font-size="15" fill="#12263A">两个缺陷各自长出一个簇，每拍向外扩半条边；两个簇碰上就连成一个。<tspan x="135.17" dy="22">连上后选一个根，缺陷沿路径往根上推，两个缺陷相遇就抵消。</tspan><tspan x="135.17" dy="22">簇碰到边界，或者缺陷数变成偶数，就停止生长。</tspan></text>
+</g>
+</g>
+<g id="shape-33" data-pptx-object="group" data-pptx-frame="70.48 37.33 1137.52 81.67" data-pptx-source-ref="slide:33">
+<g id="shape-34" data-pptx-object="shape" data-pptx-frame="71.4 37.33 163.86 23.1" data-pptx-prst="rect" data-pptx-source-ref="slide:34" data-pptx-semantic-object="shape">
+<path d="M 71.4 37.33 L 235.26 37.33 L 235.26 60.43 L 71.4 60.43 Z" fill="none" stroke="none" data-pptx-part="geometry" />
+
+
+<text x="71.4" y="52" text-anchor="start" xml:space="preserve" font-size="14.93" fill="#5A6672" letter-spacing="1.4" data-pptx-text-baseline="metrics-v1"><tspan>01 / 背景与问题定义</tspan></text>
+</g>
+<g id="shape-35" data-pptx-object="shape" data-pptx-frame="70.48 64 153.48 46.05" data-pptx-prst="rect" data-pptx-source-ref="slide:35" data-pptx-semantic-object="shape">
+<path d="M 70.48 64 L 223.96 64 L 223.96 110.05 L 70.48 110.05 Z" fill="none" stroke="none" data-pptx-part="geometry" />
+
+
+<text x="70.48" y="100" text-anchor="start" xml:space="preserve" font-size="38" fill="#12263A" font-weight="bold" data-pptx-text-baseline="metrics-v1">簇的生长</text>
+</g>
+<g id="shape-36" data-pptx-object="shape" data-pptx-frame="72 118 1136 1" data-pptx-geometry-kind="custom" data-pptx-source-ref="slide:36" data-pptx-semantic-object="shape">
+<path d="M 72 118 L 1208 118" data-pptx-part="geometry" fill="none" stroke-width="1" stroke="#D8DEE5" />
+</g>
+</g></svg>

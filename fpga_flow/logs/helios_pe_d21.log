@@ -1,0 +1,410 @@
+#-----------------------------------------------------------
+# Vivado v2020.2 (64-bit)
+# SW Build 3064766 on Wed Nov 18 09:12:45 MST 2020
+# IP Build 3064653 on Wed Nov 18 14:17:31 MST 2020
+# Start of session at: Wed Sep 16 22:27:02 2026
+# Process ID: 14244
+# Current directory: D:/ycz/doc/deepseek_workzone/decoder
+# Command line: vivado.exe -mode batch -source fpga_flow\synth_helios_pe.tcl -log fpga_flow\logs\helios_pe_d21.log -journal fpga_flow\logs\helios_pe_d21.jou
+# Log file: D:/ycz/doc/deepseek_workzone/decoder/fpga_flow/logs/helios_pe_d21.log
+# Journal file: D:/ycz/doc/deepseek_workzone/decoder\fpga_flow\logs\helios_pe_d21.jou
+#-----------------------------------------------------------
+source {fpga_flow\synth_helios_pe.tcl}
+# set here [file dirname [file normalize [info script]]]
+# set repo [file join $here helios_baseline]
+# set outdir [file join $here logs]
+# set tag "helios_pe_d21"
+# if {[info exists ::env(HELIOS_TAG)] && $::env(HELIOS_TAG) ne ""} { set tag $::env(HELIOS_TAG) }
+# set part xcvu9p-flga2104-2L-e
+# set period 5.0
+# set top processing_unit
+# file mkdir $outdir
+# set srcs {}
+# foreach rel {
+#   parameters/parameters.sv
+#   design/pe/processing_unit.sv
+#   design/generics/tree_compare_solver.sv
+#   design/generics/tree_distance_3d_solver.sv
+#   design/generics/many_to_one_mux.sv
+#   design/channels/blocking_channel.sv
+#   design/channels/nonblocking_channel.sv
+#   design/channels/neighbor_link.sv
+#   design/channels/neigbor_link_fifo.sv
+#   design/channels/pu_arbitration.sv
+#   design/channels/final_arbitration.sv
+# } {
+#   set f [file join $repo $rel]
+#   if {[file exists $f]} { lappend srcs $f } else { puts "HELIOS_MISSING $rel" }
+# }
+# foreach f [lsort [glob -nocomplain [file join $repo design generics *.v]]] {
+#   if {[string match "*fifo*" $f]} { lappend srcs $f }
+# }
+# puts "HELIOS_PE_SRCS [llength $srcs] files"
+HELIOS_PE_SRCS 12 files
+# foreach s $srcs { puts "  [file tail $s]" }
+  parameters.sv
+  processing_unit.sv
+  tree_compare_solver.sv
+  tree_distance_3d_solver.sv
+  many_to_one_mux.sv
+  blocking_channel.sv
+  nonblocking_channel.sv
+  neighbor_link.sv
+  neigbor_link_fifo.sv
+  pu_arbitration.sv
+  final_arbitration.sv
+  fifo_fwft.v
+# foreach s $srcs { read_verilog -sv $s }
+# set xdc [file join $outdir "ooc_$tag.xdc"]
+# set fh [open $xdc w]
+# puts $fh "create_clock -name clk -period $period \[get_ports clk\]"
+# close $fh
+# read_xdc $xdc
+# if {[catch {
+#   synth_design -top $top -part $part -mode out_of_context -flatten_hierarchy none
+# } err]} {
+#   puts "HELIOS_PE_SYNTH_FAILED [lindex [split $err "\n"] 0]"
+#   exit 1
+# }
+Command: synth_design -top processing_unit -part xcvu9p-flga2104-2L-e -mode out_of_context -flatten_hierarchy none
+Starting synth_design
+Attempting to get a license for feature 'Synthesis' and/or device 'xcvu9p'
+INFO: [Common 17-349] Got license for feature 'Synthesis' and/or device 'xcvu9p'
+INFO: [Device 21-403] Loading part xcvu9p-flga2104-2L-e
+INFO: [Synth 8-7079] Multithreading enabled for synth_design using a maximum of 2 processes.
+INFO: [Synth 8-7078] Launching helper process for spawning children vivado processes
+INFO: [Synth 8-7075] Helper process launched with PID 9340
+WARNING: [Synth 8-6901] identifier 'updated_is_touching_boundary' is used before its declaration [D:/ycz/doc/deepseek_workzone/decoder/fpga_flow/helios_baseline/design/pe/processing_unit.sv:239]
+WARNING: [Synth 8-6901] identifier 'updated_is_touching_boundary' is used before its declaration [D:/ycz/doc/deepseek_workzone/decoder/fpga_flow/helios_baseline/design/pe/processing_unit.sv:239]
+WARNING: [Synth 8-2507] parameter declaration becomes local in min_val_less_8x_with_index with formal parameter declaration list [D:/ycz/doc/deepseek_workzone/decoder/fpga_flow/helios_baseline/design/generics/tree_compare_solver.sv:216]
+WARNING: [Synth 8-6901] identifier 'ADDRESS_WIDTH' is used before its declaration [D:/ycz/doc/deepseek_workzone/decoder/fpga_flow/helios_baseline/design/channels/neigbor_link_fifo.sv:16]
+WARNING: [Synth 8-6901] identifier 'ADDRESS_WIDTH' is used before its declaration [D:/ycz/doc/deepseek_workzone/decoder/fpga_flow/helios_baseline/design/channels/neigbor_link_fifo.sv:17]
+WARNING: [Synth 8-6901] identifier 'ADDRESS_WIDTH' is used before its declaration [D:/ycz/doc/deepseek_workzone/decoder/fpga_flow/helios_baseline/design/channels/neigbor_link_fifo.sv:21]
+WARNING: [Synth 8-6901] identifier 'ADDRESS_WIDTH' is used before its declaration [D:/ycz/doc/deepseek_workzone/decoder/fpga_flow/helios_baseline/design/channels/neigbor_link_fifo.sv:24]
+WARNING: [Synth 8-1935] empty port in module declaration [D:/ycz/doc/deepseek_workzone/decoder/fpga_flow/helios_baseline/design/channels/pu_arbitration.sv:29]
+---------------------------------------------------------------------------------
+Starting RTL Elaboration : Time (s): cpu = 00:00:04 ; elapsed = 00:00:04 . Memory (MB): peak = 1861.719 ; gain = 250.797
+---------------------------------------------------------------------------------
+INFO: [Synth 8-6157] synthesizing module 'processing_unit' [D:/ycz/doc/deepseek_workzone/decoder/fpga_flow/helios_baseline/design/pe/processing_unit.sv:6]
+	Parameter ADDRESS_WIDTH bound to: 15 - type: integer 
+	Parameter DISTANCE_WIDTH bound to: 6 - type: integer 
+	Parameter BOUNDARY_WIDTH bound to: 2 - type: integer 
+	Parameter NEIGHBOR_COUNT bound to: 6 - type: integer 
+	Parameter FAST_CHANNEL_COUNT bound to: 0 - type: integer 
+	Parameter I bound to: 1 - type: integer 
+	Parameter J bound to: 2 - type: integer 
+	Parameter K bound to: 6 - type: integer 
+	Parameter CODE_DISTANCE_X bound to: 27 - type: integer 
+	Parameter CODE_DISTANCE_Z bound to: 26 - type: integer 
+	Parameter MEASUREMENT_ROUNDS bound to: 27 - type: integer 
+	Parameter INIT_BOUNDARY_COST_X bound to: 2 - type: integer 
+	Parameter INIT_BOUNDARY_COST_Z bound to: 2 - type: integer 
+	Parameter INIT_BOUNDARY_COST_UD bound to: 2 - type: integer 
+	Parameter DIRECT_CHANNEL_COUNT bound to: 3 - type: integer 
+	Parameter STAGE_WIDTH bound to: 4 - type: integer 
+	Parameter STAGE_IDLE bound to: 4'b0000 
+	Parameter STAGE_MEASUREMENT_LOADING bound to: 4'b0001 
+	Parameter STAGE_GROW bound to: 4'b0010 
+	Parameter STAGE_MERGE bound to: 4'b0011 
+	Parameter STAGE_PEELING bound to: 4'b0100 
+	Parameter STAGE_RESULT_VALID bound to: 4'b0101 
+	Parameter STAGE_PARAMETERS_LOADING bound to: 4'b0110 
+	Parameter STAGE_SPREAD_CLUSTER bound to: 4'b0111 
+	Parameter STAGE_GROW_BOUNDARY bound to: 4'b1000 
+	Parameter STAGE_SYNC_IS_ODD_CLUSTER bound to: 4'b1001 
+	Parameter STAGE_RESULT_CALCULATING bound to: 4'b1010 
+	Parameter STAGE_MEASUREMENT_PREPARING bound to: 4'b0111 
+	Parameter START_DECODING_MSG bound to: 8'b00000001 
+	Parameter MEASUREMENT_DATA_HEADER bound to: 8'b00000010 
+	Parameter CHANNEL_COUNT bound to: 6 - type: integer 
+	Parameter CHANNEL_WIDTH bound to: 3 - type: integer 
+	Parameter DIRECT_CHANNEL_WIDTH bound to: 2 - type: integer 
+	Parameter UNION_MESSAGE_WIDTH bound to: 30 - type: integer 
+	Parameter DIRECT_MESSAGE_WIDTH bound to: 17 - type: integer 
+	Parameter PER_DIMENSION_WIDTH bound to: 5 - type: integer 
+	Parameter CHANNEL_DEPTH bound to: 3 - type: integer 
+	Parameter DIRECT_CHANNEL_DEPTH bound to: 2 - type: integer 
+	Parameter CHANNEL_EXPAND_COUNT bound to: 8 - type: integer 
+	Parameter DIRECT_CHANNEL_EXPAND_COUNT bound to: 4 - type: integer 
+	Parameter CHANNEL_ALL_EXPAND_COUNT bound to: 15 - type: integer 
+	Parameter DIRECT_CHANNEL_ALL_EXPAND_COUNT bound to: 7 - type: integer 
+	Parameter CHANNEL_ROOT_IDX bound to: 14 - type: integer 
+	Parameter DIRECT_CHANNEL_ROOT_IDX bound to: 6 - type: integer 
+INFO: [Synth 8-6157] synthesizing module 'tree_compare_solver' [D:/ycz/doc/deepseek_workzone/decoder/fpga_flow/helios_baseline/design/generics/tree_compare_solver.sv:7]
+	Parameter DATA_WIDTH bound to: 15 - type: integer 
+	Parameter CHANNEL_COUNT bound to: 6 - type: integer 
+	Parameter DEPTH bound to: 3 - type: integer 
+	Parameter EXPAND_COUNT bound to: 8 - type: integer 
+	Parameter ALL_EXPAND_COUNT bound to: 15 - type: integer 
+	Parameter ROOT_IDX bound to: 14 - type: integer 
+INFO: [Synth 8-6155] done synthesizing module 'tree_compare_solver' (1#1) [D:/ycz/doc/deepseek_workzone/decoder/fpga_flow/helios_baseline/design/generics/tree_compare_solver.sv:7]
+INFO: [Synth 8-6157] synthesizing module 'blocking_channel' [D:/ycz/doc/deepseek_workzone/decoder/fpga_flow/helios_baseline/design/channels/blocking_channel.sv:3]
+	Parameter WIDTH bound to: 17 - type: integer 
+	Parameter DEPTH bound to: 16 - type: integer 
+INFO: [Synth 8-6157] synthesizing module 'fifo_fwft' [D:/ycz/doc/deepseek_workzone/decoder/fpga_flow/helios_baseline/design/generics/fifo_fwft.v:1]
+	Parameter DEPTH bound to: 16 - type: integer 
+	Parameter WIDTH bound to: 17 - type: integer 
+	Parameter PW bound to: 4 - type: integer 
+INFO: [Synth 8-6155] done synthesizing module 'fifo_fwft' (2#1) [D:/ycz/doc/deepseek_workzone/decoder/fpga_flow/helios_baseline/design/generics/fifo_fwft.v:1]
+INFO: [Synth 8-6155] done synthesizing module 'blocking_channel' (3#1) [D:/ycz/doc/deepseek_workzone/decoder/fpga_flow/helios_baseline/design/channels/blocking_channel.sv:3]
+INFO: [Synth 8-6157] synthesizing module 'tree_distance_3d_solver' [D:/ycz/doc/deepseek_workzone/decoder/fpga_flow/helios_baseline/design/generics/tree_distance_3d_solver.sv:6]
+	Parameter PER_DIMENSION_WIDTH bound to: 5 - type: integer 
+	Parameter CHANNEL_COUNT bound to: 3 - type: integer 
+	Parameter I bound to: 1 - type: integer 
+	Parameter J bound to: 2 - type: integer 
+	Parameter K bound to: 6 - type: integer 
+	Parameter ADDRESS_WIDTH bound to: 15 - type: integer 
+	Parameter CHANNEL_WIDTH bound to: 2 - type: integer 
+	Parameter DISTANCE_WIDTH bound to: 7 - type: integer 
+	Parameter DEPTH bound to: 2 - type: integer 
+	Parameter EXPAND_COUNT bound to: 4 - type: integer 
+	Parameter ALL_EXPAND_COUNT bound to: 7 - type: integer 
+INFO: [Synth 8-6155] done synthesizing module 'tree_distance_3d_solver' (4#1) [D:/ycz/doc/deepseek_workzone/decoder/fpga_flow/helios_baseline/design/generics/tree_distance_3d_solver.sv:6]
+INFO: [Synth 8-6155] done synthesizing module 'processing_unit' (5#1) [D:/ycz/doc/deepseek_workzone/decoder/fpga_flow/helios_baseline/design/pe/processing_unit.sv:6]
+---------------------------------------------------------------------------------
+Finished RTL Elaboration : Time (s): cpu = 00:00:05 ; elapsed = 00:00:05 . Memory (MB): peak = 1916.641 ; gain = 305.719
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Handling Custom Attributes
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Handling Custom Attributes : Time (s): cpu = 00:00:05 ; elapsed = 00:00:06 . Memory (MB): peak = 1916.641 ; gain = 305.719
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished RTL Optimization Phase 1 : Time (s): cpu = 00:00:05 ; elapsed = 00:00:06 . Memory (MB): peak = 1916.641 ; gain = 305.719
+---------------------------------------------------------------------------------
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.006 . Memory (MB): peak = 1916.641 ; gain = 0.000
+INFO: [Project 1-570] Preparing netlist for logic optimization
+
+Processing XDC Constraints
+Initializing timing engine
+Parsing XDC File [D:/ycz/doc/deepseek_workzone/decoder/fpga_flow/logs/ooc_helios_pe_d21.xdc]
+Finished Parsing XDC File [D:/ycz/doc/deepseek_workzone/decoder/fpga_flow/logs/ooc_helios_pe_d21.xdc]
+Completed Processing XDC Constraints
+
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00 . Memory (MB): peak = 2062.852 ; gain = 0.000
+INFO: [Project 1-111] Unisim Transformation Summary:
+No Unisim elements were transformed.
+
+Constraint Validation Runtime : Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.006 . Memory (MB): peak = 2062.852 ; gain = 0.000
+---------------------------------------------------------------------------------
+Finished Constraint Validation : Time (s): cpu = 00:00:14 ; elapsed = 00:00:15 . Memory (MB): peak = 2062.852 ; gain = 451.930
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Loading Part and Timing Information
+---------------------------------------------------------------------------------
+Loading part: xcvu9p-flga2104-2L-e
+INFO: [Synth 8-6742] Reading net delay rules and data
+---------------------------------------------------------------------------------
+Finished Loading Part and Timing Information : Time (s): cpu = 00:00:14 ; elapsed = 00:00:15 . Memory (MB): peak = 2062.852 ; gain = 451.930
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Applying 'set_property' XDC Constraints
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished applying 'set_property' XDC Constraints : Time (s): cpu = 00:00:14 ; elapsed = 00:00:15 . Memory (MB): peak = 2062.852 ; gain = 451.930
+---------------------------------------------------------------------------------
+INFO: [Synth 8-6904] The RAM "fifo_fwft:/fifo_reg" of size (depth=16 x width=17) is automatically implemented using LUTRAM. BRAM implementation would be inefficient 
+---------------------------------------------------------------------------------
+Finished RTL Optimization Phase 2 : Time (s): cpu = 00:00:15 ; elapsed = 00:00:16 . Memory (MB): peak = 2062.852 ; gain = 451.930
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start RTL Component Statistics 
+---------------------------------------------------------------------------------
+Detailed RTL Component Info : 
++---Adders : 
+	   2 Input    4 Bit       Adders := 4     
+	   2 Input    2 Bit       Adders := 2     
++---XORs : 
+	   2 Input      1 Bit         XORs := 1     
++---XORs : 
+	                3 Bit    Wide XORs := 1     
++---Registers : 
+	               17 Bit    Registers := 1     
+	               15 Bit    Registers := 3     
+	                4 Bit    Registers := 5     
+	                2 Bit    Registers := 3     
+	                1 Bit    Registers := 7     
++---RAMs : 
+	              272 Bit	(16 X 17 bit)          RAMs := 1     
++---Muxes : 
+	   2 Input   17 Bit        Muxes := 3     
+	   2 Input   15 Bit        Muxes := 23    
+	   2 Input    2 Bit        Muxes := 2     
+	   2 Input    1 Bit        Muxes := 34    
+	   3 Input    1 Bit        Muxes := 5     
+	   4 Input    1 Bit        Muxes := 3     
+	   5 Input    1 Bit        Muxes := 1     
+---------------------------------------------------------------------------------
+Finished RTL Component Statistics 
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Part Resource Summary
+---------------------------------------------------------------------------------
+Part Resources:
+DSPs: 6840 (col length:120)
+BRAMs: 4320 (col length: RAMB18 360 RAMB36 180)
+---------------------------------------------------------------------------------
+Finished Part Resource Summary
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Cross Boundary and Area Optimization
+---------------------------------------------------------------------------------
+INFO: [Synth 8-6904] The RAM "intermediate_stage/temp_fifo/fifo_reg" of size (depth=16 x width=17) is automatically implemented using LUTRAM. BRAM implementation would be inefficient 
+---------------------------------------------------------------------------------
+Finished Cross Boundary and Area Optimization : Time (s): cpu = 00:00:17 ; elapsed = 00:00:18 . Memory (MB): peak = 2062.852 ; gain = 451.930
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start ROM, RAM, DSP, Shift Register and Retiming Reporting
+---------------------------------------------------------------------------------
+
+Distributed RAM: Preliminary Mapping	Report (see note below)
++-----------------------------+------------+-----------+----------------------+---------------+
+|Module Name                  | RTL Object | Inference | Size (Depth x Width) | Primitives    | 
++-----------------------------+------------+-----------+----------------------+---------------+
+|intermediate_stage/temp_fifo | fifo_reg   | Implied   | 16 x 17              | RAM32M16 x 2	 | 
++-----------------------------+------------+-----------+----------------------+---------------+
+
+Note: The table above is a preliminary report that shows the Distributed RAMs at the current stage of the synthesis flow. Some Distributed RAMs may be reimplemented as non Distributed RAM primitives later in the synthesis flow. Multiple instantiated RAMs are reported only once.
+---------------------------------------------------------------------------------
+Finished ROM, RAM, DSP, Shift Register and Retiming Reporting
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Applying XDC Timing Constraints
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Applying XDC Timing Constraints : Time (s): cpu = 00:00:27 ; elapsed = 00:00:29 . Memory (MB): peak = 2433.379 ; gain = 822.457
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Timing Optimization
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Timing Optimization : Time (s): cpu = 00:00:39 ; elapsed = 00:00:41 . Memory (MB): peak = 2504.539 ; gain = 893.617
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start ROM, RAM, DSP, Shift Register and Retiming Reporting
+---------------------------------------------------------------------------------
+
+Distributed RAM: Final Mapping	Report
++-----------------------------+------------+-----------+----------------------+---------------+
+|Module Name                  | RTL Object | Inference | Size (Depth x Width) | Primitives    | 
++-----------------------------+------------+-----------+----------------------+---------------+
+|intermediate_stage/temp_fifo | fifo_reg   | Implied   | 16 x 17              | RAM32M16 x 2	 | 
++-----------------------------+------------+-----------+----------------------+---------------+
+
+---------------------------------------------------------------------------------
+Finished ROM, RAM, DSP, Shift Register and Retiming Reporting
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Technology Mapping
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Technology Mapping : Time (s): cpu = 00:00:39 ; elapsed = 00:00:42 . Memory (MB): peak = 2504.539 ; gain = 893.617
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start IO Insertion
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Final Netlist Cleanup
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Final Netlist Cleanup
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished IO Insertion : Time (s): cpu = 00:00:42 ; elapsed = 00:00:45 . Memory (MB): peak = 2504.539 ; gain = 893.617
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Renaming Generated Instances
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Renaming Generated Instances : Time (s): cpu = 00:00:42 ; elapsed = 00:00:45 . Memory (MB): peak = 2504.539 ; gain = 893.617
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Handling Custom Attributes
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Handling Custom Attributes : Time (s): cpu = 00:00:42 ; elapsed = 00:00:45 . Memory (MB): peak = 2504.539 ; gain = 893.617
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Writing Synthesis Report
+---------------------------------------------------------------------------------
+
+Report BlackBoxes: 
++-+--------------+----------+
+| |BlackBox name |Instances |
++-+--------------+----------+
++-+--------------+----------+
+
+Report Cell Usage: 
++------+---------+------+
+|      |Cell     |Count |
++------+---------+------+
+|1     |CARRY8   |     6|
+|2     |LUT1     |     3|
+|3     |LUT2     |    13|
+|4     |LUT3     |    37|
+|5     |LUT4     |    98|
+|6     |LUT5     |   127|
+|7     |LUT6     |    65|
+|8     |RAM32M16 |     2|
+|9     |FDRE     |    65|
+|10    |FDSE     |     8|
++------+---------+------+
+---------------------------------------------------------------------------------
+Finished Writing Synthesis Report : Time (s): cpu = 00:00:42 ; elapsed = 00:00:45 . Memory (MB): peak = 2504.539 ; gain = 893.617
+---------------------------------------------------------------------------------
+Synthesis finished with 0 errors, 0 critical warnings and 0 warnings.
+Synthesis Optimization Runtime : Time (s): cpu = 00:00:32 ; elapsed = 00:00:39 . Memory (MB): peak = 2504.539 ; gain = 747.406
+Synthesis Optimization Complete : Time (s): cpu = 00:00:42 ; elapsed = 00:00:45 . Memory (MB): peak = 2504.539 ; gain = 893.617
+INFO: [Project 1-571] Translating synthesized netlist
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.005 . Memory (MB): peak = 2515.211 ; gain = 0.000
+INFO: [Netlist 29-17] Analyzing 8 Unisim elements for replacement
+INFO: [Netlist 29-28] Unisim Transformation completed in 0 CPU seconds
+INFO: [Project 1-570] Preparing netlist for logic optimization
+Parsing XDC File [D:/ycz/doc/deepseek_workzone/decoder/fpga_flow/logs/ooc_helios_pe_d21.xdc]
+Finished Parsing XDC File [D:/ycz/doc/deepseek_workzone/decoder/fpga_flow/logs/ooc_helios_pe_d21.xdc]
+INFO: [Opt 31-138] Pushed 0 inverter(s) to 0 load pin(s).
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00 . Memory (MB): peak = 2588.652 ; gain = 0.000
+INFO: [Project 1-111] Unisim Transformation Summary:
+  A total of 2 instances were transformed.
+  RAM32M16 => RAM32M16 (RAMD32(x14), RAMS32(x2)): 2 instances
+
+INFO: [Common 17-83] Releasing license: Synthesis
+27 Infos, 8 Warnings, 0 Critical Warnings and 0 Errors encountered.
+synth_design completed successfully
+synth_design: Time (s): cpu = 00:00:56 ; elapsed = 00:01:02 . Memory (MB): peak = 2588.652 ; gain = 1468.027
+# report_utilization -file [file join $outdir "helios_pe_util_$tag.rpt"]
+# report_utilization -hierarchical -file [file join $outdir "helios_pe_utilhier_$tag.rpt"]
+# report_timing_summary -delay_type max -max_paths 10 -file [file join $outdir "helios_pe_timing_$tag.rpt"]
+INFO: [Timing 38-91] UpdateTimingParams: Speed grade: -2L, Temperature grade: E, Delay Type: max.
+INFO: [Timing 38-191] Multithreading enabled for timing update using a maximum of 2 CPUs
+INFO: [Timing 38-35] Done setting XDC timing constraints.
+WARNING: [Timing 38-242] The property HD.CLK_SRC of clock port "clk" is not set. In out-of-context mode, this prevents timing estimation for clock delay/skew
+Resolution: Set the HD.CLK_SRC property of the out-of-context port to the location of the clock buffer instance in the top-level design
+report_timing_summary: Time (s): cpu = 00:00:24 ; elapsed = 00:00:25 . Memory (MB): peak = 3723.707 ; gain = 1135.055
+# proc util_row {file label} {
+#   if {![file exists $file]} { return "NA" }
+#   set fh [open $file r]; set data [read $fh]; close $fh
+#   foreach line [split $data "\n"] {
+#     if {[string first $label $line] >= 0} {
+#       foreach c [regexp -all -inline {\S+} $line] {
+#         if {[string is integer -strict $c]} { return $c }
+#       }
+#     }
+#   }
+#   return "NA"
+# }
+# set wns "NA"
+# set tp [get_timing_paths -delay_type max -max_paths 1 -quiet]
+# if {[llength $tp]} { set wns [get_property SLACK $tp] }
+# set uf [file join $outdir "helios_pe_util_$tag.rpt"]
+# puts "HELIOS_PE_RESULT tag=$tag top=$top part=$part period=$period wns=$wns \
+# lut=[util_row $uf {CLB LUTs}] \
+# ff=[util_row $uf {CLB Registers}] \
+# lutram=[util_row $uf {LUT as Memory}] \
+# bram=[util_row $uf {Block RAM Tile}] \
+# dsp=[util_row $uf {DSPs}]"
+HELIOS_PE_RESULT tag=helios_pe_d21 top=processing_unit part=xcvu9p-flga2104-2L-e period=5.0 wns=2.840  lut=291  ff=73  lutram=16  bram=0  dsp=0
+# puts "HELIOS_PE_DONE"
+HELIOS_PE_DONE
+INFO: [Common 17-206] Exiting Vivado at Wed Sep 16 22:28:35 2026...

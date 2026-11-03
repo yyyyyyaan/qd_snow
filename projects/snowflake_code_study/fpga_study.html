@@ -1,0 +1,2127 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Snowflake 流式解码器 · 源码阅读与结构理解</title>
+<style>
+:root{
+  --bg:#f4f6fb;
+  --panel:#ffffff;
+  --ink:#141b2d;
+  --ink-2:#2a3450;
+  --muted:#5d6779;
+  --faint:#8b95a8;
+  --line:#e1e6f0;
+  --line-2:#cfd7e6;
+  --accent:#2f5bea;
+  --accent-soft:#eef2ff;
+  --teal:#0b8f7d;
+  --teal-soft:#e9f8f5;
+  --amber:#b06a08;
+  --amber-soft:#fdf5e6;
+  --red:#b83a2e;
+  --red-soft:#fdf0ee;
+  --violet:#6d4aff;
+  --violet-soft:#f2efff;
+  --code-bg:#0e1729;
+  --code-ink:#d7e2fb;
+  --mono:"Cascadia Mono","JetBrains Mono","SFMono-Regular",Consolas,"Liberation Mono",monospace;
+  --sans:"Segoe UI","Microsoft YaHei","PingFang SC","Hiragino Sans GB",Arial,sans-serif;
+  --shadow:0 1px 2px rgba(16,24,40,.04),0 8px 24px rgba(16,24,40,.04);
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth;scroll-padding-top:68px}
+body{margin:0;background:var(--bg);color:var(--ink);font:16px/1.72 var(--sans);-webkit-font-smoothing:antialiased}
+a{color:var(--accent);text-decoration:none}
+a:hover{text-decoration:underline}
+code{font-family:var(--mono)}
+p code,li code,td code{font-size:12.6px;background:#eff2f9;color:#26324d;padding:1px 5px;border-radius:5px;border:1px solid #e4e9f3;white-space:nowrap}
+.term{border-bottom:1px dashed var(--faint);cursor:help}
+.wrap{max-width:1200px;margin:0 auto;padding:0 24px}
+
+/* ---------- hero ---------- */
+.hero{position:relative;overflow:hidden;color:#eaf0ff;background:
+  radial-gradient(900px 420px at 82% 8%,rgba(47,91,234,.42),transparent 62%),
+  radial-gradient(700px 380px at 8% 92%,rgba(11,143,125,.28),transparent 60%),
+  linear-gradient(135deg,#0c1426 0%,#101b34 52%,#0d1730 100%)}
+.hero::before{content:"";position:absolute;inset:0;background-image:
+  linear-gradient(rgba(255,255,255,.045) 1px,transparent 1px),
+  linear-gradient(90deg,rgba(255,255,255,.045) 1px,transparent 1px);
+  background-size:44px 44px;mask-image:linear-gradient(180deg,rgba(0,0,0,.85),transparent 88%)}
+.hero .wrap{position:relative;padding-top:66px;padding-bottom:54px}
+.eyebrow{font:600 12px/1 var(--mono);letter-spacing:.18em;text-transform:uppercase;color:#8fb3ff;margin-bottom:16px}
+.hero h1{margin:0 0 14px;font-size:clamp(34px,5vw,54px);line-height:1.08;letter-spacing:-.02em;font-weight:750}
+.hero h1 span{color:#8fb3ff}
+.lead{max-width:820px;margin:0;font-size:18px;line-height:1.68;color:#c3d2ee}
+.chips{display:flex;flex-wrap:wrap;gap:8px;margin-top:24px}
+.chip{display:inline-flex;align-items:center;gap:6px;padding:5px 11px;border-radius:999px;border:1px solid rgba(255,255,255,.16);background:rgba(255,255,255,.06);font:12.5px/1.4 var(--mono);color:#dbe6fb}
+.chip.ok{border-color:rgba(60,220,180,.35);background:rgba(11,143,125,.18);color:#a8f0df}
+.chip.warn{border-color:rgba(255,196,92,.35);background:rgba(176,106,8,.2);color:#ffd79a}
+.hero-stats{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;margin-top:34px;max-width:920px}
+.hstat{padding:14px 16px;border-radius:12px;border:1px solid rgba(255,255,255,.1);background:rgba(255,255,255,.045)}
+.hstat b{display:block;font:700 24px/1.2 var(--mono);color:#fff;letter-spacing:-.02em}
+.hstat span{display:block;margin-top:4px;font-size:12px;color:#9fb0d0;letter-spacing:.02em}
+
+/* ---------- nav ---------- */
+.nav{position:sticky;top:0;z-index:60;background:rgba(255,255,255,.92);backdrop-filter:blur(10px);border-bottom:1px solid var(--line)}
+.nav .wrap{display:flex;gap:4px;overflow-x:auto;padding-top:9px;padding-bottom:9px;scrollbar-width:none}
+.nav .wrap::-webkit-scrollbar{display:none}
+.nav a{flex:none;padding:6px 10px;border-radius:8px;color:var(--muted);font-size:13.5px;border:1px solid transparent}
+.nav a:hover{background:#f2f5fc;color:var(--ink);text-decoration:none}
+.nav a.on{color:var(--accent);background:var(--accent-soft);border-color:#dfe7ff;font-weight:600}
+
+/* ---------- sections ---------- */
+.sec{max-width:1200px;margin:0 auto;padding:58px 24px 6px}
+#hierarchy{max-width:1560px}
+.sec-head{display:flex;align-items:flex-end;gap:14px;border-bottom:2px solid var(--ink);padding-bottom:12px;margin-bottom:26px}
+.sec-num{font:700 12px/1.2 var(--mono);letter-spacing:.14em;color:var(--accent);padding-bottom:6px}
+.sec-head h2{margin:0;font-size:clamp(24px,3vw,32px);letter-spacing:-.01em;line-height:1.2}
+.sec-head .sub{margin-left:auto;color:var(--muted);font-size:13px;text-align:right;max-width:420px}
+h3{font-size:19px;margin:30px 0 12px;letter-spacing:-.01em}
+h3:first-child{margin-top:0}
+h4{font-size:15px;margin:20px 0 8px;color:var(--ink-2)}
+.card{background:var(--panel);border:1px solid var(--line);border-radius:16px;padding:22px;box-shadow:var(--shadow)}
+.card + .card{margin-top:16px}
+.grid2{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:16px}
+.grid3{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:16px}
+.grid4{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:12px}
+.muted{color:var(--muted)}
+.small{font-size:13px}
+.mono{font-family:var(--mono)}
+.center{text-align:center}
+.note,.warn,.danger{border-radius:12px;padding:14px 16px;margin:16px 0;border:1px solid;font-size:14px;line-height:1.68}
+.note{border-color:#d8e2ff;background:#f4f7ff;border-left:4px solid var(--accent)}
+.warn{border-color:#f1dfb8;background:#fffaf0;border-left:4px solid var(--amber)}
+.danger{border-color:#f2cdc8;background:#fff7f6;border-left:4px solid var(--red)}
+.note b,.warn b,.danger b{color:var(--ink)}
+.note .t,.warn .t,.danger .t{display:block;font:700 12px/1.4 var(--mono);letter-spacing:.08em;text-transform:uppercase;margin-bottom:4px}
+.note .t{color:var(--accent)} .warn .t{color:var(--amber)} .danger .t{color:var(--red)}
+
+/* ---------- metrics / status ---------- */
+.metric{padding:16px;border:1px solid var(--line);border-radius:13px;background:#fff}
+.metric .k{font:600 11.5px/1.4 var(--mono);letter-spacing:.06em;text-transform:uppercase;color:var(--faint)}
+.metric .v{margin-top:8px;font:700 24px/1.15 var(--mono);letter-spacing:-.02em;color:var(--ink)}
+.metric .d{margin-top:5px;font-size:12.5px;color:var(--muted);line-height:1.55}
+.pill{display:inline-flex;align-items:center;gap:5px;padding:2px 8px;border-radius:999px;font:600 11.5px/1.6 var(--mono);letter-spacing:.02em;white-space:nowrap}
+.pill.ok{background:var(--teal-soft);color:#076b5e;border:1px solid #bfe9e1}
+.pill.wip{background:var(--amber-soft);color:#8a5304;border:1px solid #f0d9a9}
+.pill.no{background:var(--red-soft);color:#8f2a20;border:1px solid #f0c8c2}
+.pill.info{background:var(--accent-soft);color:#2046b8;border:1px solid #d6e0ff}
+
+/* ---------- tables ---------- */
+.table-wrap{overflow-x:auto;border:1px solid var(--line);border-radius:12px;background:#fff}
+table{width:100%;border-collapse:collapse;font-size:13.5px;line-height:1.6}
+th,td{padding:9px 12px;border-bottom:1px solid var(--line);vertical-align:top;text-align:left}
+tr:last-child td{border-bottom:0}
+th{position:sticky;top:0;background:#f8f9fd;color:var(--muted);font:600 11.5px/1.5 var(--mono);letter-spacing:.05em;text-transform:uppercase;z-index:1}
+td:first-child{white-space:nowrap}
+tbody tr:hover{background:#fbfcff}
+table.compact th,table.compact td{padding:7px 10px;font-size:12.8px}
+
+/* ---------- tree / flow ---------- */
+pre.tree{margin:0;overflow:auto;background:var(--code-bg);color:#c8d6f2;border-radius:12px;padding:18px 20px;font:12.8px/1.7 var(--mono)}
+pre.tree .c{color:#7c8db1}
+pre.tree .a{color:#8fb3ff}
+pre.tree .g{color:#7fe0c8}
+.flow{display:flex;align-items:stretch;gap:0;flex-wrap:wrap;margin:8px 0 2px}
+.flow .step{flex:1 1 150px;min-width:150px;border:1px solid var(--line);background:#fff;border-radius:12px;padding:12px 14px;position:relative}
+.flow .step + .step{margin-left:26px}
+.flow .step + .step::before{content:"";position:absolute;left:-22px;top:50%;width:18px;height:1.5px;background:var(--line-2)}
+.flow .step + .step::after{content:"";position:absolute;left:-8px;top:calc(50% - 4px);border:4px solid transparent;border-left-color:var(--line-2)}
+.flow b{display:block;font-size:13.5px;margin-bottom:3px}
+.flow span{display:block;font-size:12px;color:var(--muted);line-height:1.5}
+
+/* ---------- drill ---------- */
+.drill-card{background:#fff;border:1px solid var(--line);border-radius:16px;overflow:hidden;box-shadow:var(--shadow)}
+.drill-head{display:flex;align-items:center;gap:12px;padding:10px 14px;border-bottom:1px solid var(--line);background:linear-gradient(180deg,#fbfcff,#f7f9fe);flex-wrap:wrap}
+.crumbs{display:flex;align-items:center;gap:3px;flex-wrap:wrap;font-size:13px;min-width:0}
+.crumb{border:0;background:none;padding:3px 6px;border-radius:6px;color:var(--muted);cursor:pointer;font:inherit;white-space:nowrap}
+.crumb:hover{background:#eef2fb;color:var(--ink)}
+.crumb.on{color:var(--ink);font-weight:650;background:#eef2fb}
+.crumb-sep{color:#b6c0d4;font-size:11px}
+.drill-tools{display:flex;align-items:center;gap:5px;margin-left:auto;flex-wrap:wrap}
+.drill-hint{font-size:11.5px;color:var(--faint);margin-right:4px}
+.tbtn{border:1px solid var(--line-2);background:#fff;color:var(--ink-2);border-radius:7px;padding:3px 9px;font:12px/1.4 var(--mono);cursor:pointer}
+.tbtn:hover{border-color:var(--accent);color:var(--accent)}
+.tbtn:active{transform:translateY(1px)}
+.drill-stage{position:relative;overflow:auto;background-color:#fcfdff;background-image:
+  linear-gradient(#eef2f9 1px,transparent 1px),linear-gradient(90deg,#eef2f9 1px,transparent 1px);
+  background-size:22px 22px}
+#drillSvg{display:block;width:100%;height:auto;min-width:820px}
+.blk{cursor:pointer;outline:none}
+.blk .box{fill:#fff;stroke:#c4d0e6;stroke-width:1.6;filter:drop-shadow(0 2px 2px rgba(20,30,70,.05));transition:stroke .15s,stroke-width .15s}
+.blk.external .box{fill:#fbfcff;stroke:#8e9ab1;stroke-dasharray:7 5}
+.blk.generated .box{fill:#fbfaff;stroke:#a99ee8;stroke-dasharray:7 5}
+.blk.concept .box{fill:#fbfdff;stroke:#b9c9e8}
+.blk.hl .box{stroke:var(--accent);stroke-width:2.8;filter:drop-shadow(0 0 7px rgba(47,91,234,.22))}
+.blk:hover .box,.blk:focus .box{stroke:var(--accent);stroke-width:2.3}
+.blk .title{font:700 15px var(--sans);fill:#15203a;pointer-events:none}
+.blk .sub{font:11.2px var(--mono);fill:#6d788e;pointer-events:none}
+.blk .port{font:11.8px var(--mono);fill:#3d4960;pointer-events:none;paint-order:stroke;stroke:#fff;stroke-width:4px;stroke-linejoin:round}
+.blk .pt{fill:#9fb0cc;pointer-events:none}
+.blk .enter{font:600 10.6px var(--sans);fill:var(--accent);pointer-events:none}
+.blk .badge{font:600 9.5px var(--mono);fill:#fff}
+.blk .badge-bg{fill:var(--accent);opacity:.92}
+.wire{fill:none;stroke:#7e8aa4;stroke-width:1.55;stroke-linejoin:round;stroke-linecap:round}
+.wire.w-ctrl{stroke:#5f6d8c}
+.wire.w-data{stroke:var(--teal)}
+.wire.w-reset{stroke:var(--amber);stroke-dasharray:5 3}
+.wire.w-axi{stroke:var(--violet)}
+.wire-label{font:10.8px var(--mono);fill:#42506a;paint-order:stroke;stroke:#fcfdff;stroke-width:5px;stroke-linejoin:round;pointer-events:none}
+.legend{display:flex;gap:14px;flex-wrap:wrap;padding:8px 16px;border-top:1px solid var(--line);background:#fbfcff;font-size:11.5px;color:var(--muted)}
+.legend i{display:inline-block;width:22px;height:0;border-top:2px solid #7e8aa4;vertical-align:middle;margin-right:5px}
+.legend .l-dash{border-top-style:dashed;border-top-color:var(--amber)}
+.legend .l-box{width:14px;height:10px;border:1.5px solid #c4d0e6;border-radius:3px;vertical-align:-1px}
+.legend .l-box.b{background:#fff;border-style:solid}
+.legend .l-box.e{background:#fbfcff;border-style:dashed;border-color:#8e9ab1}
+.legend .l-box.h{border-color:var(--accent);border-width:2.5px}
+.scene-note{padding:9px 16px;border-top:1px dashed var(--line);background:#fff;font-size:12.2px;color:var(--muted);line-height:1.6}
+.port-panel{position:absolute;top:12px;right:12px;width:min(420px,calc(100% - 24px));max-height:calc(100% - 24px);overflow:auto;background:#fff;border:1px solid var(--line-2);border-radius:13px;box-shadow:0 18px 44px rgba(18,30,60,.18);padding:16px;display:none;z-index:8}
+.port-panel.on{display:block}
+.port-panel h4{margin:0 0 2px;font-size:15px}
+.port-panel .pp-sub{font:11.5px var(--mono);color:var(--faint);margin-bottom:10px}
+.port-panel .pp-desc{font-size:12.8px;color:var(--muted);line-height:1.6;margin:0 0 10px}
+.port-panel .pp-close{position:absolute;top:8px;right:8px;border:0;background:#f2f5fb;border-radius:6px;width:26px;height:26px;cursor:pointer;color:var(--muted);font-size:14px;line-height:1}
+.port-panel .pp-close:hover{background:#e8edf8;color:var(--ink)}
+.port-panel table{font-size:11.8px;table-layout:fixed}
+.port-panel th,.port-panel td{padding:5px 6px;word-break:break-word}
+.port-panel td:first-child{white-space:normal}
+.port-panel th:nth-child(1){width:43%}
+.port-panel th:nth-child(2){width:17%}
+.port-panel th:nth-child(3){width:40%}
+.port-panel .pname{display:block;font-family:var(--mono);font-size:11.2px;line-height:1.45}
+.port-panel .dir{display:inline-block;margin-top:2px;font:600 9.5px var(--mono);padding:0 5px;border-radius:4px;background:#eef2fb;color:#44557a}
+.port-panel .dir.in{background:#e9f8f5;color:#087565}
+.port-panel .dir.out{background:#f2efff;color:#5b3fd0}
+.port-panel .dir.io{background:#eef2fb;color:#44557a}
+
+/* ---------- code ---------- */
+.code-card{background:var(--code-bg);border-radius:14px;overflow:hidden;border:1px solid #1c2a47;margin:16px 0;box-shadow:0 10px 30px rgba(10,18,38,.12)}
+.code-head{display:flex;align-items:center;gap:10px;padding:9px 14px;background:#111d36;border-bottom:1px solid #1d2c4b;font:11.5px/1.5 var(--mono);color:#93a7cd;flex-wrap:wrap}
+.code-head .file{color:#dbe6ff}
+.code-head .ln{margin-left:auto;color:#7186ab}
+.code-body{padding:14px 16px;overflow:auto}
+pre.code{margin:0;font:12.5px/1.62 var(--mono);color:var(--code-ink);white-space:pre;tab-size:2}
+pre.code .c{color:#6f83a8;font-style:italic}
+pre.code .k{color:#ff9ecb}
+pre.code .n{color:#ffd28a}
+pre.code .s{color:#9be7c4}
+pre.code .cc{color:#8fc4ff}
+pre.code .p{color:#9aa9c7}
+.code-note{font-size:13px;color:var(--muted);margin:10px 2px 0;line-height:1.7}
+.code-note b{color:var(--ink)}
+.kv{display:grid;grid-template-columns:auto 1fr;gap:4px 12px;font-size:13px;margin-top:10px}
+.kv dt{font:600 11px var(--mono);color:var(--faint);letter-spacing:.04em;padding-top:2px}
+.kv dd{margin:0;color:var(--ink-2)}
+
+/* ---------- tasks ---------- */
+.task{border:1px solid var(--line);border-radius:14px;background:#fff;padding:18px 18px 16px;box-shadow:var(--shadow);position:relative}
+.task .no{font:700 11px var(--mono);color:var(--faint);letter-spacing:.1em}
+.task h4{margin:2px 0 8px;font-size:15.5px;line-height:1.4}
+.task p{margin:0 0 8px;font-size:13.5px;color:var(--ink-2);line-height:1.65}
+.task ul{margin:0;padding-left:18px;font-size:13px;color:var(--muted);line-height:1.62}
+.task .acc{margin-top:10px;padding-top:9px;border-top:1px dashed var(--line);font-size:12.6px;color:var(--muted)}
+.task .acc b{color:var(--teal)}
+.task .lvl{position:absolute;top:14px;right:14px}
+.task .lvl span{font:600 10px var(--mono);padding:2px 7px;border-radius:999px;background:#f2f5fb;color:#55648a;letter-spacing:.04em}
+.task .lvl .l1{background:#e9f8f5;color:#087565}
+.task .lvl .l2{background:#eef2ff;color:#2b4fc4}
+.task .lvl .l3{background:#fdf5e6;color:#8a5304}
+.task code{font-size:11.8px;white-space:pre-wrap;overflow-wrap:anywhere;word-break:break-word}
+
+/* ---------- quiz ---------- */
+.quiz{background:#fff;border:1px solid var(--line);border-radius:16px;padding:20px;box-shadow:var(--shadow)}
+.quiz-top{display:flex;align-items:center;gap:12px;flex-wrap:wrap;margin-bottom:14px}
+.quiz-top .score{font:600 12px var(--mono);color:var(--muted);margin-left:auto}
+.q{padding:16px 0;border-top:1px solid var(--line)}
+.q:first-of-type{border-top:0;padding-top:4px}
+.q .qt{display:flex;gap:10px;font-weight:650;font-size:14.5px;line-height:1.6}
+.q .qt .qn{flex:none;width:24px;height:24px;border-radius:7px;background:var(--accent-soft);color:var(--accent);font:700 11.5px/24px var(--mono);text-align:center}
+.opts{display:grid;gap:7px;margin:10px 0 0 34px}
+.opt{display:flex;gap:9px;align-items:flex-start;text-align:left;border:1px solid var(--line);background:#fcfdff;border-radius:9px;padding:9px 11px;font:13.2px/1.55 var(--sans);color:var(--ink-2);cursor:pointer}
+.opt:hover{border-color:#b9c9ef;background:#f8faff}
+.opt .mark{flex:none;width:18px;height:18px;border-radius:50%;border:1.5px solid #b8c4da;font:700 10px/16px var(--mono);text-align:center;color:#8493ad;margin-top:1px}
+.opt.correct{border-color:#89d6c8;background:#f0fbf8}
+.opt.correct .mark{border-color:#0b8f7d;background:#0b8f7d;color:#fff}
+.opt.wrong{border-color:#eab0a9;background:#fff6f5}
+.opt.wrong .mark{border-color:#b83a2e;background:#b83a2e;color:#fff}
+.opt[disabled]{cursor:default}
+.q .why{display:none;margin:10px 0 0 34px;padding:9px 12px;border-left:3px solid var(--teal);background:#f4fbf9;border-radius:0 8px 8px 0;font-size:12.8px;color:#2c4a45;line-height:1.65}
+.q .why.on{display:block}
+.quiz-foot{display:flex;gap:8px;align-items:center;margin-top:12px;border-top:1px solid var(--line);padding-top:12px}
+.btn{border:1px solid var(--line-2);background:#fff;border-radius:8px;padding:6px 12px;font:13px var(--sans);cursor:pointer;color:var(--ink-2)}
+.btn:hover{border-color:var(--accent);color:var(--accent)}
+.btn.primary{background:var(--accent);border-color:var(--accent);color:#fff}
+.btn.primary:hover{background:#244bd0;color:#fff}
+
+/* ---------- glossary / notes ---------- */
+.gloss{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:0 28px}
+.gloss .g{padding:10px 0;border-bottom:1px dashed var(--line)}
+.gloss dt{font-weight:700;font-size:13.8px;color:var(--ink)}
+.gloss dd{margin:2px 0 0;font-size:12.8px;color:var(--muted);line-height:1.6}
+.notes textarea{width:100%;min-height:220px;resize:vertical;border:1px solid var(--line-2);border-radius:11px;padding:14px;font:13.5px/1.7 var(--sans);color:var(--ink);background:#fcfdff;outline:none}
+.notes textarea:focus{border-color:var(--accent);box-shadow:0 0 0 3px rgba(47,91,234,.1)}
+.notes-bar{display:flex;align-items:center;gap:10px;margin-top:8px;font-size:12px;color:var(--faint)}
+.notes-bar .status{margin-left:auto}
+footer{margin-top:64px;border-top:1px solid var(--line);background:#fff}
+footer .wrap{padding:26px 24px 34px;font-size:12.6px;color:var(--muted);line-height:1.7}
+footer b{color:var(--ink-2)}
+.srcline{font-size:12px;color:var(--muted);margin-top:4px}
+.srcline a{font-family:var(--mono);font-size:11.8px}
+hr.soft{border:0;border-top:1px dashed var(--line);margin:22px 0}
+
+@media (max-width:900px){
+  .hero-stats{grid-template-columns:repeat(2,1fr)}
+  .grid3,.grid4{grid-template-columns:repeat(2,minmax(0,1fr))}
+  .sec-head{flex-wrap:wrap}
+  .sec-head .sub{margin-left:0;text-align:left;max-width:none}
+  .drill-hint{display:none}
+}
+@media (max-width:640px){
+  body{font-size:15px}
+  .wrap,.sec{padding-left:16px;padding-right:16px}
+  .hero .wrap{padding-top:48px;padding-bottom:40px}
+  .grid2,.grid3,.grid4,.gloss{grid-template-columns:1fr}
+  .hero-stats{grid-template-columns:1fr 1fr;gap:10px}
+  .hstat{padding:12px 12px}
+  .hstat b{font-size:18px;letter-spacing:-.03em}
+  .hstat span{font-size:11px}
+  #drillSvg{min-width:720px}
+  .port-panel{position:fixed;top:auto;bottom:0;left:0;right:0;width:100%;max-height:62vh;border-radius:16px 16px 0 0}
+  .flow .step + .step{margin-left:0;margin-top:24px}
+  .flow .step + .step::before{left:50%;top:-18px;width:1.5px;height:14px}
+  .flow .step + .step::after{left:calc(50% - 4px);top:-8px;border-left-color:transparent;border-top-color:var(--line-2)}
+}
+@media (max-width:460px){
+  .hero-stats{grid-template-columns:1fr}
+  .hero h1{font-size:31px}
+}
+@media print{
+  .nav,.drill-tools,.port-panel,.btn{display:none!important}
+  body{background:#fff}
+  .card,.quiz,.task,.drill-card{box-shadow:none}
+  .sec{page-break-inside:avoid}
+}
+
+/* ============================================================
+   DARK THEME
+   Deep-navy reading surface. The hero was already dark; this
+   block brings the document, tables, diagrams and controls to
+   the same palette. Wire/port text keeps its halo, but the
+   halo is now the grid colour instead of white.
+   ============================================================ */
+:root{
+  color-scheme: dark;
+  --bg:#080d18;
+  --panel:#101728;
+  --ink:#e9eef8;
+  --ink-2:#c7d2e4;
+  --muted:#96a4bc;
+  --faint:#6f7f99;
+  --line:#222d44;
+  --line-2:#35435f;
+  --accent:#82a6ff;
+  --accent-soft:rgba(130,166,255,.13);
+  --teal:#3ed9bd;
+  --teal-soft:rgba(62,217,189,.12);
+  --amber:#f0b45e;
+  --amber-soft:rgba(240,180,94,.12);
+  --red:#ff8f84;
+  --red-soft:rgba(255,143,132,.12);
+  --violet:#b9a4ff;
+  --violet-soft:rgba(185,164,255,.12);
+  --code-bg:#070c16;
+  --code-ink:#dce6fb;
+  --shadow:0 1px 2px rgba(0,0,0,.35),0 18px 40px rgba(0,0,0,.25);
+}
+html{background:var(--bg)}
+body{background:var(--bg);color:var(--ink)}
+::selection{background:rgba(130,166,255,.3);color:#fff}
+.hero{background:
+  radial-gradient(900px 420px at 82% 8%,rgba(90,126,255,.34),transparent 62%),
+  radial-gradient(700px 380px at 8% 92%,rgba(20,160,140,.22),transparent 60%),
+  linear-gradient(135deg,#070b14 0%,#0b1324 52%,#080f1f 100%)}
+.hero .lead{color:#b9c8e2}
+.hero .hstat{background:rgba(255,255,255,.035);border-color:rgba(255,255,255,.08)}
+.hero .hstat span{color:#93a5c4}
+.nav{background:rgba(8,13,24,.94);border-bottom-color:var(--line)}
+.nav a{color:#9aa8c0}
+.nav a:hover{background:#151f33;color:var(--ink)}
+.nav a.on{background:var(--accent-soft);border-color:#2a3b5e;color:#a9c2ff}
+.sec-head{border-bottom-color:#2b3852}
+.sec-head .sub{color:var(--muted)}
+.metric,.table-wrap,.task,.quiz,.drill-card{background:var(--panel);border-color:var(--line);box-shadow:var(--shadow)}
+.table-wrap{background:var(--panel)}
+.flow .step{background:var(--panel);border-color:var(--line)}
+.flow .step b{color:var(--ink)}
+.flow .step span{color:var(--muted)}
+.flow .step + .step::before{background:var(--line-2)}
+.flow .step + .step::after{border-left-color:var(--line-2)}
+p code,li code,td code{background:#1a2438;color:#d8e3f8;border-color:#2b3854}
+th{background:#0c1322;color:#93a2bd}
+tbody tr:hover{background:#131c30}
+.note{background:rgba(130,166,255,.07);border-color:rgba(130,166,255,.28);color:#d5e0f5}
+.note .t{color:#9dbcff}
+.warn{background:rgba(240,180,94,.07);border-color:rgba(240,180,94,.28);color:#e9dcc5}
+.warn .t{color:#f0b45e}
+.danger{background:rgba(255,143,132,.07);border-color:rgba(255,143,132,.28);color:#ecd5d2}
+.danger .t{color:#ff8f84}
+.note code,.warn code,.danger code{background:#1a2438;color:#d8e3f8;border:1px solid #2b3854;padding:1px 5px;border-radius:5px}
+.pill.ok{background:rgba(62,217,189,.13);color:#7fe9d6;border-color:rgba(62,217,189,.34)}
+.pill.wip{background:rgba(240,180,94,.13);color:#f3c47a;border-color:rgba(240,180,94,.34)}
+.pill.no{background:rgba(255,143,132,.12);color:#ff9f95;border-color:rgba(255,143,132,.34)}
+.pill.info{background:rgba(130,166,255,.13);color:#a9c2ff;border-color:rgba(130,166,255,.32)}
+.drill-head{background:linear-gradient(180deg,#0e1626,#0c1322);border-bottom-color:var(--line)}
+.crumb{color:var(--muted)}
+.crumb:hover,.crumb.on{background:#18233a;color:var(--ink)}
+.crumb-sep{color:#45536b}
+.tbtn{background:#0e1626;border-color:var(--line-2);color:var(--ink-2)}
+.tbtn:hover{border-color:var(--accent);color:#b9ceff}
+.drill-stage{background-color:#0a101d;background-image:
+  linear-gradient(#121c2f 1px,transparent 1px),linear-gradient(90deg,#121c2f 1px,transparent 1px)}
+.blk .box{fill:#101a2c;stroke:#2e3d5a;filter:drop-shadow(0 4px 9px rgba(0,0,0,.35))}
+.blk.external .box{fill:#0d1727;stroke:#5c6b85}
+.blk.generated .box{fill:#131128;stroke:#7f70c6}
+.blk.concept .box{fill:#0e1829;stroke:#364b70}
+.blk.hl .box{stroke:var(--accent);filter:drop-shadow(0 0 9px rgba(130,166,255,.35))}
+.blk:hover .box,.blk:focus .box{stroke:var(--accent)}
+.blk .title{fill:#eef3ff}
+.blk .sub{fill:#8fa1bd}
+.blk .port{fill:#c9d6ea;stroke:#0a101d}
+.blk .pt{fill:#5f7292}
+.blk .enter{fill:#8fb0ff}
+.blk .badge-bg{fill:#6f93ff}
+.blk .badge{fill:#07101f}
+.wire{stroke:#7e90b0}
+.wire.w-ctrl{stroke:#8494b3}
+.wire.w-data{stroke:#2fc9b3}
+.wire.w-reset{stroke:#e0a34f}
+.wire.w-axi{stroke:#a58cff}
+.wire-label{fill:#c3d1e8;stroke:#0a101d}
+.legend{background:#0c1422;border-top-color:var(--line);color:var(--muted)}
+.legend .l-box,.legend .l-box.b{background:#101a2c;border-color:#2e3d5a}
+.legend .l-box.e{background:#0d1727;border-color:#5c6b85}
+.legend .l-box.h{border-color:var(--accent)}
+.legend i{border-top-color:#8494b3}
+.legend .l-dash{border-top-color:#e0a34f}
+.scene-note{background:#0c1422;border-top-color:var(--line);color:var(--muted)}
+.port-panel{background:#0e1626;border-color:var(--line-2);box-shadow:0 22px 50px rgba(0,0,0,.45)}
+.port-panel .pp-sub{color:var(--faint)}
+.port-panel .pp-desc{color:var(--muted)}
+.port-panel .pp-close{background:#18233a;color:var(--muted)}
+.port-panel .pp-close:hover{background:#22304c;color:var(--ink)}
+.port-panel .dir{background:#18233a;color:#9fb0cf}
+.port-panel .dir.in{background:rgba(62,217,189,.14);color:#7fe9d6}
+.port-panel .dir.out{background:rgba(185,164,255,.14);color:#cdbfff}
+.port-panel .dir.io{background:#18233a;color:#9fb0cf}
+.code-card{border-color:#1b2740;box-shadow:0 16px 36px rgba(0,0,0,.28)}
+.code-head{background:#0b1322;border-bottom-color:#1b2740;color:#93a7cd}
+.code-head .file{color:#dbe6ff}
+.code-head .ln{color:#7286ab}
+pre.code{color:#dce6fb}
+pre.code .c{color:#8da2c8}
+pre.code .n{color:#ffd28a}
+pre.code .cc{color:#9cc8ff}
+pre.code .k{color:#ff9ecb}
+pre.code .p{color:#a6b4ce}
+.code-note{color:var(--muted)}
+.task{background:var(--panel)}
+.task .no{color:var(--faint)}
+.task .lvl span{background:#18233a;color:#9fb0d0}
+.task .lvl .l1{background:rgba(62,217,189,.14);color:#7fe9d6}
+.task .lvl .l2{background:rgba(130,166,255,.14);color:#a9c2ff}
+.task .lvl .l3{background:rgba(240,180,94,.14);color:#f0c07a}
+.task .acc{border-top-color:var(--line)}
+.task .acc b{color:var(--teal)}
+.quiz{background:var(--panel)}
+.q{border-top-color:var(--line)}
+.q .qn{background:var(--accent-soft);color:#a9c2ff}
+.opt{background:#0d1524;border-color:#24304a;color:var(--ink-2)}
+.opt:hover{border-color:#3d5680;background:#111b2f}
+.opt .mark{border-color:#40506e;color:#8fa2c0}
+.opt.correct{background:rgba(62,217,189,.1);border-color:#2f8d7d}
+.opt.wrong{background:rgba(255,143,132,.1);border-color:#8c4a45}
+.opt.correct .mark{background:var(--teal);border-color:var(--teal);color:#06120f}
+.opt.wrong .mark{background:var(--red);border-color:var(--red);color:#1a0907}
+.q .why{background:rgba(62,217,189,.08);border-left-color:var(--teal);color:#c2ded9}
+.quiz-foot{border-top-color:var(--line)}
+.btn{background:#0e1626;border-color:var(--line-2);color:var(--ink-2)}
+.btn:hover{border-color:var(--accent);color:#b9ceff}
+.btn.primary{background:#4f6fd6;border-color:#4f6fd6;color:#fff}
+.btn.primary:hover{background:#5f7ee6;color:#fff}
+.gloss .g{border-bottom-color:var(--line)}
+.gloss dt{color:var(--ink)}
+.gloss dd{color:var(--muted)}
+.notes textarea{background:#0c1422;border-color:var(--line-2);color:var(--ink)}
+.notes textarea::placeholder{color:#6e7e98}
+footer{background:#0c1322;border-top-color:var(--line)}
+footer .wrap{color:var(--muted)}
+footer b{color:var(--ink-2)}
+hr.soft{border-top-color:var(--line)}
+</style>
+</head>
+<body>
+
+<header class="hero">
+  <div class="wrap">
+    <div class="eyebrow">FPGA 源码阅读 · Snowflake on Helios</div>
+    <h1>Snowflake <span>流式解码器</span><br>从算法到板级外壳</h1>
+    <p class="lead">一台专用实时解码器：把量子芯片每轮测出的 syndrome，在每轮测量间隔内解成“该翻转哪些边”的纠错指令。这份页面按源码层级整理：算法模型 → PE/边 → 阵列 → 共享晶格 → AXI 板级外壳 → 逐行验收。</p>
+    <div class="chips">
+      <span class="chip">SystemVerilog · 单时钟域 · 无 CDC</span>
+      <span class="chip">目标板 xc7z020clg484-1</span>
+      <span class="chip">板级配置 rotated d=3 · 2 slices</span>
+      <span class="chip ok">板级通路仿真逐行 PASS</span>
+      <span class="chip warn">板上 D8 未做</span>
+    </div>
+    <div class="hero-stats">
+      <div class="hstat"><b>24 / 35</b><span>rotated d3 的节点 / 边</span></div>
+      <div class="hstat"><b>83 → 4,980</b><span>12 轮记录数 → 黄金轨迹行数</span></div>
+      <div class="hstat"><b>19.65 ns</b><span>含外围顶层周期 · WNS +0.35 ns</span></div>
+      <div class="hstat"><b>3,041 / 1,228</b><span>LUT / FF（Z-7020 OOC）</span></div>
+    </div>
+  </div>
+</header>
+
+<nav class="nav" aria-label="页面导航">
+  <div class="wrap">
+    <a href="#overview">工程概览</a>
+    <a href="#model">五分钟模型</a>
+    <a href="#hierarchy">模块层级</a>
+    <a href="#ports">端口与寄存器</a>
+    <a href="#code">关键代码</a>
+    <a href="#contracts">契约与坑</a>
+    <a href="#tasks">学习任务</a>
+    <a href="#quiz">小测验</a>
+    <a href="#glossary">术语表</a>
+    <a href="#notes">我的笔记</a>
+  </div>
+</nav>
+
+<main>
+
+<!-- ============ 1 概览 ============ -->
+<section class="sec" id="overview">
+  <div class="sec-head">
+    <div class="sec-num">01</div>
+    <h2>工程概览</h2>
+    <div class="sub">先回答三个问题：它是什么、现在做到哪、代码在哪里。</div>
+  </div>
+
+  <div class="card">
+    <h3>一句话</h3>
+    <p style="font-size:16.5px;margin:0 0 10px"><b>它是 localuf 参考解码器的逐拍 RTL 镜像</b>：算法真值始终在 Python（<code>localuf-main/</code>），RTL 只负责在全局同步的节拍里逐拍复现它，并用<b>逐行相等的轨迹</b>证明自己没错。</p>
+    <div class="flow" aria-label="系统数据流">
+      <div class="step"><b>量子芯片</b><span>每轮测量 → syndrome 比特流</span></div>
+      <div class="step"><b>PS / 上位机</b><span>写 syndrome、start，读回轨迹</span></div>
+      <div class="step"><b>PL：Snowflake 阵列</b><span>窗口上移 → 生长 → 合并 → 提交</span></div>
+      <div class="step"><b>commit_onehot</b><span>本轮要翻转的 commit 区边</span></div>
+      <div class="step"><b>Pauli frame</b><span>只记账，不物理施加</span></div>
+    </div>
+    <p class="small muted" style="margin:12px 0 0">“分布式”指<b>顶点级并行</b>（每个节点一个 PE、每条边一个模块），不是多 FPGA。论文明确说过：I/O 引脚与几十纳秒的跨片延迟不允许把一张解码图拆到多片。</p>
+  </div>
+
+  <div class="grid4" style="margin-top:16px">
+    <div class="metric"><div class="k">算法</div><div class="v">Snowflake</div><div class="d">streaming frugal UF；窗口高约 d，每轮上移一层、提交一层</div></div>
+    <div class="metric"><div class="k">阵列骨架</div><div class="v">Helios 式</div><div class="d">一节点一 PE、全局阶段寄存器、纯邻居链路</div></div>
+    <div class="metric"><div class="k">板级形态</div><div class="v">lat1</div><div class="d">共享晶格 + 每槽一路数据通路；上下文按 phase 轮转</div></div>
+    <div class="metric"><div class="k">唯一判据</div><div class="v">逐行相等</div><div class="d">状态行 + 提交事件；不是“结果看起来对”</div></div>
+  </div>
+
+  <div class="warn">
+    <span class="t">读代码前先做一件事</span>
+    工作区里的别名 <code>design/generated/snowflake_graph.svh</code> 可能是<b>旧 pin</b>（当前这份是 repetition d=3、12 节点，且缺 <code>SNOW_PE_STW</code> / <code>SNOW_PTR_DOWN_MASK</code>）。所有 RTL 都 include 这个别名，直接编译会缺符号或用错图。先跑一次生成器（或直接跑回归脚本，它会自动重钉）：
+    <div style="margin-top:8px"><code>cd Helios_scalable_QEC-main\Helios_scalable_QEC-main</code><br><code>python build_scripts/generate_snowflake.py --code rotated --d 3 --dirs all --noise phenomenological</code></div>
+  </div>
+
+  <h3>现在做到哪（2026-10-29）</h3>
+  <div class="table-wrap">
+    <table>
+      <thead><tr><th>层</th><th>状态</th><th>证据 / 说明</th></tr></thead>
+      <tbody>
+        <tr><td>算法 + 扁平参考核</td><td><span class="pill ok">PASS</span></td><td><code>snowflake_core.sv</code> 与 localuf 黄金逐行一致（rep/surface 多配置，最大 105,948 行）</td></tr>
+        <tr><td>PE 阵列（平面）</td><td><span class="pill ok">PASS</span></td><td><code>snowflake_pe_array.sv</code>；面积/时序结论都出自它</td></tr>
+        <tr><td>共享晶格 lat1</td><td><span class="pill ok">PASS</span></td><td>每槽一路数据通路 + 两趟 merging；唯一接进板级顶层的阵列</td></tr>
+        <tr><td>板级外壳 + 假 PS</td><td><span class="pill ok">PASS</span></td><td>4 个配置逐行 PASS：rotated d3 唯象 4,980 行、circuit 7,120、surface d3 7,832、rotated d5 22,440</td></tr>
+        <tr><td>复位契约扫描</td><td><span class="pill ok">PASS</span></td><td>18/18；<code>LEN=1</code> + 外部 1 拍脉冲就够</td></tr>
+        <tr><td>Z-7020 外围 OOC</td><td><span class="pill ok">PASS</span></td><td>3,041 LUT / 1,228 FF / 7.5 BRAM；19.65 ns（50.9 MHz），WNS +0.350 @20 ns</td></tr>
+        <tr><td>PS 裸机宿主 C</td><td><span class="pill wip">未编译</span></td><td><code>fpga_flow/board/host/snowflake_host.c</code>：算法由 Python 双胞胎验证，但本机无 C 工具链、无板</td></tr>
+        <tr><td>XDC / PS7 / block design / BOOT.bin</td><td><span class="pill no">未做</span></td><td>需要板厂资料（引脚、DDR/MIO、时钟树），见 <code>fpga_flow/board/bringup.md §6</code></td></tr>
+        <tr><td>板上 D8</td><td><span class="pill no">未做</span></td><td>板上跑同一 12 轮 → UART 日志 → <code>board_log_check.py</code> 与 golden 逐行比</td></tr>
+      </tbody>
+    </table>
+  </div>
+  <p class="small muted" style="margin:8px 2px 0">编号速查：<b>D8</b> = 板上跑同一 12 轮激励、回读 <code>obs_*</code>、与 evidence golden 逐行一致；<b>D12</b> = Z-7020 上板目标；<b>D6</b> = ≈1 µs/轮 的节奏参考线。</p>
+
+  <h3>源码地图</h3>
+  <div class="grid2">
+    <div>
+      <pre class="tree"><span class="c"># 被测工程（H = Helios_scalable_QEC-main/Helios_scalable_QEC-main）</span>
+<span class="a">H/</span>
+├─ <span class="a">design/</span>
+│  ├─ <span class="a">generated/</span>          <span class="c"># *.svh 生成物，勿手改</span>
+│  │  ├─ snowflake_graph.svh   <span class="c"># 图常量 + 查表（别名）</span>
+│  │  ├─ snowflake_lattice.svh <span class="c"># 共享晶格的 bank/端口表</span>
+│  │  └─ snowflake_board_map.h <span class="c"># 给 PS 的软件头</span>
+│  ├─ <span class="a">snowflake/</span>
+│  │  ├─ snowflake_core.sv     <span class="c"># 扁平参考核（最好读）</span>
+│  │  ├─ snowflake_pe.sv       <span class="c"># 一个节点</span>
+│  │  ├─ snowflake_edge.sv     <span class="c"># 一条边</span>
+│  │  ├─ snowflake_pe_array.sv <span class="c"># 平面 PE 阵列</span>
+│  │  └─ snowflake_pe_array_lat1.sv <span class="c"># 共享晶格（上板）</span>
+│  └─ <span class="a">board/</span>
+│     ├─ snowflake_board_top.sv    <span class="c"># PL 顶层</span>
+│     ├─ snowflake_reset_sync.sv   <span class="c"># 复位唯一路径</span>
+│     ├─ snowflake_host_regs.sv    <span class="c"># AXI4-Lite + 寄存器</span>
+│     └─ snowflake_trace_capture.sv<span class="c"># 宽记录 BRAM</span>
+├─ <span class="a">test_benches/snowflake/</span>
+│  └─ tb_snowflake_board_lat1.sv <span class="c"># 假 PS：全程走 AXI</span>
+└─ <span class="a">build_scripts/</span>
+   └─ generate_snowflake.py     <span class="c"># localuf → .svh</span>
+
+<span class="a">fpga_flow/</span>   <span class="c"># 生成器、回归、综合、证据</span>
+<span class="a">docs/</span>        <span class="c"># 技术文档 + 操作手册</span>
+<span class="a">snowflake_sim/ref/</span> <span class="c"># gen_golden.py / compare_trace.py</span></pre>
+    </div>
+    <div class="card" style="margin:0">
+      <h4 style="margin-top:0">三条阅读路线</h4>
+      <p class="small" style="margin:0 0 12px"><b>路线 A · 先懂算法</b><br><code>snowflake_core.sv</code> → <code>snowflake_edge.sv</code> → <code>snowflake_pe.sv</code>。扁平核把“所有节点扫一遍”写在一个 <code>always @(*)</code> 里，和 localuf 的 Python 循环一一对应。</p>
+      <p class="small" style="margin:0 0 12px"><b>路线 B · 再看硬件形态</b><br><code>snowflake_pe_array.sv</code>（常量位选邻居）→ <code>lat1</code>（每槽一路 + bank）→ <code>board_top</code>（AXI 外壳）。</p>
+      <p class="small" style="margin:0 0 12px"><b>路线 C · 只关心上板</b><br><code>board_top</code> → <code>host_regs</code> → <code>trace_capture</code> → <code>reset_sync</code> → <code>tb_board_lat1</code>。最后用 <code>board_log_check.py</code> 做判定。</p>
+      <hr class="soft">
+      <p class="small muted" style="margin:0">本项目有 11 个 RTL 形态（core / wrapper / array / ctx / lat / lat1 / sliced / serial …），但<b>上板只接 lat1</b>。学习时不要试图一次读完所有形态。</p>
+    </div>
+  </div>
+</section>
+
+<!-- ============ 2 心智模型 ============ -->
+<section class="sec" id="model">
+  <div class="sec-head">
+    <div class="sec-num">02</div>
+    <h2>五分钟心智模型</h2>
+    <div class="sub">四条直觉建立之后，读 800 行阵列代码不会迷路。</div>
+  </div>
+
+  <div class="grid2">
+    <div class="card">
+      <h4 style="margin-top:0">① 图先于 RTL</h4>
+      <p class="small">解码图（顶点 = 探测事件，边 = 独立错误机制）由 <code>generate_snowflake.py</code> 从 localuf 对象<b>导出</b>，不是手写。RTL 里没有一处硬编码码距：节点数、边数、方向数、指针位宽、簇号位宽全是生成头里的 <code>localparam</code>。同一个 RTL 通过换头文件覆盖 rep / surface / rotated 的多种 d（本机构建到 d3/d5；d7 受 elaboration 内存墙限制，d21 只有 VU9P 外推）。</p>
+    </div>
+    <div class="card">
+      <h4 style="margin-top:0">② 一个逻辑 step = 算法的一个 timestep</h4>
+      <p class="small">全阵列只有一个 <code>stage[2:0]</code> 广播给所有 PE 和边。没有 per-PE 状态机、没有握手。每个单元只回答“我这一拍还会不会变”（组合 <code>busy_c</code>），控制器把全阵列或起来；为 0 就进入下一阶段。平面阵列一拍就是一个 timestep；共享晶格把每个 timestep 展开成 <code>NCTX</code> 个 phase 拍（每个上下文一拍），轨迹仍按逻辑 step 记一行。阶段时长是<b>数据相关</b>的，这正是轨迹里 step 数会变的原因。</p>
+    </div>
+    <div class="card">
+      <h4 style="margin-top:0">③ 窗口上移 = DROP 拍“向上拉”</h4>
+      <p class="small">流式解码每轮把窗口上移一层：底层提交出去、整体下移、顶部注入新测量。扁平核“写下去”，阵列版必须“从上拉”——一个 PE 不能写别人的寄存器。于是生成器额外导出 <code>SNOW_NODE_ABOVE</code>，DROP 从上方节点拉取状态，并做 <code>SNOW_CID_DELTA</code> 重映射。</p>
+    </div>
+    <div class="card">
+      <h4 style="margin-top:0">④ 共享晶格 = 每槽一路数据通路</h4>
+      <p class="small">窗口沿时间轴切成 <code>NCTX</code> 个上下文（切片）。状态按 <code>(槽, 切片)</code> 存在寄存器堆里，逻辑数据通路只有一份，每个 phase 服务一个切片。代价是 merging 必须走<b>两趟</b>：pass A 洪泛写 <code>pb</code>，pass B 同步比较 bank 指针。</p>
+    </div>
+  </div>
+
+  <div class="note">
+    <span class="t">算法侧只需要记住三件事</span>
+    <b>生长</b>：一条边由两端各推半条，<code>growth</code> 饱和到 2，所以只有 0/1/2 三态。<b>合并</b>：缺陷沿指针逐边上推，两个缺陷相遇异或抵消；簇根用最小节点 ID 当代表元。<b>调度</b>：2:1 调度把“长整簇”和“长半簇”分两轮，避免两个簇在半条边距时互相过冲。
+  </div>
+
+  <h3>一轮里发生什么</h3>
+  <div class="table-wrap">
+    <table>
+      <thead><tr><th>阶段</th><th>字符</th><th>做什么</th><th>何时结束</th></tr></thead>
+      <tbody>
+        <tr><td><code>ST_DROP</code></td><td><code>D</code></td><td>窗口上移：从上方节点拉状态、CID 重映射、清顶层、异或新 syndrome；边也继承上方的 growth/ecorr</td><td>固定 1 个 phase 扫完（每槽每上下文一次）</td></tr>
+        <tr><td><code>ST_GW</code></td><td><code>G</code></td><td>生长“整簇”：<code>active &amp;&amp; whole</code> 的节点发 pulse，翻转 <code>whole</code>，置 <code>grown</code>；底层含 'D' 指针的节点去根化</td><td>固定 1 个 phase 扫完</td></tr>
+        <tr><td><code>ST_MW</code></td><td><code>M</code></td><td>合并（整簇轮）：洪泛找更小 cid → 改指针；同步继承 active、沿指针 push 缺陷；两路 push 异或抵消</td><td>全阵列 <code>busy</code> 为 0，且 step &gt; 1（BUSYREG 守卫）</td></tr>
+        <tr><td><code>ST_GH</code></td><td><code>g</code></td><td>生长“半簇”：<code>active &amp;&amp; !whole &amp;&amp; !grown</code> 的节点发 pulse，<code>whole ← 1</code></td><td>固定 1 个 phase 扫完</td></tr>
+        <tr><td><code>ST_MH</code></td><td><code>m</code></td><td>合并（半簇轮）：同上；1:1 模式在这里直接 done</td><td>全阵列 <code>busy</code> 为 0</td></tr>
+      </tbody>
+    </table>
+  </div>
+  <p class="small muted" style="margin:10px 2px 0">轨迹里的 <code>T &lt;round&gt; &lt;stage&gt; &lt;step&gt;</code> 就是这张表的直接投影。rotated d3 唯象的每轮拍数是 16/20/20/28/28/28/20/28/20/28/28/20（直连阵列口径；板级 <code>CYC_LAST</code> 少 1，计数口径差别已写死在寄存器注释里）。</p>
+</section>
+<!-- ============ 3 模块层级 ============ -->
+<section class="sec" id="hierarchy">
+  <div class="sec-head">
+    <div class="sec-num">03</div>
+    <h2>模块层级 · 可下钻框图</h2>
+    <div class="sub">方块可点：带“进入”的下钻，叶子模块弹端口表。Esc 返回上一级。</div>
+  </div>
+
+  <div class="card" style="padding:16px 18px">
+    <div class="flow" aria-label="实例层级">
+      <div class="step"><b>tb_snowflake_board_lat1</b><span>假 PS：只发 AXI 读写，dump 原始记录字</span></div>
+      <div class="step"><b>snowflake_board_top</b><span>PL 顶层：clk + pl_reset_in + AXI4-Lite</span></div>
+      <div class="step"><b>u_array = lat1</b><span>共享晶格：NSLOT 个 PE + ESLOT 个 edge</span></div>
+      <div class="step"><b>u_trace / u_host</b><span>宽记录 BRAM + AXI 寄存器堆</span></div>
+    </div>
+  </div>
+
+  <div class="drill-card" style="margin-top:16px">
+    <div class="drill-head">
+      <div class="crumbs" id="drillCrumbs" aria-label="框图路径"></div>
+      <div class="drill-tools">
+        <span class="drill-hint">点击方块 · Esc 返回</span>
+        <button class="tbtn" type="button" data-zoom="-1" title="缩小">−</button>
+        <button class="tbtn" type="button" data-zoom="0" title="适应宽度">1:1</button>
+        <button class="tbtn" type="button" data-zoom="1" title="放大">+</button>
+      </div>
+    </div>
+    <div class="drill-stage" id="drillStage">
+      <svg id="drillSvg" role="group" aria-label="模块层级框图" xmlns="http://www.w3.org/2000/svg"></svg>
+      <aside class="port-panel" id="portPanel" aria-live="polite"></aside>
+    </div>
+    <div class="legend">
+      <span><span class="l-box b"></span> 模块</span>
+      <span><span class="l-box e"></span> 外部 / 生成物</span>
+      <span><span class="l-box h"></span> 当前关注 / DUT</span>
+      <span><i></i> 控制</span>
+      <span><i style="border-top-color:#2fc9b3"></i> 数据</span>
+      <span><i class="l-dash"></i> 复位</span>
+      <span><i style="border-top-color:#a58cff"></i> AXI</span>
+    </div>
+    <div class="scene-note" id="sceneNote"></div>
+  </div>
+
+  <h3>实例数与配置（rotated d3 · 2 slices）</h3>
+  <div class="table-wrap">
+    <table class="compact">
+      <thead><tr><th>模块</th><th>实例数</th><th>状态放在哪</th><th>一句话职责</th></tr></thead>
+      <tbody>
+        <tr><td><code>snowflake_pe</code></td><td>NSLOT = 32</td><td>阵列 bank（<code>own/omir</code>），PE 内部无状态</td><td>一个解码图节点：DROP / GROW / MERGE 的组合下一状态</td></tr>
+        <tr><td><code>snowflake_edge</code></td><td>ESLOT = 26</td><td>阵列 bank（<code>eown/eomir</code>），3 bit/格</td><td>一条边：growth 三态 + ecorr 一位</td></tr>
+        <tr><td><code>snowflake_pe_array_lat1</code></td><td>1</td><td>每槽 <code>NCTX</code> 份状态 + 一组数据通路</td><td>phase 轮转、两趟 merging、静默检测、观测总线</td></tr>
+        <tr><td><code>snowflake_host_regs</code></td><td>1</td><td>寄存器堆 / 计数器</td><td>AXI4-Lite 从口、SYN/COR 窗口、ID 块、trace 读口</td></tr>
+        <tr><td><code>snowflake_trace_capture</code></td><td>1</td><td>BRAM：MAXREC × 记录位宽</td><td>每个逻辑 step 一条宽记录；d3 为 513 bit × 128 条</td></tr>
+        <tr><td><code>snowflake_reset_sync</code></td><td>1</td><td>移位寄存器 + 计数器</td><td>唯一复位路径：同步、拉长、分 bus/core</td></tr>
+      </tbody>
+    </table>
+  </div>
+  <p class="small muted" style="margin:10px 2px 0">NSLOT/ESLOT/NCTX 都来自 <code>snowflake_lattice.svh</code>，不是 RTL 常量。换 d 或换 slices，只改生成物；RTL 不动。这正是“生成器是单一事实来源”的体现。</p>
+</section>
+
+<!-- ============ 4 端口与寄存器 ============ -->
+<section class="sec" id="ports">
+  <div class="sec-head">
+    <div class="sec-num">04</div>
+    <h2>端口、寄存器与记录布局</h2>
+    <div class="sub">上板软件只需要这三张表：顶层端口、寄存器映射、记录格式。</div>
+  </div>
+
+  <h3>顶层端口：<code>snowflake_board_top</code></h3>
+  <div class="table-wrap">
+    <table>
+      <thead><tr><th>信号</th><th>方向</th><th>位宽</th><th>含义 / 约束</th></tr></thead>
+      <tbody>
+        <tr><td><code>clk</code></td><td>in</td><td>1</td><td>唯一时钟。板上接 PS 的 <code>FCLK_CLK0</code>，同时给 <code>M_AXI_GP0</code> 计时 ⇒ 不需要 clock converter，也没有 CDC。</td></tr>
+        <tr><td><code>pl_reset_in</code></td><td>in</td><td>1</td><td>整个 PL 唯一的异步输入（POR / PROG 按键 / PS <code>pl_resetn</code>），高有效。内部同步并拉长，阵列的 <code>reset</code> 只由它派生。</td></tr>
+        <tr><td>写地址 / 写数据</td><td>in/out</td><td>16 + 1 + 1<br>32 + 4 + 1 + 1</td><td><code>s_axi_awaddr/awvalid/awready</code> 与 <code>s_axi_wdata/wstrb/wvalid/wready</code>。AW 与 W 两半<b>独立捕获</b>，不要求同拍到达。</td></tr>
+        <tr><td>写响应</td><td>in/out</td><td>2 + 1 + 1</td><td><code>s_axi_bresp</code> 恒 0（OKAY）、<code>bvalid</code>、<code>bready</code>。</td></tr>
+        <tr><td>读地址</td><td>in/out</td><td>16 + 1 + 1</td><td><code>s_axi_araddr/arvalid/arready</code>。单 outstanding：上一笔读数据被取走前不再接收新地址。</td></tr>
+        <tr><td>读数据</td><td>in/out</td><td>32 + 2 + 1 + 1</td><td><code>s_axi_rdata/rresp/rvalid/rready</code>。1 拍读延迟；<code>TRACE_DATA</code> 每读一次自动前进一个字。</td></tr>
+      </tbody>
+    </table>
+  </div>
+  <p class="small muted" style="margin:8px 2px 0">16-bit 地址 = 64 KB 窗口。block design 里 <code>M_AXI_GP0</code> 的基地址必须与 <code>snowflake_host.c</code> 的 <code>SNOW_BASE</code>（默认 <code>0x43C0_0000</code>）一致。AFI/Interconnect 只做地址译码，不做位宽/时钟转换。</p>
+
+  <h3>关键内部信号</h3>
+  <div class="table-wrap">
+    <table class="compact">
+      <thead><tr><th>信号</th><th>位宽</th><th>从 → 到</th><th>作用</th></tr></thead>
+      <tbody>
+        <tr><td><code>start_pulse</code></td><td>1</td><td>host_regs → array</td><td>写 <code>CTRL[0]</code> 且核心不在复位；单拍。</td></tr>
+        <tr><td><code>syndrome</code></td><td>SNOW_NSYN</td><td>host_regs → array</td><td>SYN 窗口锁存值；阵列在 <code>start</code> 那一拍再锁进 <code>syn_buf</code>。</td></tr>
+        <tr><td><code>done</code></td><td>1</td><td>array → host_regs</td><td>本轮结束单拍；STATUS[0] 锁存到下一次 START。</td></tr>
+        <tr><td><code>all_busy</code></td><td>1</td><td>array → host_regs</td><td>静默判断：<code>|bshA &amp; ~ph_oh | |bshB &amp; ~ph_oh | |qnow</code>。STATUS[1]。</td></tr>
+        <tr><td><code>commit_onehot</code></td><td>SNOW_NCOMMIT</td><td>array → host / trace</td><td>只在 DROP 拍有效：本次提交区哪些边被翻转。</td></tr>
+        <tr><td><code>cap_en</code></td><td>1</td><td>host_regs → trace</td><td>采集窗口 <code>armed &amp; (running | done)</code>。done 那一拍也算。</td></tr>
+        <tr><td><code>trace_rec / trace_wix / rword</code></td><td>32 / 32 / 32</td><td>host ↔ trace</td><td>记录索引 / 记录内字号 / 读出的 32-bit 字。</td></tr>
+        <tr><td><code>bview</code></td><td>MEM × STW</td><td>array 内部</td><td>所有 bank 单元的只读视图（一根打包向量，不是 Verilog memory）。</td></tr>
+        <tr><td><code>phase</code> / <code>lat_bpass</code></td><td>SLW / 1</td><td>array 内部</td><td>当前上下文 / 当前是合并的哪一趟（0=A 洪泛，1=B 同步）。</td></tr>
+        <tr><td><code>m_pass_w</code></td><td>2</td><td>array → PE</td><td>0=两半同拍（平面阵列行为），1=只洪泛，2=只同步。</td></tr>
+        <tr><td><code>slot_nxt</code></td><td>STW × NSLOT</td><td>PE → bank</td><td>每个槽的下一状态字，只在 <code>run</code> 时写回自己的上下文。</td></tr>
+        <tr><td><code>any_step_busy</code></td><td>1</td><td>shadow → FSM</td><td>全阵列是否还有单元“这一拍会变”。FSM 用它决定是否推进 step。</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <h3>寄存器映射（PS 侧）</h3>
+  <div class="table-wrap">
+    <table class="compact">
+      <thead><tr><th>偏移</th><th>名字</th><th>访问</th><th>含义</th></tr></thead>
+      <tbody>
+        <tr><td><code>0x000</code></td><td><code>CTRL</code></td><td>W1P / R</td><td>写位：<code>[0]</code> START、<code>[1]</code> SW_RESET、<code>[2]</code> TRACE_CLEAR、<code>[3]</code> TRACE_ARM、<code>[4]</code> TRACE_DISARM；读回 <code>[3]</code> armed。</td></tr>
+        <tr><td><code>0x004</code></td><td><code>STATUS</code></td><td>R</td><td><code>[0]</code> done（sticky）、<code>[1]</code> all_busy、<code>[2]</code> 记录溢出、<code>[3]</code> armed、<code>[4]</code> core_rst、<code>[7:5]</code> stage、<code>[15:8]</code> step。整字是 1 拍流水。</td></tr>
+        <tr><td><code>0x008</code></td><td><code>ROUNDS</code></td><td>R</td><td>已启动的轮数。</td></tr>
+        <tr><td><code>0x00C</code></td><td><code>CYC_LAST</code></td><td>R</td><td>上一轮从 START 写入到观察到 done 的周期数；阵列内部计数比它少 1（口径写死，不要混用）。</td></tr>
+        <tr><td><code>0x010</code></td><td><code>REC_COUNT</code></td><td>R</td><td>本轮捕获的记录数。</td></tr>
+        <tr><td><code>0x014</code></td><td><code>CYC_ROUND</code></td><td>R</td><td>自 START 起的实时周期数。</td></tr>
+        <tr><td><code>0x018</code></td><td><code>TRACE_REC</code></td><td>W</td><td>写记录索引，同时把该记录锁进读寄存器。</td></tr>
+        <tr><td><code>0x01C</code></td><td><code>TRACE_WIX</code></td><td>R/W</td><td>记录内字号；越界写回 0。</td></tr>
+        <tr><td><code>0x020</code></td><td><code>TRACE_DATA</code></td><td>R</td><td>读 <code>word[WIX]</code>，读后 WIX 自动 +1，到 <code>ID_WORDS</code> 回 0。</td></tr>
+        <tr><td><code>0x024</code></td><td><code>CYC_TOTAL</code></td><td>R</td><td>自由运行周期计数器。</td></tr>
+        <tr><td><code>0x028–0x030</code></td><td><code>LAT_LIVE/PUSH/FLIP</code></td><td>R</td><td>阵列内部活跃拍数 / 跨时钟 push / flip 计数（诊断）。</td></tr>
+        <tr><td><code>0x034</code></td><td><code>ID_MAGIC</code></td><td>R</td><td><code>0x534E0101</code>（"SN", v1, interface 1）。</td></tr>
+        <tr><td><code>0x038–0x064</code></td><td>ID 块</td><td>R</td><td>NN / NE / NCOMMIT / NSYN / <code>{0,NDIR,PTR_W,CID_W}</code> / WORDS / MAXREC / NSLOT / NCTX / HDRW / <code>{0,NS,ES}</code> / RBITS。</td></tr>
+        <tr><td><code>0x100…</code></td><td><code>SYN</code></td><td>W</td><td><code>ceil(NSYN/32)</code> 个字；字节 strobe 有效，保持整轮。</td></tr>
+        <tr><td><code>0x200…</code></td><td><code>COR</code></td><td>R</td><td><code>ceil(NCOMMIT/32)</code> 个字的提交掩码；最后一轮的可读快照。</td></tr>
+      </tbody>
+    </table>
+  </div>
+  <div class="warn">
+    <span class="t">ID_STRIDE 的字节序</span>
+    <code>0x060</code> 打包为 <code>{16'd0, NS, ES}</code> ⇒ <b>低字节 ES、高字节 NS</b>。软件若按 <code>[7:0]=NS</code> 读，会得到一份“看起来合理”的错轨迹。主机脚本在重建轨迹<b>之前</b>把 PL 的 ID 块与 <code>board_map.json</code> 逐项对账，就是为了拦这一类漂移。
+  </div>
+
+  <h3>一条记录的位布局</h3>
+  <div class="table-wrap">
+    <table>
+      <thead><tr><th>区</th><th>字段</th><th>rotated d3 唯象</th><th>rotated d5 唯象</th></tr></thead>
+      <tbody>
+        <tr><td>Header</td><td>round(8) + stage(3) + step(8) + cyc_round(16) + commit(NCOMMIT)</td><td>48 bit（NCOMMIT=13）</td><td>72 bit（NCOMMIT=37）</td></tr>
+        <tr><td>Node × NN</td><td>cid(CID_W) + ptr(PTR_W) + 6 flags</td><td>24 × 15 = 360 bit</td><td>90 × 17 = 1,530 bit</td></tr>
+        <tr><td>Edge × NE</td><td>{ecorr, growth[1], growth[0]}</td><td>35 × 3 = 105 bit</td><td>173 × 3 = 519 bit</td></tr>
+        <tr><td><b>整条记录</b></td><td>RBITS</td><td><b>513 bit → 17 字</b></td><td><b>2,121 bit → 67 字</b></td></tr>
+      </tbody>
+    </table>
+  </div>
+  <p class="small muted" style="margin:8px 2px 0">6 个 flag 的顺序是 <b>LSB-first</b>：bit0=active、bit1=whole、bit2=defect、bit3=grown、bit4=unrooted、bit5=busy。第一版把 <code>whole</code> 与 <code>unrooted</code> 写反，行数、阶段、提交全对，只有逐行比较能看见。</p>
+
+  <h3>实测时序 / 面积（Z-7020）</h3>
+  <div class="table-wrap">
+    <table>
+      <thead><tr><th>配置</th><th>周期 / f<sub>max</sub></th><th>WNS</th><th>建议 FCLK_CLK0</th><th>记录数（12 轮）</th><th>黄金行数</th></tr></thead>
+      <tbody>
+        <tr><td>rotated d3 + 唯象</td><td>19.65 ns / 50.9 MHz</td><td>+0.350 @20 ns</td><td><b>50 MHz</b></td><td>83</td><td>4,980</td></tr>
+        <tr><td>rotated d3 + 电路级</td><td>27.838 ns / 35.9 MHz</td><td>—</td><td>33 MHz</td><td>89</td><td>7,120</td></tr>
+        <tr><td>rotated d5 + 唯象</td><td>27.088 ns / 36.9 MHz</td><td>—</td><td>30 MHz</td><td>85</td><td>22,440</td></tr>
+        <tr><td>rotated d5 + 电路级</td><td>46.927 ns / 21.3 MHz</td><td>—</td><td>不建议上板</td><td>—</td><td>—</td></tr>
+      </tbody>
+    </table>
+  </div>
+  <p class="small muted" style="margin:8px 2px 0">只有 rotated d3 唯象是<b>含外围的顶层</b>数字（3,041 LUT / 1,228 FF / 7.5 BRAM；阵列单独 2,844 / 818 / 18.291 ns）。其余三行是阵列口径，上板前必须按本板重跑顶层实现。d5 电路级每轮 1.88 µs，已超 D6 的 ≈1 µs 参考线。</p>
+</section>
+
+<!-- ============ 5 关键代码 ============ -->
+<section class="sec" id="code">
+  <div class="sec-head">
+    <div class="sec-num">05</div>
+    <h2>关键代码解读</h2>
+    <div class="sub">六段代码，覆盖“两趟合并、bank 读法、节点语义、边语义、采集窗口”。</div>
+  </div>
+
+  <div class="code-card">
+    <div class="code-head"><span class="file">snowflake_pe_array_lat1.sv</span><span>每步 merging = 两趟 phase</span><span class="ln">:143-150 · :752-799</span></div>
+    <div class="code-body"><pre class="code" data-lang="verilog">wire mrg_running = (stage == ST_MW) || (stage == ST_MH);
+wire [1:0] m_pass_w = (mrg_running &amp;&amp; any_run)
+                    ? (lat_bpass ? 2'd2 : 2'd1) : 2'd0;
+wire edge_en    = !(mrg_running &amp;&amp; !lat_bpass);
+wire stage_last = phase_last &amp;&amp; (!mrg_running || lat_bpass);
+
+ST_MW: if (stage_last) begin
+  // BUSYREG 构建下这里还有 && (step_cnt > 1) 的守卫
+  if (!any_step_busy) begin
+    if (ONE_ONE) begin stage &lt;= ST_IDLE; step_cnt &lt;= 0; done &lt;= 1; end
+    else         begin stage &lt;= ST_GH;   step_cnt &lt;= 1; end
+  end else step_cnt &lt;= step_cnt + 1;
+end</pre></div>
+  </div>
+  <p class="code-note"><b>为什么必须两趟：</b>平面阵列里，消费者读的是邻居<b>组合</b>的 <code>push</code>。合并成一路数据通路后，一个格无法再“戳”晚于自己相位的邻居。于是 pass A（洪泛）把推送决定压成状态位 <code>pb</code> 写进 bank；pass B（同步）再比较 bank 里的指针，算出 <code>push</code> 和 <code>active</code>。边只在 pass B 提交（<code>edge_en</code>），因为只有那时 bank 指针才是本步的。</p>
+
+  <div class="code-card">
+    <div class="code-head"><span class="file">snowflake_pe_array_lat1.sv</span><span>每个读口：每上下文一个常量地址</span><span class="ln">:389-409</span></div>
+    <div class="code-body"><pre class="code" data-lang="verilog">localparam integer MYC =
+  ((SNOW_LAT_SLICEBASE_VEC[c] + SNOW_LAT_SLOTLAY_VEC[s]) * NSLOT + s) * NCTX + c;
+localparam integer NRA =
+  (MYC + SNOW_LAT_NB_A_VEC[(s*NCTX + c)*NDIR + d]
+   + ((SNOW_LAT_NB_SL_VEC[(s*NCTX + c)*NDIR + d] &lt; c) ? NBM : 0))
+  &amp; ((1 &lt;&lt; AW) - 1);
+assign nsrc_mux[c*STW +: STW] = bview[NRA*STW +: STW];
+// ...
+wire [STW-1:0] nsrc = nsrc_mux[phase*STW +: STW];</pre></div>
+  </div>
+  <p class="code-note"><b>这不是风格问题。</b>写成 <code>bview[myaddr]</code>（<code>myaddr</code> 是 wire）会告诉 Vivado “这是一个可变地址的存储”，于是每个读口都生成整 bank 的 mux：surface d3、744 字 × 576 个读口，25 分钟综合不完。写成“每上下文一个常量地址 + <code>phase</code> 选择”后，硬件就是一个 <code>NCTX</code> 选 1 的寄存器 mux。<b>镜像规则</b>同样重要：源的切片早于当前 phase ⇒ 读 mirror（它在 pass 开始时已提交完），否则读 register；偏移必须截断到 <code>AW</code> 位（生成器把负偏移掩成模 2<sup>AW</sup>）。</p>
+
+  <div class="code-card">
+    <div class="code-head"><span class="file">snowflake_pe.sv</span><span>DROP 拉上一层 + GROW 断指针</span><span class="ln">:388-423</span></div>
+    <div class="code-body"><pre class="code" data-lang="verilog">ST_DROP: begin
+  n_grown = 1'b0; n_unrooted = 1'b0;
+  if (K_HAS_ABOVE) begin
+    n_cid    = (ab_cid == SNOW_RESET_CID) ? SNOW_RESET_CID
+                                          : ab_cid + SNOW_CID_DELTA(ab_cid);
+    n_active = ab_active; n_whole = ab_whole;
+    n_defect = ab_defect; n_ptr   = ab_ptr;
+  end
+  if (K_IS_TOP) begin n_defect = 1'b0; n_active = 1'b0; end
+  if (K_IS_SYN) n_defect = n_defect ^ syn_bit;
+end
+
+ST_GW: begin
+  if (K_IS_BOT &amp;&amp; SNOW_PTR_DOWN_MASK[ptr]) begin   // 指针里含 'D'
+    n_cid = SNOW_RESET_CID; n_ptr = SNOW_PTR_C;
+  end
+  if (ONE_ONE ? active : (active &amp;&amp; whole)) begin
+    pulse = 1'b1; n_whole = ~whole;
+    if (!ONE_ONE) n_grown = 1'b1;
+  end
+end</pre></div>
+  </div>
+  <p class="code-note"><b>一个真实 bug 的化石：</b>这里曾经写 <code>ptr == SNOW_PTR_D</code>。在两种唯象图里恰好等价，因为只有 'D' 这个方向名含 D；但电路级噪声图新增 <code>SD/WD/NWD</code>、<code>E2D/SED/SWD</code> 等方向，同样含 D。结果是 t=0 层的节点<b>静默地从不去根化</b>，7,120 行轨迹里错了 25 行。修法是生成器导出位掩码 <code>SNOW_PTR_DOWN_MASK</code>，测试“指针编码里含 D”。</p>
+
+  <div class="code-card">
+    <div class="code-head"><span class="file">snowflake_pe.sv</span><span>合并的同步半场：继承 active + push 抵消</span><span class="ln">:643-670</span></div>
+    <div class="code-body"><pre class="code" data-lang="verilog">n_pb = (!K_IS_BND) &amp;&amp; defect &amp;&amp; (n_ptr != SNOW_PTR_C);
+
+det_def = (!K_IS_BND) &amp;&amp; defect;
+if (n_ptr == SNOW_PTR_C) begin
+  n_active = det_def;                    // 根：有缺陷才 active
+end else begin
+  d = n_ptr - 1'b1;
+  n_active = nb_active[d];               // 非根：继承父节点
+  if (det_def) begin busy_c = 1'b1; push[d] = 1'b1; end
+end
+if (active != n_active) busy_c = 1'b1;
+
+for (d = 0; d &lt; SNOW_NDIR; d = d + 1)
+  if (nb_valid[d] &amp;&amp; nb_push[d]) inc_def = inc_def ^ 1'b1;
+if (inc_def) begin n_defect = n_defect ^ 1'b1; busy_c = 1'b1; end</pre></div>
+  </div>
+  <p class="code-note"><b>两路 push 同时到达会异或抵消</b>，所以一条边只留一个 <code>ecorr</code> 位。根节点只看自己有没有缺陷；非根节点从父节点继承 active，并沿指针把缺陷推出去。<code>n_pb</code> 是生产者侧的推送决定，必须带 <code>!K_IS_BND</code>：黄金轨迹里边界节点确实会出现 <code>defect=1</code> 且 <code>pointer != C</code>，平面阵列在每一次都抑制了推送；省掉这一项就会在边界上多推。</p>
+
+  <div class="code-card">
+    <div class="code-head"><span class="file">snowflake_edge.sv</span><span>半边生长 + 双翻转抵消</span><span class="ln">:71-82 · :101-108</span></div>
+    <div class="code-body"><pre class="code" data-lang="verilog">wire growing = (stage == ST_GW) || (stage == ST_GH);
+wire merging = (stage == ST_MW) || (stage == ST_MH);
+wire [1:0] inc     = {1'b0, u_pulse} + {1'b0, v_pulse};
+wire [1:0] grown_n = (growth + inc &gt; 2'd2) ? 2'd2 : growth + inc;
+
+always @(posedge clk) begin
+  if (reset) begin growth &lt;= 0; ecorr &lt;= 0; end
+  else if (stage == ST_DROP) begin
+    growth &lt;= above_growth; ecorr &lt;= above_ecorr;
+  end else if (growing) begin
+    if (growth &lt; 2'd2) growth &lt;= grown_n;
+  end else if (merging) begin
+    if (flip_u ^ flip_v) ecorr &lt;= ecorr ^ 1'b1;
+  end
+end</pre></div>
+  </div>
+  <p class="code-note">一条边只有 3 bit 状态：<code>growth[1:0]</code> 三态 + <code>ecorr</code> 一位。生长是两端各推半条，所以一轮最多加 2，饱和在 2；合并时沿路径翻转，两端同时翻转就抵消。DROP 时继承上方的 growth/ecorr——窗口下移，边的历史也跟着下移。</p>
+
+  <div class="code-card">
+    <div class="code-head"><span class="file">snowflake_trace_capture.sv / snowflake_host_regs.sv</span><span>宽记录装配 + 采集窗口</span><span class="ln">:141-154 · :176-184 · host :270</span></div>
+    <div class="code-body"><pre class="code" data-lang="verilog">// LSB-first：左端是 MSB，所以倒着写
+assign flag_flat[n*6 +: 6] = {obs_busy[n], obs_unrooted[n], obs_grown[n],
+                              obs_defect[n], obs_whole[n], obs_active[n]};
+assign rec_pack[HW + n*NS + SNOW_CID_W + SNOW_PTR_W +: 6] = flag_flat[n*6 +: 6];
+assign rec_pack[HW + SNOW_NN*NS + e*3 +: 3] =
+       {obs_ecorr[e], obs_growth[e*2+1], obs_growth[e*2]};
+
+always @(posedge clk) begin
+  if (reset || clear) begin wptr &lt;= 0; cnt_r &lt;= 0; ovf_r &lt;= 0; end
+  else if (en &amp;&amp; valid) begin
+    if (cnt_r &lt; MAXREC) begin
+      tmem[wptr] &lt;= rec_pack; wptr &lt;= wptr + 1; cnt_r &lt;= cnt_r + 1;
+    end else ovf_r &lt;= 1'b1;
+  end
+end
+
+// 采集窗口：done 那一拍也算
+assign cap_en = trace_arm_r &amp;&amp; (running || done_i);</pre></div>
+  </div>
+  <p class="code-note"><b>窗口是接口规格的一部分。</b>TB 的 dump 循环是 <code>while (!done) begin @(negedge clk); if (dbg_valid) dump; end</code>：<code>@(negedge clk)</code> 在循环体顶部，记录在测试 <code>done</code> 之前就被读走，所以 <code>done</code> 那一拍在轨迹里。按“显然”的 <code>running &amp; ~done</code> 取，每轮恰好丢最后一条：rotated d3 从 83 条变 71 条。这个坑是被逐行比较逮住的，不是靠读代码想出来的。</p>
+</section>
+
+<!-- ============ 6 契约与坑 ============ -->
+<section class="sec" id="contracts">
+  <div class="sec-head">
+    <div class="sec-num">06</div>
+    <h2>三条硬契约与七个坑</h2>
+    <div class="sub">这些不是“注意事项”，是已经被测量惩罚过的结构性约束。</div>
+  </div>
+
+  <div class="grid3">
+    <div class="card">
+      <h4 style="margin-top:0">单时钟 · 无 CDC</h4>
+      <p class="small"><code>clk</code> 是 PL 里唯一的时钟；板上用 PS 的 <code>FCLK_CLK0</code>，它同时给 <code>M_AXI_GP0</code> 计时。唯一的异步输入是 <code>pl_reset_in</code>，在 PL 内同步。trace 放在 PL 里抓、PS 事后取，正是为了避免“降频单步”引入第二时钟域。</p>
+    </div>
+    <div class="card">
+      <h4 style="margin-top:0">复位是唯一路径</h4>
+      <p class="small">state bank <b>没有 <code>initial</code> 镜像</b>：<code>write_verilog -mode funcsim</code> 会丢掉它；有镜像时 Vivado 还会认为时钟复位冗余并优化掉，门级从 x 起跑、永不收敛。所以 <code>reset_sync</code> 是阵列 <code>reset</code> 的唯一驱动，且计数器 <code>INIT=0</code> 保证上电自复位。</p>
+      <pre class="code" data-lang="verilog" style="font-size:11.2px;margin-top:8px">initial cnt = 16'd0;
+always @(posedge clk) sr &lt;= {sr[SYNC-2:0], arst_in};
+wire req = sr[SYNC-1] | sw_reset;
+always @(posedge clk) begin
+  if (req) cnt &lt;= 0;
+  else if (cnt &lt; LEN) cnt &lt;= cnt + 1;
+  core_rst &lt;= req | (cnt &lt; LEN);
+end</pre>
+    </div>
+    <div class="card">
+      <h4 style="margin-top:0">观测窗口 = 接口</h4>
+      <p class="small"><code>cap_en = armed &amp; (running | done)</code>，记录只在 <code>dbg_valid</code>（<code>stage_last</code>）那一拍写入。<code>MAXREC</code> 必须是 2 的幂，因为写指针靠位宽截断回绕；非 2 的幂会算错地址。溢出由 <code>STATUS[2]</code> 锁存，不静默丢数据。</p>
+    </div>
+  </div>
+
+  <h3>七个坑（每一个都有代价）</h3>
+  <div class="table-wrap">
+    <table>
+      <thead><tr><th>#</th><th>现象</th><th>根因</th><th>修法 / 教训</th></tr></thead>
+      <tbody>
+        <tr><td>1</td><td>编译缺符号或用错图</td><td>别名 <code>snowflake_graph.svh</code> 是旧 pin（rep d3，缺 <code>SNOW_PE_STW</code>/<code>DOWN_MASK</code>）</td><td>先重钉；回归脚本自动生成。<b>生成物不是源码，是配置。</b></td></tr>
+        <tr><td>2</td><td>电路级噪声下 7,120 行错 25 行</td><td><code>ptr == SNOW_PTR_D</code> 只在“只有 D 含 D”时等价</td><td>用 <code>SNOW_PTR_DOWN_MASK[ptr]</code>；方向名集合会随噪声模型变。</td></tr>
+        <tr><td>3</td><td><code>whole</code> 与 <code>unrooted</code> 互换</td><td>Verilog 拼接左端是 MSB，主机按 LSB-first 解</td><td>记录里显式倒序写；行数/阶段/提交全对时只有逐行比较能发现。</td></tr>
+        <tr><td>4</td><td>轨迹“看起来合理”但全错</td><td><code>ID_STRIDE</code> 高低字节读反</td><td>PL 的 ID 块与 <code>board_map.json</code> 在重建前对账。</td></tr>
+        <tr><td>5</td><td>每轮少最后一条记录（83→71）</td><td>采集窗口漏掉 <code>done</code> 那一拍</td><td><code>cap_en = armed &amp; (running | done)</code>；窗口从 TB 语句顺序推，不从意图推。</td></tr>
+        <tr><td>6</td><td>WNS −0.096 ns</td><td><code>all_busy</code> 是阵列关键链末端，直接进 STATUS 读 mux</td><td>STATUS 加一拍 <code>status_q</code>：20.041 → 19.65 ns，WNS +0.350。</td></tr>
+        <tr><td>7</td><td>记录地址回绕错、覆盖旧数据</td><td><code>MAXREC</code> 不是 2 的幂</td><td>elaboration-time FATAL；<code>wptr</code> 位宽截断只在 2 的幂时正确。</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="note">
+    <span class="t">为什么逐行比较是唯一判据</span>
+    状态行全对、提交为零的“静默空跑”在结果层面看不出来；<code>whole/unrooted</code> 互换也不会改变行数。本项目给每条“通过”都配一条<b>应当失败</b>的负对照（例如把 seam 寄存器按字面 posedge Q 实现，6/6 FAIL），用来证明判据本身有效。这个习惯比任何一个 PASS 都值得学。
+  </div>
+</section>
+<!-- ============ 7 学习任务 ============ -->
+<section class="sec" id="tasks">
+  <div class="sec-head">
+    <div class="sec-num">07</div>
+    <h2>学习任务清单</h2>
+    <div class="sub">从“跑通”到“改坏再修好”。难度 1 星＝读+算，3 星＝改 RTL/TB 并自证。</div>
+  </div>
+
+  <div class="grid2">
+    <div class="task">
+      <div class="lvl"><span class="l1">★ 1</span></div>
+      <div class="no">TASK 01</div>
+      <h4>跑通板级通路回归，找到 12 个 round</h4>
+      <p>完整走一遍 POR → AXI → 阵列 → 宽记录 → 主机重建 → 逐行比较。</p>
+      <ul>
+        <li>确认 ModelSim 在脚本写死的路径 <code>D:\quartus\modelsim\modelsim_ase\win32aloem</code>，否则改脚本私有副本。</li>
+        <li>运行：<code>powershell -NoProfile -ExecutionPolicy Bypass -File fpga_flow\msim_regress_board.ps1 -Code rotated -D 3 -Slices 2</code></li>
+        <li>打开 <code>fpga_flow/logs/msim_board_rotated_d3_s2.log</code>，搜索 <code>[brd] round=</code> 与 <code>REGRESS_VERDICT</code>。</li>
+      </ul>
+      <div class="acc"><b>验收：</b>末尾 <code>REGRESS_VERDICT PASS</code>；12 个 round 的 <code>records</code> 之和 = 83；<code>evidence/PASS_board_rotated_d3_s2_rtl.txt</code> 被更新。</div>
+    </div>
+
+    <div class="task">
+      <div class="lvl"><span class="l1">★ 1</span></div>
+      <div class="no">TASK 02</div>
+      <h4>从 ID 块手算一条记录的位宽</h4>
+      <p>不打开 RTL，只用生成头的规模常量与 <code>board_map.json</code> 的 layout 字段算。</p>
+      <ul>
+        <li>d3：<code>rbits = 48 + 24×15 + 35×3 = 513</code>，<code>words = ceil(513/32) = 17</code>。</li>
+        <li>d5：<code>72 + 90×17 + 173×3 = 2,121</code>，<code>words = 67</code>。</li>
+        <li>解释 header 为什么是 <code>35 + NCOMMIT</code>（round 8 + stage 3 + step 8 + cyc 16 + commit N）。</li>
+      </ul>
+      <div class="acc"><b>验收：</b>两个结果与 PL 的 <code>ID_WORDS</code>/<code>ID_RBITS</code> 一致；能说出 <code>words</code> 为什么向上取整。</div>
+    </div>
+
+    <div class="task">
+      <div class="lvl"><span class="l2">★ 2</span></div>
+      <div class="no">TASK 03</div>
+      <h4>画一轮的 stage/step 时序表</h4>
+      <p>从轨迹反推控制器行为，而不是从代码猜。</p>
+      <ul>
+        <li>在 <code>fpga_flow/msim_board/rtl_trace_board_rotated_d3_s2.txt</code> 里取 round 0 的所有 <code>T</code> 行。</li>
+        <li>按 stage 分组，记录每个 stage 出现的 step 数与总拍数。</li>
+        <li>对照 FSM：DROP/GW/GH 是固定 <code>NCTX</code> 拍扫完；MW/MH 的拍数由 <code>any_step_busy</code> 决定。</li>
+      </ul>
+      <div class="acc"><b>验收：</b>一张 5 行的表；能指出哪几个 stage 是数据相关、为什么 <code>step_cnt</code> 从 1 开始。</div>
+    </div>
+
+    <div class="task">
+      <div class="lvl"><span class="l2">★ 2</span></div>
+      <div class="no">TASK 04</div>
+      <h4>在副本里复现“采集窗口少一拍”</h4>
+      <p>把 <code>cap_en</code> 改成“显然”的写法，看每轮少哪一条。</p>
+      <ul>
+        <li>只改私有副本：<code>fpga_flow/msim_board/design/board/snowflake_host_regs.sv</code>（不是 <code>design/</code> 源树），把 <code>cap_en</code> 改成 <code>trace_arm_r &amp;&amp; running &amp;&amp; !done_i</code>。</li>
+        <li>用同一库手工重跑 <code>vlog</code>/<code>vsim</code>（命令与 <code>msim_regress_board.ps1</code> 相同），数 <code>board_records.txt</code> 的 <code>R</code> 行。</li>
+        <li>恢复：再跑一次回归脚本，它会重新拷贝源文件；确认回到 83。</li>
+      </ul>
+      <div class="acc"><b>验收：</b>每轮恰好少最后一条 <code>m</code> 行（总 71）；能引用 TB 里 <code>@(negedge clk)</code> 的位置解释原因。</div>
+    </div>
+
+    <div class="task">
+      <div class="lvl"><span class="l2">★ 2</span></div>
+      <div class="no">TASK 05</div>
+      <h4>给假 PS 加一组 ID 断言</h4>
+      <p>让“bitstream 与软件不匹配”在出轨迹之前失败。</p>
+      <ul>
+        <li>在 TB 副本里，读完 ID 块后断言：magic=<code>0x534E0101</code>、nn=24、ne=35、words=17（rotated d3）。</li>
+        <li>把期望的 <code>nn</code> 临时改成 23，确认仿真在第一条记录之前失败，且错误信息指向 nn。</li>
+        <li>恢复正确配置，确认 PASS。</li>
+      </ul>
+      <div class="acc"><b>验收：</b>错误配置下 <code>$fatal</code>/<code>errs&gt;0</code> 在第一条记录之前触发；正确配置仍 PASS。</div>
+    </div>
+
+    <div class="task">
+      <div class="lvl"><span class="l2">★ 2</span></div>
+      <div class="no">TASK 06</div>
+      <h4>用 <code>check_pb_bnd.py</code> 为 <code>!K_IS_BND</code> 取证</h4>
+      <p>证明“边界节点永远不 push”不是可以随手删的优化。</p>
+      <ul>
+        <li>运行：<code>python fpga_flow/check_pb_bnd.py fpga_flow/evidence/golden_lat1_surface_d3_s2_seam.txt fpga_flow/evidence/golden_lat1_surface_d5_s2.txt fpga_flow/evidence/golden_lat1_surface_d5_s2_seam.txt</code></li>
+        <li>记录边界节点出现 <code>defect=1 &amp;&amp; ptr!=C</code> 的次数。</li>
+        <li>对照报告里写的 10 / 5 / 22 与 <code>VERDICT: ... REQUIRED</code>，解释扁平阵列为什么在每一次都抑制 push。</li>
+      </ul>
+      <div class="acc"><b>验收：</b>能指出 <code>n_pb = (!K_IS_BND) &amp;&amp; defect &amp;&amp; (n_ptr != C)</code> 三项各自的作用，并说明删掉第一项的后果。</div>
+    </div>
+
+    <div class="task">
+      <div class="lvl"><span class="l3">★ 3</span></div>
+      <div class="no">TASK 07</div>
+      <h4>给 PE 写一条“边界不 push”断言</h4>
+      <p>把上一条任务变成可持续运行的检查。</p>
+      <ul>
+        <li>在 <code>fpga_flow/msim_lat1/design/snowflake/snowflake_pe.sv</code>（私有副本，不是源树）里加 <code>// synthesis translate_off</code> 的 <code>$error</code>：<code>K_IS_BND &amp;&amp; st_out[OFF_PB]</code> 时报警。</li>
+        <li>先跑一次 <code>msim_regress_lat1.ps1 -Code rotated -D 3 -Slices 2</code> 建立私有副本；加断言后手工重跑 <code>vlog</code>/<code>vsim</code>（不要再跑脚本，它会覆盖副本）。surface d5 同理。</li>
+        <li>再故意删掉 <code>!K_IS_BND</code>，确认断言在某个边界节点上触发。</li>
+      </ul>
+      <div class="acc"><b>验收：</b>正确实现下 0 次触发；注入 bug 后至少 1 次触发且能定位到节点/轮次。</div>
+    </div>
+
+    <div class="task">
+      <div class="lvl"><span class="l3">★ 3</span></div>
+      <div class="no">TASK 08</div>
+      <h4>算清“回读轨迹”与“实时解码”的成本边界</h4>
+      <p>解释为什么板上 D8 是离线验收，而不是实时通路。</p>
+      <ul>
+        <li>d5 唯象整轨：85 条记录 × 67 字 = 5,695 次 AXI 读（12 轮合计）；单轮约 7 条 ⇒ 约 469 次。</li>
+        <li>按 50 MHz、每次读约 3 拍：整轨约 0.34 ms，单轮约 28 µs；而解码本身每轮约 1 µs。</li>
+        <li>指出实时系统真正需要的输出只有 <code>commit_onehot</code>，轨迹只是验收工具。</li>
+      </ul>
+      <div class="acc"><b>验收：</b>给出数量级（ms 级回读 vs µs 级解码）并说明“trace 放 PL、PS 事后取”是为了带宽而不是 latency。</div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ 8 小测验 ============ -->
+<section class="sec" id="quiz">
+  <div class="sec-head">
+    <div class="sec-num">08</div>
+    <h2>小测验</h2>
+    <div class="sub">选完立即判定并给解析。先自己答，再点“重做”。</div>
+  </div>
+
+  <div class="quiz" id="quizBox">
+    <div class="quiz-top">
+      <span class="pill info">8 题</span>
+      <span class="muted small">覆盖算法语义、阵列结构、板级契约与验证方法。</span>
+      <span class="score" id="quizScore">已答 0 / 8 · 首答正确 0</span>
+    </div>
+    <div id="quizList"></div>
+    <div class="quiz-foot">
+      <button class="btn primary" type="button" id="quizReset">重做</button>
+      <span class="small muted">首答计入正确率；答错后仍可看到解析。</span>
+    </div>
+  </div>
+</section>
+
+<!-- ============ 9 术语表 ============ -->
+<section class="sec" id="glossary">
+  <div class="sec-head">
+    <div class="sec-num">09</div>
+    <h2>术语表</h2>
+    <div class="sub">按“算法 → 架构 → 时序 → 板级”排序。</div>
+  </div>
+
+  <div class="card">
+    <dl class="gloss">
+      <div class="g"><dt>syndrome（综合征）</dt><dd>辅助比特每轮测量的差分；1 bit = 1 个探测器被触发。上游电路的输出，本设计的输入。</dd></div>
+      <div class="g"><dt>decoding graph（解码图）</dt><dd>顶点 = 探测事件，边 = 可能引起该翻转的独立错误机制；两个空间轴 + 时间轴。</dd></div>
+      <div class="g"><dt>defect（缺陷）</dt><dd>被触发的探测器在图上形成的“粒子”；沿指针逐边上推，两个相遇异或抵消。</dd></div>
+      <div class="g"><dt>cluster（簇）</dt><dd>由生长边连通的节点集合；用簇内最小节点 ID 当代表元 <code>cid</code>。</dd></div>
+      <div class="g"><dt>pointer（指针）</dt><dd>每个节点指向“父节点方向”的编码；根节点为 <code>C</code>，指向下方为 <code>D</code> 类方向。</dd></div>
+      <div class="g"><dt>half-edge growth（半边生长）</dt><dd>一条边由两端各推半条；<code>growth</code> 加 2 饱和，所以只有 0/1/2 三态。</dd></div>
+      <div class="g"><dt>2:1 schedule</dt><dd>生长分两轮：先长“整簇”（whole），再长“半簇”；避免两个簇在半条边距时互相过冲。</dd></div>
+      <div class="g"><dt>unrooting（去根化）</dt><dd>窗口上移时根被挤出窗口底部；把指针树重置，让簇以新的最小 ID 为根。</dd></div>
+      <div class="g"><dt>commit region</dt><dd>窗口底部 c 层；其纠错结果已经安全，可以输出 <code>commit_onehot</code>。</dd></div>
+      <div class="g"><dt>window / slice</dt><dd>流式解码一次保留约 d 层；共享晶格再沿时间轴切成 <code>NCTX</code> 个切片（上下文）。</dd></div>
+      <div class="g"><dt>context（上下文）</dt><dd>一个逻辑解码轮对应的一份状态；多个上下文分时复用同一套物理数据通路。</dd></div>
+      <div class="g"><dt>shared lattice（共享晶格）</dt><dd>整个窗口共用一张 <code>(槽 × 上下文)</code> 寄存器堆；逻辑通路只一份，每拍服务一个 phase。</dd></div>
+      <div class="g"><dt>phase</dt><dd>当前正在服务的上下文编号；状态 bank 的地址 = <code>(槽, 切片)</code>，由 phase 选择。</dd></div>
+      <div class="g"><dt>two-pass merging</dt><dd>共享晶格下 merging 必须分两趟：pass A 洪泛写 <code>pb</code>，pass B 同步比较 bank 指针并提交边。</dd></div>
+      <div class="g"><dt>mirror</dt><dd>每个 bank 单元的第二份寄存器；存“本趟开始时”的值，供晚相位消费者读取。</dd></div>
+      <div class="g"><dt>quiescence（静默）</dt><dd>全阵列没有任何单元“这一拍会变”；FSM 用它结束数据相关阶段。</dd></div>
+      <div class="g"><dt>line-exact（逐行等价）</dt><dd>RTL 轨迹与 localuf 黄金逐行相同，包括每拍状态和提交事件；本项目的唯一正确性判据。</dd></div>
+      <div class="g"><dt>golden trace</dt><dd>由 localuf 跑同一 12 轮激励生成的参考文本；<code>T/N/E/P</code> 四类行。</dd></div>
+      <div class="g"><dt>negative control（负对照）</dt><dd>故意做错的实现，用来证明判据本身能失败；每条 PASS 都配一条应 FAIL 的对照。</dd></div>
+      <div class="g"><dt>OOC</dt><dd>out-of-context 综合/实现：只对顶层模块及其子模块跑，不接板级 IO，用来量面积与时序。</dd></div>
+      <div class="g"><dt>WNS</dt><dd>worst negative slack；≥0 表示满足目标周期。本设计 Z-7020 @20 ns 为 +0.350 ns。</dd></div>
+      <div class="g"><dt>AXI4-Lite</dt><dd>轻量内存映射总线：5 个通道、单 outstanding；PS 用它读写寄存器，不传流式数据。</dd></div>
+      <div class="g"><dt>ID block</dt><dd>0x034–0x064 的自描述寄存器组；软件在读结果前先证明 bitstream 的配置。</dd></div>
+      <div class="g"><dt>CDC</dt><dd>clock domain crossing；本设计单时钟、无 CDC，唯一的异步输入是复位。</dd></div>
+    </dl>
+  </div>
+</section>
+
+<!-- ============ 10 笔记 ============ -->
+<section class="sec" id="notes">
+  <div class="sec-head">
+    <div class="sec-num">10</div>
+    <h2>我的笔记</h2>
+    <div class="sub">自动保存在本浏览器（localStorage），不上传。</div>
+  </div>
+  <div class="card notes">
+    <textarea id="noteArea" placeholder="例如：&#10;- DROP 的 cid 重映射还没完全想明白，下一步手算 node 0 的 SNOW_CID_DELTA&#10;- 两趟 merging 的 pass A/B 分别写哪些字段？&#10;- 想验证：把 MAXREC 改成 100，看 elaboration FATAL"></textarea>
+    <div class="notes-bar">
+      <span>保存在本机浏览器</span>
+      <span class="status" id="noteStatus">尚未保存</span>
+      <button class="btn" type="button" id="noteClear">清空</button>
+    </div>
+  </div>
+</section>
+
+</main>
+
+<footer>
+  <div class="wrap">
+    <p style="margin:0 0 8px"><b>Snowflake 流式量子纠错解码器 · 源码阅读与结构理解</b>　生成于 2026-10-29。本页只读工程源码，未修改任何 RTL / 脚本 / 生成物。</p>
+    <p style="margin:0 0 8px">延伸阅读：
+      <a href="../../docs/Snowflake解码器技术文档.md">技术文档</a> ·
+      <a href="../../docs/Snowflake工程操作手册.md">工程操作手册</a> ·
+      <a href="../../NEXT_SESSION_PROMPT.md">NEXT_SESSION_PROMPT</a> ·
+      <a href="../../fpga_flow/optimization_report.md">optimization_report</a> ·
+      <a href="../../fpga_flow/board/bringup.md">bringup.md</a> ·
+      <a href="../../snowflake-on-helios-design.md">设计文档</a>
+    </p>
+    <p style="margin:0">源码入口：
+      <a href="../../Helios_scalable_QEC-main/Helios_scalable_QEC-main/design/snowflake/snowflake_pe.sv">pe.sv</a> ·
+      <a href="../../Helios_scalable_QEC-main/Helios_scalable_QEC-main/design/snowflake/snowflake_edge.sv">edge.sv</a> ·
+      <a href="../../Helios_scalable_QEC-main/Helios_scalable_QEC-main/design/snowflake/snowflake_pe_array_lat1.sv">lat1.sv</a> ·
+      <a href="../../Helios_scalable_QEC-main/Helios_scalable_QEC-main/design/board/snowflake_board_top.sv">board_top.sv</a> ·
+      <a href="../../Helios_scalable_QEC-main/Helios_scalable_QEC-main/design/board/snowflake_host_regs.sv">host_regs.sv</a> ·
+      <a href="../../Helios_scalable_QEC-main/Helios_scalable_QEC-main/design/board/snowflake_trace_capture.sv">trace_capture.sv</a> ·
+      <a href="../../Helios_scalable_QEC-main/Helios_scalable_QEC-main/design/board/snowflake_reset_sync.sv">reset_sync.sv</a>
+    </p>
+    <p class="small" style="margin:8px 0 0;color:#8b95a8">页面内容依据 2026-09-24 的板级证据与 2026-10-27 的项目状态整理；数字口径以仓库内 evidence / CSV / 报告为准。</p>
+  </div>
+</footer>
+
+<script id="drill-data" type="application/json">
+{
+  "start": "root",
+  "scenes": {
+    "root": {
+      "title": "系统视角",
+      "note": "PS 用 FCLK_CLK0 给 PL 供时钟、用 M_AXI_GP0 读写寄存器；PC 只保存 UART 日志并用 board_log_check.py 与 golden 逐行比较。板上没有第二个比较器——比较在 PC 上做。",
+      "w": 1360,
+      "h": 620,
+      "blocks": [
+        {
+          "id": "ps",
+          "title": "PS7 Cortex-A9",
+          "sub": "FCLK_CLK0 · M_AXI_GP0",
+          "kind": "external",
+          "x": 60, "y": 170, "w": 240, "h": 250,
+          "ins": ["UART RX", "AXI 读响应"],
+          "outs": ["FCLK_CLK0", "pl_resetn", "M_AXI_GP0", "UART TX"],
+          "info": "PS7 是板上的 ARM 核。它给 PL 提供唯一时钟 FCLK_CLK0，通过 M_AXI_GP0 访问 64 KB 寄存器窗口，并用 UART 把日志送到 PC。DSB 之后才写 CTRL.START。"
+        },
+        {
+          "id": "board",
+          "title": "snowflake_board_top",
+          "sub": "PL 系统外壳（板级 DUT）",
+          "kind": "module",
+          "x": 520, "y": 130, "w": 420, "h": 330,
+          "ins": ["clk", "pl_reset_in", "AXI4-Lite 请求"],
+          "outs": ["AXI4-Lite 响应"],
+          "go": "board",
+          "hl": true,
+          "info": "PL 顶层：单时钟、单复位树、一个 AXI4-Lite 从口。内部是 reset_sync / host_regs / trace_capture / pe_array_lat1 四个模块。"
+        },
+        {
+          "id": "pc",
+          "title": "PC 上位机",
+          "sub": "UART 日志 → 判定",
+          "kind": "external",
+          "x": 1120, "y": 190, "w": 190, "h": 210,
+          "ins": ["UART TX"],
+          "outs": ["UART RX"],
+          "info": "PC 的任务只有两个：把 UART 日志存成文件；用 board_log_check.py 调 board_records_to_trace.py 重建轨迹，再与 evidence golden 逐行比较。比较器就是每个 RTL 回归用的同一个 compare_trace.py。"
+        }
+      ],
+      "wires": [
+        {"from": "ps", "f": 0, "to": "board", "t": 0, "name": "FCLK_CLK0", "kind": "clk"},
+        {"from": "ps", "f": 1, "to": "board", "t": 1, "name": "pl_resetn", "kind": "reset"},
+        {"from": "ps", "f": 2, "to": "board", "t": 2, "name": "AXI4-Lite", "kind": "axi"},
+        {"from": "board", "f": 0, "to": "ps", "t": 1, "name": "读数据/响应", "kind": "axi", "route": "below", "lp": [600, 480]},
+        {"from": "ps", "f": 3, "to": "pc", "t": 0, "name": "UART 日志", "kind": "data", "via": [[480, 520], [1080, 520]], "lp": [800, 510]},
+        {"from": "pc", "f": 0, "to": "ps", "t": 0, "name": "命令 / 复位", "kind": "ctrl", "via": [[1340, 550], [30, 550]], "lp": [800, 540]}
+      ]
+    },
+    "board": {
+      "title": "board_top 内部",
+      "note": "为清晰起见省略了 clk 的扇出、rst_core 到 host 的第二条连线，以及 commit_onehot 到 host COR 窗口的连线；完整连接见 snowflake_board_top.sv:103-164。虚线框是 PL 外部。",
+      "w": 1520,
+      "h": 1120,
+      "blocks": [
+        {
+          "id": "ext_rst",
+          "title": "复位源",
+          "sub": "POR / PROG / pl_resetn",
+          "kind": "external",
+          "x": 50, "y": 70, "w": 170, "h": 120,
+          "ins": [],
+          "outs": ["pl_reset_in"],
+          "info": "整个 PL 唯一的异步输入。按钮抖动、1 拍脉冲、长按都允许；reset_sync 会把它变成完整的 LEN 拍复位。"
+        },
+        {
+          "id": "u_reset",
+          "title": "u_reset",
+          "sub": "snowflake_reset_sync",
+          "kind": "module",
+          "x": 590, "y": 50, "w": 270, "h": 190,
+          "ins": ["arst_in"],
+          "outs": ["reset", "bus_rst"],
+          "ports": "reset_sync",
+          "info": "唯一复位路径：异步输入 → 3 级同步 → 拉长 LEN 拍。core_rst 复位阵列与采集，bus_rst 只复位 AXI 寄存器堆，所以核心复位期间 STATUS 仍可读。"
+        },
+        {
+          "id": "ext_ps",
+          "title": "PS M_AXI_GP0",
+          "sub": "64 KB 寄存器窗口",
+          "kind": "external",
+          "x": 50, "y": 360, "w": 200, "h": 220,
+          "ins": ["AXI 响应"],
+          "outs": ["M_AXI_GP0"],
+          "info": "PS 的 AXI4-Lite 主口。地址必须与软件 SNOW_BASE 一致（默认 0x43C0_0000）。"
+        },
+        {
+          "id": "u_host",
+          "title": "u_host",
+          "sub": "snowflake_host_regs",
+          "kind": "module",
+          "x": 590, "y": 340, "w": 410, "h": 340,
+          "ins": ["AXI4-Lite", "rst_host", "阵列状态", "trace 读字"],
+          "outs": ["start / syn", "trace 控制", "AXI 响应"],
+          "go": "host",
+          "info": "AXI4-Lite 从口 + 寄存器堆。PS 的所有动作都经过它：写 syndrome、start、轮询 done、读记录、读 ID。"
+        },
+        {
+          "id": "u_array",
+          "title": "u_array",
+          "sub": "snowflake_pe_array_lat1",
+          "kind": "module",
+          "x": 1120, "y": 300, "w": 330, "h": 430,
+          "ins": ["reset", "start / syn"],
+          "outs": ["done / all_busy", "obs / commit"],
+          "go": "array",
+          "hl": true,
+          "info": "共享晶格阵列：32 个节点槽 + 26 个边槽，每个槽只有一路数据通路，状态按 2 个上下文存在 bank 里。唯一接进板级顶层的阵列。"
+        },
+        {
+          "id": "u_trace",
+          "title": "u_trace",
+          "sub": "snowflake_trace_capture",
+          "kind": "module",
+          "x": 1120, "y": 840, "w": 330, "h": 210,
+          "ins": ["obs / commit", "trace 控制"],
+          "outs": ["rword / layout"],
+          "ports": "trace_capture",
+          "info": "每个逻辑 step 一条宽记录写进 BRAM（stage_last 那一拍）；d3 记录 513 bit，128 条。PS 事后按 TRACE_REC / TRACE_DATA 取走。MAXREC 必须是 2 的幂。"
+        }
+      ],
+      "wires": [
+        {"from": "ext_rst", "f": 0, "to": "u_reset", "t": 0, "name": "pl_reset_in", "kind": "reset"},
+        {"from": "u_reset", "f": 0, "to": "u_array", "t": 0, "name": "core_rst", "kind": "reset", "wx": 1060},
+        {"from": "u_reset", "f": 1, "to": "u_host", "t": 1, "name": "bus_rst", "kind": "reset", "via": [[900, 300], [560, 300]]},
+        {"from": "ext_ps", "f": 0, "to": "u_host", "t": 0, "name": "AXI4-Lite", "kind": "axi"},
+        {"from": "u_host", "f": 2, "to": "ext_ps", "t": 0, "name": "AXI 响应", "kind": "axi", "via": [[1040, 720], [20, 720]]},
+        {"from": "u_host", "f": 0, "to": "u_array", "t": 1, "name": "start / syndrome", "kind": "data"},
+        {"from": "u_array", "f": 0, "to": "u_host", "t": 2, "name": "done / all_busy", "kind": "data", "via": [[1470, 270], [560, 270]]},
+        {"from": "u_array", "f": 1, "to": "u_trace", "t": 0, "name": "obs_* / commit", "kind": "data", "via": [[1490, 790], [1090, 790]]},
+        {"from": "u_host", "f": 1, "to": "u_trace", "t": 1, "name": "trace 控制", "kind": "ctrl"},
+        {"from": "u_trace", "f": 0, "to": "u_host", "t": 3, "name": "rword / layout", "kind": "data", "via": [[1500, 760], [560, 760]], "lp": [700, 752]}
+      ]
+    },
+    "array": {
+      "title": "lat1 阵列内部",
+      "note": "rotated d3 · 2 slices：NSLOT=32、ESLOT=26、NCTX=2。槽是几何复用单位，不是图元素的一一对应（图只有 24 个节点、35 条边，一个边槽按层复用）；无效槽由 NODE_VALID_VEC 关掉，不能运行也不能被复位写。节点到邻居的跨槽连线是常量位选，图中省略；obs/commit 去 u_trace/host 的连线也省略。",
+      "w": 1600,
+      "h": 900,
+      "blocks": [
+        {
+          "id": "fsm",
+          "title": "阶段控制器",
+          "sub": "stage / step / phase",
+          "kind": "concept",
+          "x": 60, "y": 80, "w": 280, "h": 260,
+          "ins": ["start", "all_busy"],
+          "outs": ["stage[2:0]", "phase / pass", "dbg 帧"],
+          "info": "6 个状态：IDLE / DROP / GW / MW / GH / MH。每次 merging 走两趟 phase：pass A 洪泛、pass B 同步；edge 只在 pass B 提交。dbg_stage/dbg_step 只在 stage_last 那一拍有效，BUSYREG 下还会屏蔽那额外的一拍退出。"
+        },
+        {
+          "id": "bank",
+          "title": "状态寄存器堆",
+          "sub": "每槽 own / omir × NCTX",
+          "kind": "concept",
+          "x": 620, "y": 70, "w": 320, "h": 300,
+          "ins": ["phase 选择", "node 写回", "edge 写回", "reset 预置"],
+          "outs": ["bview 读口"],
+          "info": "状态是一根打包向量，不是 Verilog memory：变量地址会让 Vivado 推断出每读口一个整 bank mux。每个槽有自己的 own/omir 寄存器组，reset 一拍预置全部 NCTX 份。"
+        },
+        {
+          "id": "obs",
+          "title": "提交与观测",
+          "sub": "commit / obs_* / dbg_*",
+          "kind": "concept",
+          "x": 1370, "y": 80, "w": 210, "h": 280,
+          "ins": ["bview", "edge 观测", "FSM 帧"],
+          "outs": ["obs 总线", "commit_onehot"],
+          "info": "commit_now 从 bank 的固定地址读（每个提交位在编译期确定）；obs_* 把每节点 8 个字段、每边 3 bit 拼成打包总线。观测总线的扇出是布线拥塞的主要来源。"
+        },
+        {
+          "id": "shadow",
+          "title": "静默影子行",
+          "sub": "bshA / bshB → all_busy",
+          "kind": "concept",
+          "x": 60, "y": 540, "w": 280, "h": 230,
+          "ins": ["slot_busy"],
+          "outs": ["all_busy"],
+          "info": "每槽两行 NCTX 位影子：pass A 的答案与 pass B 的答案。all_busy = |qa | |qb | |qnow，其中 qnow 只补当前 phase（它的影子这一拍才落）。SNOW_BUSYREG 再加一行 bshP，把整条判断变成纯寄存器。"
+        },
+        {
+          "id": "node",
+          "title": "节点数据通路 ×NSLOT",
+          "sub": "snowflake_pe（每槽一路）",
+          "kind": "module",
+          "x": 430, "y": 460, "w": 340, "h": 320,
+          "ins": ["st_in", "邻居 / 边", "stage / pass"],
+          "outs": ["st_out", "busy / push"],
+          "ports": "pe",
+          "info": "32 个实例，每拍服务 phase 选中的上下文。PE 内部没有状态：st_in 从 bank 读，st_out 写回 bank。身份（id / bnd / top / bot / syn）从每上下文常量表选出，不是参数。"
+        },
+        {
+          "id": "edge",
+          "title": "边数据通路 ×ESLOT",
+          "sub": "snowflake_edge（每槽一路）",
+          "kind": "module",
+          "x": 1000, "y": 470, "w": 310, "h": 300,
+          "ins": ["st_in", "stage", "两端 bank"],
+          "outs": ["st_out", "growth / ecorr"],
+          "ports": "edge",
+          "info": "26 个实例。growth 由两端各推半条并饱和到 2；ecorr 在 merging 时按 flip_u^flip_v 翻转。两端 pulse/flip 都从 bank 字重算，不接活线。"
+        }
+      ],
+      "wires": [
+        {"from": "fsm", "f": 0, "to": "node", "t": 2, "name": "stage", "kind": "ctrl", "via": [[395, 134], [395, 750]]},
+        {"from": "fsm", "f": 1, "to": "bank", "t": 0, "name": "phase / pass", "kind": "ctrl"},
+        {"from": "bank", "f": 0, "to": "node", "t": 0, "name": "", "kind": "data", "via": [[990, 420], [400, 420]]},
+        {"from": "node", "f": 0, "to": "bank", "t": 1, "name": "st_out 写回", "kind": "data", "via": [[980, 30], [590, 30]]},
+        {"from": "node", "f": 1, "to": "shadow", "t": 0, "name": "", "kind": "ctrl", "via": [[800, 820], [30, 820]]},
+        {"from": "shadow", "f": 0, "to": "fsm", "t": 1, "name": "", "kind": "ctrl", "via": [[375, 655], [375, 310]]},
+        {"from": "bank", "f": 0, "to": "edge", "t": 2, "name": "端点状态", "kind": "data", "via": [[970, 124], [970, 740]]},
+        {"from": "fsm", "f": 0, "to": "edge", "t": 1, "name": "", "kind": "ctrl", "via": [[360, 850], [980, 850]]},
+        {"from": "edge", "f": 0, "to": "bank", "t": 2, "name": "edge 写回", "kind": "data", "via": [[1330, 400], [590, 400]]},
+        {"from": "edge", "f": 1, "to": "obs", "t": 1, "name": "", "kind": "data", "via": [[1335, 740]]},
+        {"from": "bank", "f": 0, "to": "obs", "t": 0, "name": "", "kind": "data", "via": [[960, 40], [1340, 40]]},
+        {"from": "fsm", "f": 2, "to": "obs", "t": 2, "name": "", "kind": "ctrl", "via": [[360, 860], [1355, 860]]}
+      ]
+    },
+    "host": {
+      "title": "host_regs 内部",
+      "note": "host_regs 是寄存器堆 + AXI 从口，不是软核。PS 通过 0x43C0_0000 访问；SYN 窗口保持整轮，COR 窗口锁存最后一次非零提交。B/R 两个 AXI 输出通道回到 PS，trace 读写去 u_trace，本图未画。",
+      "w": 1400,
+      "h": 780,
+      "blocks": [
+        {
+          "id": "axi",
+          "title": "AXI4-Lite 从机",
+          "sub": "AW/W 独立捕获 · 1 拍读",
+          "kind": "concept",
+          "x": 60, "y": 270, "w": 260, "h": 250,
+          "ins": ["AW / W", "AR", "读数据"],
+          "outs": ["写译码", "B 响应", "R 数据"],
+          "info": "单 outstanding 读、单 outstanding 写。AW 与 W 各自 ready/have，两半都到齐才施加写。读数据由“被接受的地址”的组合译码在接收那一拍寄存。"
+        },
+        {
+          "id": "regs",
+          "title": "寄存器堆 / 计数器",
+          "sub": "rounds / cyc / trace 指针",
+          "kind": "concept",
+          "x": 400, "y": 250, "w": 300, "h": 290,
+          "ins": ["写译码", "start / done", "ID 读回"],
+          "outs": ["读 mux", "写 SYN / COR", "trace 控制", "状态位"],
+          "info": "CTRL 写产生 start_pulse / sw_reset_pulse / trace_clear / arm；round_idx、cyc_last、cyc_round、trace_rec、trace_wix 都在这里。被 bus_rst 或 core_rst 任一复位。"
+        },
+        {
+          "id": "syn",
+          "title": "SYN 窗口 0x100",
+          "sub": "syndrome 锁存",
+          "kind": "concept",
+          "x": 780, "y": 70, "w": 250, "h": 190,
+          "ins": ["写 syndrome"],
+          "outs": ["syndrome 位"],
+          "info": "ceil(NSYN/32) 个字；字节 strobe 有效。锁存值保持到下一次写，阵列在 start 那一拍再锁进 syn_buf。"
+        },
+        {
+          "id": "cor",
+          "title": "COR 窗口 0x200",
+          "sub": "commit 掩码",
+          "kind": "concept",
+          "x": 780, "y": 300, "w": 250, "h": 180,
+          "ins": ["commit_onehot"],
+          "outs": ["读回掩码"],
+          "info": "commit_onehot 非零时锁存，所以软件不用解析轨迹就能读到最后一轮提交了哪些边。位序与生成的 SNOW_COMMIT_UV 对应。"
+        },
+        {
+          "id": "id",
+          "title": "ID 块 0x034",
+          "sub": "配置自描述",
+          "kind": "generated",
+          "x": 780, "y": 520, "w": 250, "h": 180,
+          "ins": ["图常量"],
+          "outs": ["读回 ID"],
+          "info": "magic + nn/ne/ncommit/nsyn/cid_w/ptr_w/ndir/words/hdrw/ns/es/rbits/nslot/nctx。软件在信任任何记录之前，先与 board_map.json 对账。"
+        },
+        {
+          "id": "status",
+          "title": "STATUS 流水",
+          "sub": "status_q 一拍",
+          "kind": "concept",
+          "x": 1110, "y": 270, "w": 230, "h": 240,
+          "ins": ["done / busy"],
+          "outs": ["STATUS[15:0]"],
+          "info": "刻意加的一拍流水：all_busy 是阵列关键链的末端，直接进读 mux 会把路径拉到 20.041 ns（WNS −0.096）；加 status_q 后 19.65 ns，WNS +0.350。"
+        }
+      ],
+      "wires": [
+        {"from": "axi", "f": 0, "to": "regs", "t": 0, "name": "", "kind": "axi"},
+        {"from": "regs", "f": 0, "to": "axi", "t": 2, "name": "", "kind": "axi", "via": [[740, 600], [30, 600]]},
+        {"from": "regs", "f": 1, "to": "syn", "t": 0, "name": "", "kind": "data"},
+        {"from": "regs", "f": 1, "to": "cor", "t": 0, "name": "", "kind": "data", "via": [[750, 417], [750, 390]]},
+        {"from": "id", "f": 0, "to": "regs", "t": 2, "name": "ID 读回", "kind": "data", "via": [[1050, 730], [360, 730]], "lp": [600, 720]},
+        {"from": "regs", "f": 3, "to": "status", "t": 0, "name": "状态位", "kind": "ctrl", "via": [[1070, 514], [1070, 390]]}
+      ]
+    }
+  }
+}
+</script>
+
+<script id="ports-data" type="application/json">
+{
+  "board_top": [
+    {"n":"clk","d":"in","w":"1","t":"唯一时钟；板上 = PS FCLK_CLK0，与 M_AXI_GP0 同源"},
+    {"n":"pl_reset_in","d":"in","w":"1","t":"唯一异步输入；POR / PROG / pl_resetn，高有效"},
+    {"n":"s_axi_aw* / w*","d":"in","w":"16+1 / 32+4+1","t":"写地址与写数据两半独立捕获"},
+    {"n":"s_axi_b*","d":"out","w":"2+1","t":"写响应，resp 恒 OKAY"},
+    {"n":"s_axi_ar*","d":"in","w":"16+1","t":"读地址；单 outstanding"},
+    {"n":"s_axi_r*","d":"out","w":"32+2+1","t":"读数据；1 拍延迟；TRACE_DATA 自动递增 WIX"}
+  ],
+  "reset_sync": [
+    {"n":"clk","d":"in","w":"1","t":"唯一时钟"},
+    {"n":"arst_in","d":"in","w":"1","t":"异步复位请求（按键 / pl_resetn）"},
+    {"n":"sw_reset","d":"in","w":"1","t":"CTRL[1] 的单拍软复位脉冲"},
+    {"n":"reset","d":"out","w":"1","t":"拉长 LEN 拍的 core_rst；阵列/采集的唯一复位"},
+    {"n":"busy","d":"out","w":"1","t":"== reset；顶层未使用（STATUS[4] 直接看 rst_core）"},
+    {"n":"bus_rst","d":"out","w":"1","t":"同步后的电平；只复位 AXI 寄存器堆/FSM"}
+  ],
+  "host_regs": [
+    {"n":"clk","d":"in","w":"1","t":"唯一时钟"},
+    {"n":"rst_host","d":"in","w":"1","t":"bus_rst：AXI FSM / 寄存器堆"},
+    {"n":"rst_core","d":"in","w":"1","t":"core_rst：本轮计数/指针/窗口"},
+    {"n":"s_axi_*","d":"in/out","w":"—","t":"完整 AXI4-Lite 从口（AW/W/B/AR/R）"},
+    {"n":"start_pulse","d":"out","w":"1","t":"CTRL[0] 且 !rst_core"},
+    {"n":"sw_reset_pulse","d":"out","w":"1","t":"CTRL[1]"},
+    {"n":"syndrome","d":"out","w":"SNOW_NSYN","t":"SYN 窗口锁存值"},
+    {"n":"cap_en","d":"out","w":"1","t":"armed && (running || done)"},
+    {"n":"done_i","d":"in","w":"1","t":"阵列本轮结束"},
+    {"n":"all_busy_i","d":"in","w":"1","t":"阵列静默判断"},
+    {"n":"dbg_stage_i / dbg_step_i","d":"in","w":"3 / 8","t":"轨迹帧的 stage / step"},
+    {"n":"commit_onehot_i","d":"in","w":"SNOW_NCOMMIT","t":"提交掩码；非零时锁存到 COR"},
+    {"n":"lat_live_i / push_i / flip_i","d":"in","w":"32×3","t":"阵列活跃/跨时钟计数"},
+    {"n":"round_idx_o / cyc_round_o","d":"out","w":"8 / 16","t":"给采集模块的轮次与轮内周期"},
+    {"n":"trace_clear / rec_load","d":"out","w":"1 / 1","t":"清空/装载一条记录"},
+    {"n":"trace_rec / trace_wix","d":"out","w":"32 / 32","t":"记录索引 / 记录内字号"},
+    {"n":"rword_i","d":"in","w":"32","t":"TRACE_DATA 读出的字"},
+    {"n":"rec_count_i / rec_ovf_i","d":"in","w":"16 / 1","t":"本轮记录数 / 溢出锁存"},
+    {"n":"rec_words_i 等布局","d":"in","w":"32×6","t":"WORDS/CAP/HDRW/NS/ES/RBITS，进 ID 块"}
+  ],
+  "trace_capture": [
+    {"n":"clk / reset","d":"in","w":"1 / 1","t":"唯一时钟 / 拉长的 core_rst"},
+    {"n":"en","d":"in","w":"1","t":"采集窗口：armed && (running || done)"},
+    {"n":"valid","d":"in","w":"1","t":"阵列 dbg_valid（stage_last 那一拍）"},
+    {"n":"round_idx / cyc_round","d":"in","w":"8 / 16","t":"记录头的轮次与轮内周期"},
+    {"n":"stage / step","d":"in","w":"3 / 8","t":"记录头"},
+    {"n":"commit_onehot","d":"in","w":"SNOW_NCOMMIT","t":"记录头里的提交掩码"},
+    {"n":"obs_cid","d":"in","w":"NN×CID_W","t":"每节点簇号"},
+    {"n":"obs_active…busy","d":"in","w":"NN×6","t":"6 个 flag，LSB-first 打包"},
+    {"n":"obs_ptr","d":"in","w":"NN×PTR_W","t":"每节点指针"},
+    {"n":"obs_growth / ecorr","d":"in","w":"NE×2 / NE","t":"每边生长值与纠错位"},
+    {"n":"clear","d":"in","w":"1","t":"TRACE_CLEAR：清指针/计数/溢出"},
+    {"n":"rload / raddr / wix","d":"in","w":"1 / 32 / 32","t":"装载记录 / 记录索引 / 字号"},
+    {"n":"rword","d":"out","w":"32","t":"word[WIX]；WIX 由 host_regs 自动递增"},
+    {"n":"count / overflow","d":"out","w":"16 / 1","t":"本轮记录数 / 溢出锁存"},
+    {"n":"o_words / o_cap","d":"out","w":"32×2","t":"每记录字数 / 容量 MAXREC"},
+    {"n":"o_hdrw / o_ns / o_es","d":"out","w":"32×3","t":"头宽 / 节点步长 / 边步长"},
+    {"n":"o_rbits","d":"out","w":"32","t":"整条记录位宽"}
+  ],
+  "pe": [
+    {"n":"clk / reset","d":"in","w":"1","t":"唯一时钟 / 复位"},
+    {"n":"stage","d":"in","w":"3","t":"全局阶段：DROP/GW/MW/GH/MH"},
+    {"n":"syn_bit","d":"in","w":"1","t":"本节点对应的 syndrome 位（仅 SYN 节点有效）"},
+    {"n":"ab_cid / ab_ptr","d":"in","w":"CID_W / PTR_W","t":"上方节点状态（DROP 拉取）"},
+    {"n":"ab_active / whole / defect","d":"in","w":"1×3","t":"上方节点状态"},
+    {"n":"e_grown","d":"in","w":"NDIR","t":"每个方向的边是否已完全生长"},
+    {"n":"nb_valid / active / grown","d":"in","w":"NDIR×3","t":"邻居是否存在 / 活跃 / 已长"},
+    {"n":"nb_cid","d":"in","w":"NDIR×CID_W","t":"邻居簇号"},
+    {"n":"nb_push","d":"in","w":"NDIR","t":"邻居是否沿该方向 push"},
+    {"n":"m_pass","d":"in","w":"2","t":"0=两半同拍，1=洪泛，2=同步（仅 SNOW_LAT）"},
+    {"n":"p_id","d":"in","w":"CID_W","t":"本上下文身份：节点 ID"},
+    {"n":"p_has_above / is_bnd / is_top / is_bot / is_syn","d":"in","w":"1×5","t":"本上下文身份标志"},
+    {"n":"st_in","d":"in","w":"SNOW_PE_STW","t":"bank 读出的当前状态字"},
+    {"n":"st_out","d":"out","w":"SNOW_PE_STW","t":"下一状态字（含 pb）"},
+    {"n":"o_busy_c","d":"out","w":"1","t":"组合：这一拍会变"},
+    {"n":"o_pulse","d":"out","w":"1","t":"生长脉冲（本节点这一拍长半条边）"},
+    {"n":"o_push","d":"out","w":"NDIR","t":"沿指针把缺陷推出去"}
+  ],
+  "edge": [
+    {"n":"clk / reset","d":"in","w":"1","t":"唯一时钟 / 复位"},
+    {"n":"stage","d":"in","w":"3","t":"全局阶段"},
+    {"n":"u_pulse / v_pulse","d":"in","w":"1×2","t":"两端是否长这半条边"},
+    {"n":"flip_u / flip_v","d":"in","w":"1×2","t":"两端是否沿这条边翻转纠错"},
+    {"n":"above_growth / above_ecorr","d":"in","w":"2 / 1","t":"上方边的状态（DROP 继承）"},
+    {"n":"st_in","d":"in","w":"3","t":"{ecorr, growth[1:0]}"},
+    {"n":"st_out","d":"out","w":"3","t":"下一状态"}
+  ]
+}
+</script>
+
+<script>
+/* ============================================================
+   Drill-down block diagram
+   ============================================================ */
+(function(){
+  const NS = 'http://www.w3.org/2000/svg';
+  const DRILL = JSON.parse(document.getElementById('drill-data').textContent);
+  const PORTS = JSON.parse(document.getElementById('ports-data').textContent);
+  const svg = document.getElementById('drillSvg');
+  const stage = document.getElementById('drillStage');
+  const crumbsEl = document.getElementById('drillCrumbs');
+  const noteEl = document.getElementById('sceneNote');
+  const panel = document.getElementById('portPanel');
+  const qs = new URLSearchParams(location.search);
+  const startId = (qs.get('scene') && DRILL.scenes[qs.get('scene')]) ? qs.get('scene') : DRILL.start;
+  const stack = [startId];
+  let zoom = 1;
+  let current = null;
+
+  const esc = s => String(s == null ? '' : s).replace(/[&<>"']/g, c => ({
+    '&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'
+  })[c]);
+
+  function el(tag, attrs, parent){
+    const e = document.createElementNS(NS, tag);
+    if (attrs) for (const k in attrs) {
+      if (k === 'text') e.textContent = attrs[k];
+      else e.setAttribute(k, attrs[k]);
+    }
+    if (parent) parent.appendChild(e);
+    return e;
+  }
+
+  function portY(b, idx, side){
+    const list = side === 'in' ? (b.ins || []) : (b.outs || []);
+    const n = list.length;
+    if (!n) return b.y + b.h / 2;
+    if (n === 1) return b.y + b.h * 0.5;
+    const top = b.y + 68;
+    const bot = b.y + b.h - 26;
+    const span = bot - top;
+    if (n === 2) return top + span * (idx === 0 ? 0.34 : 0.66);
+    if (n === 3) return top + span * [0, 0.5, 1][idx];
+    return top + span * [0, 1/3, 2/3, 1][idx];
+  }
+
+  function blockById(scene, id){
+    return scene.blocks.find(b => b.id === id);
+  }
+
+  function hintFor(b){
+    if (b.go) return '点击进入 ↓';
+    if (b.ports) return '点击看端口表';
+    if (b.info) return '点击看说明';
+    return '';
+  }
+
+  function drawScene(sceneId){
+    closePanel();
+    current = sceneId;
+    const scene = DRILL.scenes[sceneId];
+    if (!scene) return;
+    svg.innerHTML = '';
+    svg.setAttribute('viewBox', '0 0 ' + scene.w + ' ' + scene.h);
+    svg.setAttribute('width', scene.w);
+    svg.setAttribute('height', scene.h);
+
+    const defs = el('defs', {}, svg);
+    const colors = {ctrl:'#8494b3', data:'#2fc9b3', reset:'#e0a34f', axi:'#a58cff', clk:'#8494b3'};
+    for (const k in colors){
+      const m = el('marker', {id:'arw-'+k, markerWidth:'9', markerHeight:'9', refX:'7.5', refY:'4.5',
+        orient:'auto', markerUnits:'userSpaceOnUse'}, defs);
+      el('path', {d:'M0,0 L9,4.5 L0,9 z', fill:colors[k]}, m);
+    }
+
+    // wires first (under blocks)
+    const laneMap = {};
+    scene.wires.forEach(w => {
+      const key = w.from;
+      laneMap[key] = (laneMap[key] || 0);
+      w._lane = laneMap[key]++;
+    });
+    scene.wires.forEach(w => drawWire(scene, w));
+
+    // blocks
+    scene.blocks.forEach(b => drawBlock(scene, b));
+
+    // labels on top, so a block fill can never hide them
+    scene.wires.forEach(w => { if (w._pts) drawWireLabel(w); });
+
+    // breadcrumbs
+    crumbsEl.innerHTML = '';
+    stack.forEach((sid, i) => {
+      if (i) {
+        const sep = document.createElement('span');
+        sep.className = 'crumb-sep';
+        sep.textContent = '›';
+        crumbsEl.appendChild(sep);
+      }
+      const btn = document.createElement('button');
+      btn.type = 'button';
+      btn.className = 'crumb' + (i === stack.length - 1 ? ' on' : '');
+      btn.textContent = DRILL.scenes[sid].title;
+      btn.addEventListener('click', () => {
+        stack.length = i + 1;
+        drawScene(sid);
+      });
+      crumbsEl.appendChild(btn);
+    });
+
+    noteEl.textContent = scene.note || '';
+    stage.scrollTop = 0;
+    stage.scrollLeft = 0;
+  }
+
+  function drawBlock(scene, b){
+    const g = el('g', {class:'blk ' + (b.kind || 'module') + (b.hl ? ' hl' : ''), tabindex:'0', role:'button',
+      'aria-label': b.title + '：' + hintFor(b)}, svg);
+    el('rect', {class:'box', x:b.x, y:b.y, width:b.w, height:b.h, rx:'11'}, g);
+    el('text', {class:'title', x:b.x + 14, y:b.y + 27, text:b.title}, g);
+    if (b.sub) el('text', {class:'sub', x:b.x + 14, y:b.y + 45, text:b.sub}, g);
+
+    if (b.hl) {
+      el('rect', {class:'badge-bg', x:b.x + b.w - 52, y:b.y + 9, width:'42', height:'16', rx:'8'}, g);
+      el('text', {class:'badge', x:b.x + b.w - 31, y:b.y + 20.5, 'text-anchor':'middle', text:'DUT'}, g);
+    }
+
+    (b.ins || []).forEach((name, i) => {
+      const y = portY(b, i, 'in');
+      el('circle', {class:'pt', cx:b.x, cy:y, r:'3.2'}, g);
+      el('text', {class:'port', x:b.x + 12, y:y + 3.6, text:name}, g);
+    });
+    (b.outs || []).forEach((name, i) => {
+      const y = portY(b, i, 'out');
+      el('circle', {class:'pt', cx:b.x + b.w, cy:y, r:'3.2'}, g);
+      el('text', {class:'port', x:b.x + b.w - 12, y:y + 3.6, 'text-anchor':'end', text:name}, g);
+    });
+
+    const hint = hintFor(b);
+    if (hint) el('text', {class:'enter', x:b.x + b.w / 2, y:b.y + b.h - 9, 'text-anchor':'middle', text:hint}, g);
+
+    const activate = () => {
+      if (b.go) {
+        stack.push(b.go);
+        drawScene(b.go);
+      } else if (b.ports) {
+        showPanel(b);
+      } else if (b.info) {
+        showPanel(b);
+      }
+    };
+    g.addEventListener('click', activate);
+    g.addEventListener('keydown', ev => {
+      if (ev.key === 'Enter' || ev.key === ' ') { ev.preventDefault(); activate(); }
+    });
+  }
+
+  function drawWire(scene, w){
+    const from = blockById(scene, w.from);
+    const to = blockById(scene, w.to);
+    if (!from || !to) return;
+    const sx = from.x + from.w;
+    const sy = portY(from, w.f, 'out');
+    const tx = to.x;
+    const ty = portY(to, w.t, 'in');
+    let pts = [[sx, sy]];
+
+    if (w.via && w.via.length) {
+      let cur = [sx, sy];
+      w.via.forEach(p => {
+        if (p[0] !== cur[0]) { pts.push([p[0], cur[1]]); cur = [p[0], cur[1]]; }
+        if (p[1] !== cur[1]) { pts.push([p[0], p[1]]); cur = [p[0], p[1]]; }
+      });
+      if (cur[1] !== ty) pts.push([cur[0], ty]);
+      pts.push([tx, ty]);
+    } else if (tx >= sx + 40) {
+      const mid = (w.wx != null) ? w.wx : ((sx + tx) / 2 + (w._lane || 0) * 9);
+      pts.push([mid, sy], [mid, ty], [tx, ty]);
+    } else {
+      const above = w.route === 'above';
+      let y = above ? Math.min(from.y, to.y) - 28
+                    : Math.max(from.y + from.h, to.y + to.h) + 30;
+      y += (w._lane || 0) * 11;
+      pts.push([sx + 30, sy], [sx + 30, y], [tx - 30, y], [tx - 30, ty], [tx, ty]);
+    }
+
+    w._pts = pts;
+    const kind = w.kind || 'ctrl';
+    const cls = 'wire w-' + kind;
+    const d = pts.map((p, i) => (i ? 'L' : 'M') + p[0] + ' ' + p[1]).join(' ');
+    el('path', {class:cls, d:d, 'marker-end':'url(#arw-' + kind + ')'}, svg);
+
+
+  }
+
+  function drawWireLabel(w){
+    const pts = w._pts;
+    if (!pts || !w.name) return;
+    let bh = null, bhl = 0, bv = null, bvl = 0;
+    for (let i = 1; i < pts.length; i++){
+      const a = pts[i-1], c = pts[i];
+      const dx = Math.abs(c[0] - a[0]), dy = Math.abs(c[1] - a[1]);
+      if (dy < 0.6 && dx > bhl){ bh = [a, c]; bhl = dx; }
+      if (dx < 0.6 && dy > bvl){ bv = [a, c]; bvl = dy; }
+    }
+    let lx, ly, anchor;
+    if (w.lp){ lx = w.lp[0]; ly = w.lp[1]; anchor = 'middle'; }
+    else if (bh && bhl >= 100){ lx = (bh[0][0] + bh[1][0]) / 2; ly = (bh[0][1] + bh[1][1]) / 2 - 6; anchor = 'middle'; }
+    else if (bv && bvl >= 50){ lx = bv[0][0]; ly = (bv[0][1] + bv[1][1]) / 2 + 3.5; anchor = 'middle'; }
+    else if (bh){ lx = (bh[0][0] + bh[1][0]) / 2; ly = (bh[0][1] + bh[1][1]) / 2 - 6; anchor = 'middle'; }
+    else { lx = (pts[0][0] + pts[pts.length-1][0]) / 2; ly = (pts[0][1] + pts[pts.length-1][1]) / 2; anchor = 'middle'; }
+    el('text', {class:'wire-label', x:lx, y:ly, 'text-anchor':anchor, text:w.name}, svg);
+  }
+
+  function showPanel(b){
+    let html = '<button class="pp-close" type="button" aria-label="关闭">×</button>';
+    html += '<h4>' + esc(b.title) + '</h4>';
+    html += '<div class="pp-sub">' + esc(b.sub || '') + '</div>';
+    if (b.info) html += '<p class="pp-desc">' + esc(b.info) + '</p>';
+    const rows = b.ports ? PORTS[b.ports] : null;
+    if (rows && rows.length){
+      html += '<div class="table-wrap" style="border-radius:8px"><table><thead><tr><th>端口</th><th>位宽</th><th>说明</th></tr></thead><tbody>';
+      rows.forEach(r => {
+        const dir = r.d === 'in' ? 'in' : (r.d === 'out' ? 'out' : 'io');
+        html += '<tr><td><span class="pname">' + esc(r.n) + '</span><span class="dir ' + dir + '">' + esc(r.d) + '</span></td><td>' + esc(r.w) + '</td><td>' + esc(r.t) + '</td></tr>';
+      });
+      html += '</tbody></table></div>';
+    } else if (b.ports) {
+      html += '<p class="small muted">该键没有端口表。</p>';
+    }
+    panel.innerHTML = html;
+    panel.classList.add('on');
+  }
+
+  function closePanel(){
+    panel.classList.remove('on');
+    panel.innerHTML = '';
+  }
+
+  panel.addEventListener('click', ev => {
+    if (ev.target.closest('.pp-close')) closePanel();
+  });
+
+  document.addEventListener('keydown', ev => {
+    if (ev.key === 'Escape'){
+      if (panel.classList.contains('on')) { closePanel(); return; }
+      if (stack.length > 1){ stack.pop(); drawScene(stack[stack.length - 1]); }
+    }
+  });
+
+  function applyZoom(){
+    svg.style.width = zoom === 1 ? '100%' : (zoom * 100) + '%';
+  }
+  document.querySelectorAll('[data-zoom]').forEach(btn => {
+    btn.addEventListener('click', () => {
+      const d = Number(btn.getAttribute('data-zoom'));
+      if (d === 0) zoom = 1;
+      else if (d > 0) zoom = Math.min(2, zoom + 0.25);
+      else zoom = Math.max(0.75, zoom - 0.25);
+      applyZoom();
+    });
+  });
+
+  drawScene(startId);
+})();
+
+/* ============================================================
+   Verilog syntax highlight (small, offline)
+   ============================================================ */
+(function(){
+  const KEY = 'module|endmodule|always|assign|wire|reg|input|output|inout|localparam|parameter|integer|genvar|generate|endgenerate|for|if|else|begin|end|case|endcase|default|posedge|negedge|initial|function|endfunction|task|endtask|repeat|while|break|return|automatic';
+  const re = new RegExp(
+    '(\\/\\/[^\\n]*)' +
+    '|(\\b\\d+\'[bdh][0-9a-fA-FxXzZ_]+|\\b\\d+\\b)' +
+    '|(\\b(?:SNOW_[A-Z0-9_]+|ST_[A-Z]+|K_[A-Z_]+|OFF_[A-Z]+|SO_[A-Z]+|IO_[A-Z]+)\\b)' +
+    '|(\\b(?:' + KEY + ')\\b)',
+    'g'
+  );
+  const esc = s => s.replace(/[&<>]/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;'})[c]);
+  document.querySelectorAll('pre.code[data-lang="verilog"]').forEach(pre => {
+    const raw = pre.textContent;
+    let out = '', last = 0, m;
+    re.lastIndex = 0;
+    while ((m = re.exec(raw)) !== null){
+      out += esc(raw.slice(last, m.index));
+      let cls = '';
+      if (m[1]) cls = 'c';
+      else if (m[2]) cls = 'n';
+      else if (m[3]) cls = 'cc';
+      else cls = 'k';
+      out += '<span class="' + cls + '">' + esc(m[0]) + '</span>';
+      last = re.lastIndex;
+    }
+    out += esc(raw.slice(last));
+    pre.innerHTML = out;
+  });
+})();
+
+/* ============================================================
+   Quiz
+   ============================================================ */
+(function(){
+  const QUIZ = [
+    {
+      q: '为什么 trace 不在 PS 里逐拍轮询 obs_*，而是在 PL 里抓成宽记录、事后取？',
+      opts: [
+        '因为 AXI4-Lite 不支持突发读',
+        '因为一轮只有几十拍，回读却有上百到几百个字；轮询比解码慢一个数量级以上，降频单步还会引入第二时钟域',
+        '因为 PS 的 Cortex-A9 没有 MMU',
+        '因为 obs_* 是模拟信号，必须先经 ADC'
+      ],
+      a: 1,
+      why: '一轮 28~40 拍（@20 ns 约 0.6~0.8 µs），一条记录 17（d3）/67（d5）个字，一轮 5~10 条 ⇒ 每轮回读约 119（d3）/469（d5）个字；按每次 3 拍算就是解码本身的 12~28 倍。降频“单步”能补带宽，但要给阵列第二个时钟域 + clock converter，直接违反单时钟/无 CDC 契约。'
+    },
+    {
+      q: '共享晶格里，为什么每次 merging 要扫两遍 phase？',
+      opts: [
+        '为了让时钟频率翻倍',
+        '因为 pass A 洪泛时无法读取晚于自己相位的邻居组合 push，必须先把推送决定写进状态位 pb，pass B 再比较 bank 指针',
+        '因为每一趟只能处理奇数节点',
+        '为了给 BRAM 留出刷新时间'
+      ],
+      a: 1,
+      why: '合并成一路数据通路后，一个格不能再“戳”晚相位邻居的组合输出。pass A 把 push 决策压成 pb（黄金里边界节点确实有 defect=1 且 ptr!=C，所以 !IS_BND 不能省）；pass B 用 bank 里的指针算 active/push，并只在 pass B 提交边。'
+    },
+    {
+      q: 'bank 的每个读口为什么写成“每上下文常量地址 + phase 选择”，而不是 bview[myaddr]？',
+      opts: [
+        '前者更省寄存器',
+        '变量地址会让综合器为每个读口生成整 bank 的 mux/推断 memory，面积与时序爆炸；常量地址才对应真实的寄存器 + 小 mux',
+        'Verilog 语法不允许用 wire 做数组下标',
+        '因为 ModelSim 不支持变量下标'
+      ],
+      a: 1,
+      why: 'surface d3、744 字 × 576 个读口时，变量地址版本 25 分钟综合不完；常量地址版本把每个读口变成 NCTX 选 1 的寄存器 mux。偏移还必须截断到 AW 位，否则负偏移会读到 bank 外。'
+    },
+    {
+      q: '采集窗口为什么是 armed && (running || done)，而不是 armed && running && !done？',
+      opts: [
+        '因为 done 是低有效',
+        '因为 TB 的 @(negedge clk) 在循环体顶部，done 那一拍已经被采样；用 !done 会每轮丢最后一条记录（83→71）',
+        '因为 done 会持续两个周期',
+        '因为 trace 需要记录空闲拍'
+      ],
+      a: 1,
+      why: 'dump 循环是 while (!done) begin @(negedge clk); if (dbg_valid) dump; end。记录在测试 done 之前就读走了，所以 done 那一拍在轨迹里。观测窗口是接口规格的一部分，必须从 TB 的语句顺序推。'
+    },
+    {
+      q: '一条边的 growth 与 ecorr 分别是什么语义？',
+      opts: [
+        'growth 是 8 位计数器，ecorr 是奇偶校验',
+        'growth 由两端各推半条并饱和到 2（三态）；ecorr 在 merging 时按 flip_u ^ flip_v 翻转，两端同时翻转抵消',
+        'growth 是边的延迟，ecorr 是错误率',
+        '两者都由软件写入，硬件只读'
+      ],
+      a: 1,
+      why: 'growth 只有 0/1/2 三态，因为 2:1 调度下每条边最多被两端各长半条。ecorr 一位；两路 push/flip 同时到达时异或抵消，所以一条边只留一个纠错位。'
+    },
+    {
+      q: '为什么 state bank 没有 initial 镜像，且 reset 必须至少一拍？',
+      opts: [
+        'initial 镜像会让仿真变慢',
+        'write_verilog -mode funcsim 会丢 initial；有镜像时 Vivado 还会把时钟复位当冗余优化掉，门级从 x 起跑、永不收敛',
+        '因为 FPGA 的 FF 上电一定是 1',
+        '因为 reset 是低有效'
+      ],
+      a: 1,
+      why: '这是实测过的双重坑：镜像在门级消失，且让综合器删掉时钟复位，结果两条预置路径都没有。现在逐槽位时钟复位是唯一预置路径，reset_sync 的 cnt INIT=0 还保证上电自复位 LEN 拍。'
+    },
+    {
+      q: 'MAXREC 为什么必须是 2 的幂？',
+      opts: [
+        '因为 AXI 地址必须对齐 4 KB',
+        '因为写指针靠位宽截断回绕；非 2 的幂会算错地址、覆盖旧记录',
+        '因为 BRAM 只能按 2 的幂例化',
+        '因为 ID 块只有 8 位'
+      ],
+      a: 1,
+      why: 'wptr 是 $clog2(MAXREC) 位，wptr+1 的回绕依赖 MAXREC 是 2 的幂。非 2 的幂时指针序列会跳过/重复地址。trace_capture 在 elaboration 时对 MAXREC 做 FATAL 检查。'
+    },
+    {
+      q: 'STATUS 为什么刻意加了一拍流水 status_q？',
+      opts: [
+        '为了让 PS 读得更慢',
+        '因为 all_busy 是阵列关键链的末端；直接进读 mux 会把路径拉到 20.041 ns（WNS −0.096），加流水后 19.65 ns（WNS +0.350）',
+        '为了跨时钟域',
+        '为了增加一个调试寄存器'
+      ],
+      a: 1,
+      why: '最差路径是 u_array/g_slot[16].own_reg[14]/C → u_host/rdata_r_reg[1]/D，27 级、布线占 80.7%。STATUS 加一拍对轮询宿主免费，却把读 mux 移出阵列关键链，WNS 转正。'
+    }
+  ];
+
+  const list = document.getElementById('quizList');
+  const scoreEl = document.getElementById('quizScore');
+  let answered = 0, correct = 0;
+  const done = new Set();
+
+  function render(){
+    list.innerHTML = '';
+    QUIZ.forEach((item, qi) => {
+      const q = document.createElement('div');
+      q.className = 'q';
+      q.innerHTML = '<div class="qt"><span class="qn">' + (qi + 1) + '</span><span>' + esc(item.q) + '</span></div>';
+      const opts = document.createElement('div');
+      opts.className = 'opts';
+      item.opts.forEach((text, oi) => {
+        const btn = document.createElement('button');
+        btn.type = 'button';
+        btn.className = 'opt';
+        btn.innerHTML = '<span class="mark">' + String.fromCharCode(65 + oi) + '</span><span>' + esc(text) + '</span>';
+        btn.addEventListener('click', () => pick(qi, oi, q, opts));
+        opts.appendChild(btn);
+      });
+      q.appendChild(opts);
+      const why = document.createElement('div');
+      why.className = 'why';
+      why.innerHTML = '<b>解析：</b>' + esc(item.why);
+      q.appendChild(why);
+      list.appendChild(q);
+    });
+    updateScore();
+  }
+
+  function pick(qi, oi, q, opts){
+    if (done.has(qi)) return;
+    done.add(qi);
+    answered++;
+    const item = QUIZ[qi];
+    const isRight = oi === item.a;
+    if (isRight) correct++;
+    const buttons = opts.querySelectorAll('.opt');
+    buttons.forEach((b, i) => {
+      b.disabled = true;
+      if (i === item.a) b.classList.add('correct');
+      else if (i === oi) b.classList.add('wrong');
+    });
+    q.querySelector('.why').classList.add('on');
+    updateScore();
+  }
+
+  function updateScore(){
+    scoreEl.textContent = '已答 ' + answered + ' / ' + QUIZ.length + ' · 首答正确 ' + correct;
+  }
+
+  document.getElementById('quizReset').addEventListener('click', () => {
+    answered = 0; correct = 0; done.clear();
+    render();
+  });
+
+  function esc(s){
+    return String(s).replace(/[&<>"']/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'})[c]);
+  }
+
+  render();
+})();
+
+/* ============================================================
+   Notes (localStorage)
+   ============================================================ */
+(function(){
+  const KEY = 'snowflake-fpga-study-notes-v1';
+  const area = document.getElementById('noteArea');
+  const status = document.getElementById('noteStatus');
+  const clear = document.getElementById('noteClear');
+  let timer = null;
+
+  try {
+    const saved = localStorage.getItem(KEY);
+    if (saved){
+      area.value = saved;
+      status.textContent = '已载入本机笔记';
+    }
+  } catch (e) {
+    status.textContent = '此环境不能访问 localStorage';
+  }
+
+  function save(){
+    try {
+      localStorage.setItem(KEY, area.value);
+      const t = new Date();
+      const hh = String(t.getHours()).padStart(2, '0');
+      const mm = String(t.getMinutes()).padStart(2, '0');
+      const ss = String(t.getSeconds()).padStart(2, '0');
+      status.textContent = '已保存 ' + hh + ':' + mm + ':' + ss;
+    } catch (e) {
+      status.textContent = '保存失败（localStorage 不可用）';
+    }
+  }
+
+  area.addEventListener('input', () => {
+    status.textContent = '正在输入…';
+    clearTimeout(timer);
+    timer = setTimeout(save, 420);
+  });
+
+  clear.addEventListener('click', () => {
+    if (!area.value) return;
+    if (!confirm('清空本页笔记？此操作不可撤销。')) return;
+    area.value = '';
+    try { localStorage.removeItem(KEY); } catch (e) {}
+    status.textContent = '已清空';
+    area.focus();
+  });
+})();
+
+/* ============================================================
+   Nav scrollspy
+   ============================================================ */
+(function(){
+  const links = Array.from(document.querySelectorAll('.nav a'));
+  const map = new Map();
+  links.forEach(a => {
+    const id = a.getAttribute('href').slice(1);
+    const sec = document.getElementById(id);
+    if (sec) map.set(sec, a);
+  });
+  const io = new IntersectionObserver(entries => {
+    entries.forEach(en => {
+      if (en.isIntersecting){
+        links.forEach(a => a.classList.remove('on'));
+        const a = map.get(en.target);
+        if (a) a.classList.add('on');
+      }
+    });
+  }, {rootMargin: '-40% 0px -55% 0px', threshold: 0});
+  map.forEach((a, sec) => io.observe(sec));
+})();
+</script>
+</body>
+</html>

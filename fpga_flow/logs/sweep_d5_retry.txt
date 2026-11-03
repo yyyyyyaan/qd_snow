@@ -1,0 +1,4 @@
+[jobs] 1 job(s) from fpga_flow/jobs_d5_retry.txt
+[run ] surface_d5_2to1_mints_busyreg_xcvu9p  top=snowflake_pe_array part=xcvu9p-flga2104-2L-e period=5.0 mode=impl defs=[SNOW_MINTS;SNOW_BUSYREG] graph=[D:\ycz\doc\deepseek_workzone\decoder\fpga_flow\graphs\surface_d5.svh]
+[done] surface_d5_2to1_mints_busyreg_xcvu9p  wns=-0.227 lut=28423 ff=6553 fmax=191.3MHz  (36.8 min)
+sweep finished -> D:\ycz\doc\deepseek_workzone\decoder\fpga_flow\summary_impl.csv

@@ -1,0 +1,42 @@
+Copyright 1986-2020 Xilinx, Inc. All Rights Reserved.
+-------------------------------------------------------------------------------------------------------------------------------------
+| Tool Version : Vivado v.2020.2 (win64) Build 3064766 Wed Nov 18 09:12:45 MST 2020
+| Date         : Sat Sep 19 02:24:34 2026
+| Host         : DESKTOP-TO7M6OH running 64-bit major release  (build 9200)
+| Command      : report_drc -file {D:\ycz\doc\deepseek_workzone\decoder\fpga_flow\logs/drc_surface_d5_2to1_sliced_serial_xcvu9p.rpt}
+| Design       : snowflake_pe_array
+| Device       : xcvu9p-flga2104-2L-e
+| Speed File   : -2L
+| Design State : Fully Routed
+-------------------------------------------------------------------------------------------------------------------------------------
+
+Report DRC
+
+Table of Contents
+-----------------
+1. REPORT SUMMARY
+2. REPORT DETAILS
+
+1. REPORT SUMMARY
+-----------------
+            Netlist: snowflake_pe_array
+          Floorplan: design_1
+      Design limits: <entire design considered>
+           Ruledeck: default
+             Max violations: <unlimited>
+             Violations found: 1
++-----------+----------+-------------------+------------+
+| Rule      | Severity | Description       | Violations |
++-----------+----------+-------------------+------------+
+| RTSTAT-10 | Warning  | No routable loads | 1          |
++-----------+----------+-------------------+------------+
+
+2. REPORT DETAILS
+-----------------
+RTSTAT-10#1 Warning
+No routable loads  
+76 net(s) have no routable loads. The problem bus(es) and/or net(s) are all_busy, commit_onehot[60:0], dbg_stage[2:0], dbg_step[7:0], dbg_valid,
+done, g_pe[100].pe_i/o_n_grown_INST_0_i_13_n_0.
+Related violations: <none>
+
+

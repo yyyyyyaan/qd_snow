@@ -1,0 +1,43 @@
+<svg xmlns="http://www.w3.org/2000/svg" version="1.1" width="1280" height="720" viewBox="0 0 1280 720" font-family="Arial, &quot;Microsoft YaHei&quot;, sans-serif"><rect x="0" y="0" width="1280" height="720" fill="#FFFFFF" />
+<g id="shape-6" data-pptx-object="group" data-pptx-frame="63.32 122 773.48 44" data-pptx-source-ref="slide:6">
+<g id="shape-5" data-pptx-object="shape" data-pptx-frame="63.32 122 773.48 44" data-pptx-prst="rect" data-pptx-source-ref="slide:5" data-pptx-semantic-object="shape">
+<path d="M 63.32 122 L 836.8 122 L 836.8 166 L 63.32 166 Z" fill="none" stroke="none" data-pptx-part="geometry" />
+
+
+<text x="63.32" y="138" font-size="14.93" fill="#2C6E9B">窗口只保留最近 d 层：新一层从顶部进，最底一层解完就提交。<tspan x="63.32" dy="22">每轮只上移一层，状态要跨轮保留，所以窗口不能再矮。</tspan></text>
+</g>
+</g>
+<g id="shape-9" data-pptx-object="group" data-pptx-frame="148 176 984 472" data-pptx-source-ref="slide:9">
+<g id="shape-7" data-pptx-object="shape" data-pptx-frame="148 176 984 472" data-pptx-prst="roundRect" data-pptx-av-adj="val 847" data-pptx-source-ref="slide:7" data-pptx-semantic-object="shape">
+<path d="M 148 180 A 4 4 0 0 1 152 176 L 1128 176 A 4 4 0 0 1 1132 180 L 1132 644 A 4 4 0 0 1 1128 648 L 152 648 A 4 4 0 0 1 148 644 Z" fill="#FFFFFF" stroke-width="1" stroke="#D8DEE5" data-pptx-part="geometry" />
+
+</g>
+<g id="shape-8" data-pptx-object="picture" data-pptx-frame="171.95 188 936.1 448" data-pptx-source-ref="slide:8">
+<image data-pptx-object="picture" data-pptx-frame="171.95 188 936.1 448" href="../images/image6.png" x="171.95" y="188" width="936.1" height="448" preserveAspectRatio="none" />
+</g>
+</g>
+<g id="shape-11" data-pptx-object="group" data-pptx-frame="159.4 651.33 644.66 23.1" data-pptx-source-ref="slide:11">
+<g id="shape-10" data-pptx-object="shape" data-pptx-frame="159.4 651.33 644.66 23.1" data-pptx-prst="rect" data-pptx-source-ref="slide:10" data-pptx-semantic-object="shape">
+<path d="M 159.4 651.33 L 804.06 651.33 L 804.06 674.43 L 159.4 674.43 Z" fill="none" stroke="none" data-pptx-part="geometry" />
+
+
+<text x="159.4" y="666" text-anchor="start" xml:space="preserve" font-size="14.93" fill="#2C6E9B" data-pptx-text-baseline="metrics-v1">(a) 一个缺陷：生长 → 推到最高点 → 碰边界 → 失活　(b) 两个缺陷：各自生长 → 合并 → 湮灭</text>
+</g>
+</g>
+<g id="shape-15" data-pptx-object="group" data-pptx-frame="70.48 37.33 1137.52 81.67" data-pptx-source-ref="slide:15">
+<g id="shape-16" data-pptx-object="shape" data-pptx-frame="71.4 37.33 163.86 23.1" data-pptx-prst="rect" data-pptx-source-ref="slide:16" data-pptx-semantic-object="shape">
+<path d="M 71.4 37.33 L 235.26 37.33 L 235.26 60.43 L 71.4 60.43 Z" fill="none" stroke="none" data-pptx-part="geometry" />
+
+
+<text x="71.4" y="52" text-anchor="start" xml:space="preserve" font-size="14.93" fill="#5A6672" letter-spacing="1.4" data-pptx-text-baseline="metrics-v1"><tspan>01 / 背景与问题定义</tspan></text>
+</g>
+<g id="shape-17" data-pptx-object="shape" data-pptx-frame="70.48 64 236.96 46.05" data-pptx-prst="rect" data-pptx-source-ref="slide:17" data-pptx-semantic-object="shape">
+<path d="M 70.48 64 L 307.44 64 L 307.44 110.05 L 70.48 110.05 Z" fill="none" stroke="none" data-pptx-part="geometry" />
+
+
+<text x="70.48" y="100" text-anchor="start" xml:space="preserve" font-size="38" fill="#12263A" font-weight="bold" data-pptx-text-baseline="metrics-v1">滑动窗口机制</text>
+</g>
+<g id="shape-18" data-pptx-object="shape" data-pptx-frame="72 118 1136 1" data-pptx-geometry-kind="custom" data-pptx-source-ref="slide:18" data-pptx-semantic-object="shape">
+<path d="M 72 118 L 1208 118" data-pptx-part="geometry" fill="none" stroke-width="1" stroke="#D8DEE5" />
+</g>
+</g></svg>

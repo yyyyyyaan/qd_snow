@@ -1,0 +1,4 @@
+# M3 measurement (localised push, macro SNOW_M3LOC is only a tag marker)
+rep 3 2:1 xcvu9p-flga2104-2L-e 5.0 SNOW_M3LOC
+surface 3 2:1 xcvu9p-flga2104-2L-e 5.0 SNOW_M3LOC
+rep 5 2:1 xcvu9p-flga2104-2L-e 5.0 SNOW_M3LOC

@@ -1,0 +1,10 @@
+[jobs] 3 job(s) from fpga_flow/jobs_mints_busyreg.txt
+[run ] surface_d3_2to1_mints_busyreg_xcvu9p  top=snowflake_pe_array part=xcvu9p-flga2104-2L-e period=5.0 mode=impl defs=[SNOW_MINTS;SNOW_BUSYREG] graph=[D:\ycz\doc\deepseek_workzone\decoder\fpga_flow\graphs\surface_d3.svh]
+[done] surface_d3_2to1_mints_busyreg_xcvu9p  wns=0.119 lut=5430 ff=1376 fmax=204.9MHz  (7.3 min)
+[run ] surface_d5_2to1_mints_busyreg_xcvu9p  top=snowflake_pe_array part=xcvu9p-flga2104-2L-e period=5.0 mode=impl defs=[SNOW_MINTS;SNOW_BUSYREG] graph=[D:\ycz\doc\deepseek_workzone\decoder\fpga_flow\graphs\surface_d5.svh]
+[retry] surface_d5_2to1_mints_busyreg_xcvu9p (Vivado install-script read flake)
+[FAIL] surface_d5_2to1_mints_busyreg_xcvu9p exit=1 after 2.0 min (see D:\ycz\doc\deepseek_workzone\decoder\fpga_flow\logs\flow_impl_surface_d5_2to1_mints_busyreg_xcvu9p.log)
+[run ] surface_d7_2to1_mints_busyreg_xcvu9p  top=snowflake_pe_array part=xcvu9p-flga2104-2L-e period=5.0 mode=impl defs=[SNOW_MINTS;SNOW_BUSYREG] graph=[D:\ycz\doc\deepseek_workzone\decoder\fpga_flow\graphs\surface_d7.svh]
+[retry] surface_d7_2to1_mints_busyreg_xcvu9p (Vivado install-script read flake)
+[done] surface_d7_2to1_mints_busyreg_xcvu9p  wns=-1.359 lut=89291 ff=18283 fmax=157.3MHz  (67.2 min)
+sweep finished -> D:\ycz\doc\deepseek_workzone\decoder\fpga_flow\summary_impl.csv

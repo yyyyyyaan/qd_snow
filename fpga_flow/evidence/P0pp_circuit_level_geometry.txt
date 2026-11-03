@@ -1,0 +1,145 @@
+P0''  CIRCUIT-LEVEL GEOMETRY FEASIBILITY -- evidence summary  (2026-09-21)
+========================================================================
+Question (NEXT_SESSION_PROMPT.md 4 / D16): the circuit-level column (D14) was
+priced from GRAPH STATISTICS only -- node count unchanged, edges x1.35/1.60/1.72,
+max degree 6 -> 12 -- and was therefore called "just regenerate the tables".
+Its GEOMETRY was never tested.  Does the circuit-level graph satisfy the three
+premises the shared-lattice numbering rests on?
+
+VERDICT:  P1 and P3 hold;  P2 DID NOT, and it is not a subtle corruption.
+          The generator now classes an edge by its full (d_layer, d_rank) pair;
+          with that change every config passes and the circuit-level tables are
+          generated for the first time.  The RTL is still untouched.
+
+
+1. WHAT WAS MEASURED  (fpga_flow/check_circuit_level_geometry.py, 3.2 s)
+-----------------------------------------------------------------------
+The checker is INDEPENDENT of the generator: it re-derives the classification
+from localuf's own node indices.  `logs/circuit_level_geometry.txt` is the full
+output; the summary is:
+
+  config            noise   nodes edges maxdeg  pre-fix rule   generalised
+  surface d3 n=2    phen       36    51     6    PASS            PASS
+  surface d3 n=2    circ       36    69    10    **FAIL** 10     PASS
+  surface d5 n=2    phen      150   285     6    PASS            PASS
+  surface d5 n=2    circ      150   457    12    **FAIL** 76     PASS
+  surface d7 n=2    phen      392   847     6    PASS            PASS
+  surface d7 n=2    circ      392  1453    12    **FAIL** 246    PASS
+  rep d3/d5 n=2     circ        -     -     -    localuf: NotImplementedError
+  (pre-fix FAIL count = number of (slot, slice) CELLS claimed by 2+ edges)
+
+* P1 LAYER ISOMORPHISM: PASS everywhere, and the spatial set is a full
+  rectangle -- the circuit-level graph adds edges, not nodes (36/150/392 nodes,
+  identical to phenomenological), which is what D14 assumed.
+* P3 `above` = the same edge one layer up: PASS everywhere (41/353/1225 links).
+* MAX DEGREE: 10 at d3, **12 at d5 and d7 = exactly NDIR, zero margin**.  The
+  new `assert max degree <= len(dirs)` in build_scripts/generate_snowflake.py
+  (D14 step 1) is therefore TIGHT, and it is what would catch a wider
+  parametrization (e.g. ion trap) before it silently lost a port.
+
+2. THE FAILURE
+--------------
+The generator's edge class used to be three values:
+
+    class 0  in-plane |drank| == 1        (E/W)
+    class 1  in-plane |drank| == NY       (N/S)
+    class 2  ACROSS LAYERS -- with the rank difference NEVER EXAMINED
+
+Class 2 is exactly right for the phenomenological graph, where an inter-layer
+edge is always a pure time step (drank == 0).  Circuit-level noise adds localuf's
+"hook" edges, and these change rank ACROSS layers:
+
+    (d_layer, drank) = (1, -NY)    e.g. `south down`:  (i,j,t) -> (i+1,j,t-1)
+    (d_layer, drank) = (1, +1)     `east up`:          (i,j,t) -> (i,j+1,t+1)
+    (d_layer, drank) = (1, +NY+1)  `south east up`:    (i,j,t) -> (i+1,j+1,t+1)
+
+Filed under class 2 they land on the true vertical edge's slot: `(slot, slice)`
+stops being a bijection and the generator dies with
+
+    make_lattice_sim: ASSERT FAILED: two edges share cell (slot 32, slice 0): 23 and 24
+
+The class inventory is IDENTICAL in shape at every d (NY = 4/6/8 for d3/5/7):
+
+    d3: (0,+1) 27   (0,+4) 12   (1,0) 12   (1,-4) 8   (1,+1) 6   (1,+5) 4
+    d5: (0,+1) 125  (0,+6) 80   (1,0) 80   (1,-6) 64  (1,+1) 60  (1,+7) 48
+    d7: (0,+1) 343  (0,+8) 252  (1,0) ... (1,-8) ... (1,+1) ... (1,+9) ...
+
+i.e. circuit-level adds EXACTLY THREE classes, all with d_layer = +1 and
+drank in {-NY, +1, +NY+1} -- the standard "hook" structure of a circuit-level
+matching graph, and nothing else.
+
+3. THE FIX  (fpga_flow/make_lattice_sim.py)
+-------------------------------------------
+The class is now the FULL (d_layer, drank) pair:
+
+  * in-plane |drank| == 1 -> class 0 and |drank| == NY -> class 1 KEEP their ids,
+    so the phenomenological numbering is untouched;
+  * a pure time step (drank == 0) -> class 2, as before;
+  * every other pair -- hooks AND in-plane diagonals -- is a new class, given
+    the next id in SORTED (d_layer, drank) order, so the numbering is
+    deterministic;
+  * the in-plane `_die` for "any other |drank|" is REMOVED.  It would reject a
+    rotated surface code, whose in-plane steps are +-(NY-1) / +-(NY+1)
+    (logs/rotated_slots.txt: offsets -21,-19,19,21 at d=21).
+  * what still has to hold is what the RTL needs, and both are asserted: the
+    used (class, rank) set is identical in EVERY layout layer, and
+    `(slot, slice)` is a bijection.
+
+RED LINE (default path byte-identical): all three cached phenomenological
+headers reproduce exactly --
+    rep d3 n=2   eb4202478122ca4df72160163699448be12c863fa96cb692fffc52f818fcc119
+    rep d5 n=2   d8ba96b988f6c1b4ad89b7f2b3791f7b01347b6a2cd7c2e03f60b85862eb1b82
+    surface d5 n=5 f4ef7be01ed7b1332790eccbeea07df690146d3681528a21b0193e1c4abf0191
+and `snowflake_sim/ref/gen_golden.py --noise` keeps the golden traces identical
+(rep d3 0bc74fac13bb2dc1..., surface d3 ade076677d3bf459...).
+The in-plane relaxation is provably a no-op for the unrotated column: no
+unrotated config has an in-plane class other than dR = 1 / NY (measured), and
+the hook-only and fully-general generators produce the SAME circuit-level d5
+header (40ac30e7ab468dd8...).
+
+4. THE CIRCUIT-LEVEL TABLES NOW EXIST
+-------------------------------------
+  config             live nodes/edges   ESLOT (phen -> circ)   edge-cell fill
+  surface d3 n=2        36 / 51 -> 69       38 ->  56            67.1% -> 61.6%
+  surface d5 n=2       150 / 285 -> 457    183 -> 312            77.9% -> 73.2%
+  surface d5 n=3       150 / 457             - -> 208            (gmax=2)
+  surface d7 n=2       392 / 847 -> 1453   508 -> 912            83.4% -> 79.7%
+  surface d5 n=2 pad=2 150 / 457             - -> 624            (folding switch)
+All of the generator's own assertions pass (layer isomorphism, (slot,slice)
+bijection, four disjoint address bands, generator-vs-RTL address replay, DROP
+sources, `above` geometry, counter reset image).  Live EDGE cells grow x1.35 /
+1.60 / 1.72 while the instantiated edge slots grow x1.47 / 1.70 / 1.79 -- the
+extra slots are pure padding, and padding is free (report 6.28).
+
+5. TWO PLAN REFINEMENTS
+-----------------------
+(a) `rep` CANNOT carry the circuit-level column: localuf raises
+    NotImplementedError ("Yet to implement circuit-level noise for repetition
+    code"), so `--code rep --noise circuit-level` does not exist.  The cheap
+    regression vehicle used for every previous step is therefore UNAVAILABLE for
+    circuit-level -- the d3 circuit-level regression must run on SURFACE d3.
+(b) The circuit-level golden DOES generate (`gen_golden.py --noise
+    circuit-level`, surface d3: 8,701 lines vs 126,007 bytes phenomenological),
+    and its header lists the full 12-direction order including the six hook
+    names NWD,NU,WD,EU,SD,SEU -- the directions phenomenological never uses.
+
+6. WHAT IS STILL UNVERIFIED
+---------------------------
+ROTATED x circuit-level.  `RotatedSurface` is not yet a `Code` subclass, so its
+graph cannot be fed to the checker (P4 step 1).  Two things are known:
+  * its in-plane steps are +-(NY-1)/+-(NY+1) (rotated_slots.txt), which the
+    pre-fix generator would have rejected and the fixed one classes correctly;
+  * the hook structure of a circuit-level matching graph is a property of the
+    noise model, so the SAME three hook classes are expected.
+The authoritative check is: point `check_circuit_level_geometry.py` at the
+rotated graph as soon as P4 produces it (both noise models), before any RTL or
+area work on it.
+
+COMMANDS
+--------
+  python fpga_flow/check_circuit_level_geometry.py            # all configs, 3 s
+  python fpga_flow/check_circuit_level_geometry.py surface 5 -v
+  python fpga_flow/make_lattice_sim.py --code surface --d 5 --slices 2 `
+      --noise circuit-level --out tmp\cl_d5.svh
+  python snowflake_sim/ref/gen_golden.py --code surface --d 3 --schedule 2:1 `
+      --noise circuit-level --out tmp\gg_d3_cl.txt

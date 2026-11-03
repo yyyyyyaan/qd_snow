@@ -1,0 +1,390 @@
+xilinx rtfpga
+INFO: [Synth 8-6904] The RAM "\pu_k[7].pu_i[5].pu_j[0].u_processing_unit /intermediate_stage/temp_fifo/fifo_reg" of size (depth=16 x width=14) is automatically implemented using LUTRAM. BRAM implementation would be inefficient 
+INFO: [Synth 8-6904] The RAM "\pu_k[8].pu_i[4].pu_j[0].u_processing_unit /intermediate_stage/temp_fifo/fifo_reg" of size (depth=16 x width=14) is automatically implemented using LUTRAM. BRAM implementation would be inefficient 
+INFO: [Synth 8-6904] The RAM "\pu_k[7].pu_i[4].pu_j[2].u_processing_unit /intermediate_stage/temp_fifo/fifo_reg" of size (depth=16 x width=14) is automatically implemented using LUTRAM. BRAM implementation would be inefficient 
+INFO: [Synth 8-6904] The RAM "\pu_k[7].pu_i[5].pu_j[1].u_processing_unit /intermediate_stage/temp_fifo/fifo_reg" of size (depth=16 x width=14) is automatically implemented using LUTRAM. BRAM implementation would be inefficient 
+INFO: [Synth 8-6904] The RAM "\pu_k[7].pu_i[4].pu_j[1].u_processing_unit /intermediate_stage/temp_fifo/fifo_reg" of size (depth=16 x width=14) is automatically implemented using LUTRAM. BRAM implementation would be inefficient 
+INFO: [Synth 8-6904] The RAM "\pu_k[7].pu_i[4].pu_j[0].u_processing_unit /intermediate_stage/temp_fifo/fifo_reg" of size (depth=16 x width=14) is automatically implemented using LUTRAM. BRAM implementation would be inefficient 
+INFO: [Synth 8-6904] The RAM "\neighbor_k[5].neighbor_i[5].neighbor_j[2].blocking_channel_top /temp_fifo/fifo_reg" of size (depth=16 x width=14) is automatically implemented using LUTRAM. BRAM implementation would be inefficient 
+INFO: [Synth 8-6904] The RAM "\neighbor_k[8].neighbor_i[5].neighbor_j[7].blocking_channel_left /temp_fifo/fifo_reg" of size (depth=128 x width=14) is automatically implemented using LUTRAM. BRAM implementation would be inefficient 
+INFO: [Synth 8-6904] The RAM "\neighbor_k[8].neighbor_i[5].neighbor_j[1].blocking_channel_down /temp_fifo/fifo_reg" of size (depth=128 x width=14) is automatically implemented using LUTRAM. BRAM implementation would be inefficient 
+INFO: [Synth 8-6904] The RAM "\neighbor_k[6].neighbor_i[5].neighbor_j[1].blocking_channel_down /temp_fifo/fifo_reg" of size (depth=16 x width=14) is automatically implemented using LUTRAM. BRAM implementation would be inefficient 
+INFO: [Synth 8-6904] The RAM "\neighbor_k[6].neighbor_i[5].neighbor_j[1].blocking_channel_left /temp_fifo/fifo_reg" of size (depth=16 x width=14) is automatically implemented using LUTRAM. BRAM implementation would be inefficient 
+INFO: [Synth 8-6904] The RAM "\neighbor_k[6].neighbor_i[5].neighbor_j[1].blocking_channel_top /temp_fifo/fifo_reg" of size (depth=16 x width=14) is automatically implemented using LUTRAM. BRAM implementation would be inefficient 
+INFO: [Synth 8-6904] The RAM "\neighbor_k[6].neighbor_i[5].neighbor_j[0].blocking_channel_down /temp_fifo/fifo_reg" of size (depth=16 x width=14) is automatically implemented using LUTRAM. BRAM implementation would be inefficient 
+INFO: [Synth 8-6904] The RAM "\neighbor_k[6].neighbor_i[5].neighbor_j[0].blocking_channel_left /temp_fifo/fifo_reg" of size (depth=16 x width=14) is automatically implemented using LUTRAM. BRAM implementation would be inefficient 
+INFO: [Synth 8-6904] The RAM "\neighbor_k[6].neighbor_i[5].neighbor_j[0].blocking_channel_top /temp_fifo/fifo_reg" of size (depth=16 x width=14) is automatically implemented using LUTRAM. BRAM implementation would be inefficient 
+INFO: [Synth 8-6904] The RAM "\neighbor_k[8].neighbor_i[5].neighbor_j[0].blocking_channel_down /temp_fifo/fifo_reg" of size (depth=128 x width=14) is automatically implemented using LUTRAM. BRAM implementation would be inefficient 
+INFO: [Synth 8-6904] The RAM "\neighbor_k[8].neighbor_i[5].neighbor_j[0].blocking_channel_left /temp_fifo/fifo_reg" of size (depth=16 x width=14) is automatically implemented using LUTRAM. BRAM implementation would be inefficient 
+INFO: [Synth 8-6904] The RAM "\neighbor_k[6].neighbor_i[4].neighbor_j[2].blocking_channel_down /temp_fifo/fifo_reg" of size (depth=16 x width=14) is automatically implemented using LUTRAM. BRAM implementation would be inefficient 
+INFO: [Synth 8-6904] The RAM "\neighbor_k[6].neighbor_i[6].neighbor_j[0].blocking_channel_left /temp_fifo/fifo_reg" of size (depth=16 x width=14) is automatically implemented using LUTRAM. BRAM implementation would be inefficient 
+INFO: [Synth 8-6904] The RAM "\neighbor_k[6].neighbor_i[6].neighbor_j[0].blocking_channel_down /temp_fifo/fifo_reg" of size (depth=16 x width=14) is automatically implemented using LUTRAM. BRAM implementation would be inefficient 
+INFO: [Synth 8-6904] The RAM "\neighbor_k[8].neighbor_i[4].neighbor_j[7].blocking_channel_left /temp_fifo/fifo_reg" of size (depth=128 x width=14) is automatically implemented using LUTRAM. BRAM implementation would be inefficient 
+INFO: [Synth 8-6904] The RAM "\neighbor_k[6].neighbor_i[6].neighbor_j[1].blocking_channel_down /temp_fifo/fifo_reg" of size (depth=16 x width=14) is automatically implemented using LUTRAM. BRAM implementation would be inefficient 
+INFO: [Synth 8-6904] The RAM "\neighbor_k[7].neighbor_i[5].neighbor_j[0].blocking_channel_down /temp_fifo/fifo_reg" of size (depth=16 x width=14) is automatically implemented using LUTRAM. BRAM implementation would be inefficient 
+INFO: [Synth 8-6904] The RAM "\neighbor_k[5].neighbor_i[5].neighbor_j[1].blocking_channel_down /temp_fifo/fifo_reg" of size (depth=16 x width=14) is automatically implemented using LUTRAM. BRAM implementation would be inefficient 
+INFO: [Synth 8-6904] The RAM "\pu_k[8].pu_i[4].pu_j[1].u_processing_unit /intermediate_stage/temp_fifo/fifo_reg" of size (depth=16 x width=14) is automatically implemented using LUTRAM. BRAM implementation would be inefficient 
+INFO: [Synth 8-6904] The RAM "\neighbor_k[5].neighbor_i[5].neighbor_j[1].blocking_channel_left /temp_fifo/fifo_reg" of size (depth=16 x width=14) is automatically implemented using LUTRAM. BRAM implementation would be inefficient 
+INFO: [Synth 8-6904] The RAM "\neighbor_k[6].neighbor_i[4].neighbor_j[2].blocking_channel_top /temp_fifo/fifo_reg" of size (depth=16 x width=14) is automatically implemented using LUTRAM. BRAM implementation would be inefficient 
+INFO: [Synth 8-6904] The RAM "\neighbor_k[6].neighbor_i[4].neighbor_j[1].blocking_channel_down /temp_fifo/fifo_reg" of size (depth=16 x width=14) is automatically implemented using LUTRAM. BRAM implementation would be inefficient 
+INFO: [Synth 8-6904] The RAM "\neighbor_k[6].neighbor_i[4].neighbor_j[1].blocking_channel_left /temp_fifo/fifo_reg" of size (depth=16 x width=14) is automatically implemented using LUTRAM. BRAM implementation would be inefficient 
+INFO: [Synth 8-6904] The RAM "\neighbor_k[6].neighbor_i[4].neighbor_j[1].blocking_channel_top /temp_fifo/fifo_reg" of size (depth=16 x width=14) is automatically implemented using LUTRAM. BRAM implementation would be inefficient 
+INFO: [Synth 8-6904] The RAM "\neighbor_k[6].neighbor_i[4].neighbor_j[0].blocking_channel_down /temp_fifo/fifo_reg" of size (depth=16 x width=14) is automatically implemented using LUTRAM. BRAM implementation would be inefficient 
+INFO: [Synth 8-6904] The RAM "\neighbor_k[6].neighbor_i[4].neighbor_j[0].blocking_channel_left /temp_fifo/fifo_reg" of size (depth=16 x width=14) is automatically implemented using LUTRAM. BRAM implementation would be inefficient 
+INFO: [Synth 8-6904] The RAM "\neighbor_k[6].neighbor_i[4].neighbor_j[0].blocking_channel_top /temp_fifo/fifo_reg" of size (depth=16 x width=14) is automatically implemented using LUTRAM. BRAM implementation would be inefficient 
+INFO: [Synth 8-6904] The RAM "\neighbor_k[8].neighbor_i[4].neighbor_j[0].blocking_channel_top /temp_fifo/fifo_reg" of size (depth=16 x width=14) is automatically implemented using LUTRAM. BRAM implementation would be inefficient 
+INFO: [Synth 8-6904] The RAM "\neighbor_k[5].neighbor_i[3].neighbor_j[2].blocking_channel_top /temp_fifo/fifo_reg" of size (depth=16 x width=14) is automatically implemented using LUTRAM. BRAM implementation would be inefficient 
+INFO: [Synth 8-6904] The RAM "\neighbor_k[5].neighbor_i[5].neighbor_j[1].blocking_channel_top /temp_fifo/fifo_reg" of size (depth=16 x width=14) is automatically implemented using LUTRAM. BRAM implementation would be inefficient 
+INFO: [Synth 8-6904] The RAM "\neighbor_k[6].neighbor_i[3].neighbor_j[2].blocking_channel_top /temp_fifo/fifo_reg" of size (depth=16 x width=14) is automatically implemented using LUTRAM. BRAM implementation would be inefficient 
+INFO: [Synth 8-6904] The RAM "\neighbor_k[5].neighbor_i[3].neighbor_j[2].blocking_channel_down /temp_fifo/fifo_reg" of size (depth=16 x width=14) is automatically implemented using LUTRAM. BRAM implementation would be inefficient 
+INFO: [Synth 8-6904] The RAM "\neighbor_k[8].neighbor_i[4].neighbor_j[0].blocking_channel_left /temp_fifo/fifo_reg" of size (depth=16 x width=14) is automatically implemented using LUTRAM. BRAM implementation would be inefficient 
+INFO: [Synth 8-6904] The RAM "\neighbor_k[5].neighbor_i[4].neighbor_j[0].blocking_channel_top /temp_fifo/fifo_reg" of size (depth=16 x width=14) is automatically implemented using LUTRAM. BRAM implementation would be inefficient 
+INFO: [Synth 8-6904] The RAM "\neighbor_k[5].neighbor_i[4].neighbor_j[0].blocking_channel_left /temp_fifo/fifo_reg" of size (depth=16 x width=14) is automatically implemented using LUTRAM. BRAM implementation would be inefficient 
+INFO: [Synth 8-6904] The RAM "\neighbor_k[5].neighbor_i[5].neighbor_j[0].blocking_channel_down /temp_fifo/fifo_reg" of size (depth=16 x width=14) is automatically implemented using LUTRAM. BRAM implementation would be inefficient 
+INFO: [Synth 8-6904] The RAM "\neighbor_k[7].neighbor_i[4].neighbor_j[2].blocking_channel_top /temp_fifo/fifo_reg" of size (depth=16 x width=14) is automatically implemented using LUTRAM. BRAM implementation would be inefficient 
+INFO: [Synth 8-6904] The RAM "\neighbor_k[7].neighbor_i[4].neighbor_j[1].blocking_channel_down /temp_fifo/fifo_reg" of size (depth=16 x width=14) is automatically implemented using LUTRAM. BRAM implementation would be inefficient 
+INFO: [Synth 8-6904] The RAM "\neighbor_k[7].neighbor_i[5].neighbor_j[0].blocking_channel_top /temp_fifo/fifo_reg" of size (depth=16 x width=14) is automatically implemented using LUTRAM. BRAM implementation would be inefficient 
+INFO: [Synth 8-6904] The RAM "\neighbor_k[8].neighbor_i[4].neighbor_j[1].blocking_channel_top /temp_fifo/fifo_reg" of size (depth=16 x width=14) is automatically implemented using LUTRAM. BRAM implementation would be inefficient 
+INFO: [Synth 8-6904] The RAM "\neighbor_k[7].neighbor_i[5].neighbor_j[1].blocking_channel_top /temp_fifo/fifo_reg" of size (depth=16 x width=14) is automatically implemented using LUTRAM. BRAM implementation would be inefficient 
+INFO: [Synth 8-6904] The RAM "\neighbor_k[7].neighbor_i[5].neighbor_j[1].blocking_channel_left /temp_fifo/fifo_reg" of size (depth=16 x width=14) is automatically implemented using LUTRAM. BRAM implementation would be inefficient 
+INFO: [Synth 8-6904] The RAM "\pu_k[8].pu_i[5].pu_j[0].u_processing_unit /intermediate_stage/temp_fifo/fifo_reg" of size (depth=16 x width=14) is automatically implemented using LUTRAM. BRAM implementation would be inefficient 
+INFO: [Synth 8-6904] The RAM "\neighbor_k[5].neighbor_i[6].neighbor_j[1].blocking_channel_down /temp_fifo/fifo_reg" of size (depth=16 x width=14) is automatically implemented using LUTRAM. BRAM implementation would be inefficient 
+INFO: [Synth 8-6904] The RAM "\neighbor_k[5].neighbor_i[6].neighbor_j[1].blocking_channel_left /temp_fifo/fifo_reg" of size (depth=16 x width=14) is automatically implemented using LUTRAM. BRAM implementation would be inefficient 
+INFO: [Synth 8-6904] The RAM "\pu_k[6].pu_i[6].pu_j[1].u_processing_unit /intermediate_stage/temp_fifo/fifo_reg" of size (depth=16 x width=14) is automatically implemented using LUTRAM. BRAM implementation would be inefficient 
+INFO: [Synth 8-6904] The RAM "\pu_k[5].pu_i[3].pu_j[2].u_processing_unit /intermediate_stage/temp_fifo/fifo_reg" of size (depth=16 x width=14) is automatically implemented using LUTRAM. BRAM implementation would be inefficient 
+INFO: [Synth 8-6904] The RAM "\neighbor_k[7].neighbor_i[5].neighbor_j[1].blocking_channel_down /temp_fifo/fifo_reg" of size (depth=16 x width=14) is automatically implemented using LUTRAM. BRAM implementation would be inefficient 
+INFO: [Synth 8-6904] The RAM "\pu_k[5].pu_i[4].pu_j[0].u_processing_unit /intermediate_stage/temp_fifo/fifo_reg" of size (depth=16 x width=14) is automatically implemented using LUTRAM. BRAM implementation would be inefficient 
+INFO: [Synth 8-6904] The RAM "\pu_k[5].pu_i[4].pu_j[1].u_processing_unit /intermediate_stage/temp_fifo/fifo_reg" of size (depth=16 x width=14) is automatically implemented using LUTRAM. BRAM implementation would be inefficient 
+INFO: [Synth 8-6904] The RAM "\neighbor_k[5].neighbor_i[6].neighbor_j[0].blocking_channel_down /temp_fifo/fifo_reg" of size (depth=16 x width=14) is automatically implemented using LUTRAM. BRAM implementation would be inefficient 
+INFO: [Synth 8-6904] The RAM "\pu_k[5].pu_i[4].pu_j[2].u_processing_unit /intermediate_stage/temp_fifo/fifo_reg" of size (depth=16 x width=14) is automatically implemented using LUTRAM. BRAM implementation would be inefficient 
+INFO: [Synth 8-6904] The RAM "\pu_k[5].pu_i[5].pu_j[0].u_processing_unit /intermediate_stage/temp_fifo/fifo_reg" of size (depth=16 x width=14) is automatically implemented using LUTRAM. BRAM implementation would be inefficient 
+INFO: [Synth 8-6904] The RAM "\pu_k[5].pu_i[5].pu_j[1].u_processing_unit /intermediate_stage/temp_fifo/fifo_reg" of size (depth=16 x width=14) is automatically implemented using LUTRAM. BRAM implementation would be inefficient 
+INFO: [Synth 8-6904] The RAM "\pu_k[5].pu_i[5].pu_j[2].u_processing_unit /intermediate_stage/temp_fifo/fifo_reg" of size (depth=16 x width=14) is automatically implemented using LUTRAM. BRAM implementation would be inefficient 
+INFO: [Synth 8-6904] The RAM "\pu_k[5].pu_i[6].pu_j[0].u_processing_unit /intermediate_stage/temp_fifo/fifo_reg" of size (depth=16 x width=14) is automatically implemented using LUTRAM. BRAM implementation would be inefficient 
+INFO: [Synth 8-6904] The RAM "\neighbor_k[7].neighbor_i[4].neighbor_j[1].blocking_channel_top /temp_fifo/fifo_reg" of size (depth=16 x width=14) is automatically implemented using LUTRAM. BRAM implementation would be inefficient 
+INFO: [Synth 8-6904] The RAM "\neighbor_k[7].neighbor_i[4].neighbor_j[0].blocking_channel_down /temp_fifo/fifo_reg" of size (depth=16 x width=14) is automatically implemented using LUTRAM. BRAM implementation would be inefficient 
+INFO: [Synth 8-6904] The RAM "\neighbor_k[7].neighbor_i[4].neighbor_j[0].blocking_channel_left /temp_fifo/fifo_reg" of size (depth=16 x width=14) is automatically implemented using LUTRAM. BRAM implementation would be inefficient 
+INFO: [Synth 8-6904] The RAM "\neighbor_k[7].neighbor_i[4].neighbor_j[0].blocking_channel_top /temp_fifo/fifo_reg" of size (depth=16 x width=14) is automatically implemented using LUTRAM. BRAM implementation would be inefficient 
+INFO: [Synth 8-6904] The RAM "\neighbor_k[5].neighbor_i[4].neighbor_j[0].blocking_channel_down /temp_fifo/fifo_reg" of size (depth=16 x width=14) is automatically implemented using LUTRAM. BRAM implementation would be inefficient 
+INFO: [Synth 8-6904] The RAM "\neighbor_k[5].neighbor_i[6].neighbor_j[0].blocking_channel_left /temp_fifo/fifo_reg" of size (depth=16 x width=14) is automatically implemented using LUTRAM. BRAM implementation would be inefficient 
+INFO: [Synth 8-6904] The RAM "\pu_k[8].pu_i[5].pu_j[1].u_processing_unit /intermediate_stage/temp_fifo/fifo_reg" of size (depth=16 x width=14) is automatically implemented using LUTRAM. BRAM implementation would be inefficient 
+INFO: [Synth 8-6904] The RAM "\pu_k[6].pu_i[6].pu_j[0].u_processing_unit /intermediate_stage/temp_fifo/fifo_reg" of size (depth=16 x width=14) is automatically implemented using LUTRAM. BRAM implementation would be inefficient 
+INFO: [Synth 8-6904] The RAM "\pu_k[5].pu_i[6].pu_j[1].u_processing_unit /intermediate_stage/temp_fifo/fifo_reg" of size (depth=16 x width=14) is automatically implemented using LUTRAM. BRAM implementation would be inefficient 
+INFO: [Synth 8-6904] The RAM "\pu_k[6].pu_i[5].pu_j[1].u_processing_unit /intermediate_stage/temp_fifo/fifo_reg" of size (depth=16 x width=14) is automatically implemented using LUTRAM. BRAM implementation would be inefficient 
+INFO: [Synth 8-6904] The RAM "\neighbor_k[5].neighbor_i[4].neighbor_j[1].blocking_channel_top /temp_fifo/fifo_reg" of size (depth=16 x width=14) is automatically implemented using LUTRAM. BRAM implementation would be inefficient 
+INFO: [Synth 8-6904] The RAM "\neighbor_k[5].neighbor_i[4].neighbor_j[1].blocking_channel_left /temp_fifo/fifo_reg" of size (depth=16 x width=14) is automatically implemented using LUTRAM. BRAM implementation would be inefficient 
+INFO: [Synth 8-6904] The RAM "\neighbor_k[5].neighbor_i[4].neighbor_j[1].blocking_channel_down /temp_fifo/fifo_reg" of size (depth=16 x width=14) is automatically implemented using LUTRAM. BRAM implementation would be inefficient 
+INFO: [Synth 8-6904] The RAM "\neighbor_k[5].neighbor_i[4].neighbor_j[2].blocking_channel_top /temp_fifo/fifo_reg" of size (depth=16 x width=14) is automatically implemented using LUTRAM. BRAM implementation would be inefficient 
+INFO: [Synth 8-6904] The RAM "\neighbor_k[7].neighbor_i[5].neighbor_j[0].blocking_channel_left /temp_fifo/fifo_reg" of size (depth=16 x width=14) is automatically implemented using LUTRAM. BRAM implementation would be inefficient 
+INFO: [Synth 8-6904] The RAM "\neighbor_k[5].neighbor_i[4].neighbor_j[2].blocking_channel_down /temp_fifo/fifo_reg" of size (depth=16 x width=14) is automatically implemented using LUTRAM. BRAM implementation would be inefficient 
+INFO: [Synth 8-6904] The RAM "\pu_k[6].pu_i[5].pu_j[0].u_processing_unit /intermediate_stage/temp_fifo/fifo_reg" of size (depth=16 x width=14) is automatically implemented using LUTRAM. BRAM implementation would be inefficient 
+INFO: [Synth 8-6904] The RAM "\neighbor_k[5].neighbor_i[5].neighbor_j[0].blocking_channel_top /temp_fifo/fifo_reg" of size (depth=16 x width=14) is automatically implemented using LUTRAM. BRAM implementation would be inefficient 
+INFO: [Synth 8-6904] The RAM "\neighbor_k[5].neighbor_i[5].neighbor_j[0].blocking_channel_left /temp_fifo/fifo_reg" of size (depth=16 x width=14) is automatically implemented using LUTRAM. BRAM implementation would be inefficient 
+INFO: [Synth 8-6904] The RAM "\neighbor_k[5].neighbor_i[5].neighbor_j[2].blocking_channel_down /temp_fifo/fifo_reg" of size (depth=16 x width=14) is automatically implemented using LUTRAM. BRAM implementation would be inefficient 
+INFO: [Synth 8-6904] The RAM "\pu_k[6].pu_i[4].pu_j[2].u_processing_unit /intermediate_stage/temp_fifo/fifo_reg" of size (depth=16 x width=14) is automatically implemented using LUTRAM. BRAM implementation would be inefficient 
+INFO: [Synth 8-6904] The RAM "\pu_k[6].pu_i[3].pu_j[2].u_processing_unit /intermediate_stage/temp_fifo/fifo_reg" of size (depth=16 x width=14) is automatically implemented using LUTRAM. BRAM implementation would be inefficient 
+INFO: [Synth 8-6904] The RAM "\pu_k[6].pu_i[4].pu_j[0].u_processing_unit /intermediate_stage/temp_fifo/fifo_reg" of size (depth=16 x width=14) is automatically implemented using LUTRAM. BRAM implementation would be inefficient 
+INFO: [Synth 8-6904] The RAM "\pu_k[6].pu_i[4].pu_j[1].u_processing_unit /intermediate_stage/temp_fifo/fifo_reg" of size (depth=16 x width=14) is automatically implemented using LUTRAM. BRAM implementation would be inefficient 
+WARNING: [Synth 8-7129] Port target[3] in module tree_distance_3d_solver__parameterized464 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port target[2] in module tree_distance_3d_solver__parameterized464 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port target[1] in module tree_distance_3d_solver__parameterized464 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port target[0] in module tree_distance_3d_solver__parameterized464 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port pending_tell_new_root_touching_boundary in module processing_unit__parameterized464 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port target[3] in module tree_distance_3d_solver__parameterized463 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port target[2] in module tree_distance_3d_solver__parameterized463 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port target[1] in module tree_distance_3d_solver__parameterized463 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port target[0] in module tree_distance_3d_solver__parameterized463 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port pending_tell_new_root_touching_boundary in module processing_unit__parameterized463 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port target[3] in module tree_distance_3d_solver__parameterized457 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port target[2] in module tree_distance_3d_solver__parameterized457 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port target[1] in module tree_distance_3d_solver__parameterized457 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port target[0] in module tree_distance_3d_solver__parameterized457 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port pending_tell_new_root_touching_boundary in module processing_unit__parameterized457 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port target[3] in module tree_distance_3d_solver__parameterized465 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port target[2] in module tree_distance_3d_solver__parameterized465 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port target[1] in module tree_distance_3d_solver__parameterized465 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port target[0] in module tree_distance_3d_solver__parameterized465 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port pending_tell_new_root_touching_boundary in module processing_unit__parameterized465 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port target[3] in module tree_distance_3d_solver__parameterized471 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port target[2] in module tree_distance_3d_solver__parameterized471 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port target[1] in module tree_distance_3d_solver__parameterized471 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port target[0] in module tree_distance_3d_solver__parameterized471 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port pending_tell_new_root_touching_boundary in module processing_unit__parameterized471 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port target[3] in module tree_distance_3d_solver__parameterized472 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port target[2] in module tree_distance_3d_solver__parameterized472 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port target[1] in module tree_distance_3d_solver__parameterized472 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port target[0] in module tree_distance_3d_solver__parameterized472 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port pending_tell_new_root_touching_boundary in module processing_unit__parameterized472 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port target[3] in module tree_distance_3d_solver__parameterized408 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port target[2] in module tree_distance_3d_solver__parameterized408 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port target[1] in module tree_distance_3d_solver__parameterized408 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port target[0] in module tree_distance_3d_solver__parameterized408 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port pending_tell_new_root_touching_boundary in module processing_unit__parameterized408 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port target[3] in module tree_distance_3d_solver__parameterized479 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port target[2] in module tree_distance_3d_solver__parameterized479 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port target[1] in module tree_distance_3d_solver__parameterized479 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port target[0] in module tree_distance_3d_solver__parameterized479 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port pending_tell_new_root_touching_boundary in module processing_unit__parameterized479 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port target[3] in module tree_distance_3d_solver__parameterized616 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port target[2] in module tree_distance_3d_solver__parameterized616 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port target[1] in module tree_distance_3d_solver__parameterized616 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port target[0] in module tree_distance_3d_solver__parameterized616 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port pending_tell_new_root_touching_boundary in module processing_unit__parameterized616 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port target[3] in module tree_distance_3d_solver__parameterized407 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port target[2] in module tree_distance_3d_solver__parameterized407 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port target[1] in module tree_distance_3d_solver__parameterized407 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port target[0] in module tree_distance_3d_solver__parameterized407 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port pending_tell_new_root_touching_boundary in module processing_unit__parameterized407 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port target[3] in module tree_distance_3d_solver__parameterized401 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port target[2] in module tree_distance_3d_solver__parameterized401 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port target[1] in module tree_distance_3d_solver__parameterized401 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port target[0] in module tree_distance_3d_solver__parameterized401 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port pending_tell_new_root_touching_boundary in module processing_unit__parameterized401 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port target[3] in module tree_distance_3d_solver__parameterized400 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port target[2] in module tree_distance_3d_solver__parameterized400 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port target[1] in module tree_distance_3d_solver__parameterized400 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port target[0] in module tree_distance_3d_solver__parameterized400 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port pending_tell_new_root_touching_boundary in module processing_unit__parameterized400 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port target[3] in module tree_distance_3d_solver__parameterized399 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port target[2] in module tree_distance_3d_solver__parameterized399 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port target[1] in module tree_distance_3d_solver__parameterized399 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port target[0] in module tree_distance_3d_solver__parameterized399 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port pending_tell_new_root_touching_boundary in module processing_unit__parameterized399 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port target[3] in module tree_distance_3d_solver__parameterized393 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port target[2] in module tree_distance_3d_solver__parameterized393 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port target[1] in module tree_distance_3d_solver__parameterized393 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port target[0] in module tree_distance_3d_solver__parameterized393 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port pending_tell_new_root_touching_boundary in module processing_unit__parameterized393 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port target[3] in module tree_distance_3d_solver__parameterized392 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port target[2] in module tree_distance_3d_solver__parameterized392 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port target[1] in module tree_distance_3d_solver__parameterized392 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port target[0] in module tree_distance_3d_solver__parameterized392 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port pending_tell_new_root_touching_boundary in module processing_unit__parameterized392 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port target[3] in module tree_distance_3d_solver__parameterized391 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port target[2] in module tree_distance_3d_solver__parameterized391 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port target[1] in module tree_distance_3d_solver__parameterized391 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port target[0] in module tree_distance_3d_solver__parameterized391 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port pending_tell_new_root_touching_boundary in module processing_unit__parameterized391 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port target[3] in module tree_distance_3d_solver__parameterized385 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port target[2] in module tree_distance_3d_solver__parameterized385 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port target[1] in module tree_distance_3d_solver__parameterized385 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port target[0] in module tree_distance_3d_solver__parameterized385 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port pending_tell_new_root_touching_boundary in module processing_unit__parameterized385 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port target[3] in module tree_distance_3d_solver__parameterized480 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port target[2] in module tree_distance_3d_solver__parameterized480 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port target[1] in module tree_distance_3d_solver__parameterized480 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port target[0] in module tree_distance_3d_solver__parameterized480 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port pending_tell_new_root_touching_boundary in module processing_unit__parameterized480 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port target[3] in module tree_distance_3d_solver__parameterized615 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port target[2] in module tree_distance_3d_solver__parameterized615 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port target[1] in module tree_distance_3d_solver__parameterized615 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port target[0] in module tree_distance_3d_solver__parameterized615 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port pending_tell_new_root_touching_boundary in module processing_unit__parameterized615 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port target[3] in module tree_distance_3d_solver__parameterized608 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port target[2] in module tree_distance_3d_solver__parameterized608 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port target[1] in module tree_distance_3d_solver__parameterized608 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port target[0] in module tree_distance_3d_solver__parameterized608 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port pending_tell_new_root_touching_boundary in module processing_unit__parameterized608 is either unconnected or has no load
+INFO: [Common 17-14] Message 'Synth 8-7129' appears 100 times and further instances of the messages will be disabled. Use the Tcl command set_msg_config to change the current settings.
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (\pu_k[5].pu_i[3].pu_j[2].u_processing_unit /\boundary_cost_z_reg[0] )
+INFO: [Synth 8-3333] propagating constant 1 across sequential element (\pu_k[5].pu_i[3].pu_j[2].u_processing_unit /\boundary_cost_z_reg[1] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (\pu_k[5].pu_i[3].pu_j[2].u_processing_unit /has_boundary_z_reg)
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (\pu_k[5].pu_i[4].pu_j[0].u_processing_unit /has_boundary_ud_reg)
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (\pu_k[5].pu_i[4].pu_j[0].u_processing_unit /\boundary_cost_z_reg[0] )
+INFO: [Synth 8-3333] propagating constant 1 across sequential element (\pu_k[5].pu_i[4].pu_j[0].u_processing_unit /\boundary_cost_z_reg[1] )
+INFO: [Synth 8-3333] propagating constant 1 across sequential element (\pu_k[5].pu_i[4].pu_j[0].u_processing_unit /has_boundary_z_reg)
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (\pu_k[5].pu_i[4].pu_j[1].u_processing_unit /\boundary_cost_z_reg[0] )
+INFO: [Synth 8-3333] propagating constant 1 across sequential element (\pu_k[5].pu_i[4].pu_j[1].u_processing_unit /\boundary_cost_z_reg[1] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (\pu_k[5].pu_i[4].pu_j[1].u_processing_unit /has_boundary_z_reg)
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (\pu_k[5].pu_i[4].pu_j[2].u_processing_unit /\boundary_cost_z_reg[0] )
+INFO: [Synth 8-3333] propagating constant 1 across sequential element (\pu_k[5].pu_i[4].pu_j[2].u_processing_unit /\boundary_cost_z_reg[1] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (\pu_k[5].pu_i[4].pu_j[2].u_processing_unit /has_boundary_z_reg)
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (\pu_k[5].pu_i[5].pu_j[0].u_processing_unit /has_boundary_ud_reg)
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (\pu_k[5].pu_i[5].pu_j[0].u_processing_unit /\boundary_cost_z_reg[0] )
+INFO: [Synth 8-3333] propagating constant 1 across sequential element (\pu_k[5].pu_i[5].pu_j[0].u_processing_unit /\boundary_cost_z_reg[1] )
+INFO: [Synth 8-3333] propagating constant 1 across sequential element (\pu_k[5].pu_i[5].pu_j[0].u_processing_unit /has_boundary_z_reg)
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (\pu_k[5].pu_i[5].pu_j[1].u_processing_unit /\boundary_cost_z_reg[0] )
+INFO: [Synth 8-3333] propagating constant 1 across sequential element (\pu_k[5].pu_i[5].pu_j[1].u_processing_unit /\boundary_cost_z_reg[1] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (\pu_k[5].pu_i[5].pu_j[1].u_processing_unit /has_boundary_z_reg)
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (\pu_k[5].pu_i[5].pu_j[2].u_processing_unit /\boundary_cost_z_reg[0] )
+INFO: [Synth 8-3333] propagating constant 1 across sequential element (\pu_k[5].pu_i[5].pu_j[2].u_processing_unit /\boundary_cost_z_reg[1] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (\pu_k[5].pu_i[5].pu_j[2].u_processing_unit /has_boundary_z_reg)
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (\pu_k[5].pu_i[6].pu_j[0].u_processing_unit /has_boundary_ud_reg)
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (\pu_k[5].pu_i[6].pu_j[0].u_processing_unit /\boundary_cost_z_reg[0] )
+INFO: [Synth 8-3333] propagating constant 1 across sequential element (\pu_k[5].pu_i[6].pu_j[0].u_processing_unit /\boundary_cost_z_reg[1] )
+INFO: [Synth 8-3333] propagating constant 1 across sequential element (\pu_k[5].pu_i[6].pu_j[0].u_processing_unit /has_boundary_z_reg)
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (\pu_k[5].pu_i[6].pu_j[1].u_processing_unit /\boundary_cost_z_reg[0] )
+INFO: [Synth 8-3333] propagating constant 1 across sequential element (\pu_k[5].pu_i[6].pu_j[1].u_processing_unit /\boundary_cost_z_reg[1] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (\pu_k[5].pu_i[6].pu_j[1].u_processing_unit /has_boundary_z_reg)
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (\pu_k[6].pu_i[3].pu_j[2].u_processing_unit /\boundary_cost_z_reg[0] )
+INFO: [Synth 8-3333] propagating constant 1 across sequential element (\pu_k[6].pu_i[3].pu_j[2].u_processing_unit /\boundary_cost_z_reg[1] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (\pu_k[6].pu_i[3].pu_j[2].u_processing_unit /has_boundary_z_reg)
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (\pu_k[6].pu_i[4].pu_j[0].u_processing_unit /has_boundary_ud_reg)
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (\pu_k[6].pu_i[4].pu_j[0].u_processing_unit /\boundary_cost_z_reg[0] )
+INFO: [Synth 8-3333] propagating constant 1 across sequential element (\pu_k[6].pu_i[4].pu_j[0].u_processing_unit /\boundary_cost_z_reg[1] )
+INFO: [Synth 8-3333] propagating constant 1 across sequential element (\pu_k[6].pu_i[4].pu_j[0].u_processing_unit /has_boundary_z_reg)
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (\pu_k[6].pu_i[4].pu_j[1].u_processing_unit /\boundary_cost_z_reg[0] )
+INFO: [Synth 8-3333] propagating constant 1 across sequential element (\pu_k[6].pu_i[4].pu_j[1].u_processing_unit /\boundary_cost_z_reg[1] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (\pu_k[6].pu_i[4].pu_j[1].u_processing_unit /has_boundary_z_reg)
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (\pu_k[6].pu_i[4].pu_j[2].u_processing_unit /\boundary_cost_z_reg[0] )
+INFO: [Synth 8-3333] propagating constant 1 across sequential element (\pu_k[6].pu_i[4].pu_j[2].u_processing_unit /\boundary_cost_z_reg[1] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (\pu_k[6].pu_i[4].pu_j[2].u_processing_unit /has_boundary_z_reg)
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (\pu_k[6].pu_i[5].pu_j[0].u_processing_unit /has_boundary_ud_reg)
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (\pu_k[6].pu_i[5].pu_j[0].u_processing_unit /\boundary_cost_z_reg[0] )
+INFO: [Synth 8-3333] propagating constant 1 across sequential element (\pu_k[6].pu_i[5].pu_j[0].u_processing_unit /\boundary_cost_z_reg[1] )
+INFO: [Synth 8-3333] propagating constant 1 across sequential element (\pu_k[6].pu_i[5].pu_j[0].u_processing_unit /has_boundary_z_reg)
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (\pu_k[6].pu_i[5].pu_j[1].u_processing_unit /\boundary_cost_z_reg[0] )
+INFO: [Synth 8-3333] propagating constant 1 across sequential element (\pu_k[6].pu_i[5].pu_j[1].u_processing_unit /\boundary_cost_z_reg[1] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (\pu_k[6].pu_i[5].pu_j[1].u_processing_unit /has_boundary_z_reg)
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (\pu_k[6].pu_i[6].pu_j[0].u_processing_unit /has_boundary_ud_reg)
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (\pu_k[6].pu_i[6].pu_j[0].u_processing_unit /\boundary_cost_z_reg[0] )
+INFO: [Synth 8-3333] propagating constant 1 across sequential element (\pu_k[6].pu_i[6].pu_j[0].u_processing_unit /\boundary_cost_z_reg[1] )
+INFO: [Synth 8-3333] propagating constant 1 across sequential element (\pu_k[6].pu_i[6].pu_j[0].u_processing_unit /has_boundary_z_reg)
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (\pu_k[6].pu_i[6].pu_j[1].u_processing_unit /\boundary_cost_z_reg[0] )
+INFO: [Synth 8-3333] propagating constant 1 across sequential element (\pu_k[6].pu_i[6].pu_j[1].u_processing_unit /\boundary_cost_z_reg[1] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (\pu_k[6].pu_i[6].pu_j[1].u_processing_unit /has_boundary_z_reg)
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (\pu_k[7].pu_i[4].pu_j[0].u_processing_unit /has_boundary_ud_reg)
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (\pu_k[7].pu_i[4].pu_j[0].u_processing_unit /\boundary_cost_z_reg[0] )
+INFO: [Synth 8-3333] propagating constant 1 across sequential element (\pu_k[7].pu_i[4].pu_j[0].u_processing_unit /\boundary_cost_z_reg[1] )
+INFO: [Synth 8-3333] propagating constant 1 across sequential element (\pu_k[7].pu_i[4].pu_j[0].u_processing_unit /has_boundary_z_reg)
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (\pu_k[7].pu_i[4].pu_j[1].u_processing_unit /\boundary_cost_z_reg[0] )
+INFO: [Synth 8-3333] propagating constant 1 across sequential element (\pu_k[7].pu_i[4].pu_j[1].u_processing_unit /\boundary_cost_z_reg[1] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (\pu_k[7].pu_i[4].pu_j[1].u_processing_unit /has_boundary_z_reg)
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (\pu_k[7].pu_i[4].pu_j[2].u_processing_unit /\boundary_cost_z_reg[0] )
+INFO: [Synth 8-3333] propagating constant 1 across sequential element (\pu_k[7].pu_i[4].pu_j[2].u_processing_unit /\boundary_cost_z_reg[1] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (\pu_k[7].pu_i[4].pu_j[2].u_processing_unit /has_boundary_z_reg)
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (\pu_k[7].pu_i[5].pu_j[0].u_processing_unit /has_boundary_ud_reg)
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (\pu_k[7].pu_i[5].pu_j[0].u_processing_unit /\boundary_cost_z_reg[0] )
+INFO: [Synth 8-3333] propagating constant 1 across sequential element (\pu_k[7].pu_i[5].pu_j[0].u_processing_unit /\boundary_cost_z_reg[1] )
+INFO: [Synth 8-3333] propagating constant 1 across sequential element (\pu_k[7].pu_i[5].pu_j[0].u_processing_unit /has_boundary_z_reg)
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (\pu_k[7].pu_i[5].pu_j[1].u_processing_unit /\boundary_cost_z_reg[0] )
+INFO: [Synth 8-3333] propagating constant 1 across sequential element (\pu_k[7].pu_i[5].pu_j[1].u_processing_unit /\boundary_cost_z_reg[1] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (\pu_k[7].pu_i[5].pu_j[1].u_processing_unit /has_boundary_z_reg)
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (\pu_k[8].pu_i[4].pu_j[0].u_processing_unit /has_boundary_ud_reg)
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (\pu_k[8].pu_i[4].pu_j[0].u_processing_unit /\boundary_cost_z_reg[0] )
+INFO: [Synth 8-3333] propagating constant 1 across sequential element (\pu_k[8].pu_i[4].pu_j[0].u_processing_unit /\boundary_cost_z_reg[1] )
+INFO: [Synth 8-3333] propagating constant 1 across sequential element (\pu_k[8].pu_i[4].pu_j[0].u_processing_unit /has_boundary_z_reg)
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (\pu_k[8].pu_i[4].pu_j[1].u_processing_unit /\boundary_cost_z_reg[0] )
+INFO: [Synth 8-3333] propagating constant 1 across sequential element (\pu_k[8].pu_i[4].pu_j[1].u_processing_unit /\boundary_cost_z_reg[1] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (\pu_k[8].pu_i[4].pu_j[1].u_processing_unit /has_boundary_z_reg)
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (\pu_k[8].pu_i[5].pu_j[0].u_processing_unit /has_boundary_ud_reg)
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (\pu_k[8].pu_i[5].pu_j[0].u_processing_unit /\boundary_cost_z_reg[0] )
+INFO: [Synth 8-3333] propagating constant 1 across sequential element (\pu_k[8].pu_i[5].pu_j[0].u_processing_unit /\boundary_cost_z_reg[1] )
+INFO: [Synth 8-3333] propagating constant 1 across sequential element (\pu_k[8].pu_i[5].pu_j[0].u_processing_unit /has_boundary_z_reg)
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (\pu_k[8].pu_i[5].pu_j[1].u_processing_unit /\boundary_cost_z_reg[0] )
+INFO: [Synth 8-3333] propagating constant 1 across sequential element (\pu_k[8].pu_i[5].pu_j[1].u_processing_unit /\boundary_cost_z_reg[1] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (\pu_k[8].pu_i[5].pu_j[1].u_processing_unit /has_boundary_z_reg)
+INFO: [Synth 8-3886] merging instance 'pu_k[5].pu_i[3].pu_j[2].u_processing_unit/address_reg[0]' (FDRE) to 'pu_k[5].pu_i[3].pu_j[2].u_processing_unit/address_reg[11]'
+INFO: [Synth 8-3886] merging instance 'pu_k[5].pu_i[3].pu_j[2].u_processing_unit/address_reg[1]' (FDSE) to 'pu_k[5].pu_i[3].pu_j[2].u_processing_unit/address_reg[10]'
+INFO: [Synth 8-3886] merging instance 'pu_k[5].pu_i[3].pu_j[2].u_processing_unit/address_reg[2]' (FDRE) to 'pu_k[5].pu_i[3].pu_j[2].u_processing_unit/address_reg[11]'
+INFO: [Synth 8-3886] merging instance 'pu_k[5].pu_i[3].pu_j[2].u_processing_unit/address_reg[3]' (FDRE) to 'pu_k[5].pu_i[3].pu_j[2].u_processing_unit/address_reg[11]'
+INFO: [Synth 8-3886] merging instance 'pu_k[5].pu_i[3].pu_j[2].u_processing_unit/address_reg[4]' (FDSE) to 'pu_k[5].pu_i[3].pu_j[2].u_processing_unit/address_reg[10]'
+INFO: [Synth 8-3886] merging instance 'pu_k[5].pu_i[3].pu_j[2].u_processing_unit/address_reg[5]' (FDSE) to 'pu_k[5].pu_i[3].pu_j[2].u_processing_unit/address_reg[10]'
+INFO: [Synth 8-3886] merging instance 'pu_k[5].pu_i[3].pu_j[2].u_processing_unit/address_reg[6]' (FDRE) to 'pu_k[5].pu_i[3].pu_j[2].u_processing_unit/address_reg[11]'
+INFO: [Synth 8-3886] merging instance 'pu_k[5].pu_i[3].pu_j[2].u_processing_unit/address_reg[7]' (FDRE) to 'pu_k[5].pu_i[3].pu_j[2].u_processing_unit/address_reg[11]'
+INFO: [Synth 8-3886] merging instance 'pu_k[5].pu_i[3].pu_j[2].u_processing_unit/address_reg[8]' (FDSE) to 'pu_k[5].pu_i[3].pu_j[2].u_processing_unit/address_reg[10]'
+INFO: [Synth 8-3886] merging instance 'pu_k[5].pu_i[3].pu_j[2].u_processing_unit/address_reg[9]' (FDRE) to 'pu_k[5].pu_i[3].pu_j[2].u_processing_unit/address_reg[11]'
+INFO: [Synth 8-3333] propagating constant 1 across sequential element (\pu_k[5].pu_i[3].pu_j[2].u_processing_unit /\address_reg[10] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (\pu_k[5].pu_i[3].pu_j[2].u_processing_unit /\address_reg[11] )
+INFO: [Synth 8-3886] merging instance 'pu_k[5].pu_i[4].pu_j[0].u_processing_unit/address_reg[0]' (FDRE) to 'pu_k[5].pu_i[4].pu_j[0].u_processing_unit/address_reg[11]'
+INFO: [Synth 8-3886] merging instance 'pu_k[5].pu_i[4].pu_j[0].u_processing_unit/address_reg[1]' (FDRE) to 'pu_k[5].pu_i[4].pu_j[0].u_processing_unit/address_reg[11]'
+INFO: [Synth 8-3886] merging instance 'pu_k[5].pu_i[4].pu_j[0].u_processing_unit/address_reg[2]' (FDRE) to 'pu_k[5].pu_i[4].pu_j[0].u_processing_unit/address_reg[11]'
+INFO: [Synth 8-3886] merging instance 'pu_k[5].pu_i[4].pu_j[0].u_processing_unit/address_reg[3]' (FDRE) to 'pu_k[5].pu_i[4].pu_j[0].u_processing_unit/address_reg[11]'
+INFO: [Synth 8-3886] merging instance 'pu_k[5].pu_i[4].pu_j[0].u_processing_unit/address_reg[4]' (FDRE) to 'pu_k[5].pu_i[4].pu_j[0].u_processing_unit/address_reg[11]'
+INFO: [Synth 8-3886] merging instance 'pu_k[5].pu_i[4].pu_j[0].u_processing_unit/address_reg[5]' (FDRE) to 'pu_k[5].pu_i[4].pu_j[0].u_processing_unit/address_reg[11]'
+INFO: [Synth 8-3886] merging instance 'pu_k[5].pu_i[4].pu_j[0].u_processing_unit/address_reg[6]' (FDSE) to 'pu_k[5].pu_i[4].pu_j[0].u_processing_unit/address_reg[10]'
+INFO: [Synth 8-3886] merging instance 'pu_k[5].pu_i[4].pu_j[0].u_processing_unit/address_reg[7]' (FDRE) to 'pu_k[5].pu_i[4].pu_j[0].u_processing_unit/address_reg[11]'
+INFO: [Synth 8-3886] merging instance 'pu_k[5].pu_i[4].pu_j[0].u_processing_unit/address_reg[8]' (FDSE) to 'pu_k[5].pu_i[4].pu_j[0].u_processing_unit/address_reg[10]'
+INFO: [Synth 8-3886] merging instance 'pu_k[5].pu_i[4].pu_j[0].u_processing_unit/address_reg[9]' (FDRE) to 'pu_k[5].pu_i[4].pu_j[0].u_processing_unit/address_reg[11]'
+INFO: [Synth 8-3333] propagating constant 1 across sequential element (\pu_k[5].pu_i[4].pu_j[0].u_processing_unit /\address_reg[10] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (\pu_k[5].pu_i[4].pu_j[0].u_processing_unit /\address_reg[11] )
+INFO: [Synth 8-3886] merging instance 'pu_k[5].pu_i[4].pu_j[1].u_processing_unit/address_reg[0]' (FDSE) to 'pu_k[5].pu_i[4].pu_j[1].u_processing_unit/address_reg[10]'
+INFO: [Synth 8-3886] merging instance 'pu_k[5].pu_i[4].pu_j[1].u_processing_unit/address_reg[1]' (FDRE) to 'pu_k[5].pu_i[4].pu_j[1].u_processing_unit/address_reg[11]'
+INFO: [Synth 8-3886] merging instance 'pu_k[5].pu_i[4].pu_j[1].u_processing_unit/address_reg[2]' (FDRE) to 'pu_k[5].pu_i[4].pu_j[1].u_processing_unit/address_reg[11]'
+INFO: [Synth 8-3886] merging instance 'pu_k[5].pu_i[4].pu_j[1].u_processing_unit/address_reg[3]' (FDRE) to 'pu_k[5].pu_i[4].pu_j[1].u_processing_unit/address_reg[11]'
+INFO: [Synth 8-3886] merging instance 'pu_k[5].pu_i[4].pu_j[1].u_processing_unit/address_reg[4]' (FDRE) to 'pu_k[5].pu_i[4].pu_j[1].u_processing_unit/address_reg[11]'
+INFO: [Synth 8-3886] merging instance 'pu_k[5].pu_i[4].pu_j[1].u_processing_unit/address_reg[5]' (FDRE) to 'pu_k[5].pu_i[4].pu_j[1].u_processing_unit/address_reg[11]'
+INFO: [Synth 8-3886] merging instance 'pu_k[5].pu_i[4].pu_j[1].u_processing_unit/address_reg[6]' (FDSE) to 'pu_k[5].pu_i[4].pu_j[1].u_processing_unit/address_reg[10]'
+INFO: [Synth 8-3886] merging instance 'pu_k[5].pu_i[4].pu_j[1].u_processing_unit/address_reg[7]' (FDRE) to 'pu_k[5].pu_i[4].pu_j[1].u_processing_unit/address_reg[11]'
+INFO: [Synth 8-3886] merging instance 'pu_k[5].pu_i[4].pu_j[1].u_processing_unit/address_reg[8]' (FDSE) to 'pu_k[5].pu_i[4].pu_j[1].u_processing_unit/address_reg[10]'
+INFO: [Synth 8-3886] merging instance 'pu_k[5].pu_i[4].pu_j[1].u_processing_unit/address_reg[9]' (FDRE) to 'pu_k[5].pu_i[4].pu_j[1].u_processing_unit/address_reg[11]'
+INFO: [Synth 8-3333] propagating constant 1 across sequential element (\pu_k[5].pu_i[4].pu_j[1].u_processing_unit /\address_reg[10] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (\pu_k[5].pu_i[4].pu_j[1].u_processing_unit /\address_reg[11] )
+INFO: [Synth 8-3886] merging instance 'pu_k[5].pu_i[4].pu_j[2].u_processing_unit/address_reg[0]' (FDRE) to 'pu_k[5].pu_i[4].pu_j[2].u_processing_unit/address_reg[11]'
+INFO: [Synth 8-3886] merging instance 'pu_k[5].pu_i[4].pu_j[2].u_processing_unit/address_reg[1]' (FDSE) to 'pu_k[5].pu_i[4].pu_j[2].u_processing_unit/address_reg[10]'
+INFO: [Synth 8-3886] merging instance 'pu_k[5].pu_i[4].pu_j[2].u_processing_unit/address_reg[2]' (FDRE) to 'pu_k[5].pu_i[4].pu_j[2].u_processing_unit/address_reg[11]'
+INFO: [Synth 8-3886] merging instance 'pu_k[5].pu_i[4].pu_j[2].u_processing_unit/address_reg[3]' (FDRE) to 'pu_k[5].pu_i[4].pu_j[2].u_processing_unit/address_reg[11]'
+INFO: [Synth 8-3886] merging instance 'pu_k[5].pu_i[4].pu_j[2].u_processing_unit/address_reg[4]' (FDRE) to 'pu_k[5].pu_i[4].pu_j[2].u_processing_unit/address_reg[11]'
+INFO: [Synth 8-3886] merging instance 'pu_k[5].pu_i[4].pu_j[2].u_processing_unit/address_reg[5]' (FDRE) to 'pu_k[5].pu_i[4].pu_j[2].u_processing_unit/address_reg[11]'
+INFO: [Synth 8-3886] merging instance 'pu_k[5].pu_i[4].pu_j[2].u_processing_unit/address_reg[6]' (FDSE) to 'pu_k[5].pu_i[4].pu_j[2].u_processing_unit/address_reg[10]'
+INFO: [Synth 8-3886] merging instance 'pu_k[5].pu_i[4].pu_j[2].u_processing_unit/address_reg[7]' (FDRE) to 'pu_k[5].pu_i[4].pu_j[2].u_processing_unit/address_reg[11]'
+INFO: [Synth 8-3886] merging instance 'pu_k[5].pu_i[4].pu_j[2].u_processing_unit/address_reg[8]' (FDSE) to 'pu_k[5].pu_i[4].pu_j[2].u_processing_unit/address_reg[10]'
+INFO: [Synth 8-3886] merging instance 'pu_k[5].pu_i[4].pu_j[2].u_processing_unit/address_reg[9]' (FDRE) to 'pu_k[5].pu_i[4].pu_j[2].u_processing_unit/address_reg[11]'
+INFO: [Synth 8-3333] propagating constant 1 across sequential element (\pu_k[5].pu_i[4].pu_j[2].u_processing_unit /\address_reg[10] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (\pu_k[5].pu_i[4].pu_j[2].u_processing_unit /\address_reg[11] )
+INFO: [Synth 8-3886] merging instance 'pu_k[5].pu_i[5].pu_j[0].u_processing_unit/address_reg[0]' (FDRE) to 'pu_k[5].pu_i[5].pu_j[0].u_processing_unit/address_reg[11]'
+INFO: [Synth 8-3886] merging instance 'pu_k[5].pu_i[5].pu_j[0].u_processing_unit/address_reg[1]' (FDRE) to 'pu_k[5].pu_i[5].pu_j[0].u_processing_unit/address_reg[11]'
+INFO: [Synth 8-3886] merging instance 'pu_k[5].pu_i[5].pu_j[0].u_processing_unit/address_reg[2]' (FDRE) to 'pu_k[5].pu_i[5].pu_j[0].u_processing_unit/address_reg[11]'
+INFO: [Synth 8-3886] merging instance 'pu_k[5].pu_i[5].pu_j[0].u_processing_unit/address_reg[3]' (FDRE) to 'pu_k[5].pu_i[5].pu_j[0].u_processing_unit/address_reg[11]'
+INFO: [Synth 8-3886] merging instance 'pu_k[5].pu_i[5].pu_j[0].u_processing_unit/address_reg[4]' (FDSE) to 'pu_k[5].pu_i[5].pu_j[0].u_processing_unit/address_reg[10]'
+INFO: [Synth 8-3886] merging instance 'pu_k[5].pu_i[5].pu_j[0].u_processing_unit/address_reg[5]' (FDRE) to 'pu_k[5].pu_i[5].pu_j[0].u_processing_unit/address_reg[11]'
+INFO: [Synth 8-3886] merging instance 'pu_k[5].pu_i[5].pu_j[0].u_processing_unit/address_reg[6]' (FDSE) to 'pu_k[5].pu_i[5].pu_j[0].u_processing_unit/address_reg[10]'
+INFO: [Synth 8-3886] merging instance 'pu_k[5].pu_i[5].pu_j[0].u_processing_unit/address_reg[7]' (FDRE) to 'pu_k[5].pu_i[5].pu_j[0].u_processing_unit/address_reg[11]'
+INFO: [Synth 8-3886] merging instance 'pu_k[5].pu_i[5].pu_j[0].u_processing_unit/address_reg[8]' (FDSE) to 'pu_k[5].pu_i[5].pu_j[0].u_processing_unit/address_reg[10]'
+INFO: [Synth 8-3886] merging instance 'pu_k[5].pu_i[5].pu_j[0].u_processing_unit/address_reg[9]' (FDRE) to 'pu_k[5].pu_i[5].pu_j[0].u_processing_unit/address_reg[11]'
+INFO: [Synth 8-3333] propagating constant 1 across sequential element (\pu_k[5].pu_i[5].pu_j[0].u_processing_unit /\address_reg[10] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (\pu_k[5].pu_i[5].pu_j[0].u_processing_unit /\address_reg[11] )
+INFO: [Synth 8-3886] merging instance 'pu_k[5].pu_i[5].pu_j[1].u_processing_unit/address_reg[0]' (FDSE) to 'pu_k[5].pu_i[5].pu_j[1].u_processing_unit/address_reg[10]'
+INFO: [Synth 8-3886] merging instance 'pu_k[5].pu_i[5].pu_j[1].u_processing_unit/address_reg[1]' (FDRE) to 'pu_k[5].pu_i[5].pu_j[1].u_processing_unit/address_reg[11]'
+INFO: [Synth 8-3886] merging instance 'pu_k[5].pu_i[5].pu_j[1].u_processing_unit/address_reg[2]' (FDRE) to 'pu_k[5].pu_i[5].pu_j[1].u_processing_unit/address_reg[11]'
+INFO: [Synth 8-3886] merging instance 'pu_k[5].pu_i[5].pu_j[1].u_processing_unit/address_reg[3]' (FDRE) to 'pu_k[5].pu_i[5].pu_j[1].u_processing_unit/address_reg[11]'
+INFO: [Synth 8-3886] merging instance 'pu_k[5].pu_i[5].pu_j[1].u_processing_unit/address_reg[4]' (FDSE) to 'pu_k[5].pu_i[5].pu_j[1].u_processing_unit/address_reg[10]'
+INFO: [Synth 8-3886] merging instance 'pu_k[5].pu_i[5].pu_j[1].u_processing_unit/address_reg[5]' (FDRE) to 'pu_k[5].pu_i[5].pu_j[1].u_processing_unit/address_reg[11]'
+INFO: [Synth 8-3886] merging instance 'pu_k[5].pu_i[5].pu_j[1].u_processing_unit/address_reg[6]' (FDSE) to 'pu_k[5].pu_i[5].pu_j[1].u_processing_unit/address_reg[10]'
+INFO: [Synth 8-3886] merging instance 'pu_k[5].pu_i[5].pu_j[1].u_processing_unit/address_reg[7]' (FDRE) to 'pu_k[5].pu_i[5].pu_j[1].u_processing_unit/address_reg[11]'
+INFO: [Synth 8-3886] merging instance 'pu_k[5].pu_i[5].pu_j[1].u_processing_unit/address_reg[8]' (FDSE) to 'pu_k[5].pu_i[5].pu_j[1].u_processing_unit/address_reg[10]'
+INFO: [Synth 8-3886] merging instance 'pu_k[5].pu_i[5].pu_j[1].u_processing_unit/address_reg[9]' (FDRE) to 'pu_k[5].pu_i[5].pu_j[1].u_processing_unit/address_reg[11]'
+INFO: [Synth 8-3333] propagating constant 1 across sequential element (\pu_k[5].pu_i[5].pu_j[1].u_processing_unit /\address_reg[10] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (\pu_k[5].pu_i[5].pu_j[1].u_processing_unit /\address_reg[11] )
+INFO: [Common 17-14] Message 'Synth 8-3333' appears 100 times and further instances of the messages will be disabled. Use the Tcl command set_msg_config to change the current settings.
+INFO: [Synth 8-3886] merging instance 'pu_k[5].pu_i[5].pu_j[2].u_processing_unit/address_reg[0]' (FDRE) to 'pu_k[5].pu_i[5].pu_j[2].u_processing_unit/address_reg[11]'
+INFO: [Synth 8-3886] merging instance 'pu_k[5].pu_i[5].pu_j[2].u_processing_unit/address_reg[1]' (FDSE) to 'pu_k[5].pu_i[5].pu_j[2].u_processing_unit/address_reg[10]'
+INFO: [Synth 8-3886] merging instance 'pu_k[5].pu_i[5].pu_j[2].u_processing_unit/address_reg[2]' (FDRE) to 'pu_k[5].pu_i[5].pu_j[2].u_processing_unit/address_reg[11]'
+INFO: [Synth 8-3886] merging instance 'pu_k[5].pu_i[5].pu_j[2].u_processing_unit/address_reg[3]' (FDRE) to 'pu_k[5].pu_i[5].pu_j[2].u_processing_unit/address_reg[11]'
+INFO: [Synth 8-3886] merging instance 'pu_k[5].pu_i[5].pu_j[2].u_processing_unit/address_reg[4]' (FDSE) to 'pu_k[5].pu_i[5].pu_j[2].u_processing_unit/address_reg[10]'
+INFO: [Synth 8-3886] merging instance 'pu_k[5].pu_i[5].pu_j[2].u_processing_unit/address_reg[5]' (FDRE) to 'pu_k[5].pu_i[5].pu_j[2].u_processing_unit/address_reg[11]'
+INFO: [Synth 8-3886] merging instance 'pu_k[5].pu_i[5].pu_j[2].u_processing_unit/address_reg[6]' (FDSE) to 'pu_k[5].pu_i[5].pu_j[2].u_processing_unit/address_reg[10]'
+INFO: [Synth 8-3886] merging instance 'pu_k[5].pu_i[5].pu_j[2].u_processing_unit/address_reg[7]' (FDRE) to 'pu_k[5].pu_i[5].pu_j[2].u_processing_unit/address_reg[11]'
+INFO: [Synth 8-3886] merging instance 'pu_k[5].pu_i[5].pu_j[2].u_processing_unit/address_reg[8]' (FDSE) to 'pu_k[5].pu_i[5].pu_j[2].u_processing_unit/address_reg[10]'
+INFO: [Synth 8-3886] merging instance 'pu_k[5].pu_i[5].pu_j[2].u_processing_unit/address_reg[9]' (FDRE) to 'pu_k[5].pu_i[5].pu_j[2].u_processing_unit/address_reg[11]'
+INFO: [Synth 8-3886] merging instance 'pu_k[5].pu_i[6].pu_j[0].u_processing_unit/address_reg[0]' (FDRE) to 'pu_k[5].pu_i[6].pu_j[0].u_processing_unit/address_reg[11]'
+INFO: [Synth 8-3886] merging instance 'pu_k[5].pu_i[6].pu_j[0].u_processing_unit/address_reg[1]' (FDRE) to 'pu_k[5].pu_i[6].pu_j[0].u_processing_unit/address_reg[11]'
+INFO: [Synth 8-3886] merging instance 'pu_k[5].pu_i[6].pu_j[0].u_processing_unit/address_reg[2]' (FDRE) to 'pu_k[5].pu_i[6].pu_j[0].u_processing_unit/address_reg[11]'
+INFO: [Synth 8-3886] merging instance 'pu_k[5].pu_i[6].pu_j[0].u_processing_unit/address_reg[3]' (FDRE) to 'pu_k[5].pu_i[6].pu_j[0].u_processing_unit/address_reg[11]'
+INFO: [Synth 8-3886] merging instance 'pu_k[5].pu_i[6].pu_j[0].u_processing_unit/address_reg[4]' (FDRE) to 'pu_k[5].pu_i[6].pu_j[0].u_processing_unit/address_reg[11]'
+INFO: [Synth 8-3886] merging instance 'pu_k[5].pu_i[6].pu_j[0].u_processing_unit/address_reg[5]' (FDSE) to 'pu_k[5].pu_i[6].pu_j[0].u_processing_unit/address_reg[10]'
+INFO: [Synth 8-3886] merging instance 'pu_k[5].pu_i[6].pu_j[0].u_processing_unit/address_reg[6]' (FDSE) to 'pu_k[5].pu_i[6].pu_j[0].u_processing_unit/address_reg[10]'
+INFO: [Synth 8-3886] merging instance 'pu_k[5].pu_i[6].pu_j[0].u_processing_unit/address_reg[7]' (FDRE) to 'pu_k[5].pu_i[6].pu_j[0].u_processing_unit/address_reg[11]'
+INFO: [Synth 8-3886] merging instance 'pu_k[5].pu_i[6].pu_j[0].u_processing_unit/address_reg[8]' (FDSE) to 'pu_k[5].pu_i[6].pu_j[0].u_processing_unit/address_reg[10]'
+INFO: [Synth 8-3886] merging instance 'pu_k[5].pu_i[6].pu_j[0].u_processing_unit/address_reg[9]' (FDRE) to 'pu_k[5].pu_i[6].pu_j[0].u_processing_unit/address_reg[11]'
+INFO: [Synth 8-3886] merging instance 'pu_k[5].pu_i[6].pu_j[1].u_processing_unit/address_reg[0]' (FDSE) to 'pu_k[5].pu_i[6].pu_j[1].u_processing_unit/address_reg[10]'
+INFO: [Synth 8-3886] merging instance 'pu_k[5].pu_i[6].pu_j[1].u_processing_unit/address_reg[1]' (FDRE) to 'pu_k[5].pu_i[6].pu_j[1].u_processing_unit/address_reg[11]'
+INFO: [Synth 8-3886] merging instance 'pu_k[5].pu_i[6].pu_j[1].u_processing_unit/address_reg[2]' (FDRE) to 'pu_k[5].pu_i[6].pu_j[1].u_processing_unit/address_reg[11]'
+INFO: [Synth 8-3886] merging instance 'pu_k[5].pu_i[6].pu_j[1].u_processing_unit/address_reg[3]' (FDRE) to 'pu_k[5].pu_i[6].pu_j[1].u_processing_unit/address_reg[11]'
+INFO: [Synth 8-3886] merging instance 'pu_k[5].pu_i[6].pu_j[1].u_processing_unit/address_reg[4]' (FDRE) to 'pu_k[5].pu_i[6].pu_j[1].u_processing_unit/address_reg[11]'
+INFO: [Synth 8-3886] merging instance 'pu_k[5].pu_i[6].pu_j[1].u_processing_unit/address_reg[5]' (FDSE) to 'pu_k[5].pu_i[6].pu_j[1].u_processing_unit/address_reg[10]'
+INFO: [Synth 8-3886] merging instance 'pu_k[5].pu_i[6].pu_j[1].u_processing_unit/address_reg[6]' (FDSE) to 'pu_k[5].pu_i[6].pu_j[1].u_processing_unit/address_reg[10]'
+INFO: [Synth 8-3886] merging instance 'pu_k[5].pu_i[6].pu_j[1].u_processing_unit/address_reg[7]' (FDRE) to 'pu_k[5].pu_i[6].pu_j[1].u_processing_unit/address_reg[11]'
+INFO: [Synth 8-3886] merging instance 'pu_k[5].pu_i[6].pu_j[1].u_processing_unit/address_reg[8]' (FDSE) to 'pu_k[5].pu_i[6].pu_j[1].u_processing_unit/address_reg[10]'
+INFO: [Synth 8-3886] merging instance 'pu_k[5].pu_i[6].pu_j[1].u_processing_unit/address_reg[9]' (FDRE) to 'pu_k[5].pu_i[6].pu_j[1].u_processing_unit/address_reg[11]'
+INFO: [Synth 8-3886] merging instance 'pu_k[6].pu_i[3].pu_j[2].u_processing_unit/address_reg[0]' (FDRE) to 'pu_k[6].pu_i[3].pu_j[2].u_processing_unit/address_reg[11]'
+INFO: [Synth 8-3886] merging instance 'pu_k[6].pu_i[3].pu_j[2].u_processing_unit/address_reg[1]' (FDSE) to 'pu_k[6].pu_i[3].pu_j[2].u_processing_unit/address_reg[10]'
+INFO: [Synth 8-3886] merging instance 'pu_k[6].pu_i[3].pu_j[2].u_processing_unit/address_reg[2]' (FDRE) to 'pu_k[6].pu_i[3].pu_j[2].u_processing_unit/address_reg[11]'
+INFO: [Synth 8-3886] merging instance 'pu_k[6].pu_i[3].pu_j[2].u_processing_unit/address_reg[3]' (FDRE) to 'pu_k[6].pu_i[3].pu_j[2].u_processing_unit/address_reg[11]'
+INFO: [Synth 8-3886] merging instance 'pu_k[6].pu_i[3].pu_j[2].u_processing_unit/address_reg[4]' (FDSE) to 'pu_k[6].pu_i[3].pu_j[2].u_processing_unit/address_reg[10]'
+INFO: [Synth 8-3886] merging instance 'pu_k[6].pu_i[3].pu_j[2].u_processing_unit/address_reg[5]' (FDSE) to 'pu_k[6].pu_i[3].pu_j[2].u_processing_unit/address_reg[10]'
+INFO: [Synth 8-3886] merging instance 'pu_k[6].pu_i[3].pu_j[2].u_processing_unit/address_reg[6]' (FDRE) to 'pu_k[6].pu_i[3].pu_j[2].u_processing_unit/address_reg[11]'
+INFO: [Synth 8-3886] merging instance 'pu_k[6].pu_i[3].pu_j[2].u_processing_unit/address_reg[7]' (FDRE) to 'pu_k[6].pu_i[3].pu_j[2].u_processing_unit/address_reg[11]'
+INFO: [Synth 8-3886] merging instance 'pu_k[6].pu_i[3].pu_j[2].u_processing_unit/address_reg[8]' (FDRE) to 'pu_k[6].pu_i[3].pu_j[2].u_processing_unit/address_reg[11]'
+INFO: [Synth 8-3886] merging instance 'pu_k[6].pu_i[3].pu_j[2].u_processing_unit/address_reg[9]' (FDSE) to 'pu_k[6].pu_i[3].pu_j[2].u_processing_unit/address_reg[10]'
+INFO: [Common 17-14] Message 'Synth 8-3886' appears 100 times and further instances of the messages will be disabled. Use the Tcl command set_msg_config to change the current settings.

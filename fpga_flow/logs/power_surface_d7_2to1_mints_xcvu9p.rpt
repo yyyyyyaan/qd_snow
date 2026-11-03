@@ -1,0 +1,528 @@
+Copyright 1986-2020 Xilinx, Inc. All Rights Reserved.
+---------------------------------------------------------------------------------------------------------------------------------------------
+| Tool Version     : Vivado v.2020.2 (win64) Build 3064766 Wed Nov 18 09:12:45 MST 2020
+| Date             : Sat Sep 19 00:21:19 2026
+| Host             : DESKTOP-TO7M6OH running 64-bit major release  (build 9200)
+| Command          : report_power -file {D:\ycz\doc\deepseek_workzone\decoder\fpga_flow\logs/power_surface_d7_2to1_mints_xcvu9p.rpt}
+| Design           : snowflake_pe_array
+| Device           : xcvu9p-flga2104-2L-e
+| Design State     : routed
+| Grade            : extended
+| Process          : typical
+| Characterization : Production
+---------------------------------------------------------------------------------------------------------------------------------------------
+
+Power Report
+
+Table of Contents
+-----------------
+1. Summary
+1.1 On-Chip Components
+1.2 Power Supply Summary
+1.3 Confidence Level
+2. Settings
+2.1 Environment
+2.2 Clock Constraints
+3. Detailed Reports
+3.1 By Hierarchy
+
+1. Summary
+----------
+
++--------------------------+--------------+
+| Total On-Chip Power (W)  | 4.267        |
+| Design Power Budget (W)  | Unspecified* |
+| Power Budget Margin (W)  | NA           |
+| Dynamic (W)              | 1.772        |
+| Device Static (W)        | 2.495        |
+| Effective TJA (C/W)      | 0.5          |
+| Max Ambient (C)          | 97.7         |
+| Junction Temperature (C) | 27.3         |
+| Confidence Level         | Medium       |
+| Setting File             | ---          |
+| Simulation Activity File | ---          |
+| Design Nets Matched      | NA           |
++--------------------------+--------------+
+* Specify Design Power Budget using, set_operating_conditions -design_power_budget <value in Watts>
+
+
+1.1 On-Chip Components
+----------------------
+
++----------------+-----------+----------+-----------+-----------------+
+| On-Chip        | Power (W) | Used     | Available | Utilization (%) |
++----------------+-----------+----------+-----------+-----------------+
+| Clocks         |     0.112 |        3 |       --- |             --- |
+| CLB Logic      |     0.704 |   121845 |       --- |             --- |
+|   LUT as Logic |     0.682 |    90455 |   1182240 |            7.65 |
+|   CARRY8       |     0.014 |     1514 |    147780 |            1.02 |
+|   Register     |     0.008 |    18243 |   2364480 |            0.77 |
+|   BUFG         |    <0.001 |        1 |       240 |            0.42 |
+|   Others       |     0.000 |     2025 |       --- |             --- |
+|   F7/F8 Muxes  |     0.000 |       25 |   1182240 |           <0.01 |
+| Signals        |     0.956 |    94217 |       --- |             --- |
+| Static Power   |     2.495 |          |           |                 |
+| Total          |     4.267 |          |           |                 |
++----------------+-----------+----------+-----------+-----------------+
+
+
+1.2 Power Supply Summary
+------------------------
+
++------------+-------------+-----------+-------------+------------+-------------+-------------+------------+
+| Source     | Voltage (V) | Total (A) | Dynamic (A) | Static (A) | Powerup (A) | Budget (A)  | Margin (A) |
++------------+-------------+-----------+-------------+------------+-------------+-------------+------------+
+| Vccint     |       0.850 |     2.925 |       2.085 |      0.840 |       NA    | Unspecified | NA         |
+| Vccint_io  |       0.850 |     0.263 |       0.000 |      0.263 |       NA    | Unspecified | NA         |
+| Vccbram    |       0.850 |     0.016 |       0.000 |      0.016 |       NA    | Unspecified | NA         |
+| Vccaux     |       1.800 |     0.648 |       0.000 |      0.648 |       NA    | Unspecified | NA         |
+| Vccaux_io  |       1.800 |     0.185 |       0.000 |      0.185 |       NA    | Unspecified | NA         |
+| Vcco33     |       3.300 |     0.000 |       0.000 |      0.000 |       NA    | Unspecified | NA         |
+| Vcco25     |       2.500 |     0.000 |       0.000 |      0.000 |       NA    | Unspecified | NA         |
+| Vcco18     |       1.800 |     0.000 |       0.000 |      0.000 |       NA    | Unspecified | NA         |
+| Vcco15     |       1.500 |     0.000 |       0.000 |      0.000 |       NA    | Unspecified | NA         |
+| Vcco135    |       1.350 |     0.000 |       0.000 |      0.000 |       NA    | Unspecified | NA         |
+| Vcco12     |       1.200 |     0.000 |       0.000 |      0.000 |       NA    | Unspecified | NA         |
+| Vcco10     |       1.000 |     0.000 |       0.000 |      0.000 |       NA    | Unspecified | NA         |
+| Vccadc     |       1.800 |     0.024 |       0.000 |      0.024 |       NA    | Unspecified | NA         |
+| MGTYAVcc   |       0.900 |     0.000 |       0.000 |      0.000 |       NA    | Unspecified | NA         |
+| MGTYAVtt   |       1.200 |     0.000 |       0.000 |      0.000 |       NA    | Unspecified | NA         |
+| MGTYVccaux |       1.800 |     0.000 |       0.000 |      0.000 |       NA    | Unspecified | NA         |
++------------+-------------+-----------+-------------+------------+-------------+-------------+------------+
+
+
+1.3 Confidence Level
+--------------------
+
++-----------------------------+------------+------------------------------------------------+------------------------------------------------------------------------------------------------------------+
+| User Input Data             | Confidence | Details                                        | Action                                                                                                     |
++-----------------------------+------------+------------------------------------------------+------------------------------------------------------------------------------------------------------------+
+| Design implementation state | High       | Design is routed                               |                                                                                                            |
+| Clock nodes activity        | High       | User specified more than 95% of clocks         |                                                                                                            |
+| I/O nodes activity          | High       | User specified more than 95% of inputs         |                                                                                                            |
+| Internal nodes activity     | Medium     | User specified less than 25% of internal nodes | Provide missing internal nodes activity with simulation results or by editing the "By Resource Type" views |
+| Device models               | High       | Device models are Production                   |                                                                                                            |
+|                             |            |                                                |                                                                                                            |
+| Overall confidence level    | Medium     |                                                |                                                                                                            |
++-----------------------------+------------+------------------------------------------------+------------------------------------------------------------------------------------------------------------+
+
+
+2. Settings
+-----------
+
+2.1 Environment
+---------------
+
++-----------------------+--------------------------+
+| Ambient Temp (C)      | 25.0                     |
+| ThetaJA (C/W)         | 0.5                      |
+| Airflow (LFM)         | 250                      |
+| Heat Sink             | medium (Medium Profile)  |
+| ThetaSA (C/W)         | 0.7                      |
+| Board Selection       | medium (10"x10")         |
+| # of Board Layers     | 12to15 (12 to 15 Layers) |
+| Board Temperature (C) | 25.0                     |
++-----------------------+--------------------------+
+
+
+2.2 Clock Constraints
+---------------------
+
++-------+--------+-----------------+
+| Clock | Domain | Constraint (ns) |
++-------+--------+-----------------+
+| clk   | clk    |             5.0 |
++-------+--------+-----------------+
+
+
+3. Detailed Reports
+-------------------
+
+3.1 By Hierarchy
+----------------
+
++--------------------+-----------+
+| Name               | Power (W) |
++--------------------+-----------+
+| snowflake_pe_array |     1.772 |
+|   g_pe[100].pe_i   |     0.002 |
+|   g_pe[101].pe_i   |     0.002 |
+|   g_pe[102].pe_i   |     0.003 |
+|   g_pe[103].pe_i   |     0.003 |
+|   g_pe[104].pe_i   |     0.002 |
+|   g_pe[105].pe_i   |     0.002 |
+|   g_pe[106].pe_i   |     0.003 |
+|   g_pe[107].pe_i   |     0.002 |
+|   g_pe[108].pe_i   |     0.003 |
+|   g_pe[109].pe_i   |     0.002 |
+|   g_pe[110].pe_i   |     0.002 |
+|   g_pe[111].pe_i   |     0.002 |
+|   g_pe[112].pe_i   |     0.002 |
+|   g_pe[113].pe_i   |     0.002 |
+|   g_pe[114].pe_i   |     0.002 |
+|   g_pe[115].pe_i   |     0.002 |
+|   g_pe[116].pe_i   |     0.002 |
+|   g_pe[117].pe_i   |     0.002 |
+|   g_pe[118].pe_i   |     0.002 |
+|   g_pe[119].pe_i   |     0.002 |
+|   g_pe[120].pe_i   |     0.002 |
+|   g_pe[121].pe_i   |     0.002 |
+|   g_pe[122].pe_i   |     0.002 |
+|   g_pe[123].pe_i   |     0.002 |
+|   g_pe[124].pe_i   |     0.002 |
+|   g_pe[125].pe_i   |     0.002 |
+|   g_pe[126].pe_i   |     0.002 |
+|   g_pe[127].pe_i   |     0.003 |
+|   g_pe[128].pe_i   |     0.003 |
+|   g_pe[129].pe_i   |     0.003 |
+|   g_pe[130].pe_i   |     0.003 |
+|   g_pe[131].pe_i   |     0.003 |
+|   g_pe[132].pe_i   |     0.002 |
+|   g_pe[133].pe_i   |     0.002 |
+|   g_pe[134].pe_i   |     0.002 |
+|   g_pe[135].pe_i   |     0.002 |
+|   g_pe[136].pe_i   |     0.003 |
+|   g_pe[137].pe_i   |     0.002 |
+|   g_pe[138].pe_i   |     0.003 |
+|   g_pe[139].pe_i   |     0.002 |
+|   g_pe[140].pe_i   |     0.003 |
+|   g_pe[141].pe_i   |     0.004 |
+|   g_pe[142].pe_i   |     0.004 |
+|   g_pe[143].pe_i   |     0.004 |
+|   g_pe[144].pe_i   |     0.004 |
+|   g_pe[145].pe_i   |     0.004 |
+|   g_pe[146].pe_i   |     0.004 |
+|   g_pe[147].pe_i   |     0.004 |
+|   g_pe[148].pe_i   |     0.005 |
+|   g_pe[149].pe_i   |     0.005 |
+|   g_pe[14].pe_i    |     0.001 |
+|   g_pe[150].pe_i   |     0.005 |
+|   g_pe[151].pe_i   |     0.005 |
+|   g_pe[152].pe_i   |     0.004 |
+|   g_pe[153].pe_i   |     0.004 |
+|   g_pe[154].pe_i   |     0.004 |
+|   g_pe[155].pe_i   |     0.004 |
+|   g_pe[156].pe_i   |     0.005 |
+|   g_pe[157].pe_i   |     0.004 |
+|   g_pe[158].pe_i   |     0.004 |
+|   g_pe[159].pe_i   |     0.004 |
+|   g_pe[15].pe_i    |     0.001 |
+|   g_pe[160].pe_i   |     0.004 |
+|   g_pe[161].pe_i   |     0.004 |
+|   g_pe[162].pe_i   |     0.004 |
+|   g_pe[163].pe_i   |     0.005 |
+|   g_pe[164].pe_i   |     0.004 |
+|   g_pe[165].pe_i   |     0.004 |
+|   g_pe[166].pe_i   |     0.005 |
+|   g_pe[167].pe_i   |     0.004 |
+|   g_pe[168].pe_i   |     0.004 |
+|   g_pe[169].pe_i   |     0.004 |
+|   g_pe[16].pe_i    |     0.001 |
+|   g_pe[170].pe_i   |     0.005 |
+|   g_pe[171].pe_i   |     0.005 |
+|   g_pe[172].pe_i   |     0.004 |
+|   g_pe[173].pe_i   |     0.005 |
+|   g_pe[174].pe_i   |     0.004 |
+|   g_pe[175].pe_i   |     0.003 |
+|   g_pe[176].pe_i   |     0.004 |
+|   g_pe[177].pe_i   |     0.004 |
+|   g_pe[178].pe_i   |     0.005 |
+|   g_pe[179].pe_i   |     0.004 |
+|   g_pe[17].pe_i    |     0.001 |
+|   g_pe[180].pe_i   |     0.005 |
+|   g_pe[181].pe_i   |     0.004 |
+|   g_pe[182].pe_i   |     0.004 |
+|   g_pe[183].pe_i   |     0.005 |
+|   g_pe[184].pe_i   |     0.004 |
+|   g_pe[185].pe_i   |     0.004 |
+|   g_pe[186].pe_i   |     0.005 |
+|   g_pe[187].pe_i   |     0.005 |
+|   g_pe[188].pe_i   |     0.004 |
+|   g_pe[189].pe_i   |     0.005 |
+|   g_pe[18].pe_i    |     0.001 |
+|   g_pe[190].pe_i   |     0.005 |
+|   g_pe[191].pe_i   |     0.005 |
+|   g_pe[192].pe_i   |     0.005 |
+|   g_pe[193].pe_i   |     0.005 |
+|   g_pe[194].pe_i   |     0.005 |
+|   g_pe[195].pe_i   |     0.004 |
+|   g_pe[196].pe_i   |     0.004 |
+|   g_pe[197].pe_i   |     0.005 |
+|   g_pe[198].pe_i   |     0.005 |
+|   g_pe[199].pe_i   |     0.005 |
+|   g_pe[19].pe_i    |     0.001 |
+|   g_pe[200].pe_i   |     0.005 |
+|   g_pe[201].pe_i   |     0.004 |
+|   g_pe[202].pe_i   |     0.004 |
+|   g_pe[203].pe_i   |     0.004 |
+|   g_pe[204].pe_i   |     0.005 |
+|   g_pe[205].pe_i   |     0.006 |
+|   g_pe[206].pe_i   |     0.005 |
+|   g_pe[207].pe_i   |     0.005 |
+|   g_pe[208].pe_i   |     0.005 |
+|   g_pe[209].pe_i   |     0.004 |
+|   g_pe[20].pe_i    |     0.001 |
+|   g_pe[210].pe_i   |     0.004 |
+|   g_pe[211].pe_i   |     0.005 |
+|   g_pe[212].pe_i   |     0.005 |
+|   g_pe[213].pe_i   |     0.004 |
+|   g_pe[214].pe_i   |     0.005 |
+|   g_pe[215].pe_i   |     0.004 |
+|   g_pe[216].pe_i   |     0.004 |
+|   g_pe[217].pe_i   |     0.004 |
+|   g_pe[218].pe_i   |     0.004 |
+|   g_pe[219].pe_i   |     0.004 |
+|   g_pe[21].pe_i    |     0.001 |
+|   g_pe[220].pe_i   |     0.004 |
+|   g_pe[221].pe_i   |     0.004 |
+|   g_pe[222].pe_i   |     0.005 |
+|   g_pe[223].pe_i   |     0.004 |
+|   g_pe[224].pe_i   |     0.004 |
+|   g_pe[225].pe_i   |     0.005 |
+|   g_pe[226].pe_i   |     0.004 |
+|   g_pe[227].pe_i   |     0.005 |
+|   g_pe[228].pe_i   |     0.005 |
+|   g_pe[229].pe_i   |     0.004 |
+|   g_pe[22].pe_i    |     0.001 |
+|   g_pe[230].pe_i   |     0.004 |
+|   g_pe[231].pe_i   |     0.004 |
+|   g_pe[232].pe_i   |     0.005 |
+|   g_pe[233].pe_i   |     0.005 |
+|   g_pe[234].pe_i   |     0.005 |
+|   g_pe[235].pe_i   |     0.005 |
+|   g_pe[236].pe_i   |     0.005 |
+|   g_pe[237].pe_i   |     0.004 |
+|   g_pe[238].pe_i   |     0.004 |
+|   g_pe[239].pe_i   |     0.005 |
+|   g_pe[23].pe_i    |     0.001 |
+|   g_pe[240].pe_i   |     0.005 |
+|   g_pe[241].pe_i   |     0.005 |
+|   g_pe[242].pe_i   |     0.005 |
+|   g_pe[243].pe_i   |     0.005 |
+|   g_pe[244].pe_i   |     0.005 |
+|   g_pe[245].pe_i   |     0.004 |
+|   g_pe[246].pe_i   |     0.005 |
+|   g_pe[247].pe_i   |     0.005 |
+|   g_pe[248].pe_i   |     0.005 |
+|   g_pe[249].pe_i   |     0.005 |
+|   g_pe[24].pe_i    |     0.001 |
+|   g_pe[250].pe_i   |     0.005 |
+|   g_pe[251].pe_i   |     0.005 |
+|   g_pe[252].pe_i   |     0.004 |
+|   g_pe[253].pe_i   |     0.005 |
+|   g_pe[254].pe_i   |     0.005 |
+|   g_pe[255].pe_i   |     0.005 |
+|   g_pe[256].pe_i   |     0.005 |
+|   g_pe[257].pe_i   |     0.004 |
+|   g_pe[258].pe_i   |     0.004 |
+|   g_pe[259].pe_i   |     0.004 |
+|   g_pe[25].pe_i    |     0.001 |
+|   g_pe[260].pe_i   |     0.005 |
+|   g_pe[261].pe_i   |     0.004 |
+|   g_pe[262].pe_i   |     0.005 |
+|   g_pe[263].pe_i   |     0.004 |
+|   g_pe[264].pe_i   |     0.004 |
+|   g_pe[265].pe_i   |     0.004 |
+|   g_pe[266].pe_i   |     0.004 |
+|   g_pe[267].pe_i   |     0.005 |
+|   g_pe[268].pe_i   |     0.005 |
+|   g_pe[269].pe_i   |     0.005 |
+|   g_pe[26].pe_i    |     0.001 |
+|   g_pe[270].pe_i   |     0.005 |
+|   g_pe[271].pe_i   |     0.004 |
+|   g_pe[272].pe_i   |     0.004 |
+|   g_pe[273].pe_i   |     0.004 |
+|   g_pe[274].pe_i   |     0.005 |
+|   g_pe[275].pe_i   |     0.006 |
+|   g_pe[276].pe_i   |     0.006 |
+|   g_pe[277].pe_i   |     0.005 |
+|   g_pe[278].pe_i   |     0.005 |
+|   g_pe[279].pe_i   |     0.004 |
+|   g_pe[27].pe_i    |     0.001 |
+|   g_pe[280].pe_i   |     0.004 |
+|   g_pe[281].pe_i   |     0.005 |
+|   g_pe[282].pe_i   |     0.006 |
+|   g_pe[283].pe_i   |     0.006 |
+|   g_pe[284].pe_i   |     0.005 |
+|   g_pe[285].pe_i   |     0.005 |
+|   g_pe[286].pe_i   |     0.005 |
+|   g_pe[287].pe_i   |     0.004 |
+|   g_pe[288].pe_i   |     0.006 |
+|   g_pe[289].pe_i   |     0.005 |
+|   g_pe[28].pe_i    |     0.001 |
+|   g_pe[290].pe_i   |     0.005 |
+|   g_pe[291].pe_i   |     0.005 |
+|   g_pe[292].pe_i   |     0.005 |
+|   g_pe[293].pe_i   |     0.005 |
+|   g_pe[294].pe_i   |     0.004 |
+|   g_pe[295].pe_i   |     0.005 |
+|   g_pe[296].pe_i   |     0.005 |
+|   g_pe[297].pe_i   |     0.005 |
+|   g_pe[298].pe_i   |     0.005 |
+|   g_pe[299].pe_i   |     0.005 |
+|   g_pe[29].pe_i    |     0.001 |
+|   g_pe[300].pe_i   |     0.004 |
+|   g_pe[301].pe_i   |     0.004 |
+|   g_pe[302].pe_i   |     0.005 |
+|   g_pe[303].pe_i   |     0.005 |
+|   g_pe[304].pe_i   |     0.005 |
+|   g_pe[305].pe_i   |     0.006 |
+|   g_pe[306].pe_i   |     0.005 |
+|   g_pe[307].pe_i   |     0.004 |
+|   g_pe[308].pe_i   |     0.004 |
+|   g_pe[309].pe_i   |     0.005 |
+|   g_pe[30].pe_i    |     0.001 |
+|   g_pe[310].pe_i   |     0.005 |
+|   g_pe[311].pe_i   |     0.005 |
+|   g_pe[312].pe_i   |     0.005 |
+|   g_pe[313].pe_i   |     0.005 |
+|   g_pe[314].pe_i   |     0.004 |
+|   g_pe[315].pe_i   |     0.004 |
+|   g_pe[316].pe_i   |     0.005 |
+|   g_pe[317].pe_i   |     0.005 |
+|   g_pe[318].pe_i   |     0.005 |
+|   g_pe[319].pe_i   |     0.005 |
+|   g_pe[31].pe_i    |     0.001 |
+|   g_pe[320].pe_i   |     0.005 |
+|   g_pe[321].pe_i   |     0.004 |
+|   g_pe[322].pe_i   |     0.004 |
+|   g_pe[323].pe_i   |     0.006 |
+|   g_pe[324].pe_i   |     0.005 |
+|   g_pe[325].pe_i   |     0.005 |
+|   g_pe[326].pe_i   |     0.005 |
+|   g_pe[327].pe_i   |     0.005 |
+|   g_pe[328].pe_i   |     0.005 |
+|   g_pe[329].pe_i   |     0.005 |
+|   g_pe[32].pe_i    |     0.001 |
+|   g_pe[330].pe_i   |     0.005 |
+|   g_pe[331].pe_i   |     0.005 |
+|   g_pe[332].pe_i   |     0.005 |
+|   g_pe[333].pe_i   |     0.005 |
+|   g_pe[334].pe_i   |     0.005 |
+|   g_pe[335].pe_i   |     0.005 |
+|   g_pe[336].pe_i   |     0.004 |
+|   g_pe[337].pe_i   |     0.005 |
+|   g_pe[338].pe_i   |     0.005 |
+|   g_pe[339].pe_i   |     0.005 |
+|   g_pe[33].pe_i    |     0.001 |
+|   g_pe[340].pe_i   |     0.005 |
+|   g_pe[341].pe_i   |     0.005 |
+|   g_pe[342].pe_i   |     0.004 |
+|   g_pe[343].pe_i   |     0.004 |
+|   g_pe[344].pe_i   |     0.005 |
+|   g_pe[345].pe_i   |     0.004 |
+|   g_pe[346].pe_i   |     0.005 |
+|   g_pe[347].pe_i   |     0.005 |
+|   g_pe[348].pe_i   |     0.005 |
+|   g_pe[349].pe_i   |     0.004 |
+|   g_pe[34].pe_i    |     0.002 |
+|   g_pe[350].pe_i   |     0.003 |
+|   g_pe[351].pe_i   |     0.004 |
+|   g_pe[352].pe_i   |     0.004 |
+|   g_pe[353].pe_i   |     0.004 |
+|   g_pe[354].pe_i   |     0.004 |
+|   g_pe[355].pe_i   |     0.004 |
+|   g_pe[356].pe_i   |     0.004 |
+|   g_pe[357].pe_i   |     0.003 |
+|   g_pe[358].pe_i   |     0.004 |
+|   g_pe[359].pe_i   |     0.004 |
+|   g_pe[35].pe_i    |     0.001 |
+|   g_pe[360].pe_i   |     0.004 |
+|   g_pe[361].pe_i   |     0.004 |
+|   g_pe[362].pe_i   |     0.004 |
+|   g_pe[363].pe_i   |     0.004 |
+|   g_pe[364].pe_i   |     0.003 |
+|   g_pe[365].pe_i   |     0.004 |
+|   g_pe[366].pe_i   |     0.004 |
+|   g_pe[367].pe_i   |     0.004 |
+|   g_pe[368].pe_i   |     0.004 |
+|   g_pe[369].pe_i   |     0.004 |
+|   g_pe[36].pe_i    |     0.001 |
+|   g_pe[370].pe_i   |     0.004 |
+|   g_pe[371].pe_i   |     0.003 |
+|   g_pe[372].pe_i   |     0.004 |
+|   g_pe[373].pe_i   |     0.004 |
+|   g_pe[374].pe_i   |     0.004 |
+|   g_pe[375].pe_i   |     0.005 |
+|   g_pe[376].pe_i   |     0.004 |
+|   g_pe[377].pe_i   |     0.004 |
+|   g_pe[378].pe_i   |     0.003 |
+|   g_pe[379].pe_i   |     0.004 |
+|   g_pe[37].pe_i    |     0.001 |
+|   g_pe[380].pe_i   |     0.004 |
+|   g_pe[381].pe_i   |     0.004 |
+|   g_pe[382].pe_i   |     0.004 |
+|   g_pe[383].pe_i   |     0.004 |
+|   g_pe[384].pe_i   |     0.003 |
+|   g_pe[385].pe_i   |     0.003 |
+|   g_pe[386].pe_i   |     0.004 |
+|   g_pe[387].pe_i   |     0.004 |
+|   g_pe[388].pe_i   |     0.004 |
+|   g_pe[389].pe_i   |     0.004 |
+|   g_pe[38].pe_i    |     0.001 |
+|   g_pe[390].pe_i   |     0.004 |
+|   g_pe[391].pe_i   |     0.004 |
+|   g_pe[39].pe_i    |     0.001 |
+|   g_pe[40].pe_i    |     0.001 |
+|   g_pe[41].pe_i    |     0.002 |
+|   g_pe[42].pe_i    |     0.002 |
+|   g_pe[43].pe_i    |     0.001 |
+|   g_pe[44].pe_i    |     0.001 |
+|   g_pe[45].pe_i    |     0.001 |
+|   g_pe[46].pe_i    |     0.002 |
+|   g_pe[47].pe_i    |     0.001 |
+|   g_pe[48].pe_i    |     0.001 |
+|   g_pe[49].pe_i    |     0.002 |
+|   g_pe[50].pe_i    |     0.001 |
+|   g_pe[51].pe_i    |     0.001 |
+|   g_pe[52].pe_i    |     0.001 |
+|   g_pe[53].pe_i    |     0.001 |
+|   g_pe[54].pe_i    |     0.001 |
+|   g_pe[55].pe_i    |     0.001 |
+|   g_pe[56].pe_i    |     0.002 |
+|   g_pe[57].pe_i    |     0.002 |
+|   g_pe[58].pe_i    |     0.002 |
+|   g_pe[59].pe_i    |     0.002 |
+|   g_pe[60].pe_i    |     0.001 |
+|   g_pe[61].pe_i    |     0.001 |
+|   g_pe[62].pe_i    |     0.002 |
+|   g_pe[63].pe_i    |     0.001 |
+|   g_pe[64].pe_i    |     0.001 |
+|   g_pe[65].pe_i    |     0.001 |
+|   g_pe[66].pe_i    |     0.001 |
+|   g_pe[67].pe_i    |     0.001 |
+|   g_pe[68].pe_i    |     0.001 |
+|   g_pe[69].pe_i    |     0.001 |
+|   g_pe[70].pe_i    |     0.001 |
+|   g_pe[71].pe_i    |     0.002 |
+|   g_pe[72].pe_i    |     0.002 |
+|   g_pe[73].pe_i    |     0.002 |
+|   g_pe[74].pe_i    |     0.002 |
+|   g_pe[75].pe_i    |     0.002 |
+|   g_pe[76].pe_i    |     0.002 |
+|   g_pe[77].pe_i    |     0.001 |
+|   g_pe[78].pe_i    |     0.001 |
+|   g_pe[79].pe_i    |     0.001 |
+|   g_pe[80].pe_i    |     0.001 |
+|   g_pe[81].pe_i    |     0.001 |
+|   g_pe[82].pe_i    |     0.002 |
+|   g_pe[83].pe_i    |     0.001 |
+|   g_pe[84].pe_i    |     0.001 |
+|   g_pe[85].pe_i    |     0.001 |
+|   g_pe[86].pe_i    |     0.002 |
+|   g_pe[87].pe_i    |     0.002 |
+|   g_pe[88].pe_i    |     0.002 |
+|   g_pe[89].pe_i    |     0.002 |
+|   g_pe[90].pe_i    |     0.002 |
+|   g_pe[91].pe_i    |     0.001 |
+|   g_pe[92].pe_i    |     0.001 |
+|   g_pe[93].pe_i    |     0.001 |
+|   g_pe[94].pe_i    |     0.001 |
+|   g_pe[95].pe_i    |     0.001 |
+|   g_pe[96].pe_i    |     0.001 |
+|   g_pe[97].pe_i    |     0.001 |
+|   g_pe[98].pe_i    |     0.002 |
+|   g_pe[99].pe_i    |     0.002 |
++--------------------+-----------+
+
+

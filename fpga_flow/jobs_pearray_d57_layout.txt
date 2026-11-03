@@ -1,0 +1,13 @@
+# PE array: implementation-level timing for d5 / d7, then the layout-constraint
+# experiment.  All VU9P, 5 ns target, -flatten_hierarchy none.
+#
+#   1-2  d5 / d7 baseline implementation (flat d5 never finished place on VU9P;
+#        does the PE array?)
+#   3    d5 + KEEP_HIERARCHY  (stop opt_design from dissolving PE boundaries)
+#   4-5  d3 + pblock stripes  (force PE locality; compare with the unconstrained
+#        d3 result 4091 LUT / 7.243 ns / 138 MHz from jobs_pearray_impl.txt)
+surface 5 2:1 xcvu9p-flga2104-2L-e 5.0 SNOW_PEARRAY
+surface 7 2:1 xcvu9p-flga2104-2L-e 5.0 SNOW_PEARRAY
+surface 5 2:1 xcvu9p-flga2104-2L-e 5.0 SNOW_PEARRAY;SNOW_KEEPHIER
+surface 3 2:1 xcvu9p-flga2104-2L-e 5.0 SNOW_PEARRAY;SNOW_PB4
+surface 3 2:1 xcvu9p-flga2104-2L-e 5.0 SNOW_PEARRAY;SNOW_PB8

@@ -1,0 +1,53 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1280 720" font-family="微软雅黑, Arial, PingFang SC, Noto Sans CJK SC, sans-serif" data-pptx-page-role="content">
+  <rect id="bg" data-pptx-role="background" x="0" y="0" width="1280" height="720" fill="#FFFFFF"/>
+
+  <g id="page-head" data-pptx-bounds="72 36 1136 80">
+    <text x="72" y="52" font-size="15" fill="#5A6672" letter-spacing="1.4">01 / 背景与问题定义</text>
+    <text x="72" y="100" font-size="38" font-weight="bold" fill="#12263A">解码器的三条硬约束，决定了它必须长成并行阵列</text>
+    <rect x="1184" y="40" width="8" height="8" fill="#5A6672"/>
+    <text x="1208" y="49" font-size="15" fill="#5A6672" text-anchor="end">基础</text>
+    <line x1="72" y1="118" x2="1208" y2="118" stroke="#D8DEE5" stroke-width="1"/>
+  </g>
+
+  <g id="band-latency" data-pptx-bounds="72 160 700 106">
+    <rect x="72" y="160" width="700" height="106" fill="#F2F4F7"/>
+    <rect x="72" y="160" width="4" height="106" fill="#12263A"/>
+    <text x="92" y="204" font-size="26" font-weight="bold" fill="#12263A">延迟</text>
+    <text x="196" y="198" font-size="22" fill="#1B2632">解码结果要赶在下一次测量前回来<tspan x="196" dy="32">预算量级在微秒</tspan></text>
+    <text x="748" y="216" font-size="26" font-weight="bold" fill="#12263A" text-anchor="end">~1 µs</text>
+  </g>
+
+  <g id="band-throughput" data-pptx-bounds="72 280 700 106">
+    <rect x="72" y="280" width="700" height="106" fill="#F2F4F7"/>
+    <rect x="72" y="280" width="4" height="106" fill="#12263A"/>
+    <text x="92" y="324" font-size="26" font-weight="bold" fill="#12263A">吞吐</text>
+    <text x="196" y="318" font-size="22" fill="#1B2632">每一轮测量都要解一次<tspan x="196" dy="32">不能攒着做批量处理</tspan></text>
+    <text x="748" y="336" font-size="26" font-weight="bold" fill="#12263A" text-anchor="end">每轮 1 次</text>
+  </g>
+
+  <g id="band-area" data-pptx-bounds="72 400 700 106">
+    <rect x="72" y="400" width="700" height="106" fill="#F2F4F7"/>
+    <rect x="72" y="400" width="4" height="106" fill="#12263A"/>
+    <text x="92" y="444" font-size="26" font-weight="bold" fill="#12263A">面积</text>
+    <text x="196" y="438" font-size="22" fill="#1B2632">要落在一颗 FPGA 上<tspan x="196" dy="32">多板互联先输在延迟上</tspan></text>
+    <text x="748" y="456" font-size="26" font-weight="bold" fill="#12263A" text-anchor="end">单芯片</text>
+  </g>
+
+  <g id="tradeoff" data-pptx-bounds="800 160 408 346">
+    <rect x="800" y="160" width="408" height="346" fill="#12263A"/>
+    <text x="832" y="208" font-size="26" font-weight="bold" fill="#FFFFFF">取舍</text>
+    <line x1="832" y1="226" x2="1176" y2="226" stroke="#5A6672" stroke-width="1"/>
+    <text x="832" y="264" font-size="22" fill="#D8DEE5">MWPM 需要全局匹配，<tspan x="832" dy="32">代价与图规模强耦合。</tspan></text>
+    <text x="832" y="348" font-size="22" fill="#D8DEE5">Union-Find 只做局部<tspan x="832" dy="32">生长与合并，天然可以</tspan><tspan x="832" dy="32">一拍一拍地推进。</tspan></text>
+    <text x="832" y="462" font-size="15" fill="#8FA0B2">本页只讲约束形状</text>
+  </g>
+
+  <g id="boundary-note" data-pptx-bounds="72 540 1136 70">
+    <text x="72" y="576" font-size="26" fill="#5A6672">这里只讲约束形状，不比较 MWPM 与 UF 的阈值优劣。</text>
+  </g>
+
+  <g id="page-foot" data-pptx-role="footer" data-pptx-bounds="72 636 1136 44">
+    <line x1="72" y1="640" x2="1208" y2="640" stroke="#D8DEE5" stroke-width="1"/>
+    <text x="72" y="666" font-size="15" fill="#5A6672">微秒预算是实验控制回路的口径，不是本设计的实测值</text>
+  </g>
+</svg>

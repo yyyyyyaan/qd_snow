@@ -1,0 +1,76 @@
+<svg xmlns="http://www.w3.org/2000/svg" version="1.1" width="1280" height="720" viewBox="0 0 1280 720" font-family="Arial, &quot;Microsoft YaHei&quot;, sans-serif"><rect x="0" y="0" width="1280" height="720" fill="#FFFFFF" />
+<g id="shape-7" data-pptx-object="group" data-pptx-frame="70.48 37.33 1137.52 81.67" data-pptx-source-ref="slide:7">
+<g id="shape-2" data-pptx-object="shape" data-pptx-frame="71.4 37.33 198.49 23.1" data-pptx-prst="rect" data-pptx-source-ref="slide:2" data-pptx-semantic-object="shape">
+<path d="M 71.4 37.33 L 269.89 37.33 L 269.89 60.43 L 71.4 60.43 Z" fill="none" stroke="none" data-pptx-part="geometry" />
+
+
+<text x="71.4" y="52" text-anchor="start" xml:space="preserve" font-size="14.93" fill="#5A6672" letter-spacing="1.4" data-pptx-text-baseline="metrics-v1"><tspan>03 / 硬件架构与关键模块</tspan></text>
+</g>
+<g id="shape-3" data-pptx-object="shape" data-pptx-frame="70.48 64 566.98 46.05" data-pptx-prst="rect" data-pptx-source-ref="slide:3" data-pptx-semantic-object="shape">
+<path d="M 70.48 64 L 637.46 64 L 637.46 110.05 L 70.48 110.05 Z" fill="none" stroke="none" data-pptx-part="geometry" />
+
+
+<text x="70.48" y="100" text-anchor="start" xml:space="preserve" font-size="38" fill="#12263A" font-weight="bold" data-pptx-text-baseline="metrics-v1"><tspan>Compare </tspan><tspan>寻</tspan><tspan>根，Syncing 推缺陷</tspan></text>
+</g>
+<g id="shape-6" data-pptx-object="shape" data-pptx-frame="72 118 1136 1" data-pptx-geometry-kind="custom" data-pptx-source-ref="slide:6" data-pptx-semantic-object="shape">
+<path d="M 72 118 L 1208 118" data-pptx-part="geometry" fill="none" stroke-width="1" stroke="#D8DEE5" />
+</g>
+</g>
+<g id="shape-13" data-pptx-object="group" data-pptx-frame="101.64 127.38 1046.5 304.87" data-pptx-source-ref="slide:13">
+<g id="shape-8" data-pptx-object="shape" data-pptx-frame="101.64 127.38 1046.5 304.87" data-pptx-prst="rect" data-pptx-source-ref="slide:8" data-pptx-semantic-object="shape">
+<path d="M 101.64 127.38 L 1148.13 127.38 L 1148.13 432.26 L 101.64 432.26 Z" fill="#F2F4F7" stroke="none" data-pptx-part="geometry" />
+
+</g>
+<g id="shape-9" data-pptx-object="shape" data-pptx-frame="125.04 139.88 333.34 21.66" data-pptx-prst="rect" data-pptx-source-ref="slide:9" data-pptx-semantic-object="shape">
+<path d="M 125.04 139.88 L 458.38 139.88 L 458.38 161.54 L 125.04 161.54 Z" fill="none" stroke="none" data-pptx-part="geometry" />
+
+
+<text x="125.04" y="154.54773743" text-anchor="start" xml:space="preserve" font-size="14.93" fill="#5A6672" data-pptx-text-baseline="metrics-v1">Compare（节选 snowflake_pe.sv:579-621）</text>
+</g>
+<g id="shape-11" data-pptx-object="shape" data-pptx-frame="676.55 138.1 289.75 21.66" data-pptx-prst="rect" data-pptx-source-ref="slide:11" data-pptx-semantic-object="shape">
+<path d="M 676.55 138.1 L 966.31 138.1 L 966.31 159.75 L 676.55 159.75 Z" fill="none" stroke="none" data-pptx-part="geometry" />
+
+
+<text x="676.55" y="152.76178674" text-anchor="start" xml:space="preserve" font-size="14.93" fill="#5A6672" data-pptx-text-baseline="metrics-v1">Syncing（snowflake_pe.sv:648-660）</text>
+</g>
+</g>
+<g id="shape-26" data-pptx-object="picture" data-pptx-frame="125.04 166.3 442.38 249.25" data-pptx-source-ref="slide:26">
+<image data-pptx-object="picture" data-pptx-frame="125.04 166.3 442.38 249.25" href="../images/image11.png" x="125.04" y="166.3" width="442.38" height="249.25" preserveAspectRatio="none" />
+</g>
+<g id="shape-28" data-pptx-object="picture" data-pptx-frame="669.64 166.3 447.57 249.25" data-pptx-source-ref="slide:28">
+<image data-pptx-object="picture" data-pptx-frame="669.64 166.3 447.57 249.25" href="../images/image12.png" x="669.64" y="166.3" width="447.57" height="249.25" preserveAspectRatio="none" />
+</g>
+<g id="shape-31" data-pptx-object="group" data-pptx-frame="70.48 446.76 1186.01 261.65" data-pptx-source-ref="slide:31">
+<g id="shape-32" data-pptx-object="shape" data-pptx-frame="70.48 446.76 1186.01 261.65" data-pptx-prst="rect" data-pptx-source-ref="slide:32" data-pptx-semantic-object="shape">
+<path d="M 70.48 446.76 L 1256.49 446.76 L 1256.49 708.4 L 70.48 708.4 Z" fill="#F2F4F7" stroke="none" data-pptx-part="geometry" />
+
+
+</g>
+<g id="shape-33" data-pptx-object="shape" data-pptx-frame="70.48 446.76 4.18 261.65" data-pptx-prst="rect" data-pptx-source-ref="slide:33" data-pptx-semantic-object="shape">
+<path d="M 70.48 446.76 L 74.66 446.76 L 74.66 708.4 L 70.48 708.4 Z" fill="#2C6E9B" stroke="none" data-pptx-part="geometry" />
+
+</g>
+</g>
+<g id="shape-35" data-pptx-object="shape" data-pptx-frame="101.64 449.98 510.93 238.88" data-pptx-prst="rect" data-pptx-source-ref="slide:35">
+
+<path d="M 101.64 449.98 L 612.56 449.98 L 612.56 688.87 L 101.64 688.87 Z" fill="none" />
+
+
+<text x="111.24" y="476.11569554" text-anchor="start" xml:space="preserve" font-size="16" fill="#000000" data-pptx-text-baseline="metrics-v1"><tspan>•    </tspan><tspan>先假设自己就是最小的：best_cid = cid，还没找到更小的，</tspan><tspan x="111.24" dy="28.8">best_found = 0。</tspan></text>
+<text x="111.24" y="533.71569554" text-anchor="start" xml:space="preserve" font-size="16" fill="#000000" data-pptx-text-baseline="metrics-v1"><tspan>•    </tspan><tspan>沿 12 个方向看一圈：只看“邻居存在”且“边已经长满”的方向。</tspan><tspan x="111.24" dy="28.8">边没长满，说明两个簇还没真正连通，不看。</tspan></text>
+<text x="111.24" y="591.31569554" text-anchor="start" xml:space="preserve" font-size="16" fill="#000000" data-pptx-text-baseline="metrics-v1"><tspan>•    </tspan><tspan>如果邻居的组长号更小：记住它，更新最小号、方向和“找到了</tspan><tspan x="111.24" dy="28.8">”的标志，并把 busy_c 置 1——因为我的指针和组长号要变了。</tspan></text>
+<text x="111.24" y="648.91569554" text-anchor="start" xml:space="preserve" font-size="16" fill="#000000" data-pptx-text-baseline="metrics-v1"><tspan>•    </tspan><tspan>一圈看完：如果找到了更小的，就把指针指向那个方向，下一拍</tspan><tspan x="111.24" dy="28.8">组长号也改成它；如果没找到，就保持原样，继续当根。</tspan></text>
+</g>
+<g id="shape-37" data-pptx-object="shape" data-pptx-frame="639.55 445.62 583.33 222.96" data-pptx-prst="rect" data-pptx-source-ref="slide:37">
+
+<path d="M 639.55 445.62 L 1222.87 445.62 L 1222.87 668.58 L 639.55 668.58 Z" fill="none" />
+
+
+<text x="649.15" y="466.42383202" text-anchor="start" xml:space="preserve" font-size="16" fill="#000000" data-pptx-text-baseline="metrics-v1"><tspan>•    </tspan><tspan>det_def </tspan><tspan>判断是否是</tspan><tspan>边界，</tspan><tspan>是否</tspan><tspan>有缺陷。</tspan><tspan>缺陷</tspan><tspan>到</tspan><tspan>边界</tspan><tspan>就被吸收，所以边界节</tspan><tspan x="649.15" dy="19.2">点不往外推。</tspan></text>
+<text x="649.15" y="504.82383202" text-anchor="start" xml:space="preserve" font-size="16" fill="#000000" data-pptx-text-baseline="metrics-v1"><tspan>•    </tspan><tspan>如果是根（指针为 0）：活跃标志就等于有没有缺陷。根是这个簇的总部，</tspan><tspan x="649.15" dy="19.2">它说这个簇还要不要处理。</tspan></text>
+<text x="649.15" y="543.22383202" text-anchor="start" xml:space="preserve" font-size="16" fill="#000000" data-pptx-text-baseline="metrics-v1"><tspan>•    </tspan><tspan>如果不是根：先根据指针反算出父节点在哪个方向（d = n_ptr - 1）；</tspan><tspan>继承</tspan><tspan x="649.15" dy="19.2">父节点的活跃</tspan><tspan>属性</tspan><tspan>；如果手里有</tspan><tspan>缺陷</tspan><tspan>，就把</tspan><tspan>缺陷</tspan><tspan>沿这个方向推一格，同时置 </tspan><tspan x="649.15" dy="19.2">busy_c = 1。</tspan></text>
+<text x="649.15" y="600.82383202" text-anchor="start" xml:space="preserve" font-size="16" fill="#000000" data-pptx-text-baseline="metrics-v1"><tspan>•    </tspan><tspan>活跃变了也要置 busy_c：否则控制器可能以为这一拍没人动，提前结束合</tspan><tspan x="649.15" dy="19.2">并。</tspan></text>
+<text x="649.15" y="639.22383202" text-anchor="start" xml:space="preserve" font-size="16" fill="#000000" data-pptx-text-baseline="metrics-v1"><tspan>•    </tspan><tspan>邻居推来的</tspan><tspan>缺陷</tspan><tspan>按奇偶异或，两个同时到达就抵消；自己推出去，自己这一</tspan><tspan x="649.15" dy="19.2">位也翻转</tspan><tspan>，</tspan><tspan>缺陷相遇湮灭。</tspan></text>
+</g><text x="649.15" y="672" font-size="14" fill="#B23A2E">合并分两趟：pass A 写推送决定 pb，pass B 才算 push；边只在 pass B 提交。</text>
+<text x="649.15" y="694" font-size="14" fill="#B23A2E">因为只有那时，bank 里的指针才是本步的。</text>
+</svg>

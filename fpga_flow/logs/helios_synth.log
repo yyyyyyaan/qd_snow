@@ -1,0 +1,110 @@
+
+****** Vivado v2020.2 (64-bit)
+  **** SW Build 3064766 on Wed Nov 18 09:12:45 MST 2020
+  **** IP Build 3064653 on Wed Nov 18 14:17:31 MST 2020
+    ** Copyright 1986-2020 Xilinx, Inc. All Rights Reserved.
+
+source {D:\ycz\doc\deepseek_workzone\decoder\fpga_flow\synth_helios.tcl}
+# set here [file dirname [file normalize [info script]]]
+# set repo [file normalize [file join $here .. Helios_scalable_QEC-main Helios_scalable_QEC-main]]
+# set outdir [file join $here logs]
+# set tag "helios_single_fpga"
+# set part xcvu9p-flga2104-2L-e
+# set period 5.0
+# file mkdir $outdir
+# set srcs {}
+# foreach dir {pe generics channels stage_controller wrappers} {
+#   foreach f [lsort [glob -nocomplain -directory [file join $repo design $dir] *]] {
+#     set base [file tail $f]
+#     if {[string match "*synthesizable_test*" $base]} { continue }
+#     if {[string match "*_ll_connected*" $base]}    { continue }
+#     if {[string match "single_FPGA_decoding_graph_dynamic_rsc*" $base]} { continue }
+#     if {[string match "*.sv" $f] || [string match "*.v" $f]} { lappend srcs $f }
+#   }
+# }
+# puts "HELIOS_SRCS [llength $srcs] files"
+HELIOS_SRCS 43 files
+# foreach s $srcs { puts "  [file tail $s]" }
+  processing_unit.sv
+  processing_unit_single_FPGA_v2.v
+  fifo_fwft.v
+  many_to_one_mux.sv
+  ram.sv
+  tree_compare_solver.sv
+  tree_distance_3d_solver.sv
+  blocking_channel.sv
+  error_stream.sv
+  final_arbitration.sv
+  interconnection_model.sv
+  neigbor_link_fifo.sv
+  neighbor_link.sv
+  neighbor_link_internal_v2.v
+  neighbor_link_v2.v
+  nonblocking_channel.sv
+  nonoblockingchannel_fifo.sv
+  pu_arbitration.sv
+  rand_generator.sv
+  serdes.sv
+  simple_rand_setter.v
+  control_node_child_FPGA.v
+  control_node_root_FPGA.v
+  control_node_single_FPGA.v
+  decoder_stage_controller.sv
+  decoder_stage_controller_partial.sv
+  get_boundry_cardinality_3d.sv
+  Helios_single_FPGA_core.v
+  Helios_single_FPGA_wrapper.v
+  left_with_stage_controller.sv
+  mem_communicator.v
+  qec_3_axi_v1_0.v
+  qec_3_axi_v1_0_S00_AXI.v
+  right_with_stage_controller.sv
+  single_FPGA_decoding_graph.v
+  single_FPGA_decoding_graph_dynamic.v
+  standard_planar_code_2d_0.sv
+  standard_planar_code_2d_1.sv
+  standard_planar_code_2d_left.sv
+  standard_planar_code_2d_no_fast_channel.sv
+  standard_planar_code_2d_no_fast_channel_synthesizable_top.sv
+  standard_planar_code_2d_no_fast_channel_with_stage_controller.sv
+  standard_planar_code_2d_right.sv
+# foreach s $srcs { read_verilog -sv $s }
+# set xdc [file join $outdir "ooc_$tag.xdc"]
+# set fh [open $xdc w]
+# puts $fh "create_clock -name clk -period $period \[get_ports clk\]"
+# close $fh
+# read_xdc $xdc
+# if {[catch {
+#   synth_design -top standard_planar_code_3d_no_fast_channel_synthesizable_top \
+#                -part $part -mode out_of_context -flatten_hierarchy none
+# } err]} {
+#   puts "HELIOS_SYNTH_FAILED $err"
+#   exit 1
+# }
+Command: synth_design -top standard_planar_code_3d_no_fast_channel_synthesizable_top -part xcvu9p-flga2104-2L-e -mode out_of_context -flatten_hierarchy none
+Starting synth_design
+Attempting to get a license for feature 'Synthesis' and/or device 'xcvu9p'
+INFO: [Common 17-349] Got license for feature 'Synthesis' and/or device 'xcvu9p'
+INFO: [Device 21-403] Loading part xcvu9p-flga2104-2L-e
+INFO: [Synth 8-7079] Multithreading enabled for synth_design using a maximum of 2 processes.
+INFO: [Synth 8-7078] Launching helper process for spawning children vivado processes
+INFO: [Synth 8-7075] Helper process launched with PID 18788
+ERROR: [Synth 8-1031] STAGE_SPREAD_CLUSTER is not declared [D:/ycz/doc/deepseek_workzone/decoder/Helios_scalable_QEC-main/Helios_scalable_QEC-main/design/pe/processing_unit.sv:197]
+ERROR: [Synth 8-1031] STAGE_SPREAD_CLUSTER is not declared [D:/ycz/doc/deepseek_workzone/decoder/Helios_scalable_QEC-main/Helios_scalable_QEC-main/design/pe/processing_unit.sv:198]
+ERROR: [Synth 8-1031] STAGE_GROW_BOUNDARY is not declared [D:/ycz/doc/deepseek_workzone/decoder/Helios_scalable_QEC-main/Helios_scalable_QEC-main/design/pe/processing_unit.sv:471]
+ERROR: [Synth 8-1031] STAGE_GROW_BOUNDARY is not declared [D:/ycz/doc/deepseek_workzone/decoder/Helios_scalable_QEC-main/Helios_scalable_QEC-main/design/pe/processing_unit.sv:471]
+ERROR: [Synth 8-1031] STAGE_SYNC_IS_ODD_CLUSTER is not declared [D:/ycz/doc/deepseek_workzone/decoder/Helios_scalable_QEC-main/Helios_scalable_QEC-main/design/pe/processing_unit.sv:479]
+ERROR: [Synth 8-1031] STAGE_SYNC_IS_ODD_CLUSTER is not declared [D:/ycz/doc/deepseek_workzone/decoder/Helios_scalable_QEC-main/Helios_scalable_QEC-main/design/pe/processing_unit.sv:480]
+ERROR: [Synth 8-1031] STAGE_SPREAD_CLUSTER is not declared [D:/ycz/doc/deepseek_workzone/decoder/Helios_scalable_QEC-main/Helios_scalable_QEC-main/design/pe/processing_unit.sv:522]
+ERROR: [Synth 8-1031] STAGE_GROW_BOUNDARY is not declared [D:/ycz/doc/deepseek_workzone/decoder/Helios_scalable_QEC-main/Helios_scalable_QEC-main/design/pe/processing_unit.sv:527]
+ERROR: [Synth 8-1031] STAGE_GROW_BOUNDARY is not declared [D:/ycz/doc/deepseek_workzone/decoder/Helios_scalable_QEC-main/Helios_scalable_QEC-main/design/pe/processing_unit.sv:530]
+ERROR: [Synth 8-1031] STAGE_SYNC_IS_ODD_CLUSTER is not declared [D:/ycz/doc/deepseek_workzone/decoder/Helios_scalable_QEC-main/Helios_scalable_QEC-main/design/pe/processing_unit.sv:542]
+ERROR: [Synth 8-1031] STAGE_SYNC_IS_ODD_CLUSTER is not declared [D:/ycz/doc/deepseek_workzone/decoder/Helios_scalable_QEC-main/Helios_scalable_QEC-main/design/pe/processing_unit.sv:543]
+INFO: [Synth 8-2350] module processing_unit ignored due to previous errors [D:/ycz/doc/deepseek_workzone/decoder/Helios_scalable_QEC-main/Helios_scalable_QEC-main/design/pe/processing_unit.sv:6]
+Failed to read verilog 'D:/ycz/doc/deepseek_workzone/decoder/Helios_scalable_QEC-main/Helios_scalable_QEC-main/design/pe/processing_unit.sv'
+INFO: [Common 17-83] Releasing license: Synthesis
+7 Infos, 0 Warnings, 0 Critical Warnings and 12 Errors encountered.
+synth_design failed
+HELIOS_SYNTH_FAILED ERROR: [Common 17-69] Command failed: Synthesis failed - please see the console or run log file for details
+
+INFO: [Common 17-206] Exiting Vivado at Tue Sep 15 23:35:10 2026...

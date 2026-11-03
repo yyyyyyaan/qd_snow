@@ -1,0 +1,90 @@
+Copyright 1986-2020 Xilinx, Inc. All Rights Reserved.
+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+| Tool Version : Vivado v.2020.2 (win64) Build 3064766 Wed Nov 18 09:12:45 MST 2020
+| Date         : Wed Sep 23 14:32:50 2026
+| Host         : DESKTOP-TO7M6OH running 64-bit major release  (build 9200)
+| Command      : report_utilization -hierarchical -file {D:\ycz\doc\deepseek_workzone\decoder\fpga_flow\logs/utilhier_synth_lat1_v2_cl_rotated_d3_2to1_lattice_lat_xc7z020clg484_p10p0.rpt}
+| Design       : snowflake_pe_array_lat1
+| Device       : 7z020clg484-1
+| Design State : Synthesized
+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+Utilization Design Information
+
+Table of Contents
+-----------------
+1. Utilization by Hierarchy
+
+1. Utilization by Hierarchy
+---------------------------
+
++-----------------------------+--------------------+------------+------------+---------+------+------+--------+--------+------------+
+|           Instance          |       Module       | Total LUTs | Logic LUTs | LUTRAMs | SRLs |  FFs | RAMB36 | RAMB18 | DSP Blocks |
++-----------------------------+--------------------+------------+------------+---------+------+------+--------+--------+------------+
+| snowflake_pe_array_lat1     |              (top) |       3901 |       3901 |       0 |    0 | 1027 |      0 |      0 |          0 |
+|   (snowflake_pe_array_lat1) |              (top) |        885 |        885 |       0 |    0 | 1027 |      0 |      0 |          0 |
+|   g_eslot[0].ed_i           |  snowflake_edge__1 |          6 |          6 |       0 |    0 |    0 |      0 |      0 |          0 |
+|   g_eslot[10].ed_i          | snowflake_edge__11 |          6 |          6 |       0 |    0 |    0 |      0 |      0 |          0 |
+|   g_eslot[11].ed_i          | snowflake_edge__12 |          6 |          6 |       0 |    0 |    0 |      0 |      0 |          0 |
+|   g_eslot[12].ed_i          | snowflake_edge__13 |          6 |          6 |       0 |    0 |    0 |      0 |      0 |          0 |
+|   g_eslot[13].ed_i          | snowflake_edge__14 |          6 |          6 |       0 |    0 |    0 |      0 |      0 |          0 |
+|   g_eslot[14].ed_i          | snowflake_edge__15 |          6 |          6 |       0 |    0 |    0 |      0 |      0 |          0 |
+|   g_eslot[15].ed_i          | snowflake_edge__16 |          6 |          6 |       0 |    0 |    0 |      0 |      0 |          0 |
+|   g_eslot[16].ed_i          | snowflake_edge__17 |          6 |          6 |       0 |    0 |    0 |      0 |      0 |          0 |
+|   g_eslot[17].ed_i          | snowflake_edge__18 |          6 |          6 |       0 |    0 |    0 |      0 |      0 |          0 |
+|   g_eslot[18].ed_i          | snowflake_edge__19 |          6 |          6 |       0 |    0 |    0 |      0 |      0 |          0 |
+|   g_eslot[19].ed_i          | snowflake_edge__20 |          6 |          6 |       0 |    0 |    0 |      0 |      0 |          0 |
+|   g_eslot[1].ed_i           |  snowflake_edge__2 |          6 |          6 |       0 |    0 |    0 |      0 |      0 |          0 |
+|   g_eslot[20].ed_i          | snowflake_edge__21 |          6 |          6 |       0 |    0 |    0 |      0 |      0 |          0 |
+|   g_eslot[21].ed_i          | snowflake_edge__22 |          6 |          6 |       0 |    0 |    0 |      0 |      0 |          0 |
+|   g_eslot[22].ed_i          | snowflake_edge__23 |          6 |          6 |       0 |    0 |    0 |      0 |      0 |          0 |
+|   g_eslot[23].ed_i          | snowflake_edge__24 |          5 |          5 |       0 |    0 |    0 |      0 |      0 |          0 |
+|   g_eslot[24].ed_i          | snowflake_edge__25 |          5 |          5 |       0 |    0 |    0 |      0 |      0 |          0 |
+|   g_eslot[25].ed_i          | snowflake_edge__26 |          5 |          5 |       0 |    0 |    0 |      0 |      0 |          0 |
+|   g_eslot[26].ed_i          | snowflake_edge__27 |          5 |          5 |       0 |    0 |    0 |      0 |      0 |          0 |
+|   g_eslot[27].ed_i          | snowflake_edge__28 |          6 |          6 |       0 |    0 |    0 |      0 |      0 |          0 |
+|   g_eslot[28].ed_i          | snowflake_edge__29 |          6 |          6 |       0 |    0 |    0 |      0 |      0 |          0 |
+|   g_eslot[29].ed_i          | snowflake_edge__30 |          6 |          6 |       0 |    0 |    0 |      0 |      0 |          0 |
+|   g_eslot[2].ed_i           |  snowflake_edge__3 |          6 |          6 |       0 |    0 |    0 |      0 |      0 |          0 |
+|   g_eslot[30].ed_i          | snowflake_edge__31 |          6 |          6 |       0 |    0 |    0 |      0 |      0 |          0 |
+|   g_eslot[31].ed_i          | snowflake_edge__32 |          6 |          6 |       0 |    0 |    0 |      0 |      0 |          0 |
+|   g_eslot[32].ed_i          | snowflake_edge__33 |          6 |          6 |       0 |    0 |    0 |      0 |      0 |          0 |
+|   g_eslot[33].ed_i          | snowflake_edge__34 |          6 |          6 |       0 |    0 |    0 |      0 |      0 |          0 |
+|   g_eslot[34].ed_i          | snowflake_edge__35 |          6 |          6 |       0 |    0 |    0 |      0 |      0 |          0 |
+|   g_eslot[35].ed_i          | snowflake_edge__36 |          6 |          6 |       0 |    0 |    0 |      0 |      0 |          0 |
+|   g_eslot[36].ed_i          | snowflake_edge__37 |          5 |          5 |       0 |    0 |    0 |      0 |      0 |          0 |
+|   g_eslot[37].ed_i          | snowflake_edge__38 |          5 |          5 |       0 |    0 |    0 |      0 |      0 |          0 |
+|   g_eslot[38].ed_i          | snowflake_edge__39 |          5 |          5 |       0 |    0 |    0 |      0 |      0 |          0 |
+|   g_eslot[39].ed_i          | snowflake_edge__40 |          5 |          5 |       0 |    0 |    0 |      0 |      0 |          0 |
+|   g_eslot[3].ed_i           |  snowflake_edge__4 |          6 |          6 |       0 |    0 |    0 |      0 |      0 |          0 |
+|   g_eslot[40].ed_i          | snowflake_edge__41 |          5 |          5 |       0 |    0 |    0 |      0 |      0 |          0 |
+|   g_eslot[41].ed_i          | snowflake_edge__42 |          5 |          5 |       0 |    0 |    0 |      0 |      0 |          0 |
+|   g_eslot[42].ed_i          | snowflake_edge__43 |          5 |          5 |       0 |    0 |    0 |      0 |      0 |          0 |
+|   g_eslot[43].ed_i          | snowflake_edge__44 |          5 |          5 |       0 |    0 |    0 |      0 |      0 |          0 |
+|   g_eslot[44].ed_i          | snowflake_edge__45 |          5 |          5 |       0 |    0 |    0 |      0 |      0 |          0 |
+|   g_eslot[45].ed_i          |     snowflake_edge |          5 |          5 |       0 |    0 |    0 |      0 |      0 |          0 |
+|   g_eslot[4].ed_i           |  snowflake_edge__5 |          6 |          6 |       0 |    0 |    0 |      0 |      0 |          0 |
+|   g_eslot[5].ed_i           |  snowflake_edge__6 |          6 |          6 |       0 |    0 |    0 |      0 |      0 |          0 |
+|   g_eslot[6].ed_i           |  snowflake_edge__7 |          6 |          6 |       0 |    0 |    0 |      0 |      0 |          0 |
+|   g_eslot[7].ed_i           |  snowflake_edge__8 |          6 |          6 |       0 |    0 |    0 |      0 |      0 |          0 |
+|   g_eslot[8].ed_i           |  snowflake_edge__9 |          6 |          6 |       0 |    0 |    0 |      0 |      0 |          0 |
+|   g_eslot[9].ed_i           | snowflake_edge__10 |          6 |          6 |       0 |    0 |    0 |      0 |      0 |          0 |
+|   g_slot[0].pe_i            |    snowflake_pe__1 |         78 |         78 |       0 |    0 |    0 |      0 |      0 |          0 |
+|   g_slot[10].pe_i           |    snowflake_pe__4 |        300 |        300 |       0 |    0 |    0 |      0 |      0 |          0 |
+|   g_slot[13].pe_i           |    snowflake_pe__6 |        190 |        190 |       0 |    0 |    0 |      0 |      0 |          0 |
+|   g_slot[15].pe_i           |    snowflake_pe__7 |        102 |        102 |       0 |    0 |    0 |      0 |      0 |          0 |
+|   g_slot[16].pe_i           |   snowflake_pe__15 |         81 |         81 |       0 |    0 |    0 |      0 |      0 |          0 |
+|   g_slot[18].pe_i           |    snowflake_pe__8 |        203 |        203 |       0 |    0 |    0 |      0 |      0 |          0 |
+|   g_slot[21].pe_i           |    snowflake_pe__9 |        280 |        280 |       0 |    0 |    0 |      0 |      0 |          0 |
+|   g_slot[23].pe_i           |   snowflake_pe__10 |        123 |        123 |       0 |    0 |    0 |      0 |      0 |          0 |
+|   g_slot[24].pe_i           |   snowflake_pe__14 |        114 |        114 |       0 |    0 |    0 |      0 |      0 |          0 |
+|   g_slot[26].pe_i           |   snowflake_pe__11 |        263 |        263 |       0 |    0 |    0 |      0 |      0 |          0 |
+|   g_slot[29].pe_i           |   snowflake_pe__12 |        183 |        183 |       0 |    0 |    0 |      0 |      0 |          0 |
+|   g_slot[2].pe_i            |   snowflake_pe__17 |        205 |        205 |       0 |    0 |    0 |      0 |      0 |          0 |
+|   g_slot[31].pe_i           |   snowflake_pe__13 |         96 |         96 |       0 |    0 |    0 |      0 |      0 |          0 |
+|   g_slot[5].pe_i            |    snowflake_pe__2 |        294 |        294 |       0 |    0 |    0 |      0 |      0 |          0 |
+|   g_slot[7].pe_i            |    snowflake_pe__3 |        120 |        120 |       0 |    0 |    0 |      0 |      0 |          0 |
+|   g_slot[8].pe_i            |   snowflake_pe__16 |        122 |        122 |       0 |    0 |    0 |      0 |      0 |          0 |
++-----------------------------+--------------------+------------+------------+---------+------+------+--------+--------+------------+
+
+

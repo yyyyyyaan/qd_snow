@@ -1,0 +1,61 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1280 720" font-family="微软雅黑, Arial, PingFang SC, Noto Sans CJK SC, sans-serif" data-pptx-page-role="content">
+  <defs>
+    <marker id="arrow-path" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto">
+      <path d="M0 0L10 5L0 10z" fill="#12263A"/>
+    </marker>
+  </defs>
+  <rect id="bg" data-pptx-role="background" x="0" y="0" width="1280" height="720" fill="#FFFFFF"/>
+
+  <g id="page-head" data-pptx-bounds="72 36 1136 80">
+    <text x="72" y="52" font-size="15" fill="#5A6672" letter-spacing="1.4">03 / 硬件架构与关键模块</text>
+    <text x="72" y="100" font-size="38" font-weight="bold" fill="#12263A">全局控制器只做一件事：判断阵列是否静默</text>
+    <rect x="1160" y="40" width="8" height="8" fill="#B23A2E" fill-opacity="0.4"/>
+    <text x="1208" y="49" font-size="15" fill="#B23A2E" text-anchor="end">部分</text>
+    <line x1="72" y1="118" x2="1208" y2="118" stroke="#D8DEE5" stroke-width="1"/>
+  </g>
+
+  <g id="critical-path" data-pptx-bounds="72 180 1136 110">
+    <text x="72" y="198" font-size="15" fill="#5A6672" letter-spacing="1.2">d7 上实测的关键路径</text>
+    <rect x="72" y="210" width="200" height="66" fill="#F2F4F7"/>
+    <text x="172" y="250" font-size="16" font-family="Consolas, Cascadia Mono, Courier New, monospace" fill="#12263A" text-anchor="middle">cid_reg</text>
+    <line x1="272" y1="243" x2="296" y2="243" stroke="#12263A" stroke-width="1.4" marker-end="url(#arrow-path)"/>
+    <rect x="300" y="210" width="200" height="66" fill="#F2F4F7"/>
+    <text x="400" y="250" font-size="22" fill="#12263A" text-anchor="middle">比较链</text>
+    <line x1="500" y1="243" x2="524" y2="243" stroke="#12263A" stroke-width="1.4" marker-end="url(#arrow-path)"/>
+    <rect x="528" y="210" width="200" height="66" fill="#F2F4F7"/>
+    <text x="628" y="250" font-size="16" font-family="Consolas, Cascadia Mono, Courier New, monospace" fill="#12263A" text-anchor="middle">busy_c</text>
+    <line x1="728" y1="243" x2="752" y2="243" stroke="#12263A" stroke-width="1.4" marker-end="url(#arrow-path)"/>
+    <rect x="756" y="210" width="200" height="66" fill="#F2F4F7"/>
+    <text x="856" y="250" font-size="22" fill="#12263A" text-anchor="middle">全阵列 OR</text>
+    <line x1="956" y1="243" x2="980" y2="243" stroke="#12263A" stroke-width="1.4" marker-end="url(#arrow-path)"/>
+    <rect x="984" y="210" width="224" height="66" fill="#FFFFFF" stroke="#B23A2E" stroke-width="1.6"/>
+    <text x="1096" y="250" font-size="16" font-family="Consolas, Cascadia Mono, Courier New, monospace" fill="#12263A" text-anchor="middle">stage_reg / CE</text>
+  </g>
+
+  <g id="path-stats" data-pptx-bounds="72 320 1136 100">
+    <text x="72" y="368" font-size="38" font-weight="bold" fill="#12263A">33 级</text>
+    <text x="72" y="398" font-size="15" fill="#5A6672">关键路径逻辑级数</text>
+    <text x="300" y="368" font-size="38" font-weight="bold" fill="#12263A">67%</text>
+    <text x="300" y="398" font-size="15" fill="#5A6672">其中是走线，不是逻辑</text>
+    <text x="528" y="368" font-size="38" font-weight="bold" fill="#B23A2E">−1.359</text>
+    <text x="528" y="398" font-size="15" fill="#5A6672">d7 的 WNS（ns），仍差 1.36</text>
+  </g>
+
+  <g id="silence-contrast" data-pptx-bounds="72 440 1136 120">
+    <line x1="72" y1="440" x2="1208" y2="440" stroke="#D8DEE5" stroke-width="1"/>
+    <text x="72" y="478" font-size="16" font-weight="bold" font-family="Consolas, Cascadia Mono, Courier New, monospace" fill="#12263A">all_busy</text>
+    <text x="72" y="514" font-size="22" fill="#1B2632">用寄存的 busy 位<tspan x="72" dy="32">稳，但判断慢一拍</tspan></text>
+    <text x="640" y="478" font-size="16" font-weight="bold" font-family="Consolas, Cascadia Mono, Courier New, monospace" fill="#B23A2E">any_c_busy</text>
+    <text x="640" y="514" font-size="22" fill="#1B2632">用组合的 busy_c<tspan x="640" dy="32">即时，但拉出整条 OR 树</tspan></text>
+  </g>
+
+  <g id="optim-line" data-pptx-bounds="72 580 1136 40">
+    <text x="72" y="608" font-size="22" fill="#12263A">MINTS：d7 87.4 → 149.0 MHz；再加 BUSYREG 到 157.3 MHz</text>
+  </g>
+
+  <g id="page-foot" data-pptx-role="footer" data-pptx-bounds="72 636 1136 44">
+    <line x1="72" y1="640" x2="1208" y2="640" stroke="#D8DEE5" stroke-width="1"/>
+    <text x="72" y="666" font-size="15" fill="#5A6672">"迭代到不动点"在硬件里就是一条跨全阵列的组合归约</text>
+    <text x="1208" y="666" font-size="15" fill="#5A6672" text-anchor="end">14 / 26</text>
+  </g>
+</svg>

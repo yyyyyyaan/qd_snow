@@ -1,0 +1,10 @@
+# LUTRAM-state probe for goal item (2): "state in a small RAM, context as an
+# address bit".  SNOW_PE_RAM in the defs is a TAG MARKER only (it makes the
+# sweep suffix _peram); the actual attribute comes from regenerating the ctx
+# files with  SNOW_PE_RAM=1 python fpga_flow\make_pearray_ctx.py  beforehand.
+#
+#   A: ram_style + NCTX=2   (is a two-entry "RAM" even a RAM?)
+#   B: ram_style + NCTX=8   (the context count where LUTRAM can pay off)
+#   C: plain     + NCTX=8   (baseline for B; run in a second sweep)
+surface 3 2:1 xcvu9p-flga2104-2L-e 5.0 SNOW_PEARRAY;SNOW_CTX2;SNOW_PE_RAM
+surface 3 2:1 xcvu9p-flga2104-2L-e 5.0 SNOW_PEARRAY;SNOW_CTX2;SNOW_PE_RAM NCTX=8

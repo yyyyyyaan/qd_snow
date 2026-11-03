@@ -1,0 +1,13 @@
+#-----------------------------------------------------------
+# xsim v2020.2 (64-bit)
+# SW Build 3064766 on Wed Nov 18 09:12:45 MST 2020
+# IP Build 3064653 on Wed Nov 18 14:17:31 MST 2020
+# Start of session at: Thu Sep 17 23:30:10 2026
+# Process ID: 18596
+# Current directory: D:/ycz/doc/deepseek_workzone/decoder/snowflake_sim/run
+# Command line: xsim.exe -mode tcl -source {xsim.dir/tb_pearr/xsim_script.tcl}
+# Log file: D:/ycz/doc/deepseek_workzone/decoder/snowflake_sim/run/xsim.log
+# Journal file: D:/ycz/doc/deepseek_workzone/decoder/snowflake_sim/run\xsim.jou
+#-----------------------------------------------------------
+source xsim.dir/tb_pearr/xsim_script.tcl
+source sim_run.tcl

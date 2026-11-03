@@ -1,0 +1,8 @@
+# Ablation redo: keep the state registers alive so the numbers mean something.
+# Baseline for comparison = the m3loc rows, so the marker SNOW_M3LOC is kept.
+rep 3 2:1 xcvu9p-flga2104-2L-e 5.0 SNOW_M3LOC;SNOW_KEEP_STATE
+surface 3 2:1 xcvu9p-flga2104-2L-e 5.0 SNOW_M3LOC;SNOW_KEEP_STATE
+rep 3 2:1 xcvu9p-flga2104-2L-e 5.0 SNOW_M3LOC;SNOW_KEEP_STATE;SNOW_NO_OBS
+surface 3 2:1 xcvu9p-flga2104-2L-e 5.0 SNOW_M3LOC;SNOW_KEEP_STATE;SNOW_NO_OBS
+rep 3 2:1 xcvu9p-flga2104-2L-e 5.0 SNOW_M3LOC;SNOW_KEEP_STATE;SNOW_ABLATE_MERGE
+surface 3 2:1 xcvu9p-flga2104-2L-e 5.0 SNOW_M3LOC;SNOW_KEEP_STATE;SNOW_ABLATE_MERGE

@@ -1,0 +1,14 @@
+# How much area is the merge minimum-search tree?  (priority 2 sizing)
+#
+# SNOW_ABL_MIN keeps the entire merging path -- unroot handling, n_grown, busy_c,
+# the push/defect logic -- and removes only the CID comparators plus the
+# best_cid/best_d multiplexers.  Difference against the SNOW_KEEP_STATE baseline
+# is the cost of the min tree itself.
+#
+# SNOW_KEEP_STATE is on in every job so the state cannot be pruned away (the
+# lesson from the first ablation attempt, optimization_report.md 2.3/6.6).
+# Synthesis mode: these builds are never simulated.
+surface 3 2:1 xcvu9p-flga2104-2L-e 5.0 SNOW_PEARRAY;SNOW_KEEP_STATE
+surface 3 2:1 xcvu9p-flga2104-2L-e 5.0 SNOW_PEARRAY;SNOW_KEEP_STATE;SNOW_ABL_MIN
+surface 7 2:1 xcvu9p-flga2104-2L-e 5.0 SNOW_PEARRAY;SNOW_KEEP_STATE
+surface 7 2:1 xcvu9p-flga2104-2L-e 5.0 SNOW_PEARRAY;SNOW_KEEP_STATE;SNOW_ABL_MIN

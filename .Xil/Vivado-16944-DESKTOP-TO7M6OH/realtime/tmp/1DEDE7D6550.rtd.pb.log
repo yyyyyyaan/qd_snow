@@ -1,0 +1,111 @@
+xilinx rtfpga
+WARNING: [Synth 8-7129] Port ab_cid[9] in module snowflake_pe__parameterized102 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port ab_cid[8] in module snowflake_pe__parameterized102 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port ab_cid[7] in module snowflake_pe__parameterized102 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port ab_cid[6] in module snowflake_pe__parameterized102 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port ab_cid[5] in module snowflake_pe__parameterized102 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port ab_cid[4] in module snowflake_pe__parameterized102 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port ab_cid[3] in module snowflake_pe__parameterized102 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port ab_cid[2] in module snowflake_pe__parameterized102 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port ab_cid[1] in module snowflake_pe__parameterized102 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port ab_cid[0] in module snowflake_pe__parameterized102 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port ab_active in module snowflake_pe__parameterized102 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port ab_whole in module snowflake_pe__parameterized102 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port ab_defect in module snowflake_pe__parameterized102 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port ab_ptr[3] in module snowflake_pe__parameterized102 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port ab_ptr[2] in module snowflake_pe__parameterized102 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port ab_ptr[1] in module snowflake_pe__parameterized102 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port ab_ptr[0] in module snowflake_pe__parameterized102 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port ab_cid[9] in module snowflake_pe__parameterized110 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port ab_cid[8] in module snowflake_pe__parameterized110 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port ab_cid[7] in module snowflake_pe__parameterized110 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port ab_cid[6] in module snowflake_pe__parameterized110 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port ab_cid[5] in module snowflake_pe__parameterized110 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port ab_cid[4] in module snowflake_pe__parameterized110 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port ab_cid[3] in module snowflake_pe__parameterized110 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port ab_cid[2] in module snowflake_pe__parameterized110 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port ab_cid[1] in module snowflake_pe__parameterized110 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port ab_cid[0] in module snowflake_pe__parameterized110 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port ab_active in module snowflake_pe__parameterized110 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port ab_whole in module snowflake_pe__parameterized110 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port ab_defect in module snowflake_pe__parameterized110 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port ab_ptr[3] in module snowflake_pe__parameterized110 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port ab_ptr[2] in module snowflake_pe__parameterized110 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port ab_ptr[1] in module snowflake_pe__parameterized110 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port ab_ptr[0] in module snowflake_pe__parameterized110 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port ab_cid[9] in module snowflake_pe__parameterized103 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port ab_cid[8] in module snowflake_pe__parameterized103 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port ab_cid[7] in module snowflake_pe__parameterized103 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port ab_cid[6] in module snowflake_pe__parameterized103 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port ab_cid[5] in module snowflake_pe__parameterized103 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port ab_cid[4] in module snowflake_pe__parameterized103 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port ab_cid[3] in module snowflake_pe__parameterized103 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port ab_cid[2] in module snowflake_pe__parameterized103 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port ab_cid[1] in module snowflake_pe__parameterized103 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port ab_cid[0] in module snowflake_pe__parameterized103 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port ab_active in module snowflake_pe__parameterized103 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port ab_whole in module snowflake_pe__parameterized103 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port ab_defect in module snowflake_pe__parameterized103 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port ab_ptr[3] in module snowflake_pe__parameterized103 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port ab_ptr[2] in module snowflake_pe__parameterized103 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port ab_ptr[1] in module snowflake_pe__parameterized103 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port ab_ptr[0] in module snowflake_pe__parameterized103 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port ab_cid[9] in module snowflake_pe__parameterized109 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port ab_cid[8] in module snowflake_pe__parameterized109 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port ab_cid[7] in module snowflake_pe__parameterized109 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port ab_cid[6] in module snowflake_pe__parameterized109 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port ab_cid[5] in module snowflake_pe__parameterized109 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port ab_cid[4] in module snowflake_pe__parameterized109 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port ab_cid[3] in module snowflake_pe__parameterized109 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port ab_cid[2] in module snowflake_pe__parameterized109 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port ab_cid[1] in module snowflake_pe__parameterized109 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port ab_cid[0] in module snowflake_pe__parameterized109 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port ab_active in module snowflake_pe__parameterized109 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port ab_whole in module snowflake_pe__parameterized109 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port ab_defect in module snowflake_pe__parameterized109 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port ab_ptr[3] in module snowflake_pe__parameterized109 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port ab_ptr[2] in module snowflake_pe__parameterized109 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port ab_ptr[1] in module snowflake_pe__parameterized109 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port ab_ptr[0] in module snowflake_pe__parameterized109 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port ab_cid[9] in module snowflake_pe__parameterized5 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port ab_cid[8] in module snowflake_pe__parameterized5 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port ab_cid[7] in module snowflake_pe__parameterized5 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port ab_cid[6] in module snowflake_pe__parameterized5 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port ab_cid[5] in module snowflake_pe__parameterized5 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port ab_cid[4] in module snowflake_pe__parameterized5 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port ab_cid[3] in module snowflake_pe__parameterized5 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port ab_cid[2] in module snowflake_pe__parameterized5 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port ab_cid[1] in module snowflake_pe__parameterized5 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port ab_cid[0] in module snowflake_pe__parameterized5 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port ab_active in module snowflake_pe__parameterized5 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port ab_whole in module snowflake_pe__parameterized5 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port ab_defect in module snowflake_pe__parameterized5 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port ab_ptr[3] in module snowflake_pe__parameterized5 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port ab_ptr[2] in module snowflake_pe__parameterized5 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port ab_ptr[1] in module snowflake_pe__parameterized5 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port ab_ptr[0] in module snowflake_pe__parameterized5 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port ab_cid[9] in module snowflake_pe__parameterized4 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port ab_cid[8] in module snowflake_pe__parameterized4 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port ab_cid[7] in module snowflake_pe__parameterized4 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port ab_cid[6] in module snowflake_pe__parameterized4 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port ab_cid[5] in module snowflake_pe__parameterized4 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port ab_cid[4] in module snowflake_pe__parameterized4 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port ab_cid[3] in module snowflake_pe__parameterized4 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port ab_cid[2] in module snowflake_pe__parameterized4 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port ab_cid[1] in module snowflake_pe__parameterized4 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port ab_cid[0] in module snowflake_pe__parameterized4 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port ab_active in module snowflake_pe__parameterized4 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port ab_whole in module snowflake_pe__parameterized4 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port ab_defect in module snowflake_pe__parameterized4 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port ab_ptr[3] in module snowflake_pe__parameterized4 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port ab_ptr[2] in module snowflake_pe__parameterized4 is either unconnected or has no load
+INFO: [Common 17-14] Message 'Synth 8-7129' appears 100 times and further instances of the messages will be disabled. Use the Tcl command set_msg_config to change the current settings.
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (\g_pe[4].pe_i /\mts_dir_r_reg[3] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (\g_pe[5].pe_i /\mts_dir_r_reg[3] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (\g_pe[6].pe_i /\mts_dir_r_reg[3] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (\g_pe[18].pe_i /\mts_dir_r_reg[3] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (\g_pe[19].pe_i /\mts_dir_r_reg[3] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (\g_pe[20].pe_i /\mts_dir_r_reg[3] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (\g_pe[111].pe_i /\mts_dir_r_reg[3] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (\g_pe[104].pe_i /\mts_dir_r_reg[3] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (\g_pe[146].pe_i /\mts_dir_r_reg[3] )

@@ -1,0 +1,6 @@
+[jobs] 2 job(s) from fpga_flow/jobs_lattice_a.txt
+[run ] surface_d3_2to1_lattice_xcvu9p  top=snowflake_pe_array part=xcvu9p-flga2104-2L-e period=5.0 mode=impl defs=[SNOW_LATTICE] graph=[D:\ycz\doc\deepseek_workzone\decoder\fpga_flow\graphs\surface_d3.svh]
+[done] surface_d3_2to1_lattice_xcvu9p  wns=-2.298 lut=4248 ff=801 fmax=137.0MHz  (13.3 min)
+[run ] surface_d3_2to1_lattice_sliced_serial_xcvu9p  top=snowflake_pe_array part=xcvu9p-flga2104-2L-e period=5.0 mode=impl defs=[SNOW_LATTICE;SNOW_SLICED;SNOW_SERIAL] graph=[D:\ycz\doc\deepseek_workzone\decoder\fpga_flow\graphs\surface_d3.svh]
+[done] surface_d3_2to1_lattice_sliced_serial_xcvu9p  wns=-1.970 lut=4689 ff=1388 fmax=143.5MHz  (12.0 min)
+sweep finished -> D:\ycz\doc\deepseek_workzone\decoder\fpga_flow\summary_impl.csv

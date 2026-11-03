@@ -1,0 +1,4 @@
+# gate-level (post-synthesis netlist) regression configs
+rep 3 2:1
+surface 3 2:1
+rep 5 2:1

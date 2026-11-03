@@ -1,0 +1,4 @@
+xilinx rtfpga
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (\g_pe[70].pe_i /\mts_dir_r_reg[3] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (\g_pe[84].pe_i /\mts_dir_r_reg[3] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (\g_pe[85].pe_i /\mts_dir_r_reg[3] )

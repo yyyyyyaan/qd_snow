@@ -1,0 +1,47 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1280 720" font-family="微软雅黑, Arial, PingFang SC, Noto Sans CJK SC, sans-serif" data-pptx-page-role="section">
+  <rect id="bg" data-pptx-role="background" x="0" y="0" width="1280" height="720" fill="#FFFFFF"/>
+
+  <g id="page-head" data-pptx-bounds="72 36 1136 80">
+    <text x="72" y="52" font-size="15" fill="#5A6672" letter-spacing="1.4">01 / 背景与问题定义</text>
+    <text x="72" y="100" font-size="38" font-weight="bold" fill="#12263A">算法不是我提的，我主张的是实现、验证与资源刻画</text>
+    <rect x="1184" y="40" width="8" height="8" fill="#5A6672"/>
+    <text x="1208" y="49" font-size="15" fill="#5A6672" text-anchor="end">边界</text>
+    <line x1="72" y1="118" x2="1208" y2="118" stroke="#D8DEE5" stroke-width="1"/>
+  </g>
+
+  <g id="col-snowflake" data-pptx-bounds="72 170 340 280">
+    <line x1="72" y1="180" x2="412" y2="180" stroke="#12263A" stroke-width="2"/>
+    <text x="72" y="208" font-size="15" fill="#5A6672">算法与证明</text>
+    <text x="72" y="240" font-size="26" font-weight="bold" fill="#12263A">Snowflake 论文</text>
+    <text x="72" y="286" font-size="22" fill="#1B2632">流式 frugal 解码<tspan x="72" dy="34">窗口高约 d，每轮提交一层</tspan><tspan x="72" dy="34">c=1 时丢弃 0 层</tspan><tspan x="72" dy="34">逻辑比特寿命 +24.9(5)%</tspan></text>
+    <text x="72" y="430" font-size="15" fill="#5A6672">snowflake.pdf</text>
+  </g>
+
+  <g id="col-helios" data-pptx-bounds="452 170 340 280">
+    <line x1="452" y1="180" x2="792" y2="180" stroke="#12263A" stroke-width="2"/>
+    <text x="452" y="208" font-size="15" fill="#5A6672">阵列组织</text>
+    <text x="452" y="240" font-size="26" font-weight="bold" fill="#12263A">Helios 论文</text>
+    <text x="452" y="286" font-size="22" fill="#1B2632">分布式 Union-Find<tspan x="452" dy="34">一节点一 PE</tspan><tspan x="452" dy="34">混合树-网格结构</tspan><tspan x="452" dy="34">direct channel 消息网络</tspan></text>
+    <text x="452" y="430" font-size="15" fill="#5A6672">FPGA-based Distributed UF Decoder</text>
+  </g>
+
+  <g id="col-thiswork" data-pptx-bounds="832 170 376 280">
+    <line x1="832" y1="180" x2="1208" y2="180" stroke="#B23A2E" stroke-width="2"/>
+    <text x="832" y="208" font-size="15" fill="#B23A2E">本项目交付</text>
+    <text x="832" y="240" font-size="26" font-weight="bold" fill="#12263A">实现 · 验证 · 刻画</text>
+    <text x="832" y="286" font-size="22" fill="#1B2632">可综合的 RTL 实现<tspan x="832" dy="34">逐行回归对比黄金轨迹</tspan><tspan x="832" dy="34">同口径资源与时序刻画</tspan><tspan x="832" dy="34">板级外壳与轨迹回读</tspan></text>
+    <text x="832" y="430" font-size="15" fill="#5A6672">design/snowflake/ 与 design/board/</text>
+  </g>
+
+  <g id="boundary-band" data-pptx-bounds="72 500 1136 80">
+    <rect x="72" y="500" width="1136" height="80" fill="#F2F4F7"/>
+    <rect x="72" y="500" width="4" height="80" fill="#B23A2E"/>
+    <text x="104" y="548" font-size="26" fill="#12263A">明确不做：不重跑论文的阈值实验，不声称复现全部结果。</text>
+  </g>
+
+  <g id="page-foot" data-pptx-role="footer" data-pptx-bounds="72 636 1136 44">
+    <line x1="72" y1="640" x2="1208" y2="640" stroke="#D8DEE5" stroke-width="1"/>
+    <text x="72" y="666" font-size="15" fill="#5A6672">三列的归属在后文所有数字上继续有效</text>
+    <text x="1208" y="666" font-size="15" fill="#5A6672" text-anchor="end">06 / 26</text>
+  </g>
+</svg>

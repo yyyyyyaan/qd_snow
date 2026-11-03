@@ -1,0 +1,33 @@
+# SNOW_LATTICE steps (b)+(c): the SHARED-LATTICE array
+# (design/snowflake/snowflake_pe_array_lat.sv).
+#
+# CONTEXT / WARNING
+# -----------------
+# The lattice array is NOT yet line-exact: `msim_regress_lat.ps1 -Code rep -D 3
+# -Slices 2` FAILs, diverging at `T 3 D 1` on edge growth (see
+# fpga_flow/lattice_b_step_status.md).  Nothing here may be reported as a working
+# design; these runs exist to measure the RESOURCE COST of the shared-lattice
+# structure so the area budget is known, and to record the number as a measured
+# negative/partial result.
+#
+# The comparison baseline is the FLAT PE array (snowflake_pe_array.sv), which
+# does pass line-exact (rep d3 2314/2314, surface d3 7832/7832, surface d5
+# 40112/40112, plus the SLICED+SERIAL seam runs):
+#
+#   surface d3 flat PE array :   see optimization_report.md section 6.x
+#   surface d5 flat PE array :   see optimization_report.md section 6.x
+#
+# What the lattice changes structurally (design doc section 9, report 6.19+):
+#   * ONE datapath instance per SLOT instead of per node/edge
+#     (rep d3 n=2: 8 PE + 24 edge instances vs the flat 12 + 13)
+#   * the state lives in a shared LUTRAM-style register bank addressed by
+#     ((row*NSLOT + slot)*NCTX + slice), with mirror copies for cross-slice reads
+#   * slices are time-multiplexed: one global step = NCTX phases
+#
+# Jobs:  <code> <d> <schedule> <part> <period_ns> [extra_defs]
+#
+# `SNOW_LAT` gates the STATELESS variants of snowflake_pe / snowflake_edge (the
+# `st_in`/`st_out` ports the lattice array connects to) and must be defined
+# together with SNOW_LATTICE; the ModelSim regression driver defines both.
+rep 3 2:1 xcvu9p-flga2104-2L-e 5.0 SNOW_LATTICE;SNOW_LAT
+surface 3 2:1 xcvu9p-flga2104-2L-e 5.0 SNOW_LATTICE;SNOW_LAT

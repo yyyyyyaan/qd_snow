@@ -1,0 +1,6 @@
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "D:/ycz/doc/deepseek_workzone/decoder/Helios_scalable_QEC-main/Helios_scalable_QEC-main/design/snowflake/snowflake_edge_ctx.sv" into library work
+INFO: [VRFC 10-311] analyzing module snowflake_edge_ctx
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "D:/ycz/doc/deepseek_workzone/decoder/Helios_scalable_QEC-main/Helios_scalable_QEC-main/design/snowflake/snowflake_pe_ctx.sv" into library work
+INFO: [VRFC 10-311] analyzing module snowflake_pe_ctx
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "D:/ycz/doc/deepseek_workzone/decoder/Helios_scalable_QEC-main/Helios_scalable_QEC-main/design/snowflake/snowflake_pe_array_ctx.sv" into library work
+INFO: [VRFC 10-311] analyzing module snowflake_pe_array_ctx

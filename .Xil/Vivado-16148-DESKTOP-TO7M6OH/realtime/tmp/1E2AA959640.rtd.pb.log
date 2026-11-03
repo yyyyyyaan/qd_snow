@@ -1,0 +1,28 @@
+xilinx rtfpga
+WARNING: [Synth 8-7129] Port clk in module snowflake_edge__110 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port clk in module snowflake_edge__109 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port clk in module snowflake_edge__108 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port clk in module snowflake_edge__107 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port clk in module snowflake_edge__106 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port clk in module snowflake_edge__105 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port clk in module snowflake_edge__104 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port clk in module snowflake_edge__103 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port clk in module snowflake_edge__102 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port clk in module snowflake_edge__101 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port clk in module snowflake_edge__100 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port clk in module snowflake_edge__99 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port clk in module snowflake_edge__98 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port clk in module snowflake_edge__97 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port clk in module snowflake_edge__96 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port clk in module snowflake_edge__95 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port clk in module snowflake_edge__94 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port clk in module snowflake_edge__93 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port clk in module snowflake_edge__92 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port clk in module snowflake_edge__91 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port clk in module snowflake_edge__90 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port clk in module snowflake_edge__89 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port clk in module snowflake_edge__88 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port clk in module snowflake_edge__87 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port clk in module snowflake_edge__86 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port clk in module snowflake_edge__85 is either unconnected or has no load
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (\g_eslot[19].g_ectx[0].bank_reg[182][17] )

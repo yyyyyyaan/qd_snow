@@ -1,0 +1,27 @@
+# vsim -c -quiet -do "run -all; quit -f" work.tb_snowflake_board_lat1 -gMAXREC=128 -gRSTLEN=16 -gRSTPULSE=4 
+# Start time: 08:23:32 on Sep 24,2026
+# ** Warning: Design size of 11908 statements exceeds ModelSim-Intel FPGA Starter Edition recommended capacity.
+# Expect performance to be adversely affected.
+# run -all
+# [brd] core reset released after 5 polls (rstlen=16 pulse=4)
+# [brd] ID magic=534e0101 nn=24 ne=35 ncommit=13 nsyn=4 cid_w=6 ptr_w=3 ndir=6
+# [brd] layout words=17 maxrec=128 hdrw=48 ns=15 es=3 rbits=513 nslot=32 nctx=2
+# [brd] round=0 records=5 cyc_last=15 polls=5 stage=5 step=1
+# [brd] round=1 records=6 cyc_last=19 polls=6 stage=5 step=1
+# [brd] round=2 records=6 cyc_last=19 polls=6 stage=5 step=1
+# [brd] round=3 records=8 cyc_last=27 polls=9 stage=5 step=3
+# [brd] round=4 records=8 cyc_last=27 polls=9 stage=5 step=1
+# [brd] round=5 records=8 cyc_last=27 polls=9 stage=5 step=3
+# [brd] round=6 records=6 cyc_last=19 polls=6 stage=5 step=1
+# [brd] round=7 records=8 cyc_last=27 polls=9 stage=5 step=3
+# [brd] round=8 records=6 cyc_last=19 polls=6 stage=5 step=1
+# [brd] round=9 records=8 cyc_last=27 polls=9 stage=5 step=1
+# [brd] round=10 records=8 cyc_last=27 polls=9 stage=5 step=3
+# [brd] round=11 records=6 cyc_last=19 polls=6 stage=5 step=1
+# [brd] CORR mask w0=00000001 w1=00000000
+# [brd] AXI transactions done; errs=0
+# [brd] DONE rounds=12
+# ** Note: $finish    : test_benches/snowflake/tb_snowflake_board_lat1.sv(239)
+#    Time: 52060 ns  Iteration: 1  Instance: /tb_snowflake_board_lat1
+# End time: 08:23:34 on Sep 24,2026, Elapsed time: 0:00:02
+# Errors: 0, Warnings: 1

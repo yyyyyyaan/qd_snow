@@ -1,0 +1,1 @@
+"tb_snowflake_pe_array_lat1" "glbl" -s "tb_net_lat1" -L "unisims_ver" -L "secureip" --debug "typical" --timescale "1ns/1ps" 

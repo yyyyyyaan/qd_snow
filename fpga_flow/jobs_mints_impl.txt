@@ -1,0 +1,27 @@
+# SNOW_MINTS: time-multiplexed 12-direction min search (report 6.17).
+#
+# The merging flooding's serial argmin scan is 61-64% of the whole design
+# (report 6.15: d7 = 114 LUT/node; ablation WNS -6.198 -> +1.532).  MINTS
+# splits the scan into MTS_G direction groups (G=3 for NDIR=12, G=2 for
+# NDIR=4) and scans ONE group per cycle through a single shared slot bank:
+# groups 0..G-2 accumulate into per-PE partial registers (everything else
+# sees stage IDLE and holds), the last group is scanned by the same cells
+# and consumed by the merging branch on that final sub-cycle.  Cost: every
+# merging cycle xG.  Trace stays one T-line per logical step (dbg_valid
+# gated on mts_last), so the line-exact regression passes unchanged
+# (13/13 incl. SLICED/BUSYREG combos and the directed seam stimulus).
+#
+# This is the SINGLE-BANK revision.  The first revision additionally
+# re-scanned the last group inline in the merging branch (two comparator
+# banks) and measured LUT +35% (d3) / +26% (d5) with period -34% / -45%;
+# those artifacts are archived in logs/mints_2bank/ and the CSV tags are
+# *_mints2bank_*.  Do NOT use -SkipExisting here: the d3/d5 logs of the
+# first revision still carry FLOW_RESULT and would be wrongly skipped.
+#
+# Baseline for comparison (same flow, bus on, report 6.4):
+#   surface d3:  4,091 LUT / 7.243 ns / 138.1 MHz
+#   surface d5: 23,168 LUT / 9.603 ns / 104.1 MHz
+#   surface d7: 72,982 LUT / 11.446 ns / 87.4 MHz
+surface 3 2:1 xcvu9p-flga2104-2L-e 5.0 SNOW_MINTS
+surface 5 2:1 xcvu9p-flga2104-2L-e 5.0 SNOW_MINTS
+surface 7 2:1 xcvu9p-flga2104-2L-e 5.0 SNOW_MINTS

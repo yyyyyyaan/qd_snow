@@ -1,0 +1,8 @@
+# M1 ablation: observation-bus and merging-datapath area, measured against the
+# current (M3) baseline, so the base tag is the m3loc one
+rep 3 2:1 xcvu9p-flga2104-2L-e 5.0 SNOW_M3LOC;SNOW_NO_OBS
+rep 3 2:1 xcvu9p-flga2104-2L-e 5.0 SNOW_M3LOC;SNOW_ABLATE_MERGE
+rep 3 2:1 xcvu9p-flga2104-2L-e 5.0 SNOW_M3LOC;SNOW_NO_OBS;SNOW_ABLATE_MERGE
+surface 3 2:1 xcvu9p-flga2104-2L-e 5.0 SNOW_M3LOC;SNOW_NO_OBS
+surface 3 2:1 xcvu9p-flga2104-2L-e 5.0 SNOW_M3LOC;SNOW_ABLATE_MERGE
+surface 3 2:1 xcvu9p-flga2104-2L-e 5.0 SNOW_M3LOC;SNOW_NO_OBS;SNOW_ABLATE_MERGE

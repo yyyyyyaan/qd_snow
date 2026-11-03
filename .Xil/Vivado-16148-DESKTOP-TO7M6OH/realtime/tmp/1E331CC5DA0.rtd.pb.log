@@ -1,0 +1,9 @@
+xilinx rtfpga
+WARNING: [Synth 8-7129] Port clk in module snowflake_edge__84 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port clk in module snowflake_edge__83 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port clk in module snowflake_edge__82 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port clk in module snowflake_edge__81 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port clk in module snowflake_edge__80 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port clk in module snowflake_edge__79 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port clk in module snowflake_edge__78 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port clk in module snowflake_edge__77 is either unconnected or has no load

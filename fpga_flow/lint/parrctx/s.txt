@@ -1,0 +1,18 @@
+
+****** xsim v2020.2 (64-bit)
+  **** SW Build 3064766 on Wed Nov 18 09:12:45 MST 2020
+  **** IP Build 3064653 on Wed Nov 18 14:17:31 MST 2020
+    ** Copyright 1986-2020 Xilinx, Inc. All Rights Reserved.
+
+source xsim.dir/tbp/xsim_script.tcl
+# xsim {tbp} -autoloadwcfg -tclbatch {run.tcl}
+Vivado Simulator 2020.2
+Time resolution is 1 ps
+source run.tcl
+## run all
+PROBE k=x ctx=0 raw cid0=00000 cid1=00000 dutctx=0
+PROBE k=x ctx=1 raw cid0=00000 cid1=00000 dutctx=1
+PROBE after DROP: cid=z whole=z
+$finish called at time : 56 ns : File "D:/ycz/doc/deepseek_workzone/decoder/fpga_flow/lint/parrctx/tb_probe.sv" Line 47
+## quit
+INFO: [Common 17-206] Exiting xsim at Wed Sep 16 18:58:38 2026...

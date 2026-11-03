@@ -1,0 +1,413 @@
+
+****** Vivado v2020.2 (64-bit)
+  **** SW Build 3064766 on Wed Nov 18 09:12:45 MST 2020
+  **** IP Build 3064653 on Wed Nov 18 14:17:31 MST 2020
+    ** Copyright 1986-2020 Xilinx, Inc. All Rights Reserved.
+
+source {D:\ycz\doc\deepseek_workzone\decoder\fpga_flow\run_ooc.tcl}
+# set repo    $::env(FLOW_REPO)
+# set top     $::env(FLOW_TOP)
+# set part    $::env(FLOW_PART)
+# set period  $::env(FLOW_PERIOD)
+# set tag     $::env(FLOW_TAG)
+# set outdir  $::env(FLOW_OUT)
+# set mode    [expr {[info exists ::env(FLOW_MODE)] ? $::env(FLOW_MODE) : "impl"}]
+# set flatten [expr {[info exists ::env(FLOW_FLATTEN)] ? $::env(FLOW_FLATTEN) : "none"}]
+# set srcs    [expr {[info exists ::env(FLOW_SRCS)] ? [split $::env(FLOW_SRCS) ";"] \
+#                    : [list "$repo/design/snowflake/snowflake_core.sv"]}]
+# set defs    [expr {[info exists ::env(FLOW_DEFS)] ? [split $::env(FLOW_DEFS) ";"] : [list]}]
+# file mkdir $outdir
+# if {[info exists ::env(FLOW_GRAPH)] && $::env(FLOW_GRAPH) ne ""} {
+#   set dst "$repo/design/generated/snowflake_graph.svh"
+#   if {![string equal -nocase [file normalize $::env(FLOW_GRAPH)] [file normalize $dst]]} {
+#     file copy -force $::env(FLOW_GRAPH) $dst
+#   }
+#   puts "FLOW_GRAPH_PINNED [file tail $::env(FLOW_GRAPH)] -> $dst"
+# }
+FLOW_GRAPH_PINNED surface_d5.svh -> D:\ycz\doc\deepseek_workzone\decoder\Helios_scalable_QEC-main\Helios_scalable_QEC-main/design/generated/snowflake_graph.svh
+# set xdc "$outdir/ooc_$tag.xdc"
+# set fh [open $xdc w]
+# puts $fh "create_clock -name clk -period $period \[get_ports clk\]"
+# puts $fh "set_input_delay  -clock clk 0.0 \[remove_from_collection \[all_inputs\] \[get_ports clk\]\]"
+# puts $fh "set_output_delay -clock clk 0.0 \[all_outputs\]"
+# close $fh
+# read_xdc $xdc
+# foreach s $srcs { read_verilog -sv $s }
+# set synth_args [list -top $top -part $part -mode out_of_context -flatten_hierarchy $flatten]
+# if {[llength $defs]} { lappend synth_args -verilog_define [join $defs " "] }
+# puts "FLOW_SYNTH $synth_args"
+FLOW_SYNTH -top snowflake_core -part xcvu9p-flga2104-2L-e -mode out_of_context -flatten_hierarchy none -verilog_define {SNOW_M3LOC SNOW_BUSYREG}
+# synth_design {*}$synth_args
+Command: synth_design -top snowflake_core -part xcvu9p-flga2104-2L-e -mode out_of_context -flatten_hierarchy none -verilog_define {SNOW_M3LOC SNOW_BUSYREG}
+Starting synth_design
+Attempting to get a license for feature 'Synthesis' and/or device 'xcvu9p'
+INFO: [Common 17-349] Got license for feature 'Synthesis' and/or device 'xcvu9p'
+INFO: [Device 21-403] Loading part xcvu9p-flga2104-2L-e
+INFO: [Synth 8-7079] Multithreading enabled for synth_design using a maximum of 2 processes.
+INFO: [Synth 8-7078] Launching helper process for spawning children vivado processes
+INFO: [Synth 8-7075] Helper process launched with PID 16228
+WARNING: [Synth 8-2292] literal value truncated to fit in 4 bits [D:/ycz/doc/deepseek_workzone/decoder/Helios_scalable_QEC-main/Helios_scalable_QEC-main/design/snowflake/../generated/snowflake_graph.svh:2870]
+---------------------------------------------------------------------------------
+Starting RTL Elaboration : Time (s): cpu = 00:00:04 ; elapsed = 00:00:04 . Memory (MB): peak = 1861.344 ; gain = 251.938
+---------------------------------------------------------------------------------
+INFO: [Synth 8-6157] synthesizing module 'snowflake_core' [D:/ycz/doc/deepseek_workzone/decoder/Helios_scalable_QEC-main/Helios_scalable_QEC-main/design/snowflake/snowflake_core.sv:22]
+	Parameter ONE_ONE bound to: 0 - type: integer 
+	Parameter DEBUG_OBS bound to: 1 - type: integer 
+	Parameter NN bound to: 150 - type: integer 
+	Parameter NE bound to: 285 - type: integer 
+	Parameter CW bound to: 9 - type: integer 
+	Parameter NDIR bound to: 12 - type: integer 
+	Parameter ST_IDLE bound to: 3'b000 
+	Parameter ST_DROP bound to: 3'b001 
+	Parameter ST_GW bound to: 3'b010 
+	Parameter ST_MW bound to: 3'b011 
+	Parameter ST_GH bound to: 3'b100 
+	Parameter ST_MH bound to: 3'b101 
+INFO: [Synth 8-6155] done synthesizing module 'snowflake_core' (1#1) [D:/ycz/doc/deepseek_workzone/decoder/Helios_scalable_QEC-main/Helios_scalable_QEC-main/design/snowflake/snowflake_core.sv:22]
+---------------------------------------------------------------------------------
+Finished RTL Elaboration : Time (s): cpu = 00:02:03 ; elapsed = 00:02:09 . Memory (MB): peak = 3267.008 ; gain = 1657.602
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Handling Custom Attributes
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Handling Custom Attributes : Time (s): cpu = 00:02:09 ; elapsed = 00:02:16 . Memory (MB): peak = 3267.008 ; gain = 1657.602
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished RTL Optimization Phase 1 : Time (s): cpu = 00:02:09 ; elapsed = 00:02:16 . Memory (MB): peak = 3267.008 ; gain = 1657.602
+---------------------------------------------------------------------------------
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.558 . Memory (MB): peak = 3267.008 ; gain = 0.000
+INFO: [Project 1-570] Preparing netlist for logic optimization
+
+Processing XDC Constraints
+Initializing timing engine
+Parsing XDC File [D:/ycz/doc/deepseek_workzone/decoder/fpga_flow/logs/ooc_surface_d5_2to1_m3loc_busyreg_xcvu9p.xdc]
+CRITICAL WARNING: [Designutils 20-1307] Command 'remove_from_collection' is not supported in the xdc constraint file. [D:/ycz/doc/deepseek_workzone/decoder/fpga_flow/logs/ooc_surface_d5_2to1_m3loc_busyreg_xcvu9p.xdc:2]
+Finished Parsing XDC File [D:/ycz/doc/deepseek_workzone/decoder/fpga_flow/logs/ooc_surface_d5_2to1_m3loc_busyreg_xcvu9p.xdc]
+Completed Processing XDC Constraints
+
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.011 . Memory (MB): peak = 3267.008 ; gain = 0.000
+INFO: [Project 1-111] Unisim Transformation Summary:
+No Unisim elements were transformed.
+
+Constraint Validation Runtime : Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.357 . Memory (MB): peak = 3267.008 ; gain = 0.000
+---------------------------------------------------------------------------------
+Finished Constraint Validation : Time (s): cpu = 00:02:27 ; elapsed = 00:02:35 . Memory (MB): peak = 3267.008 ; gain = 1657.602
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Loading Part and Timing Information
+---------------------------------------------------------------------------------
+Loading part: xcvu9p-flga2104-2L-e
+INFO: [Synth 8-6742] Reading net delay rules and data
+INFO: [Synth 8-802] inferred FSM for state register 'stage_reg' in module 'snowflake_core'
+---------------------------------------------------------------------------------------------------
+                   State |                     New Encoding |                Previous Encoding 
+---------------------------------------------------------------------------------------------------
+                 ST_IDLE |                              000 |                              000
+                 ST_DROP |                              101 |                              001
+                   ST_GW |                              100 |                              010
+                   ST_MW |                              011 |                              011
+                   ST_GH |                              010 |                              100
+                   ST_MH |                              001 |                              101
+---------------------------------------------------------------------------------------------------
+INFO: [Synth 8-3354] encoded FSM with state register 'stage_reg' using encoding 'sequential' in module 'snowflake_core'
+---------------------------------------------------------------------------------
+Finished RTL Optimization Phase 2 : Time (s): cpu = 00:03:52 ; elapsed = 00:04:04 . Memory (MB): peak = 3267.008 ; gain = 1657.602
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start RTL Component Statistics 
+---------------------------------------------------------------------------------
+Detailed RTL Component Info : 
++---Adders : 
+	   2 Input   32 Bit       Adders := 100   
+	   2 Input    9 Bit       Adders := 120   
+	   2 Input    8 Bit       Adders := 1     
+	   3 Input    3 Bit       Adders := 570   
+	   3 Input    2 Bit       Adders := 570   
++---XORs : 
+	   2 Input      1 Bit         XORs := 1140  
++---Registers : 
+	               61 Bit    Registers := 1     
+	                9 Bit    Registers := 150   
+	                8 Bit    Registers := 2     
+	                4 Bit    Registers := 150   
+	                3 Bit    Registers := 1     
+	                2 Bit    Registers := 285   
+	                1 Bit    Registers := 1187  
++---Muxes : 
+	   2 Input   61 Bit        Muxes := 4     
+	   5 Input    9 Bit        Muxes := 120   
+	   2 Input    9 Bit        Muxes := 3080  
+	   7 Input    9 Bit        Muxes := 16    
+	   8 Input    9 Bit        Muxes := 48    
+	   9 Input    9 Bit        Muxes := 36    
+	   6 Input    8 Bit        Muxes := 49    
+	   2 Input    8 Bit        Muxes := 302   
+	   7 Input    8 Bit        Muxes := 36    
+	   5 Input    8 Bit        Muxes := 16    
+	   5 Input    4 Bit        Muxes := 120   
+	   2 Input    4 Bit        Muxes := 3420  
+	   6 Input    3 Bit        Muxes := 2     
+	   5 Input    2 Bit        Muxes := 285   
+	   2 Input    2 Bit        Muxes := 570   
+	   2 Input    1 Bit        Muxes := 9312  
+	   5 Input    1 Bit        Muxes := 2189  
+	   6 Input    1 Bit        Muxes := 3     
+	   4 Input    1 Bit        Muxes := 50    
+---------------------------------------------------------------------------------
+Finished RTL Component Statistics 
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Part Resource Summary
+---------------------------------------------------------------------------------
+Part Resources:
+DSPs: 6840 (col length:120)
+BRAMs: 4320 (col length: RAMB18 360 RAMB36 180)
+---------------------------------------------------------------------------------
+Finished Part Resource Summary
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Cross Boundary and Area Optimization
+---------------------------------------------------------------------------------
+INFO: [Synth 8-5544] ROM "p_2_out0" won't be mapped to Block RAM because address size (4) smaller than threshold (5)
+INFO: [Synth 8-5544] ROM "p_2_out0" won't be mapped to Block RAM because address size (4) smaller than threshold (5)
+INFO: [Synth 8-5544] ROM "p_2_out0" won't be mapped to Block RAM because address size (4) smaller than threshold (5)
+INFO: [Synth 8-5544] ROM "p_2_out0" won't be mapped to Block RAM because address size (4) smaller than threshold (5)
+INFO: [Synth 8-5544] ROM "p_2_out0" won't be mapped to Block RAM because address size (4) smaller than threshold (5)
+INFO: [Synth 8-5544] ROM "p_2_out0" won't be mapped to Block RAM because address size (4) smaller than threshold (5)
+INFO: [Synth 8-5544] ROM "p_2_out0" won't be mapped to Block RAM because address size (4) smaller than threshold (5)
+INFO: [Synth 8-5544] ROM "p_2_out0" won't be mapped to Block RAM because address size (4) smaller than threshold (5)
+INFO: [Synth 8-5544] ROM "p_2_out0" won't be mapped to Block RAM because address size (4) smaller than threshold (5)
+INFO: [Synth 8-5544] ROM "p_2_out0" won't be mapped to Block RAM because address size (4) smaller than threshold (5)
+INFO: [Synth 8-5544] ROM "p_2_out0" won't be mapped to Block RAM because address size (4) smaller than threshold (5)
+INFO: [Synth 8-5544] ROM "p_2_out0" won't be mapped to Block RAM because address size (4) smaller than threshold (5)
+INFO: [Synth 8-5544] ROM "p_2_out0" won't be mapped to Block RAM because address size (4) smaller than threshold (5)
+INFO: [Synth 8-5544] ROM "p_2_out0" won't be mapped to Block RAM because address size (4) smaller than threshold (5)
+INFO: [Synth 8-5544] ROM "p_2_out0" won't be mapped to Block RAM because address size (4) smaller than threshold (5)
+INFO: [Synth 8-5544] ROM "p_2_out0" won't be mapped to Block RAM because address size (4) smaller than threshold (5)
+INFO: [Synth 8-5544] ROM "p_2_out0" won't be mapped to Block RAM because address size (4) smaller than threshold (5)
+INFO: [Synth 8-5544] ROM "p_2_out0" won't be mapped to Block RAM because address size (4) smaller than threshold (5)
+INFO: [Synth 8-5544] ROM "p_2_out0" won't be mapped to Block RAM because address size (4) smaller than threshold (5)
+INFO: [Synth 8-5544] ROM "p_2_out0" won't be mapped to Block RAM because address size (4) smaller than threshold (5)
+INFO: [Synth 8-5544] ROM "p_2_out0" won't be mapped to Block RAM because address size (4) smaller than threshold (5)
+INFO: [Synth 8-5544] ROM "p_2_out0" won't be mapped to Block RAM because address size (4) smaller than threshold (5)
+INFO: [Synth 8-5544] ROM "p_2_out0" won't be mapped to Block RAM because address size (4) smaller than threshold (5)
+INFO: [Synth 8-5544] ROM "p_2_out0" won't be mapped to Block RAM because address size (4) smaller than threshold (5)
+INFO: [Synth 8-5544] ROM "p_2_out0" won't be mapped to Block RAM because address size (4) smaller than threshold (5)
+INFO: [Synth 8-5544] ROM "p_2_out0" won't be mapped to Block RAM because address size (4) smaller than threshold (5)
+INFO: [Synth 8-5544] ROM "p_2_out0" won't be mapped to Block RAM because address size (4) smaller than threshold (5)
+INFO: [Synth 8-5544] ROM "p_2_out0" won't be mapped to Block RAM because address size (4) smaller than threshold (5)
+INFO: [Synth 8-5544] ROM "p_2_out0" won't be mapped to Block RAM because address size (4) smaller than threshold (5)
+INFO: [Synth 8-5544] ROM "p_2_out0" won't be mapped to Block RAM because address size (4) smaller than threshold (5)
+INFO: [Synth 8-5544] ROM "p_2_out0" won't be mapped to Block RAM because address size (4) smaller than threshold (5)
+INFO: [Synth 8-5544] ROM "p_2_out0" won't be mapped to Block RAM because address size (4) smaller than threshold (5)
+INFO: [Synth 8-5544] ROM "p_2_out0" won't be mapped to Block RAM because address size (4) smaller than threshold (5)
+INFO: [Synth 8-5544] ROM "p_2_out0" won't be mapped to Block RAM because address size (4) smaller than threshold (5)
+INFO: [Synth 8-5544] ROM "p_2_out0" won't be mapped to Block RAM because address size (4) smaller than threshold (5)
+INFO: [Synth 8-5544] ROM "p_2_out0" won't be mapped to Block RAM because address size (4) smaller than threshold (5)
+INFO: [Synth 8-5544] ROM "p_2_out0" won't be mapped to Block RAM because address size (4) smaller than threshold (5)
+INFO: [Synth 8-5544] ROM "p_2_out0" won't be mapped to Block RAM because address size (4) smaller than threshold (5)
+INFO: [Synth 8-5544] ROM "p_2_out0" won't be mapped to Block RAM because address size (4) smaller than threshold (5)
+INFO: [Synth 8-5544] ROM "p_2_out0" won't be mapped to Block RAM because address size (4) smaller than threshold (5)
+INFO: [Synth 8-5544] ROM "p_2_out0" won't be mapped to Block RAM because address size (4) smaller than threshold (5)
+INFO: [Synth 8-5544] ROM "p_2_out0" won't be mapped to Block RAM because address size (4) smaller than threshold (5)
+INFO: [Synth 8-5544] ROM "p_2_out0" won't be mapped to Block RAM because address size (4) smaller than threshold (5)
+INFO: [Synth 8-5544] ROM "p_2_out0" won't be mapped to Block RAM because address size (4) smaller than threshold (5)
+INFO: [Synth 8-5544] ROM "p_2_out0" won't be mapped to Block RAM because address size (4) smaller than threshold (5)
+INFO: [Synth 8-5544] ROM "p_2_out0" won't be mapped to Block RAM because address size (4) smaller than threshold (5)
+INFO: [Synth 8-5544] ROM "p_2_out0" won't be mapped to Block RAM because address size (4) smaller than threshold (5)
+INFO: [Synth 8-5544] ROM "p_2_out0" won't be mapped to Block RAM because address size (4) smaller than threshold (5)
+INFO: [Synth 8-5544] ROM "p_2_out0" won't be mapped to Block RAM because address size (4) smaller than threshold (5)
+INFO: [Synth 8-5544] ROM "p_2_out0" won't be mapped to Block RAM because address size (4) smaller than threshold (5)
+INFO: [Synth 8-5544] ROM "p_2_out0" won't be mapped to Block RAM because address size (4) smaller than threshold (5)
+INFO: [Synth 8-5544] ROM "p_2_out0" won't be mapped to Block RAM because address size (4) smaller than threshold (5)
+INFO: [Synth 8-5544] ROM "p_2_out0" won't be mapped to Block RAM because address size (4) smaller than threshold (5)
+INFO: [Synth 8-5544] ROM "p_2_out0" won't be mapped to Block RAM because address size (4) smaller than threshold (5)
+INFO: [Synth 8-5544] ROM "p_2_out0" won't be mapped to Block RAM because address size (4) smaller than threshold (5)
+INFO: [Synth 8-5544] ROM "p_2_out0" won't be mapped to Block RAM because address size (4) smaller than threshold (5)
+INFO: [Synth 8-5544] ROM "p_2_out0" won't be mapped to Block RAM because address size (4) smaller than threshold (5)
+INFO: [Synth 8-5544] ROM "p_2_out0" won't be mapped to Block RAM because address size (4) smaller than threshold (5)
+INFO: [Synth 8-5544] ROM "p_2_out0" won't be mapped to Block RAM because address size (4) smaller than threshold (5)
+INFO: [Synth 8-5544] ROM "p_2_out0" won't be mapped to Block RAM because address size (4) smaller than threshold (5)
+INFO: [Synth 8-5544] ROM "p_2_out0" won't be mapped to Block RAM because address size (4) smaller than threshold (5)
+INFO: [Synth 8-5544] ROM "p_2_out0" won't be mapped to Block RAM because address size (4) smaller than threshold (5)
+INFO: [Synth 8-5544] ROM "p_2_out0" won't be mapped to Block RAM because address size (4) smaller than threshold (5)
+INFO: [Synth 8-5544] ROM "p_2_out0" won't be mapped to Block RAM because address size (4) smaller than threshold (5)
+INFO: [Synth 8-5544] ROM "p_2_out0" won't be mapped to Block RAM because address size (4) smaller than threshold (5)
+INFO: [Synth 8-5544] ROM "p_2_out0" won't be mapped to Block RAM because address size (4) smaller than threshold (5)
+INFO: [Synth 8-5544] ROM "p_2_out0" won't be mapped to Block RAM because address size (4) smaller than threshold (5)
+INFO: [Synth 8-5544] ROM "p_2_out0" won't be mapped to Block RAM because address size (4) smaller than threshold (5)
+INFO: [Synth 8-5544] ROM "p_2_out0" won't be mapped to Block RAM because address size (4) smaller than threshold (5)
+INFO: [Synth 8-5544] ROM "p_2_out0" won't be mapped to Block RAM because address size (4) smaller than threshold (5)
+INFO: [Synth 8-5544] ROM "p_2_out0" won't be mapped to Block RAM because address size (4) smaller than threshold (5)
+INFO: [Synth 8-5544] ROM "p_2_out0" won't be mapped to Block RAM because address size (4) smaller than threshold (5)
+INFO: [Synth 8-5544] ROM "p_2_out0" won't be mapped to Block RAM because address size (4) smaller than threshold (5)
+INFO: [Synth 8-5544] ROM "p_2_out0" won't be mapped to Block RAM because address size (4) smaller than threshold (5)
+INFO: [Synth 8-5544] ROM "p_2_out0" won't be mapped to Block RAM because address size (4) smaller than threshold (5)
+INFO: [Synth 8-5544] ROM "p_2_out0" won't be mapped to Block RAM because address size (4) smaller than threshold (5)
+INFO: [Synth 8-5544] ROM "p_2_out0" won't be mapped to Block RAM because address size (4) smaller than threshold (5)
+INFO: [Synth 8-5544] ROM "p_2_out0" won't be mapped to Block RAM because address size (4) smaller than threshold (5)
+INFO: [Synth 8-5544] ROM "p_2_out0" won't be mapped to Block RAM because address size (4) smaller than threshold (5)
+INFO: [Synth 8-5544] ROM "p_2_out0" won't be mapped to Block RAM because address size (4) smaller than threshold (5)
+---------------------------------------------------------------------------------
+Finished Cross Boundary and Area Optimization : Time (s): cpu = 00:04:47 ; elapsed = 00:05:14 . Memory (MB): peak = 3267.008 ; gain = 1657.602
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Applying XDC Timing Constraints
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Applying XDC Timing Constraints : Time (s): cpu = 00:04:59 ; elapsed = 00:05:28 . Memory (MB): peak = 3267.008 ; gain = 1657.602
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Timing Optimization
+---------------------------------------------------------------------------------
+info: optimization accepted worst group hill climbing move (-18533.0/oG. 188.0ps)
+info: optimization accepted worst group hill climbing move (-18533.0/oG. 305.0ps)
+---------------------------------------------------------------------------------
+Finished Timing Optimization : Time (s): cpu = 00:15:51 ; elapsed = 00:16:53 . Memory (MB): peak = 4772.973 ; gain = 3163.566
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Technology Mapping
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Technology Mapping : Time (s): cpu = 00:15:55 ; elapsed = 00:17:43 . Memory (MB): peak = 4772.973 ; gain = 3163.566
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start IO Insertion
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Final Netlist Cleanup
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Final Netlist Cleanup
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished IO Insertion : Time (s): cpu = 00:16:04 ; elapsed = 00:17:52 . Memory (MB): peak = 4772.973 ; gain = 3163.566
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Renaming Generated Instances
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Renaming Generated Instances : Time (s): cpu = 00:16:04 ; elapsed = 00:17:52 . Memory (MB): peak = 4772.973 ; gain = 3163.566
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Handling Custom Attributes
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Handling Custom Attributes : Time (s): cpu = 00:16:09 ; elapsed = 00:17:58 . Memory (MB): peak = 4772.973 ; gain = 3163.566
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Writing Synthesis Report
+---------------------------------------------------------------------------------
+
+Report BlackBoxes: 
++-+--------------+----------+
+| |BlackBox name |Instances |
++-+--------------+----------+
++-+--------------+----------+
+
+Report Cell Usage: 
++------+-------+------+
+|      |Cell   |Count |
++------+-------+------+
+|1     |CARRY8 |   570|
+|2     |LUT1   |    50|
+|3     |LUT2   |  2015|
+|4     |LUT3   |  1654|
+|5     |LUT4   |  9101|
+|6     |LUT5   |  3598|
+|7     |LUT6   |  8856|
+|8     |MUXF7  |    54|
+|9     |FDRE   |  3034|
+|10    |FDSE   |   665|
++------+-------+------+
+---------------------------------------------------------------------------------
+Finished Writing Synthesis Report : Time (s): cpu = 00:16:09 ; elapsed = 00:17:58 . Memory (MB): peak = 4772.973 ; gain = 3163.566
+---------------------------------------------------------------------------------
+Synthesis finished with 0 errors, 0 critical warnings and 0 warnings.
+Synthesis Optimization Runtime : Time (s): cpu = 00:13:49 ; elapsed = 00:17:49 . Memory (MB): peak = 4772.973 ; gain = 3163.566
+Synthesis Optimization Complete : Time (s): cpu = 00:16:09 ; elapsed = 00:18:01 . Memory (MB): peak = 4772.973 ; gain = 3163.566
+INFO: [Project 1-571] Translating synthesized netlist
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.234 . Memory (MB): peak = 4772.973 ; gain = 0.000
+INFO: [Netlist 29-17] Analyzing 624 Unisim elements for replacement
+INFO: [Netlist 29-28] Unisim Transformation completed in 0 CPU seconds
+WARNING: [Netlist 29-101] Netlist 'snowflake_core' is not ideal for floorplanning, since the cellview 'snowflake_core' contains a large number of primitives.  Please consider enabling hierarchy in synthesis if you want to do floorplanning.
+INFO: [Project 1-570] Preparing netlist for logic optimization
+Parsing XDC File [D:/ycz/doc/deepseek_workzone/decoder/fpga_flow/logs/ooc_surface_d5_2to1_m3loc_busyreg_xcvu9p.xdc]
+CRITICAL WARNING: [Designutils 20-1307] Command 'remove_from_collection' is not supported in the xdc constraint file. [D:/ycz/doc/deepseek_workzone/decoder/fpga_flow/logs/ooc_surface_d5_2to1_m3loc_busyreg_xcvu9p.xdc:2]
+Finished Parsing XDC File [D:/ycz/doc/deepseek_workzone/decoder/fpga_flow/logs/ooc_surface_d5_2to1_m3loc_busyreg_xcvu9p.xdc]
+INFO: [Opt 31-138] Pushed 0 inverter(s) to 0 load pin(s).
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.008 . Memory (MB): peak = 4772.973 ; gain = 0.000
+INFO: [Project 1-111] Unisim Transformation Summary:
+No Unisim elements were transformed.
+
+INFO: [Common 17-83] Releasing license: Synthesis
+99 Infos, 2 Warnings, 2 Critical Warnings and 0 Errors encountered.
+synth_design completed successfully
+synth_design: Time (s): cpu = 00:16:26 ; elapsed = 00:18:22 . Memory (MB): peak = 4772.973 ; gain = 3634.172
+# report_utilization -file "$outdir/util_synth_$tag.rpt"
+# report_utilization -hierarchical -file "$outdir/utilhier_synth_$tag.rpt"
+# if {$mode eq "impl"} {
+#   opt_design
+#   place_design
+#   phys_opt_design
+#   route_design
+#   report_utilization         -file "$outdir/util_route_$tag.rpt"
+#   report_utilization         -hierarchical -file "$outdir/utilhier_route_$tag.rpt"
+#   report_timing_summary      -delay_type max -max_paths 20 -file "$outdir/timing_$tag.rpt"
+#   report_timing              -delay_type max -max_paths 20 -input_pins -file "$outdir/timing_paths_$tag.rpt"
+#   report_design_analysis     -logic_level_distribution -file "$outdir/logic_levels_$tag.rpt"
+#   catch { report_power      -file "$outdir/power_$tag.rpt" }
+#   catch { report_drc        -file "$outdir/drc_$tag.rpt" }
+#   catch { report_clock_utilization -file "$outdir/clocks_$tag.rpt" }
+#   write_checkpoint -force "$outdir/postroute_$tag.dcp"
+# } else {
+#   report_timing_summary -delay_type max -max_paths 20 -file "$outdir/timing_synth_$tag.rpt"
+#   write_checkpoint -force "$outdir/postsynth_$tag.dcp"
+# }
+INFO: [Timing 38-91] UpdateTimingParams: Speed grade: -2L, Temperature grade: E, Delay Type: max.
+INFO: [Timing 38-191] Multithreading enabled for timing update using a maximum of 2 CPUs
+INFO: [Timing 38-35] Done setting XDC timing constraints.
+WARNING: [Timing 38-242] The property HD.CLK_SRC of clock port "clk" is not set. In out-of-context mode, this prevents timing estimation for clock delay/skew
+Resolution: Set the HD.CLK_SRC property of the out-of-context port to the location of the clock buffer instance in the top-level design
+report_timing_summary: Time (s): cpu = 00:00:31 ; elapsed = 00:00:31 . Memory (MB): peak = 4772.973 ; gain = 0.000
+INFO: [Timing 38-480] Writing timing data to binary archive.
+INFO: [Common 17-1381] The checkpoint 'D:/ycz/doc/deepseek_workzone/decoder/fpga_flow/logs/postsynth_surface_d5_2to1_m3loc_busyreg_xcvu9p.dcp' has been generated.
+# set util_file [expr {$mode eq "impl" ? "$outdir/util_route_$tag.rpt" : "$outdir/util_synth_$tag.rpt"}]
+# proc util_row {file label} {
+#   if {![file exists $file]} { return "NA" }
+#   set fh [open $file r]
+#   set data [read $fh]
+#   close $fh
+#   foreach line [split $data "\n"] {
+#     if {[string first $label $line] >= 0} {
+#       set cols [regexp -all -inline {\S+} $line]
+#       # rows look like:  | CLB LUTs | 780 | 0 | 1182240 | 0.07 |
+#       foreach c $cols { if {[string is integer -strict $c]} { return $c } }
+#     }
+#   }
+#   return "NA"
+# }
+# set wns "NA";
+# set levels "NA";
+# set minp "NA";
+# set fmax "NA"
+# set tp [get_timing_paths -delay_type max -max_paths 1 -quiet]
+# if {[llength $tp]} {
+#   set wns [get_property SLACK $tp]
+#   set levels [get_property LOGIC_LEVELS $tp]
+#   if {$wns ne ""} { set minp [expr {$period - $wns}]
+#                     if {$minp > 0} { set fmax [format "%.1f" [expr {1000.0 / $minp}]] } }
+# }
+# puts "FLOW_RESULT tag=$tag top=$top part=$part period=$period mode=$mode \
+# wns=$wns levels=$levels min_period=$minp fmax_mhz=$fmax \
+# lut=[util_row $util_file {CLB LUTs}] \
+# ff=[util_row $util_file {CLB Registers}] \
+# lutram=[util_row $util_file {LUT as Memory}] \
+# bram=[util_row $util_file {Block RAM Tile}] \
+# uram=[util_row $util_file {URAM}] \
+# dsp=[util_row $util_file {DSPs}]"
+FLOW_RESULT tag=surface_d5_2to1_m3loc_busyreg_xcvu9p top=snowflake_core part=xcvu9p-flga2104-2L-e period=5.0 mode=synth  wns=-4.111 levels=30 min_period=9.111 fmax_mhz=109.8  lut=20324  ff=3699  lutram=0  bram=0  uram=0  dsp=0
+# puts "FLOW_DONE $tag"
+FLOW_DONE surface_d5_2to1_m3loc_busyreg_xcvu9p
+INFO: [Common 17-206] Exiting Vivado at Tue Sep 15 23:08:16 2026...

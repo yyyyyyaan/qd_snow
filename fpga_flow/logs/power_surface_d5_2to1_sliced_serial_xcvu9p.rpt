@@ -1,0 +1,281 @@
+Copyright 1986-2020 Xilinx, Inc. All Rights Reserved.
+-----------------------------------------------------------------------------------------------------------------------------------------------------
+| Tool Version     : Vivado v.2020.2 (win64) Build 3064766 Wed Nov 18 09:12:45 MST 2020
+| Date             : Sat Sep 19 02:24:27 2026
+| Host             : DESKTOP-TO7M6OH running 64-bit major release  (build 9200)
+| Command          : report_power -file {D:\ycz\doc\deepseek_workzone\decoder\fpga_flow\logs/power_surface_d5_2to1_sliced_serial_xcvu9p.rpt}
+| Design           : snowflake_pe_array
+| Device           : xcvu9p-flga2104-2L-e
+| Design State     : routed
+| Grade            : extended
+| Process          : typical
+| Characterization : Production
+-----------------------------------------------------------------------------------------------------------------------------------------------------
+
+Power Report
+
+Table of Contents
+-----------------
+1. Summary
+1.1 On-Chip Components
+1.2 Power Supply Summary
+1.3 Confidence Level
+2. Settings
+2.1 Environment
+2.2 Clock Constraints
+3. Detailed Reports
+3.1 By Hierarchy
+
+1. Summary
+----------
+
++--------------------------+--------------+
+| Total On-Chip Power (W)  | 3.035        |
+| Design Power Budget (W)  | Unspecified* |
+| Power Budget Margin (W)  | NA           |
+| Dynamic (W)              | 0.558        |
+| Device Static (W)        | 2.477        |
+| Effective TJA (C/W)      | 0.5          |
+| Max Ambient (C)          | 98.3         |
+| Junction Temperature (C) | 26.7         |
+| Confidence Level         | Medium       |
+| Setting File             | ---          |
+| Simulation Activity File | ---          |
+| Design Nets Matched      | NA           |
++--------------------------+--------------+
+* Specify Design Power Budget using, set_operating_conditions -design_power_budget <value in Watts>
+
+
+1.1 On-Chip Components
+----------------------
+
++----------------+-----------+----------+-----------+-----------------+
+| On-Chip        | Power (W) | Used     | Available | Utilization (%) |
++----------------+-----------+----------+-----------+-----------------+
+| Clocks         |     0.038 |        3 |       --- |             --- |
+| CLB Logic      |     0.212 |    36430 |       --- |             --- |
+|   LUT as Logic |     0.205 |    25458 |   1182240 |            2.15 |
+|   CARRY8       |     0.004 |      570 |    147780 |            0.39 |
+|   Register     |     0.003 |     5637 |   2364480 |            0.24 |
+|   Others       |     0.000 |      737 |       --- |             --- |
+|   F7/F8 Muxes  |     0.000 |        2 |   1182240 |           <0.01 |
+| Signals        |     0.308 |    28298 |       --- |             --- |
+| Static Power   |     2.477 |          |           |                 |
+| Total          |     3.035 |          |           |                 |
++----------------+-----------+----------+-----------+-----------------+
+
+
+1.2 Power Supply Summary
+------------------------
+
++------------+-------------+-----------+-------------+------------+-------------+-------------+------------+
+| Source     | Voltage (V) | Total (A) | Dynamic (A) | Static (A) | Powerup (A) | Budget (A)  | Margin (A) |
++------------+-------------+-----------+-------------+------------+-------------+-------------+------------+
+| Vccint     |       0.850 |     1.474 |       0.656 |      0.818 |       NA    | Unspecified | NA         |
+| Vccint_io  |       0.850 |     0.263 |       0.000 |      0.263 |       NA    | Unspecified | NA         |
+| Vccbram    |       0.850 |     0.015 |       0.000 |      0.015 |       NA    | Unspecified | NA         |
+| Vccaux     |       1.800 |     0.650 |       0.000 |      0.650 |       NA    | Unspecified | NA         |
+| Vccaux_io  |       1.800 |     0.185 |       0.000 |      0.185 |       NA    | Unspecified | NA         |
+| Vcco33     |       3.300 |     0.000 |       0.000 |      0.000 |       NA    | Unspecified | NA         |
+| Vcco25     |       2.500 |     0.000 |       0.000 |      0.000 |       NA    | Unspecified | NA         |
+| Vcco18     |       1.800 |     0.000 |       0.000 |      0.000 |       NA    | Unspecified | NA         |
+| Vcco15     |       1.500 |     0.000 |       0.000 |      0.000 |       NA    | Unspecified | NA         |
+| Vcco135    |       1.350 |     0.000 |       0.000 |      0.000 |       NA    | Unspecified | NA         |
+| Vcco12     |       1.200 |     0.000 |       0.000 |      0.000 |       NA    | Unspecified | NA         |
+| Vcco10     |       1.000 |     0.000 |       0.000 |      0.000 |       NA    | Unspecified | NA         |
+| Vccadc     |       1.800 |     0.024 |       0.000 |      0.024 |       NA    | Unspecified | NA         |
+| MGTYAVcc   |       0.900 |     0.000 |       0.000 |      0.000 |       NA    | Unspecified | NA         |
+| MGTYAVtt   |       1.200 |     0.000 |       0.000 |      0.000 |       NA    | Unspecified | NA         |
+| MGTYVccaux |       1.800 |     0.000 |       0.000 |      0.000 |       NA    | Unspecified | NA         |
++------------+-------------+-----------+-------------+------------+-------------+-------------+------------+
+
+
+1.3 Confidence Level
+--------------------
+
++-----------------------------+------------+------------------------------------------------+------------------------------------------------------------------------------------------------------------+
+| User Input Data             | Confidence | Details                                        | Action                                                                                                     |
++-----------------------------+------------+------------------------------------------------+------------------------------------------------------------------------------------------------------------+
+| Design implementation state | High       | Design is routed                               |                                                                                                            |
+| Clock nodes activity        | High       | User specified more than 95% of clocks         |                                                                                                            |
+| I/O nodes activity          | High       | User specified more than 95% of inputs         |                                                                                                            |
+| Internal nodes activity     | Medium     | User specified less than 25% of internal nodes | Provide missing internal nodes activity with simulation results or by editing the "By Resource Type" views |
+| Device models               | High       | Device models are Production                   |                                                                                                            |
+|                             |            |                                                |                                                                                                            |
+| Overall confidence level    | Medium     |                                                |                                                                                                            |
++-----------------------------+------------+------------------------------------------------+------------------------------------------------------------------------------------------------------------+
+
+
+2. Settings
+-----------
+
+2.1 Environment
+---------------
+
++-----------------------+--------------------------+
+| Ambient Temp (C)      | 25.0                     |
+| ThetaJA (C/W)         | 0.5                      |
+| Airflow (LFM)         | 250                      |
+| Heat Sink             | medium (Medium Profile)  |
+| ThetaSA (C/W)         | 0.7                      |
+| Board Selection       | medium (10"x10")         |
+| # of Board Layers     | 12to15 (12 to 15 Layers) |
+| Board Temperature (C) | 25.0                     |
++-----------------------+--------------------------+
+
+
+2.2 Clock Constraints
+---------------------
+
++-------+--------+-----------------+
+| Clock | Domain | Constraint (ns) |
++-------+--------+-----------------+
+| clk   | clk    |             5.0 |
++-------+--------+-----------------+
+
+
+3. Detailed Reports
+-------------------
+
+3.1 By Hierarchy
+----------------
+
++--------------------+-----------+
+| Name               | Power (W) |
++--------------------+-----------+
+| snowflake_pe_array |     0.558 |
+|   g_pe[100].pe_i   |     0.004 |
+|   g_pe[101].pe_i   |     0.005 |
+|   g_pe[102].pe_i   |     0.005 |
+|   g_pe[103].pe_i   |     0.005 |
+|   g_pe[104].pe_i   |     0.005 |
+|   g_pe[105].pe_i   |     0.003 |
+|   g_pe[106].pe_i   |     0.004 |
+|   g_pe[107].pe_i   |     0.005 |
+|   g_pe[108].pe_i   |     0.004 |
+|   g_pe[109].pe_i   |     0.004 |
+|   g_pe[110].pe_i   |     0.004 |
+|   g_pe[111].pe_i   |     0.005 |
+|   g_pe[112].pe_i   |     0.005 |
+|   g_pe[113].pe_i   |     0.004 |
+|   g_pe[114].pe_i   |     0.004 |
+|   g_pe[115].pe_i   |     0.006 |
+|   g_pe[116].pe_i   |     0.005 |
+|   g_pe[117].pe_i   |     0.005 |
+|   g_pe[118].pe_i   |     0.005 |
+|   g_pe[119].pe_i   |     0.004 |
+|   g_pe[11].pe_i    |     0.001 |
+|   g_pe[120].pe_i   |     0.005 |
+|   g_pe[121].pe_i   |     0.006 |
+|   g_pe[122].pe_i   |     0.006 |
+|   g_pe[123].pe_i   |     0.005 |
+|   g_pe[124].pe_i   |     0.004 |
+|   g_pe[125].pe_i   |     0.003 |
+|   g_pe[126].pe_i   |     0.005 |
+|   g_pe[127].pe_i   |     0.005 |
+|   g_pe[128].pe_i   |     0.005 |
+|   g_pe[129].pe_i   |     0.005 |
+|   g_pe[12].pe_i    |     0.001 |
+|   g_pe[130].pe_i   |     0.004 |
+|   g_pe[131].pe_i   |     0.005 |
+|   g_pe[132].pe_i   |     0.004 |
+|   g_pe[133].pe_i   |     0.003 |
+|   g_pe[134].pe_i   |     0.004 |
+|   g_pe[135].pe_i   |     0.004 |
+|   g_pe[136].pe_i   |     0.004 |
+|   g_pe[137].pe_i   |     0.004 |
+|   g_pe[138].pe_i   |     0.004 |
+|   g_pe[139].pe_i   |     0.003 |
+|   g_pe[140].pe_i   |     0.004 |
+|   g_pe[141].pe_i   |     0.004 |
+|   g_pe[142].pe_i   |     0.004 |
+|   g_pe[143].pe_i   |     0.004 |
+|   g_pe[144].pe_i   |     0.004 |
+|   g_pe[145].pe_i   |     0.003 |
+|   g_pe[146].pe_i   |     0.004 |
+|   g_pe[147].pe_i   |     0.004 |
+|   g_pe[148].pe_i   |     0.004 |
+|   g_pe[149].pe_i   |     0.003 |
+|   g_pe[16].pe_i    |     0.001 |
+|   g_pe[17].pe_i    |     0.001 |
+|   g_pe[19].pe_i    |     0.001 |
+|   g_pe[20].pe_i    |     0.001 |
+|   g_pe[21].pe_i    |     0.001 |
+|   g_pe[22].pe_i    |     0.001 |
+|   g_pe[23].pe_i    |     0.001 |
+|   g_pe[24].pe_i    |     0.001 |
+|   g_pe[25].pe_i    |     0.001 |
+|   g_pe[26].pe_i    |     0.001 |
+|   g_pe[27].pe_i    |     0.001 |
+|   g_pe[28].pe_i    |     0.001 |
+|   g_pe[29].pe_i    |     0.001 |
+|   g_pe[30].pe_i    |     0.001 |
+|   g_pe[31].pe_i    |     0.001 |
+|   g_pe[32].pe_i    |     0.001 |
+|   g_pe[33].pe_i    |     0.001 |
+|   g_pe[34].pe_i    |     0.001 |
+|   g_pe[35].pe_i    |     0.001 |
+|   g_pe[36].pe_i    |     0.002 |
+|   g_pe[37].pe_i    |     0.001 |
+|   g_pe[38].pe_i    |     0.002 |
+|   g_pe[39].pe_i    |     0.001 |
+|   g_pe[41].pe_i    |     0.001 |
+|   g_pe[42].pe_i    |     0.001 |
+|   g_pe[43].pe_i    |     0.001 |
+|   g_pe[44].pe_i    |     0.001 |
+|   g_pe[45].pe_i    |     0.001 |
+|   g_pe[46].pe_i    |     0.001 |
+|   g_pe[47].pe_i    |     0.001 |
+|   g_pe[48].pe_i    |     0.001 |
+|   g_pe[49].pe_i    |     0.001 |
+|   g_pe[50].pe_i    |     0.001 |
+|   g_pe[51].pe_i    |     0.001 |
+|   g_pe[52].pe_i    |     0.001 |
+|   g_pe[53].pe_i    |     0.002 |
+|   g_pe[54].pe_i    |     0.001 |
+|   g_pe[56].pe_i    |     0.001 |
+|   g_pe[57].pe_i    |     0.001 |
+|   g_pe[58].pe_i    |     0.001 |
+|   g_pe[59].pe_i    |     0.001 |
+|   g_pe[60].pe_i    |     0.001 |
+|   g_pe[61].pe_i    |     0.001 |
+|   g_pe[62].pe_i    |     0.001 |
+|   g_pe[63].pe_i    |     0.001 |
+|   g_pe[64].pe_i    |     0.001 |
+|   g_pe[66].pe_i    |     0.001 |
+|   g_pe[67].pe_i    |     0.001 |
+|   g_pe[68].pe_i    |     0.001 |
+|   g_pe[69].pe_i    |     0.001 |
+|   g_pe[70].pe_i    |     0.003 |
+|   g_pe[71].pe_i    |     0.003 |
+|   g_pe[72].pe_i    |     0.004 |
+|   g_pe[73].pe_i    |     0.003 |
+|   g_pe[74].pe_i    |     0.003 |
+|   g_pe[75].pe_i    |     0.003 |
+|   g_pe[76].pe_i    |     0.004 |
+|   g_pe[77].pe_i    |     0.003 |
+|   g_pe[78].pe_i    |     0.004 |
+|   g_pe[79].pe_i    |     0.003 |
+|   g_pe[80].pe_i    |     0.003 |
+|   g_pe[81].pe_i    |     0.004 |
+|   g_pe[82].pe_i    |     0.004 |
+|   g_pe[83].pe_i    |     0.004 |
+|   g_pe[84].pe_i    |     0.003 |
+|   g_pe[85].pe_i    |     0.003 |
+|   g_pe[86].pe_i    |     0.003 |
+|   g_pe[87].pe_i    |     0.003 |
+|   g_pe[88].pe_i    |     0.004 |
+|   g_pe[89].pe_i    |     0.003 |
+|   g_pe[90].pe_i    |     0.004 |
+|   g_pe[91].pe_i    |     0.005 |
+|   g_pe[92].pe_i    |     0.004 |
+|   g_pe[93].pe_i    |     0.004 |
+|   g_pe[94].pe_i    |     0.004 |
+|   g_pe[95].pe_i    |     0.005 |
+|   g_pe[96].pe_i    |     0.004 |
+|   g_pe[97].pe_i    |     0.004 |
+|   g_pe[98].pe_i    |     0.004 |
+|   g_pe[99].pe_i    |     0.004 |
++--------------------+-----------+
+
+

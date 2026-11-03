@@ -1,0 +1,35 @@
+======================================================================================================================
+ROTATED surface code -- slot-numbering check (same four checks as the unrotated script)
+  graph = localuf/rotated.py RotatedSurface (one basis, phenomenological, window = d)
+======================================================================================================================
+3    layers=3   iso=True   bbox=4x4=16    nodes/lay=8    (det 4    wall 4  ) fill= 50.0%  offset_sets(xy)=4 offsets=[-5, -3, 3, 5]  up/down=[-16, 16]  const=True  maxdeg=6
+5    layers=5   iso=True   bbox=6x6=36    nodes/lay=18   (det 12   wall 6  ) fill= 50.0%  offset_sets(xy)=4 offsets=[-7, -5, 5, 7]  up/down=[-36, 36]  const=True  maxdeg=6
+7    layers=7   iso=True   bbox=8x8=64    nodes/lay=32   (det 24   wall 8  ) fill= 50.0%  offset_sets(xy)=4 offsets=[-9, -7, 7, 9]  up/down=[-64, 64]  const=True  maxdeg=6
+9    layers=9   iso=True   bbox=10x10=100   nodes/lay=50   (det 40   wall 10 ) fill= 50.0%  offset_sets(xy)=4 offsets=[-11, -9, 9, 11]  up/down=[-100, 100]  const=True  maxdeg=6
+11   layers=11  iso=True   bbox=12x12=144   nodes/lay=72   (det 60   wall 12 ) fill= 50.0%  offset_sets(xy)=4 offsets=[-13, -11, 11, 13]  up/down=[-144, 144]  const=True  maxdeg=6
+21   layers=21  iso=True   bbox=22x22=484   nodes/lay=242  (det 220  wall 22 ) fill= 50.0%  offset_sets(xy)=4 offsets=[-23, -21, 21, 23]  up/down=[-484, 484]  const=True  maxdeg=6
+
+----------------------------------------------------------------------------------------------------------------------
+cross-checks on the cell count (checks per round)
+----------------------------------------------------------------------------------------------------------------------
+  d our det/lay      (d^2-1)/2       Helios/d         stim/2
+  3          4              4              -              4
+  5         12             12              -             12
+  7         24             24              -             24
+  9         40             40              -             40
+ 11         60             60              -             60
+ 21        220            220            220            220
+
+----------------------------------------------------------------------------------------------------------------------
+VERDICT
+----------------------------------------------------------------------------------------------------------------------
+  1. layer isomorphism (every layer same spatial set) : PASS
+  2. complete rectangle / zero waste                   : **N/A**   fill d21 = 50.0%
+     (INFORMATIONAL, not a judge: the rotated check lattice is a PARITY
+      SUBLATTICE -- half of its bounding box is empty BY CONSTRUCTION.
+      Report 6.28 measured that never-bound slots cost NOTHING after
+      synthesis; the RTL-relevant invariants -- one (slot, slice) per edge,
+      constant (dL,dR) classes, `above` one layer up -- are checked by
+      fpga_flow/check_circuit_level_geometry.py rotated <d>.)
+  3. constant slot offsets for every neighbour         : PASS   offsets(slot) = [-23, -21, 21, 23]
+  4. slots vs cells                                    : P = 484 slots, 242 nodes (50.0%), = 220 detectors + 22 wall

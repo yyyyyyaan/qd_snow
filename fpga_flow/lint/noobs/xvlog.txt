@@ -1,0 +1,2 @@
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "D:/ycz/doc/deepseek_workzone/decoder/Helios_scalable_QEC-main/Helios_scalable_QEC-main/design/snowflake/snowflake_core.sv" into library work
+INFO: [VRFC 10-311] analyzing module snowflake_core

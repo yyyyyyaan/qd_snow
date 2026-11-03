@@ -1,0 +1,4 @@
+surface 3 2:1 xcvu9p-flga2104-2L-e 5.0 SNOW_CTX1
+rep 3 2:1 xcvu9p-flga2104-2L-e 5.0 SNOW_CTX1
+surface 3 2:1 xcvu9p-flga2104-2L-e 5.0 SNOW_CTX2
+rep 3 2:1 xcvu9p-flga2104-2L-e 5.0 SNOW_CTX2

@@ -1,0 +1,78 @@
+'am' is not recognized as an internal or external command,
+operable program or batch file.
+'s' is not recognized as an internal or external command,
+operable program or batch file.
+'arameters' is not recognized as an internal or external command,
+operable program or batch file.
+=== [1/3] xvlog : Snowflake + Helios support files ===
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "D:/ycz/doc/deepseek_workzone/decoder/Helios_scalable_QEC-main/Helios_scalable_QEC-main/design/generics/fifo_fwft.v" into library work
+INFO: [VRFC 10-311] analyzing module fifo_fwft
+INFO: [VRFC 10-311] analyzing module fifo_wrapper
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "D:/ycz/doc/deepseek_workzone/decoder/Helios_scalable_QEC-main/Helios_scalable_QEC-main/design/channels/serdes.sv" into library work
+INFO: [VRFC 10-311] analyzing module serializer
+INFO: [VRFC 10-311] analyzing module deserializer
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "D:/ycz/doc/deepseek_workzone/decoder/Helios_scalable_QEC-main/Helios_scalable_QEC-main/design/snowflake/snowflake_core.sv" into library work
+INFO: [VRFC 10-311] analyzing module snowflake_core
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "D:/ycz/doc/deepseek_workzone/decoder/Helios_scalable_QEC-main/Helios_scalable_QEC-main/design/snowflake/snowflake_wrapper.sv" into library work
+INFO: [VRFC 10-311] analyzing module snowflake_wrapper
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "D:/ycz/doc/deepseek_workzone/decoder/Helios_scalable_QEC-main/Helios_scalable_QEC-main/test_benches/snowflake/tb_snowflake_wrapper.sv" into library work
+INFO: [VRFC 10-311] analyzing module tb_snowflake_wrapper
+=== [2/3] xelab ===
+Vivado Simulator 2020.2
+Copyright 1986-1999, 2001-2020 Xilinx, Inc. All Rights Reserved.
+Running: D:/ycz/vivado/Vivado/2020.2/bin/unwrapped/win64.o/xelab.exe tb_snowflake_wrapper -s tb_snow_wrap -debug typical -timescale 1ns/1ps 
+Multi-threading is on. Using 10 slave threads.
+Starting static elaboration
+Pass Through NonSizing Optimizer
+Completed static elaboration
+Starting simulation data flow analysis
+Completed simulation data flow analysis
+Time Resolution for simulation is 1ps
+Compiling package work.$unit_fifo_fwft_v
+Compiling module work.snowflake_core_default
+Compiling module work.fifo_fwft(DEPTH=32,WIDTH=24)
+Compiling module work.fifo_wrapper(DEPTH=32,WIDTH=24)
+Compiling module work.serializer(HUB_FIFO_WIDTH=24)
+Compiling module work.snowflake_wrapper_default
+Compiling module work.tb_snowflake_wrapper
+Built simulation snapshot tb_snow_wrap
+
+****** Webtalk v2020.2 (64-bit)
+  **** SW Build 3064766 on Wed Nov 18 09:12:45 MST 2020
+  **** IP Build 3064653 on Wed Nov 18 14:17:31 MST 2020
+    ** Copyright 1986-2020 Xilinx, Inc. All Rights Reserved.
+
+source D:/ycz/doc/deepseek_workzone/decoder/sim/snowflake_rtl/xsim.dir/tb_snow_wrap/webtalk/xsim_webtalk.tcl -notrace
+INFO: [Common 17-206] Exiting Webtalk at Mon Sep 14 19:32:35 2026...
+=== [3/3] xsim ===
+
+****** xsim v2020.2 (64-bit)
+  **** SW Build 3064766 on Wed Nov 18 09:12:45 MST 2020
+  **** IP Build 3064653 on Wed Nov 18 14:17:31 MST 2020
+    ** Copyright 1986-2020 Xilinx, Inc. All Rights Reserved.
+
+source xsim.dir/tb_snow_wrap/xsim_script.tcl
+# xsim {tb_snow_wrap} -autoloadwcfg -tclbatch {sim_run.tcl}
+Vivado Simulator 2020.2
+Time resolution is 1 ps
+source sim_run.tcl
+## run all
+=== Snowflake byte-stream interface (Helios protocol) ===
+[90000] sent 0x01 (start)
+[240000] cycle 0  syndrome=0x00  ->  bytes: idx=1 commit=0x00 0x00
+[400000] cycle 1  syndrome=0x01  ->  bytes: idx=2 commit=0x00 0x00
+[560000] cycle 2  syndrome=0x02  ->  bytes: idx=3 commit=0x00 0x00
+[740000] cycle 3  syndrome=0x03  ->  bytes: idx=4 commit=0x00 0x00
+[940000] cycle 4  syndrome=0x00  ->  bytes: idx=5 commit=0x00 0x00
+[1140000] cycle 5  syndrome=0x01  ->  bytes: idx=6 commit=0x00 0x00
+[1290000] cycle 6  syndrome=0x00  ->  bytes: idx=7 commit=0x01 0x00
+[1500000] cycle 7  syndrome=0x02  ->  bytes: idx=8 commit=0x08 0x00
+[1660000] cycle 8  syndrome=0x03  ->  bytes: idx=9 commit=0x01 0x00
+[1860000] cycle 9  syndrome=0x00  ->  bytes: idx=10 commit=0x00 0x00
+[2060000] cycle 10  syndrome=0x01  ->  bytes: idx=11 commit=0x01 0x00
+[2210000] cycle 11  syndrome=0x00  ->  bytes: idx=12 commit=0x00 0x00
+=== DONE ===
+$finish called at time : 2210 ns : File "D:/ycz/doc/deepseek_workzone/decoder/Helios_scalable_QEC-main/Helios_scalable_QEC-main/test_benches/snowflake/tb_snowflake_wrapper.sv" Line 79
+## quit
+INFO: [Common 17-206] Exiting xsim at Mon Sep 14 19:32:40 2026...
+=== DONE ===

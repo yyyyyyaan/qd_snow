@@ -1,0 +1,6 @@
+[jobs] 3 job(s) from fpga_flow/jobs_mints_impl.txt
+[run ] surface_d3_2to1_mints_xcvu9p  top=snowflake_pe_array part=xcvu9p-flga2104-2L-e period=5.0 mode=impl defs=[SNOW_MINTS] graph=[D:\ycz\doc\deepseek_workzone\decoder\fpga_flow\graphs\surface_d3.svh]
+[done] surface_d3_2to1_mints_xcvu9p  wns=0.201 lut=5529 ff=1374 fmax=208.4MHz  (10.5 min)
+[run ] surface_d5_2to1_mints_xcvu9p  top=snowflake_pe_array part=xcvu9p-flga2104-2L-e period=5.0 mode=impl defs=[SNOW_MINTS] graph=[D:\ycz\doc\deepseek_workzone\decoder\fpga_flow\graphs\surface_d5.svh]
+[done] surface_d5_2to1_mints_xcvu9p  wns=-0.282 lut=29248 ff=6581 fmax=189.3MHz  (29.1 min)
+[run ] surface_d7_2to1_mints_xcvu9p  top=snowflake_pe_array part=xcvu9p-flga2104-2L-e period=5.0 mode=impl defs=[SNOW_MINTS] graph=[D:\ycz\doc\deepseek_workzone\decoder\fpga_flow\graphs\surface_d7.svh]

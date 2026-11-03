@@ -1,0 +1,491 @@
+
+****** Vivado v2020.2 (64-bit)
+  **** SW Build 3064766 on Wed Nov 18 09:12:45 MST 2020
+  **** IP Build 3064653 on Wed Nov 18 14:17:31 MST 2020
+    ** Copyright 1986-2020 Xilinx, Inc. All Rights Reserved.
+
+source {D:\ycz\doc\deepseek_workzone\decoder\fpga_flow\netlist_synth.tcl}
+# set repo   $::env(FLOW_REPO)
+# set top    $::env(FLOW_TOP)
+# set part   $::env(FLOW_PART)
+# set tag    $::env(FLOW_TAG)
+# set outdir $::env(FLOW_OUT)
+# set srcs   [expr {[info exists ::env(FLOW_SRCS)] ? [split $::env(FLOW_SRCS) ";"] \
+#                   : [list "$repo/design/snowflake/snowflake_core.sv"]}]
+# set defs   [expr {[info exists ::env(FLOW_DEFS)] ? [split $::env(FLOW_DEFS) ";"] : [list]}]
+# file mkdir $outdir
+# if {[info exists ::env(FLOW_GRAPH)] && $::env(FLOW_GRAPH) ne ""} {
+#   set dst "$repo/design/generated/snowflake_graph.svh"
+#   if {![string equal -nocase [file normalize $::env(FLOW_GRAPH)] [file normalize $dst]]} {
+#     file copy -force $::env(FLOW_GRAPH) $dst
+#   }
+#   puts "NETLIST_GRAPH_PINNED [file tail $::env(FLOW_GRAPH)]"
+# }
+NETLIST_GRAPH_PINNED surface_d3_circuit-level.svh
+# set_property include_dirs [list "$repo/design/generated" "$repo/design/snowflake"] \
+#     [current_fileset]
+# foreach s $srcs { read_verilog -sv $s }
+# set synth_args [list -top $top -part $part -mode out_of_context -flatten_hierarchy none]
+# if {[llength $defs]} { lappend synth_args -verilog_define [join $defs " "] }
+# synth_design {*}$synth_args
+Command: synth_design -top snowflake_pe_array_lat1 -part xcvu9p-flga2104-2L-e -mode out_of_context -flatten_hierarchy none -verilog_define {SNOW_LATTICE SNOW_LAT}
+Starting synth_design
+Attempting to get a license for feature 'Synthesis' and/or device 'xcvu9p'
+INFO: [Common 17-349] Got license for feature 'Synthesis' and/or device 'xcvu9p'
+INFO: [Synth 8-7079] Multithreading enabled for synth_design using a maximum of 2 processes.
+INFO: [Synth 8-7078] Launching helper process for spawning children vivado processes
+INFO: [Synth 8-7075] Helper process launched with PID 19776
+---------------------------------------------------------------------------------
+Starting Synthesize : Time (s): cpu = 00:00:04 ; elapsed = 00:00:04 . Memory (MB): peak = 1140.688 ; gain = 0.000
+---------------------------------------------------------------------------------
+INFO: [Synth 8-6157] synthesizing module 'snowflake_pe_array_lat1' [D:/ycz/doc/deepseek_workzone/decoder/Helios_scalable_QEC-main/Helios_scalable_QEC-main/design/snowflake/snowflake_pe_array_lat1.sv:45]
+	Parameter ONE_ONE bound to: 0 - type: integer 
+	Parameter NSLOT bound to: 24 - type: integer 
+	Parameter ES bound to: 56 - type: integer 
+	Parameter NCTX bound to: 2 - type: integer 
+	Parameter NDIR bound to: 12 - type: integer 
+	Parameter CW bound to: 7 - type: integer 
+	Parameter PW bound to: 4 - type: integer 
+	Parameter STW bound to: 18 - type: integer 
+	Parameter NBM bound to: 480 - type: integer 
+	Parameter EBM bound to: 480 - type: integer 
+	Parameter AW bound to: 10 - type: integer 
+	Parameter RVW bound to: 4 - type: integer 
+	Parameter SLW bound to: 1 - type: integer 
+	Parameter SO_BUSY bound to: 0 - type: integer 
+	Parameter SO_UNR bound to: 1 - type: integer 
+	Parameter SO_GRW bound to: 2 - type: integer 
+	Parameter SO_PTR bound to: 3 - type: integer 
+	Parameter SO_DEF bound to: 7 - type: integer 
+	Parameter SO_WHL bound to: 8 - type: integer 
+	Parameter SO_ACT bound to: 9 - type: integer 
+	Parameter SO_CID bound to: 10 - type: integer 
+	Parameter SO_PB bound to: 17 - type: integer 
+	Parameter IO_ABOVE bound to: 7 - type: integer 
+	Parameter IO_BND bound to: 8 - type: integer 
+	Parameter IO_TOP bound to: 9 - type: integer 
+	Parameter IO_BOT bound to: 10 - type: integer 
+	Parameter IO_SYN bound to: 11 - type: integer 
+	Parameter ST_IDLE bound to: 3'b000 
+	Parameter ST_DROP bound to: 3'b001 
+	Parameter ST_GW bound to: 3'b010 
+	Parameter ST_MW bound to: 3'b011 
+	Parameter ST_GH bound to: 3'b100 
+	Parameter ST_MH bound to: 3'b101 
+INFO: [Synth 8-6157] synthesizing module 'snowflake_pe' [D:/ycz/doc/deepseek_workzone/decoder/Helios_scalable_QEC-main/Helios_scalable_QEC-main/design/snowflake/snowflake_pe.sv:31]
+	Parameter ONE_ONE bound to: 0 - type: integer 
+	Parameter ID bound to: 0 - type: integer 
+	Parameter HAS_ABOVE bound to: 0 - type: integer 
+	Parameter IS_BND bound to: 0 - type: integer 
+	Parameter IS_TOP bound to: 0 - type: integer 
+	Parameter IS_BOT bound to: 0 - type: integer 
+	Parameter SYN_IDX bound to: -1 - type: integer 
+	Parameter ZZZ_ANCHOR bound to: 0 - type: integer 
+	Parameter STW bound to: 18 - type: integer 
+	Parameter OFF_BUSY bound to: 0 - type: integer 
+	Parameter OFF_UNR bound to: 1 - type: integer 
+	Parameter OFF_GRW bound to: 2 - type: integer 
+	Parameter OFF_PTR bound to: 3 - type: integer 
+	Parameter OFF_DEF bound to: 7 - type: integer 
+	Parameter OFF_WHL bound to: 8 - type: integer 
+	Parameter OFF_ACT bound to: 9 - type: integer 
+	Parameter OFF_CID bound to: 10 - type: integer 
+	Parameter OFF_PB bound to: 17 - type: integer 
+	Parameter ST_IDLE bound to: 3'b000 
+	Parameter ST_DROP bound to: 3'b001 
+	Parameter ST_GW bound to: 3'b010 
+	Parameter ST_MW bound to: 3'b011 
+	Parameter ST_GH bound to: 3'b100 
+	Parameter ST_MH bound to: 3'b101 
+INFO: [Synth 8-6155] done synthesizing module 'snowflake_pe' (1#1) [D:/ycz/doc/deepseek_workzone/decoder/Helios_scalable_QEC-main/Helios_scalable_QEC-main/design/snowflake/snowflake_pe.sv:31]
+INFO: [Synth 8-6157] synthesizing module 'snowflake_edge' [D:/ycz/doc/deepseek_workzone/decoder/Helios_scalable_QEC-main/Helios_scalable_QEC-main/design/snowflake/snowflake_edge.sv:23]
+	Parameter ZZZ_ANCHOR bound to: 0 - type: integer 
+	Parameter ST_DROP bound to: 3'b001 
+	Parameter ST_GW bound to: 3'b010 
+	Parameter ST_MW bound to: 3'b011 
+	Parameter ST_GH bound to: 3'b100 
+	Parameter ST_MH bound to: 3'b101 
+INFO: [Synth 8-6155] done synthesizing module 'snowflake_edge' (2#1) [D:/ycz/doc/deepseek_workzone/decoder/Helios_scalable_QEC-main/Helios_scalable_QEC-main/design/snowflake/snowflake_edge.sv:23]
+INFO: [Synth 8-6155] done synthesizing module 'snowflake_pe_array_lat1' (3#1) [D:/ycz/doc/deepseek_workzone/decoder/Helios_scalable_QEC-main/Helios_scalable_QEC-main/design/snowflake/snowflake_pe_array_lat1.sv:45]
+---------------------------------------------------------------------------------
+Finished Synthesize : Time (s): cpu = 00:00:16 ; elapsed = 00:00:17 . Memory (MB): peak = 1387.953 ; gain = 247.266
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Constraint Validation : Time (s): cpu = 00:00:17 ; elapsed = 00:00:18 . Memory (MB): peak = 1387.953 ; gain = 247.266
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Loading Part and Timing Information
+---------------------------------------------------------------------------------
+Loading part: xcvu9p-flga2104-2L-e
+INFO: [Synth 8-6742] Reading net delay rules and data
+---------------------------------------------------------------------------------
+INFO: [Device 21-403] Loading part xcvu9p-flga2104-2L-e
+Finished Loading Part and Timing Information : Time (s): cpu = 00:00:17 ; elapsed = 00:00:18 . Memory (MB): peak = 1387.953 ; gain = 247.266
+---------------------------------------------------------------------------------
+INFO: [Synth 8-802] inferred FSM for state register 'stage_reg' in module 'snowflake_pe_array_lat1'
+---------------------------------------------------------------------------------------------------
+                   State |                     New Encoding |                Previous Encoding 
+---------------------------------------------------------------------------------------------------
+                 ST_IDLE |                              000 |                              000
+                 ST_DROP |                              110 |                              001
+                   ST_GW |                              101 |                              010
+                   ST_MW |                              100 |                              011
+                   ST_GH |                              011 |                              100
+                   ST_MH |                              001 |                              101
+                  iSTATE |                              010 |                              111
+*
+---------------------------------------------------------------------------------------------------
+INFO: [Synth 8-3354] encoded FSM with state register 'stage_reg' using encoding 'sequential' in module 'snowflake_pe_array_lat1'
+---------------------------------------------------------------------------------
+Finished RTL Optimization Phase 2 : Time (s): cpu = 00:00:38 ; elapsed = 00:00:32 . Memory (MB): peak = 2171.031 ; gain = 1030.344
+---------------------------------------------------------------------------------
+No constraint files found.
+---------------------------------------------------------------------------------
+Start RTL Component Statistics 
+---------------------------------------------------------------------------------
+Detailed RTL Component Info : 
++---Adders : 
+	   2 Input    8 Bit       Adders := 1     
+	   2 Input    7 Bit       Adders := 24    
+	   2 Input    4 Bit       Adders := 74    
+	   3 Input    2 Bit       Adders := 56    
+	   2 Input    1 Bit       Adders := 1     
++---XORs : 
+	   2 Input      1 Bit         XORs := 392   
++---Registers : 
+	               36 Bit    Registers := 48    
+	               28 Bit    Registers := 2     
+	                8 Bit    Registers := 2     
+	                6 Bit    Registers := 113   
+	                3 Bit    Registers := 1     
+	                2 Bit    Registers := 48    
+	                1 Bit    Registers := 3     
++---Muxes : 
+	   2 Input   36 Bit        Muxes := 4     
+	   2 Input   18 Bit        Muxes := 158   
+	   2 Input   17 Bit        Muxes := 24    
+	   2 Input   12 Bit        Muxes := 72    
+	   5 Input   12 Bit        Muxes := 24    
+	   2 Input    8 Bit        Muxes := 2     
+	   7 Input    8 Bit        Muxes := 1     
+	   2 Input    7 Bit        Muxes := 1776  
+	   4 Input    7 Bit        Muxes := 24    
+	   2 Input    6 Bit        Muxes := 4     
+	   2 Input    4 Bit        Muxes := 1824  
+	   4 Input    4 Bit        Muxes := 24    
+	   2 Input    3 Bit        Muxes := 122   
+	   7 Input    3 Bit        Muxes := 2     
+	   5 Input    2 Bit        Muxes := 72    
+	   2 Input    2 Bit        Muxes := 227   
+	   2 Input    1 Bit        Muxes := 5386  
+	   5 Input    1 Bit        Muxes := 168   
+	   4 Input    1 Bit        Muxes := 25    
+	   7 Input    1 Bit        Muxes := 4     
+	   3 Input    1 Bit        Muxes := 1     
+---------------------------------------------------------------------------------
+Finished RTL Component Statistics 
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Part Resource Summary
+---------------------------------------------------------------------------------
+Part Resources:
+DSPs: 6840 (col length:120)
+BRAMs: 4320 (col length: RAMB18 360 RAMB36 180)
+---------------------------------------------------------------------------------
+Finished Part Resource Summary
+---------------------------------------------------------------------------------
+No constraint files found.
+---------------------------------------------------------------------------------
+Start Cross Boundary and Area Optimization
+---------------------------------------------------------------------------------
+INFO: [Synth 8-4471] merging register 'phase_reg[0:0]' into 'phase_reg[0:0]' [D:/ycz/doc/deepseek_workzone/decoder/Helios_scalable_QEC-main/Helios_scalable_QEC-main/design/snowflake/snowflake_pe_array_lat1.sv:140]
+INFO: [Synth 8-4471] merging register 'phase_reg[0:0]' into 'phase_reg[0:0]' [D:/ycz/doc/deepseek_workzone/decoder/Helios_scalable_QEC-main/Helios_scalable_QEC-main/design/snowflake/snowflake_pe_array_lat1.sv:140]
+WARNING: [Synth 8-3917] design snowflake_pe_array_lat1__GB0 has port g_eslot[36].vmir1[3] driven by constant 0
+WARNING: [Synth 8-3917] design snowflake_pe_array_lat1__GB0 has port g_eslot[36].vmir1[2] driven by constant 1
+WARNING: [Synth 8-3917] design snowflake_pe_array_lat1__GB0 has port g_eslot[36].vmir1[1] driven by constant 0
+WARNING: [Synth 8-3917] design snowflake_pe_array_lat1__GB0 has port g_eslot[36].vmir1[0] driven by constant 1
+WARNING: [Synth 8-3917] design snowflake_pe_array_lat1__GB0 has port P[4] driven by constant 0
+WARNING: [Synth 8-3917] design snowflake_pe_array_lat1__GB0 has port P[1] driven by constant 0
+WARNING: [Synth 8-3917] design snowflake_pe_array_lat1__GB0 has port P[0] driven by constant 0
+WARNING: [Synth 8-3917] design snowflake_pe_array_lat1__GB0 has port g_eslot[36].umir1[3] driven by constant 1
+WARNING: [Synth 8-3917] design snowflake_pe_array_lat1__GB0 has port g_eslot[36].umir1[2] driven by constant 0
+WARNING: [Synth 8-3917] design snowflake_pe_array_lat1__GB0 has port g_eslot[36].umir1[1] driven by constant 0
+WARNING: [Synth 8-3917] design snowflake_pe_array_lat1__GB0 has port g_eslot[36].umir1[0] driven by constant 0
+WARNING: [Synth 8-3917] design snowflake_pe_array_lat1__GB0 has port g_slot[1].nb_push231_in[3] driven by constant 0
+WARNING: [Synth 8-7129] Port clk in module snowflake_edge is either unconnected or has no load
+WARNING: [Synth 8-7129] Port clk in module snowflake_edge__55 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port clk in module snowflake_edge__54 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port clk in module snowflake_edge__53 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port clk in module snowflake_edge__52 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port clk in module snowflake_edge__51 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port clk in module snowflake_edge__50 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port clk in module snowflake_edge__49 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port clk in module snowflake_edge__48 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port clk in module snowflake_edge__47 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port clk in module snowflake_edge__46 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port clk in module snowflake_edge__45 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port clk in module snowflake_edge__44 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port clk in module snowflake_edge__43 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port clk in module snowflake_edge__42 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port clk in module snowflake_edge__41 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port clk in module snowflake_edge__40 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port clk in module snowflake_edge__39 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port clk in module snowflake_edge__38 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port clk in module snowflake_edge__37 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port clk in module snowflake_edge__36 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port clk in module snowflake_edge__35 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port clk in module snowflake_edge__34 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port clk in module snowflake_edge__33 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port clk in module snowflake_edge__32 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port clk in module snowflake_edge__31 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port clk in module snowflake_edge__30 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port clk in module snowflake_edge__29 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port clk in module snowflake_edge__28 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port clk in module snowflake_edge__27 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port clk in module snowflake_edge__26 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port clk in module snowflake_edge__25 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port clk in module snowflake_edge__24 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port clk in module snowflake_edge__23 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port clk in module snowflake_edge__22 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port clk in module snowflake_edge__21 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port clk in module snowflake_edge__20 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port clk in module snowflake_edge__19 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port clk in module snowflake_edge__18 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port clk in module snowflake_edge__17 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port clk in module snowflake_edge__16 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port clk in module snowflake_edge__15 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port clk in module snowflake_edge__14 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port clk in module snowflake_edge__13 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port clk in module snowflake_edge__12 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port clk in module snowflake_edge__11 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port clk in module snowflake_edge__10 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port clk in module snowflake_edge__9 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port clk in module snowflake_edge__8 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port clk in module snowflake_edge__7 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port clk in module snowflake_edge__6 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port clk in module snowflake_edge__5 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port clk in module snowflake_edge__4 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port clk in module snowflake_edge__3 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port clk in module snowflake_edge__2 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port clk in module snowflake_edge__1 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port clk in module snowflake_pe__5 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port reset in module snowflake_pe__5 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port st_in[0] in module snowflake_pe__5 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port zzz_never_used in module snowflake_pe__5 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port clk in module snowflake_pe__4 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port reset in module snowflake_pe__4 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port st_in[0] in module snowflake_pe__4 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port zzz_never_used in module snowflake_pe__4 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port clk in module snowflake_pe__3 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port reset in module snowflake_pe__3 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port st_in[0] in module snowflake_pe__3 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port zzz_never_used in module snowflake_pe__3 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port clk in module snowflake_pe__2 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port reset in module snowflake_pe__2 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port st_in[0] in module snowflake_pe__2 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port zzz_never_used in module snowflake_pe__2 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port clk in module snowflake_pe__1 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port reset in module snowflake_pe__1 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port st_in[0] in module snowflake_pe__1 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port zzz_never_used in module snowflake_pe__1 is either unconnected or has no load
+INFO: [Synth 8-3886] merging instance 'phase_reg[0]__0' (FDR) to 'phase_reg[0]'
+WARNING: [Synth 8-7129] Port clk in module snowflake_pe__10 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port reset in module snowflake_pe__10 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port st_in[0] in module snowflake_pe__10 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port zzz_never_used in module snowflake_pe__10 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port clk in module snowflake_pe__9 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port reset in module snowflake_pe__9 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port st_in[0] in module snowflake_pe__9 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port zzz_never_used in module snowflake_pe__9 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port clk in module snowflake_pe__8 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port reset in module snowflake_pe__8 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port st_in[0] in module snowflake_pe__8 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port zzz_never_used in module snowflake_pe__8 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port clk in module snowflake_pe__14 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port reset in module snowflake_pe__14 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port st_in[0] in module snowflake_pe__14 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port zzz_never_used in module snowflake_pe__14 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port clk in module snowflake_pe__13 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port reset in module snowflake_pe__13 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port st_in[0] in module snowflake_pe__13 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port zzz_never_used in module snowflake_pe__13 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port clk in module snowflake_pe__12 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port reset in module snowflake_pe__12 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port st_in[0] in module snowflake_pe__12 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port zzz_never_used in module snowflake_pe__12 is either unconnected or has no load
+INFO: [Common 17-14] Message 'Synth 8-7129' appears 100 times and further instances of the messages will be disabled. Use the Tcl command set_msg_config to change the current settings.
+---------------------------------------------------------------------------------
+Finished Cross Boundary and Area Optimization : Time (s): cpu = 00:03:22 ; elapsed = 00:03:50 . Memory (MB): peak = 2241.164 ; gain = 1100.477
+---------------------------------------------------------------------------------
+No constraint files found.
+---------------------------------------------------------------------------------
+Start Timing Optimization
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Timing Optimization : Time (s): cpu = 00:03:24 ; elapsed = 00:03:52 . Memory (MB): peak = 2241.164 ; gain = 1100.477
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Technology Mapping
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Technology Mapping : Time (s): cpu = 00:03:25 ; elapsed = 00:03:55 . Memory (MB): peak = 2241.164 ; gain = 1100.477
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start IO Insertion
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Final Netlist Cleanup
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Final Netlist Cleanup
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished IO Insertion : Time (s): cpu = 00:03:29 ; elapsed = 00:03:59 . Memory (MB): peak = 2241.164 ; gain = 1100.477
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Renaming Generated Instances
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Renaming Generated Instances : Time (s): cpu = 00:03:29 ; elapsed = 00:03:59 . Memory (MB): peak = 2241.164 ; gain = 1100.477
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Handling Custom Attributes
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Handling Custom Attributes : Time (s): cpu = 00:03:29 ; elapsed = 00:03:59 . Memory (MB): peak = 2241.164 ; gain = 1100.477
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Writing Synthesis Report
+---------------------------------------------------------------------------------
+
+Report BlackBoxes: 
++-+--------------+----------+
+| |BlackBox name |Instances |
++-+--------------+----------+
++-+--------------+----------+
+
+Report Cell Usage: 
++------+-------+------+
+|      |Cell   |Count |
++------+-------+------+
+|1     |CARRY8 |   120|
+|2     |LUT1   |     3|
+|3     |LUT2   |  1169|
+|4     |LUT3   |  1399|
+|5     |LUT4   |  1022|
+|6     |LUT5   |  1102|
+|7     |LUT6   |  2685|
+|8     |FDRE   |  1220|
+|9     |FDSE   |   161|
++------+-------+------+
+
+Report Instance Areas: 
++------+---------------------+-------------------+------+
+|      |Instance             |Module             |Cells |
++------+---------------------+-------------------+------+
+|1     |top                  |                   |  8881|
+|2     |  \g_slot[5].pe_i    |snowflake_pe__1    |   404|
+|3     |  \g_slot[13].pe_i   |snowflake_pe__2    |   328|
+|4     |  \g_slot[14].pe_i   |snowflake_pe__3    |   319|
+|5     |  \g_slot[17].pe_i   |snowflake_pe__4    |   397|
+|6     |  \g_slot[18].pe_i   |snowflake_pe__5    |   374|
+|7     |  \g_eslot[0].ed_i   |snowflake_edge__1  |     8|
+|8     |  \g_eslot[1].ed_i   |snowflake_edge__2  |     8|
+|9     |  \g_eslot[2].ed_i   |snowflake_edge__3  |     8|
+|10    |  \g_eslot[3].ed_i   |snowflake_edge__4  |     8|
+|11    |  \g_eslot[4].ed_i   |snowflake_edge__5  |     8|
+|12    |  \g_eslot[5].ed_i   |snowflake_edge__6  |     8|
+|13    |  \g_eslot[6].ed_i   |snowflake_edge__7  |     8|
+|14    |  \g_eslot[7].ed_i   |snowflake_edge__8  |     8|
+|15    |  \g_eslot[8].ed_i   |snowflake_edge__9  |     8|
+|16    |  \g_eslot[9].ed_i   |snowflake_edge__10 |     8|
+|17    |  \g_eslot[10].ed_i  |snowflake_edge__11 |     8|
+|18    |  \g_eslot[11].ed_i  |snowflake_edge__12 |     8|
+|19    |  \g_eslot[12].ed_i  |snowflake_edge__13 |     8|
+|20    |  \g_eslot[13].ed_i  |snowflake_edge__14 |     8|
+|21    |  \g_eslot[14].ed_i  |snowflake_edge__15 |     8|
+|22    |  \g_eslot[15].ed_i  |snowflake_edge__16 |     8|
+|23    |  \g_eslot[16].ed_i  |snowflake_edge__17 |     8|
+|24    |  \g_eslot[17].ed_i  |snowflake_edge__18 |     8|
+|25    |  \g_eslot[18].ed_i  |snowflake_edge__19 |     8|
+|26    |  \g_eslot[19].ed_i  |snowflake_edge__20 |     8|
+|27    |  \g_eslot[20].ed_i  |snowflake_edge__21 |     8|
+|28    |  \g_eslot[21].ed_i  |snowflake_edge__22 |     8|
+|29    |  \g_eslot[22].ed_i  |snowflake_edge__23 |     8|
+|30    |  \g_eslot[23].ed_i  |snowflake_edge__24 |     8|
+|31    |  \g_eslot[24].ed_i  |snowflake_edge__25 |     8|
+|32    |  \g_eslot[25].ed_i  |snowflake_edge__26 |     8|
+|33    |  \g_eslot[26].ed_i  |snowflake_edge__27 |     8|
+|34    |  \g_eslot[27].ed_i  |snowflake_edge__28 |     8|
+|35    |  \g_eslot[28].ed_i  |snowflake_edge__29 |     8|
+|36    |  \g_eslot[29].ed_i  |snowflake_edge__30 |     8|
+|37    |  \g_eslot[30].ed_i  |snowflake_edge__31 |     8|
+|38    |  \g_eslot[31].ed_i  |snowflake_edge__32 |     8|
+|39    |  \g_eslot[32].ed_i  |snowflake_edge__33 |     8|
+|40    |  \g_eslot[33].ed_i  |snowflake_edge__34 |     8|
+|41    |  \g_eslot[34].ed_i  |snowflake_edge__35 |     8|
+|42    |  \g_eslot[35].ed_i  |snowflake_edge__36 |     8|
+|43    |  \g_eslot[36].ed_i  |snowflake_edge__37 |     8|
+|44    |  \g_eslot[37].ed_i  |snowflake_edge__38 |     8|
+|45    |  \g_eslot[38].ed_i  |snowflake_edge__39 |     8|
+|46    |  \g_eslot[39].ed_i  |snowflake_edge__40 |     8|
+|47    |  \g_eslot[40].ed_i  |snowflake_edge__41 |     8|
+|48    |  \g_eslot[41].ed_i  |snowflake_edge__42 |     6|
+|49    |  \g_eslot[42].ed_i  |snowflake_edge__43 |     6|
+|50    |  \g_eslot[43].ed_i  |snowflake_edge__44 |     6|
+|51    |  \g_eslot[44].ed_i  |snowflake_edge__45 |     6|
+|52    |  \g_eslot[45].ed_i  |snowflake_edge__46 |     6|
+|53    |  \g_eslot[46].ed_i  |snowflake_edge__47 |     6|
+|54    |  \g_eslot[47].ed_i  |snowflake_edge__48 |     6|
+|55    |  \g_eslot[48].ed_i  |snowflake_edge__49 |     6|
+|56    |  \g_eslot[49].ed_i  |snowflake_edge__50 |     6|
+|57    |  \g_eslot[50].ed_i  |snowflake_edge__51 |     6|
+|58    |  \g_eslot[51].ed_i  |snowflake_edge__52 |     6|
+|59    |  \g_eslot[52].ed_i  |snowflake_edge__53 |     6|
+|60    |  \g_eslot[53].ed_i  |snowflake_edge__54 |     6|
+|61    |  \g_eslot[54].ed_i  |snowflake_edge__55 |     6|
+|62    |  \g_eslot[55].ed_i  |snowflake_edge     |     6|
+|63    |  \g_slot[22].pe_i   |snowflake_pe__6    |   322|
+|64    |  \g_slot[6].pe_i    |snowflake_pe__7    |   395|
+|65    |  \g_slot[23].pe_i   |snowflake_pe__8    |    95|
+|66    |  \g_slot[15].pe_i   |snowflake_pe__9    |    95|
+|67    |  \g_slot[9].pe_i    |snowflake_pe__10   |   271|
+|68    |  \g_slot[21].pe_i   |snowflake_pe__11   |   292|
+|69    |  \g_slot[20].pe_i   |snowflake_pe__12   |    91|
+|70    |  \g_slot[19].pe_i   |snowflake_pe__13   |    95|
+|71    |  \g_slot[16].pe_i   |snowflake_pe__14   |    91|
+|72    |  \g_slot[10].pe_i   |snowflake_pe__15   |   345|
+|73    |  \g_slot[2].pe_i    |snowflake_pe__16   |   291|
+|74    |  \g_slot[1].pe_i    |snowflake_pe__17   |   336|
+|75    |  \g_slot[0].pe_i    |snowflake_pe__18   |   103|
+|76    |  \g_slot[12].pe_i   |snowflake_pe__19   |    91|
+|77    |  \g_slot[11].pe_i   |snowflake_pe__20   |    98|
+|78    |  \g_slot[8].pe_i    |snowflake_pe__21   |   100|
+|79    |  \g_slot[7].pe_i    |snowflake_pe__22   |   100|
+|80    |  \g_slot[4].pe_i    |snowflake_pe__23   |    99|
+|81    |  \g_slot[3].pe_i    |snowflake_pe       |   101|
++------+---------------------+-------------------+------+
+---------------------------------------------------------------------------------
+Finished Writing Synthesis Report : Time (s): cpu = 00:03:29 ; elapsed = 00:03:59 . Memory (MB): peak = 2241.164 ; gain = 1100.477
+---------------------------------------------------------------------------------
+Synthesis finished with 0 errors, 0 critical warnings and 156 warnings.
+Synthesis Optimization Runtime : Time (s): cpu = 00:03:29 ; elapsed = 00:04:01 . Memory (MB): peak = 2241.164 ; gain = 1100.477
+Synthesis Optimization Complete : Time (s): cpu = 00:03:29 ; elapsed = 00:04:01 . Memory (MB): peak = 2241.164 ; gain = 1100.477
+INFO: [Project 1-571] Translating synthesized netlist
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.089 . Memory (MB): peak = 2241.164 ; gain = 0.000
+INFO: [Netlist 29-17] Analyzing 120 Unisim elements for replacement
+INFO: [Netlist 29-28] Unisim Transformation completed in 0 CPU seconds
+INFO: [Project 1-570] Preparing netlist for logic optimization
+INFO: [Opt 31-138] Pushed 0 inverter(s) to 0 load pin(s).
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.001 . Memory (MB): peak = 2241.164 ; gain = 0.000
+INFO: [Project 1-111] Unisim Transformation Summary:
+No Unisim elements were transformed.
+
+INFO: [Common 17-83] Releasing license: Synthesis
+25 Infos, 112 Warnings, 0 Critical Warnings and 0 Errors encountered.
+synth_design completed successfully
+synth_design: Time (s): cpu = 00:03:33 ; elapsed = 00:04:08 . Memory (MB): peak = 2241.164 ; gain = 1100.477
+# write_verilog -force -mode funcsim "$outdir/netlist_$tag.v"
+# puts "NETLIST_WRITTEN $outdir/netlist_$tag.v"
+NETLIST_WRITTEN D:\ycz\doc\deepseek_workzone\decoder\fpga_flow\logs/netlist_lat1_cl_surface_d3_s2_netlist.v
+INFO: [Common 17-206] Exiting Vivado at Wed Sep 23 13:53:08 2026...

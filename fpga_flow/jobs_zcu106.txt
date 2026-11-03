@@ -1,0 +1,4 @@
+# ZCU106 (xczu7ev) headline configurations -- M2 board-relevant numbers
+surface 3 2:1 xczu7ev-ffvc1156-2-e 5.0
+surface 5 2:1 xczu7ev-ffvc1156-2-e 5.0
+rep 3 2:1 xczu7ev-ffvc1156-2-e 5.0

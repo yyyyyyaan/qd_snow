@@ -1,0 +1,26 @@
+
+****** Vivado v2020.2 (64-bit)
+  **** SW Build 3064766 on Wed Nov 18 09:12:45 MST 2020
+  **** IP Build 3064653 on Wed Nov 18 14:17:31 MST 2020
+    ** Copyright 1986-2020 Xilinx, Inc. All Rights Reserved.
+
+source probe2.tcl
+# set f [open "tiny.v" w]
+# puts $f "module tiny(input clk, input \[7:0\] a, output reg \[7:0\] q); always @(posedge clk) q <= a + 8'd1; endmodule"
+# close $f
+# read_verilog tiny.v
+# foreach p {xcvu29p-fsvh2892-2-e xcku040-ffva1156-2-e xcvu9p-flga2104-2L-e} {
+#   if {[catch {synth_design -top tiny -part $p -mode out_of_context -quiet} err]} {
+#     puts "RESULT PART $p : FAILED -> [lindex [split $err "\n"] 0]"
+#   } else {
+#     puts "RESULT PART $p : OK"
+#   }
+# }
+RESULT PART xcvu29p-fsvh2892-2-e : OK
+RESULT PART xcku040-ffva1156-2-e : OK
+RESULT PART xcvu9p-flga2104-2L-e : OK
+# puts "RESULT env XILINXD_LICENSE_FILE=[expr {[info exists ::env(XILINXD_LICENSE_FILE)] ? $::env(XILINXD_LICENSE_FILE) : "(unset)"}]"
+RESULT env XILINXD_LICENSE_FILE=(unset)
+# puts "RESULT env LM_LICENSE_FILE=[expr {[info exists ::env(LM_LICENSE_FILE)] ? $::env(LM_LICENSE_FILE) : "(unset)"}]"
+RESULT env LM_LICENSE_FILE=(unset)
+INFO: [Common 17-206] Exiting Vivado at Tue Sep 15 18:34:52 2026...

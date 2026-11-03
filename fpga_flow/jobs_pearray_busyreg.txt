@@ -1,0 +1,17 @@
+# Priority (2): the d7 post-route critical path is
+#   g_pe[N].pe_i/cid_reg -> merge compare chain -> busy_c
+#     -> 392-input OR -> stage_reg/CE          (33 logic levels, 67% routing)
+# so the combinational quiescence signal crosses the whole array and comes back
+# into the controller every merging cycle.  SNOW_BUSYREG (added to
+# snowflake_pe_array.sv, mirroring the flat core's V2d) drives the stage advance
+# from the REGISTERED per-PE busy flags instead, at the cost of one provably
+# no-op clock per merging phase (suppressed from the trace by the dbg_valid
+# rule, same as V2d).
+#
+# Baseline for comparison (bus on, same flow):
+#   surface d3:  4,091 LUT / 7.243 ns / 138.1 MHz
+#   surface d5: 23,168 LUT / 9.603 ns / 104.1 MHz
+#   surface d7: 72,982 LUT / 11.446 ns / 87.4 MHz
+surface 3 2:1 xcvu9p-flga2104-2L-e 5.0 SNOW_PEARRAY;SNOW_BUSYREG
+surface 5 2:1 xcvu9p-flga2104-2L-e 5.0 SNOW_PEARRAY;SNOW_BUSYREG
+surface 7 2:1 xcvu9p-flga2104-2L-e 5.0 SNOW_PEARRAY;SNOW_BUSYREG

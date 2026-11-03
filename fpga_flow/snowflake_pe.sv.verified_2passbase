@@ -1,0 +1,684 @@
+`timescale 1ns / 1ps
+//=============================================================================
+// snowflake_pe.sv -- one processing element (one decoding-graph NODE) of the
+// PE-array Snowflake decoder.
+//
+// This is the per-node part of snowflake_core.sv moved behind a module
+// boundary, with two structural changes that the flat version cannot express:
+//
+//   * the DROP step PULLS the state from the node above instead of writing
+//     into the node below (a PE cannot write another PE's registers), which is
+//     why the generator exports SNOW_NODE_ABOVE;
+//   * every neighbour interaction is an explicit port: cluster id, grown,
+//     active, "the neighbour pushes toward me", and the edge's grown state.
+//     Nothing reaches across the array except through these wires, so all
+//     state is local to the PE -- the property that makes context switching
+//     cheap later (a context becomes an address bit on local RAM).
+//
+// Stage semantics are copied from the flat core, which is verified line by line
+// against the localuf reference; the array is expected to reproduce that trace
+// exactly.
+//=============================================================================
+`include "../generated/snowflake_graph.svh"
+// The shared-lattice build adds its own tables, which define SNOW_PE_STW -- the
+// width of the packed state word the SNOW_LAT variant below uses.  The include
+// is conditional so that the per-node build does not depend on a file only the
+// latticed flow generates.
+`ifdef SNOW_LAT
+`include "../generated/snowflake_lattice.svh"
+`endif
+
+module snowflake_pe #(
+    parameter integer ONE_ONE   = 0,
+    parameter integer ID        = 0,
+    parameter integer HAS_ABOVE = 0,
+    parameter integer IS_BND    = 0,
+    parameter integer IS_TOP    = 0,
+    parameter integer IS_BOT    = 0,
+    parameter integer SYN_IDX   = -1,      // -1 = this node is not a syndrome node
+    // A parameter is always emitted before the conditional ports, because a port
+    // list that begins with a conditional entry is not portable.  It is unused.
+    parameter integer ZZZ_ANCHOR = 0
+) (
+    input  wire        clk,
+    input  wire        reset,
+    input  wire [2:0]  stage,
+    input  wire        syn_bit,
+    // state of the node above (DROP pulls from here)
+    input  wire [SNOW_CID_W-1:0]   ab_cid,
+    input  wire                    ab_active,
+    input  wire                    ab_whole,
+    input  wire                    ab_defect,
+    input  wire [SNOW_PTR_W-1:0]   ab_ptr,
+    // per-direction neighbours and edges
+    input  wire [SNOW_NDIR-1:0]                  e_grown,   // edge fully grown (growth == 2)
+    input  wire [SNOW_NDIR-1:0]                  nb_valid,  // neighbour exists
+    input  wire [SNOW_NDIR*SNOW_CID_W-1:0]       nb_cid,
+    input  wire [SNOW_NDIR-1:0]                  nb_active,
+    input  wire [SNOW_NDIR-1:0]                  nb_grown,
+    input  wire [SNOW_NDIR-1:0]                  nb_push,   // neighbour pushes toward me
+`ifdef SNOW_LAT
+    // Which half of a merging stage this phase runs: 0 = both in one phase (the
+    // flat array's behaviour, and the value every verified configuration uses),
+    // 1 = flooding only, 2 = syncing only.  Only meaningful under SNOW_LAT: the
+    // two-pass split exists for the SHARED lattice, where a cell can no longer
+    // tap a later-phase neighbour's combinational `push` (report 6.20.12).
+    input  wire [1:0]                            m_pass,
+`endif
+    // observable state (to neighbours, edges and the debug buses).  In the
+    // shared-lattice variant (SNOW_LAT) the state lives in the array's register
+    // bank, so these are not ports at all -- see st_in/st_out below.
+`ifndef SNOW_LAT
+    output wire [SNOW_CID_W-1:0]   o_cid,
+    output wire                    o_active,
+    output wire                    o_whole,
+    output wire                    o_defect,
+    output wire [SNOW_PTR_W-1:0]   o_ptr,
+    output wire                    o_grown,
+    output wire                    o_unrooted,
+    output wire                    o_busy,     // registered: "changed last step"
+`endif
+`ifdef SNOW_LAT
+    // state in / next state out (layout noted at the end of the list)
+    input  wire [SNOW_PE_STW-1:0]  st_in,
+    output wire [SNOW_PE_STW-1:0]  st_out,
+`endif
+    output wire                   o_busy_c,    // combinational: "will change this step"
+    output wire                   o_pulse,     // grows its half of every incident edge
+    output wire [SNOW_NDIR-1:0]   o_push      // pushes across this direction
+`ifdef SNOW_SLICED
+    // next-state view for the seam D-shadows (snowflake-n prototype, report
+    // 6.16): a posedge register sampling o_n_* always equals the state
+    // register, so a consumer across the seam sees the value for the WHOLE
+    // cycle.  Only the three fields the seam needs are exposed.
+    , output wire [SNOW_CID_W-1:0] o_n_cid
+    , output wire                  o_n_active
+    , output wire                  o_n_grown
+`endif
+`ifdef SNOW_MINTS
+    // min-search time multiplexing (report 6.17): the merging argmin scan is
+    // split over MTS_G cycles by direction group.  mts_scan marks the
+    // non-final sub-cycles (the stage input is held at IDLE then, so every
+    // committed state holds), mts_mw carries the real stage for the n_grown
+    // rule, and mts_sub selects which direction group this sub-cycle scans.
+    , input wire       mts_scan
+    , input wire       mts_mw
+    , input wire [3:0] mts_sub
+`endif
+`ifdef SNOW_SERIAL
+    // serial (ping-pong) slice execution, design doc 4.2 / report 6.18: the
+    // PE always sees the real stage, so its combinational outputs stay live
+    // even while its slice is idle -- that is what lets the push/pulse/flip
+    // crossings stay exact.  Only the state commit is gated, by commit_en
+    // (high during this PE's own slice phase).  The extra o_n_* views feed the
+    // ping-pong seam buffers, which are written at the end of that phase and
+    // therefore hold exactly the state the other slice needs next step.
+    , input wire                   commit_en
+    , output wire                  o_n_whole
+    , output wire                  o_n_defect
+    , output wire [SNOW_PTR_W-1:0] o_n_ptr
+`endif
+`ifdef SNOW_LATTICE
+    // shared-lattice build (design doc 3.1/6.1): one PE serves every slice, so
+    // "which node am I" is no longer an elaboration-time parameter but a value
+    // the array drives per phase.  Only these six are genuinely per-node -- the
+    // 12-direction neighbour routing stays a constant geometric offset (design
+    // doc 1.4: the lattice is a regular 3D grid) and SNOW_CID_DELTA's thresholds
+    // are global constants on the cid VALUE, so neither needs a ROM.
+    , input wire [SNOW_CID_W-1:0] p_id
+    , input wire                  p_has_above
+    , input wire                  p_is_bnd
+    , input wire                  p_is_top
+    , input wire                  p_is_bot
+    , input wire                  p_is_syn
+`endif
+    , input wire zzz_never_used     // keeps a leading comma above always valid
+);
+
+`ifdef SNOW_LAT
+  // packed-state field offsets (kept next to the port comment above)
+  localparam integer STW      = SNOW_PE_STW;
+  localparam integer OFF_BUSY = 0;
+  localparam integer OFF_UNR  = 1;
+  localparam integer OFF_GRW  = 2;
+  localparam integer OFF_PTR  = 3;
+  localparam integer OFF_DEF  = 3 + SNOW_PTR_W;
+  localparam integer OFF_WHL  = 4 + SNOW_PTR_W;
+  localparam integer OFF_ACT  = 5 + SNOW_PTR_W;
+  localparam integer OFF_CID  = 6 + SNOW_PTR_W;
+`endif
+
+  localparam [2:0] ST_IDLE = 3'd0, ST_DROP = 3'd1, ST_GW = 3'd2,
+                   ST_MW   = 3'd3, ST_GH   = 3'd4, ST_MH = 3'd5;
+
+`ifdef SNOW_LATTICE
+  // identity as driven values; everywhere below uses K_* so the two builds
+  // share one body
+  wire [SNOW_CID_W-1:0] K_ID        = p_id;
+  wire                  K_HAS_ABOVE = p_has_above;
+  wire                  K_IS_BND    = p_is_bnd;
+  wire                  K_IS_TOP    = p_is_top;
+  wire                  K_IS_BOT    = p_is_bot;
+  wire                  K_IS_SYN    = p_is_syn;
+`else
+  localparam [SNOW_CID_W-1:0] K_ID        = ID[SNOW_CID_W-1:0];
+  localparam                  K_HAS_ABOVE = HAS_ABOVE;
+  localparam                  K_IS_BND    = IS_BND;
+  localparam                  K_IS_TOP    = IS_TOP;
+  localparam                  K_IS_BOT    = IS_BOT;
+  localparam                  K_IS_SYN    = (SYN_IDX >= 0);
+`endif
+
+  // ---------- state (all local to this node) ----------
+`ifdef SNOW_LAT
+  // shared lattice: the state lives in the array's (slot, layer) register bank
+  wire [SNOW_CID_W-1:0] cid      = st_in[OFF_CID +: SNOW_CID_W];
+  wire                  active   = st_in[OFF_ACT];
+  wire                  whole    = st_in[OFF_WHL];
+  wire                  defect   = st_in[OFF_DEF];
+  wire [SNOW_PTR_W-1:0] ptr      = st_in[OFF_PTR +: SNOW_PTR_W];
+  wire                  grown    = st_in[OFF_GRW];
+  wire                  unrooted = st_in[OFF_UNR];
+  wire                  busy     = st_in[OFF_BUSY];
+`else
+  reg [SNOW_CID_W-1:0] cid;
+  reg                  active, whole, defect, grown, unrooted, busy;
+  reg [SNOW_PTR_W-1:0] ptr;
+`endif
+
+`ifndef SNOW_LAT
+  // (in the shared-lattice variant these are not ports: the array reads the
+  //  state out of its own register bank, which is the single copy of it)
+  assign o_cid      = cid;
+  assign o_active   = active;
+  assign o_whole    = whole;
+  assign o_defect   = defect;
+  assign o_ptr      = ptr;
+  assign o_grown    = grown;
+  assign o_unrooted = unrooted;
+  assign o_busy     = busy;
+`endif
+
+  // ---------- combinational next state ----------
+  reg [SNOW_CID_W-1:0] n_cid;
+  reg                  n_active, n_whole, n_defect, n_grown, n_unrooted, busy_c;
+  reg [SNOW_PTR_W-1:0] n_ptr;
+  reg [SNOW_NDIR-1:0]  push;
+  reg                  pulse;
+  reg [SNOW_CID_W-1:0] best_cid;
+  reg [SNOW_NDIR-1:0]  best_dir;
+  reg                  best_found;
+  integer              best_d;
+  reg                  det_def, inc_def;
+  integer              d;
+
+`ifdef SNOW_MINTREE
+  // ---- balanced argmin tree workspace (see the ST_MW/ST_MH case) ----
+  // Element 0 is self, elements 1..SNOW_NDIR are the directions; the tree is a
+  // plain pairwise reduction with strict "<" so that the LEFT (lower) index
+  // survives ties -- which reproduces the serial scan's rule "self wins ties,
+  // then the lowest direction index".
+  reg [SNOW_CID_W-1:0] mt_v [0:SNOW_NDIR];
+  reg [3:0]            mt_i [0:SNOW_NDIR];
+  reg [SNOW_NDIR-1:0]  mt_rst;
+  reg [3:0]            mt_first;
+  reg                  mt_take_rst;
+  integer              mt_s, mt_k, mt_pe;
+`endif
+
+`ifdef SNOW_MINTS
+  // ---- time-multiplexed min-search state (report 6.17) ------------------
+  // Direction groups: group g covers [g*NDIR/G, (g+1)*NDIR/G).  Groups
+  // 0..G-2 are scanned one per mts_scan sub-cycle through the shared slot
+  // cells below, accumulating into the mts_*_r registers; group G-1 is then
+  // scanned by the merging branch itself on the final sub-cycle (with CONSTANT
+  // part-selects, no runtime mux) and commits.  G must match
+  // snowflake_pe_array.sv's MTS_G.
+  //
+  // Measured and rejected alternative: letting the merging branch consume the
+  // slot cells' combinational output instead of re-scanning the last group
+  // ("one comparator bank") is WORSE on both axes at d3 -- 5,770 LUT / 6.466 ns
+  // / 24 levels vs this form's 5,529 LUT / 4.799 ns / 17 levels -- because it
+  // puts the runtime case-mux in the final sub-cycle's critical path.  So the
+  // last group keeps its own constant-indexed scan (report 6.17).
+  localparam integer MTS_G  = (SNOW_NDIR % 3 == 0 && SNOW_NDIR >= 6) ? 3 : 2;
+  localparam integer MTS_DP = (SNOW_NDIR + MTS_G - 1) / MTS_G;   // group size
+  localparam integer MTS_G0 = ((MTS_G-1)*SNOW_NDIR)/MTS_G;       // final group
+
+  reg [SNOW_CID_W-1:0] mts_cid_r;
+  reg [3:0]            mts_dir_r;
+  reg                  mts_found_r, mts_stop_r, mts_rst_r, mts_grown_r, mts_busy_r;
+  // combinational running values (also the partial-scan outputs)
+  reg [SNOW_CID_W-1:0] mts_cid;
+  reg [3:0]            mts_dir;
+  reg                  mts_found, mts_stop, mts_rst, mts_grown, mts_busy;
+  // per-slot neighbour data and the final-group break flags
+  reg [SNOW_CID_W-1:0] s_cid;
+  reg                  s_valid, s_grown, s_eg;
+  reg [3:0]            s_md;
+  reg                  mts_stop_w, mts_rst_w;
+  integer              i;
+
+  // The slot loop unrolls to MTS_DP cells; the case on mts_sub picks this
+  // sub-cycle's group with CONSTANT part-selects only -- a variable
+  // part-select would synthesise to a wide indexed mux, which is exactly the
+  // area this optimisation removes.
+  always @(*) begin
+    // sub-cycle 0 always starts fresh from the node's own state; later
+    // sub-cycles continue from the previous group's registered result
+    mts_cid   = (mts_sub == 4'd0) ? cid       : mts_cid_r;
+    mts_dir   = (mts_sub == 4'd0) ? 4'd0      : mts_dir_r;
+    mts_found = (mts_sub == 4'd0) ? 1'b0      : mts_found_r;
+    mts_stop  = (mts_sub == 4'd0) ? 1'b0      : mts_stop_r;
+    mts_rst   = (mts_sub == 4'd0) ? 1'b0      : mts_rst_r;
+    mts_grown = (mts_sub == 4'd0) ? grown     : mts_grown_r;
+    mts_busy  = (mts_sub == 4'd0) ? 1'b0      : mts_busy_r;
+    for (i = 0; i < MTS_DP; i = i + 1) begin
+      s_valid = 1'b0; s_grown = 1'b0; s_eg = 1'b0;
+      s_cid = {SNOW_CID_W{1'b1}};
+      s_md  = 4'd0;
+      case (mts_sub)
+        4'd1: begin
+          if (i < ((2*SNOW_NDIR)/MTS_G - (1*SNOW_NDIR)/MTS_G)) begin
+            s_valid = nb_valid[(1*SNOW_NDIR)/MTS_G + i];
+            s_grown = nb_grown[(1*SNOW_NDIR)/MTS_G + i];
+            s_eg    = e_grown   [(1*SNOW_NDIR)/MTS_G + i];
+            s_cid   = nb_cid[(((1*SNOW_NDIR)/MTS_G + i)*SNOW_CID_W) +: SNOW_CID_W];
+            s_md    = (1*SNOW_NDIR)/MTS_G + i;
+          end
+        end
+        4'd2: begin
+          if (i < ((3*SNOW_NDIR)/MTS_G - (2*SNOW_NDIR)/MTS_G)) begin
+            s_valid = nb_valid[(2*SNOW_NDIR)/MTS_G + i];
+            s_grown = nb_grown[(2*SNOW_NDIR)/MTS_G + i];
+            s_eg    = e_grown   [(2*SNOW_NDIR)/MTS_G + i];
+            s_cid   = nb_cid[(((2*SNOW_NDIR)/MTS_G + i)*SNOW_CID_W) +: SNOW_CID_W];
+            s_md    = (2*SNOW_NDIR)/MTS_G + i;
+          end
+        end
+        default: begin  // mts_sub == 0 (group 0)
+          if (i < (1*SNOW_NDIR)/MTS_G) begin
+            s_valid = nb_valid[i];
+            s_grown = nb_grown[i];
+            s_eg    = e_grown   [i];
+            s_cid   = nb_cid[(i*SNOW_CID_W) +: SNOW_CID_W];
+            s_md    = i;
+          end
+        end
+      endcase
+      // one cell of the reference serial loop, on this slot's direction
+      // (mts_stop implements the serial loop's `break')
+      if (!mts_stop && s_valid && s_eg) begin
+        if (s_cid == SNOW_RESET_CID) begin
+          if (!unrooted) begin
+            mts_busy = 1'b1; mts_stop = 1'b1; mts_rst = 1'b1;
+          end else if (mts_mw && s_grown && !mts_grown) begin
+            mts_busy  = 1'b1;
+            mts_grown = 1'b1;
+          end
+        end else begin
+          if (s_cid < mts_cid) begin
+            mts_busy  = 1'b1;
+            mts_cid   = s_cid;
+            mts_dir   = s_md;
+            mts_found = 1'b1;
+          end
+          if (mts_mw && s_grown && !mts_grown) begin
+            mts_busy  = 1'b1;
+            mts_grown = 1'b1;
+          end
+        end
+      end
+    end
+  end
+
+  always @(posedge clk) begin
+    if (mts_scan) begin
+      mts_cid_r   <= mts_cid;
+      mts_dir_r   <= mts_dir;
+      mts_found_r <= mts_found;
+      mts_stop_r  <= mts_stop;
+      mts_rst_r   <= mts_rst;
+      mts_grown_r <= mts_grown;
+      mts_busy_r  <= mts_busy;
+    end
+  end
+`endif
+
+  function automatic [SNOW_PTR_W-1:0] DIR2PTR(input integer dd);
+    DIR2PTR = dd[SNOW_PTR_W-1:0] + 1'b1;
+  endfunction
+
+  always @(*) begin
+    n_cid      = cid;
+    n_active   = active;
+    n_whole    = whole;
+    n_defect   = defect;
+    n_ptr      = ptr;
+    n_grown    = grown;
+    n_unrooted = unrooted;
+    busy_c     = 1'b0;
+    push       = {SNOW_NDIR{1'b0}};
+    pulse      = 1'b0;
+
+    case (stage)
+
+      // ---------------- DROP: pull the state from above ----------------
+      ST_DROP: begin
+        n_grown    = 1'b0;
+        n_unrooted = 1'b0;
+        if (K_HAS_ABOVE) begin
+          n_cid    = (ab_cid == SNOW_RESET_CID) ? SNOW_RESET_CID
+                                                : (ab_cid + SNOW_CID_DELTA(ab_cid));
+          n_active = ab_active;
+          n_whole  = ab_whole;
+          n_defect = ab_defect;
+          n_ptr    = ab_ptr;
+        end
+        if (K_IS_TOP) begin
+          n_defect = 1'b0;
+          n_active = 1'b0;
+        end
+        if (K_IS_SYN) n_defect = n_defect ^ syn_bit;
+      end
+
+      // ---------------- GROW (whole clusters for 2:1, all active for 1:1) --
+      ST_GW: begin
+        if (K_IS_BOT && (ptr == SNOW_PTR_D)) begin      // find_broken_pointers()
+          n_cid = SNOW_RESET_CID;
+          n_ptr = SNOW_PTR_C;
+        end
+        if (ONE_ONE ? active : (active && whole)) begin
+          pulse   = 1'b1;
+          n_whole = ~whole;                           // _grow() flips whole
+          if (!ONE_ONE) n_grown = 1'b1;               // only 2:1 sets grown
+        end
+      end
+
+      // ---------------- GROW_HALF (2:1 only) ----------------
+      ST_GH: begin
+        n_unrooted = 1'b0;
+        if (active && !whole && !grown) begin
+          pulse   = 1'b1;
+          n_whole = 1'b1;
+        end
+      end
+
+      // ---------------- MERGING (whole / half) ----------------
+      ST_MW, ST_MH: begin
+`ifdef SNOW_LAT
+        // Two-pass merging (snowflake-n, report 6.20.13 / design doc 4.8.4).
+        // `m_pass` is 0 in every verified configuration (the two halves run in
+        // one phase, which is the flat array's behaviour); 1 = flooding only;
+        // 2 = syncing only.  In pass 2 the flooding block is skipped, so
+        // n_cid/n_ptr/n_grown keep their defaults (= the CURRENT state, i.e. the
+        // pointer this cell committed during pass 1) -- which is exactly what
+        // the syncing block below needs, and what makes `push` fall out of the
+        // pass-1 pointer with no duplicated min-search anywhere.
+        if (m_pass != 2'd2) begin
+`endif
+        // ---- flooding ----
+        if (cid == SNOW_RESET_CID) begin               // finish unrooting
+          busy_c     = 1'b1;
+          n_cid      = K_ID;
+          n_unrooted = 1'b1;
+        end else begin
+`ifdef SNOW_MINTREE
+          // ---- balanced argmin tree, exactly equivalent to the serial scan ----
+          // The serial loop compares against a RUNNING best, so synthesis builds
+          // a 12-deep chain of CID_W-bit comparators -- and that chain is the d7
+          // post-route critical path (report 6.14: cid_reg -> compare chain ->
+          // busy_c).  This version computes the same result on a log-depth tree.
+          //
+          // Semantics reproduced exactly, including one quirk: if (!unrooted) and
+          // a grown neighbour holds RESET_CID, the serial loop BREAKS at the
+          // first such direction, so only directions d < first_rst are examined;
+          // the n_cid=RESET assignment made there is then OVERWRITTEN by the
+          // post-loop `if (best_found)` whenever an earlier direction already
+          // improved.  The lasting effects are busy_c=1 and the truncation.
+          mt_rst = {SNOW_NDIR{1'b0}};
+          for (d = 0; d < SNOW_NDIR; d = d + 1)
+            if (nb_valid[d] && e_grown[d] &&
+                (nb_cid[d*SNOW_CID_W +: SNOW_CID_W] == SNOW_RESET_CID))
+              mt_rst[d] = 1'b1;
+          mt_take_rst = (!unrooted) && (|mt_rst);
+          mt_first    = 4'd15;                       // "none"
+          for (d = SNOW_NDIR-1; d >= 0; d = d - 1)   // priority encode: lowest d
+            if (mt_rst[d]) mt_first = d;
+          mt_pe = mt_take_rst ? mt_first : SNOW_NDIR;
+
+          for (mt_k = 0; mt_k <= SNOW_NDIR; mt_k = mt_k + 1) begin
+            if (mt_k == 0) begin
+              mt_v[0] = cid;                         // self
+              mt_i[0] = SNOW_NDIR;
+            end else if (((mt_k - 1) < mt_pe) && nb_valid[mt_k-1] && e_grown[mt_k-1] &&
+                         (nb_cid[(mt_k-1)*SNOW_CID_W +: SNOW_CID_W] != SNOW_RESET_CID)) begin
+              mt_v[mt_k] = nb_cid[(mt_k-1)*SNOW_CID_W +: SNOW_CID_W];
+              mt_i[mt_k] = (mt_k - 1);
+            end else begin
+              mt_v[mt_k] = {SNOW_CID_W{1'b1}};       // masked out: never wins
+              mt_i[mt_k] = SNOW_NDIR;
+            end
+          end
+          for (mt_s = 1; mt_s <= SNOW_NDIR; mt_s = mt_s * 2)
+            for (mt_k = 0; mt_k + mt_s <= SNOW_NDIR; mt_k = mt_k + 2*mt_s)
+              if (mt_v[mt_k + mt_s] < mt_v[mt_k]) begin
+                mt_v[mt_k] = mt_v[mt_k + mt_s];
+                mt_i[mt_k] = mt_i[mt_k + mt_s];
+              end
+
+          best_cid   = mt_v[0];
+          best_found = (best_cid < cid);
+          best_d     = mt_i[0];
+          if (best_found) begin
+            // the serial loop sets busy_c on EVERY improvement; the equivalent
+            // condition is exactly "min candidate < own cid", so this single
+            // assignment reproduces it (and the PE must not report idle while
+            // it changes cid/ptr, or the stage would advance early)
+            busy_c = 1'b1;
+            n_cid  = best_cid;
+            n_ptr  = DIR2PTR(best_d);
+          end
+          if (mt_take_rst) begin
+            // the serial loop's RESET assignment, then the post-loop overwrite
+            busy_c = 1'b1;
+            n_cid  = best_found ? best_cid : SNOW_RESET_CID;
+            n_ptr  = best_found ? DIR2PTR(best_d) : SNOW_PTR_C;
+          end
+          // n_grown: inside the examined prefix the rule is uniform (the break
+          // point itself is excluded from the prefix), so a plain OR suffices
+          if (stage == ST_MW)
+            for (d = 0; d < SNOW_NDIR; d = d + 1)
+              if ((d < mt_pe) && nb_valid[d] && e_grown[d] && nb_grown[d] && !n_grown) begin
+                busy_c  = 1'b1;
+                n_grown = 1'b1;
+              end
+`else
+`ifdef SNOW_MINTS
+          // ---- final sub-cycle of the time-multiplexed scan (report 6.17) --
+          // groups 0..MTS_G-2 are already accumulated in the mts_*_r
+          // registers; scan the last group here (constant indices, so no
+          // runtime mux in this cycle's critical path), then apply the serial
+          // loop's rules exactly -- including the quirk that the RESET
+          // assignment made at the `break' (possibly in an EARLIER group,
+          // hence the re-assertion below) is overwritten by the post-loop
+          // best_found rule whenever an earlier direction already improved.
+          best_cid   = mts_cid_r;
+          best_d     = mts_dir_r;
+          best_found = mts_found_r;
+          busy_c     = mts_busy_r;
+          n_grown    = mts_grown_r;
+          mts_stop_w = mts_stop_r;
+          mts_rst_w  = mts_rst_r;
+          for (d = MTS_G0; d < SNOW_NDIR; d = d + 1) begin
+            if (!mts_stop_w && nb_valid[d] && e_grown[d]) begin
+              if (nb_cid[d*SNOW_CID_W +: SNOW_CID_W] == SNOW_RESET_CID) begin
+                if (!unrooted) begin                   // start unrooting self
+                  busy_c     = 1'b1;
+                  n_cid      = SNOW_RESET_CID;
+                  n_ptr      = SNOW_PTR_C;
+                  mts_stop_w = 1'b1;
+                  mts_rst_w  = 1'b1;
+                end else if ((stage == ST_MW) && nb_grown[d] && !n_grown) begin
+                  busy_c  = 1'b1;
+                  n_grown = 1'b1;
+                end
+              end else begin
+                if (nb_cid[d*SNOW_CID_W +: SNOW_CID_W] < best_cid) begin
+                  busy_c     = 1'b1;
+                  best_cid   = nb_cid[d*SNOW_CID_W +: SNOW_CID_W];
+                  best_d     = d;
+                  best_found = 1'b1;
+                end
+                if ((stage == ST_MW) && nb_grown[d] && !n_grown) begin
+                  busy_c  = 1'b1;
+                  n_grown = 1'b1;
+                end
+              end
+            end
+          end
+          // the serial loop's break assignment can come from an earlier
+          // group; re-assert it, then the post-loop overwrite
+          if (mts_rst_w) begin
+            n_cid = SNOW_RESET_CID;
+            n_ptr = SNOW_PTR_C;
+          end
+          if (best_found) begin
+            n_ptr = DIR2PTR(best_d);
+            n_cid = best_cid;
+          end
+`else
+          best_cid   = cid;
+          best_d     = 0;
+          best_found = 1'b0;
+          for (d = 0; d < SNOW_NDIR; d = d + 1) begin
+            if (nb_valid[d] && e_grown[d]) begin
+              if (nb_cid[d*SNOW_CID_W +: SNOW_CID_W] == SNOW_RESET_CID) begin
+                if (!unrooted) begin                   // start unrooting self
+                  busy_c = 1'b1;
+                  n_cid  = SNOW_RESET_CID;
+                  n_ptr  = SNOW_PTR_C;
+                  break;
+                end else if ((stage == ST_MW) && nb_grown[d] && !n_grown) begin
+                  busy_c  = 1'b1;
+                  n_grown = 1'b1;
+                end
+              end else begin
+`ifdef SNOW_ABL_MIN
+                // Synthesis-only ablation (never simulated): keep the whole
+                // merging path -- the reset/unroot handling, n_grown, busy_c --
+                // but drop the minimum search itself, i.e. the CID comparators
+                // and the best_cid/best_d multiplexers.  The difference against
+                // the SNOW_KEEP_STATE baseline is the cost of the min tree.
+                // (The d7 critical path runs through exactly this chain:
+                //  cid_reg -> compare -> busy_c -> global OR -> stage_reg/CE.)
+`else
+                if (nb_cid[d*SNOW_CID_W +: SNOW_CID_W] < best_cid) begin
+                  busy_c     = 1'b1;
+                  best_cid   = nb_cid[d*SNOW_CID_W +: SNOW_CID_W];
+                  best_d     = d;
+                  best_found = 1'b1;
+                end
+`endif
+                if ((stage == ST_MW) && nb_grown[d] && !n_grown) begin
+                  busy_c  = 1'b1;
+                  n_grown = 1'b1;
+                end
+              end
+            end
+          end
+          if (best_found) begin
+            n_ptr = DIR2PTR(best_d);
+            n_cid = best_cid;
+          end
+`endif
+`endif
+        end
+`ifdef SNOW_LAT
+        end   // if (m_pass != 2'd2) -- end of the flooding half
+        if (m_pass != 2'd1) begin
+`endif
+
+        // ---- syncing (uses the pointer produced by flooding) ----
+        det_def = (!K_IS_BND) && defect;
+        if (n_ptr == SNOW_PTR_C) begin
+          n_active = det_def;                          // root: active iff it holds a defect
+        end else begin
+          d = n_ptr - 1'b1;
+          n_active = nb_active[d];
+          if (det_def) begin                           // push defect along pointer
+            busy_c   = 1'b1;
+            push[d]  = 1'b1;
+          end
+        end
+        if (active != n_active) busy_c = 1'b1;
+
+        // ---- apply incoming pushes locally ----
+        inc_def = 1'b0;
+        for (d = 0; d < SNOW_NDIR; d = d + 1)
+          if (nb_valid[d] && nb_push[d]) inc_def = inc_def ^ 1'b1;   // two pushes cancel
+        if (inc_def) begin
+          n_defect = n_defect ^ 1'b1;
+          busy_c   = 1'b1;
+        end
+        if (|push) n_defect = n_defect ^ 1'b1;
+`ifdef SNOW_LAT
+        end   // if (m_pass != 2'd1) -- end of the syncing half
+`endif
+      end
+
+      default: ;
+    endcase
+  end
+
+  assign o_busy_c = busy_c;
+  assign o_pulse  = pulse;
+  assign o_push   = push;
+`ifdef SNOW_SLICED
+  assign o_n_cid    = n_cid;
+  assign o_n_active = n_active;
+  assign o_n_grown  = n_grown;
+`endif
+`ifdef SNOW_SERIAL
+  assign o_n_whole  = n_whole;
+  assign o_n_defect = n_defect;
+  assign o_n_ptr    = n_ptr;
+`endif
+
+  // ---------- state update ----------
+`ifdef SNOW_LAT
+  // stateless: the array's bank holds the state, so this PE only *computes* the
+  // next state.  No behavioral difference: every rule above is unchanged.
+  assign st_out = {n_cid, n_active, n_whole, n_defect, n_ptr, n_grown,
+                   n_unrooted, busy_c};
+`else
+  always @(posedge clk) begin
+    if (reset) begin
+      cid      <= K_ID;
+      active   <= 1'b0;
+      whole    <= 1'b1;
+      defect   <= 1'b0;
+      ptr      <= SNOW_PTR_C;
+      grown    <= 1'b0;
+      unrooted <= 1'b0;
+      busy     <= 1'b0;
+    end
+`ifdef SNOW_SERIAL
+    // another slice owns this phase: hold every register (the combinational
+    // outputs above stay live -- that is deliberate, see the port comment)
+    else if (!commit_en) ;
+`endif
+    else if (stage != ST_IDLE) begin
+      cid      <= n_cid;
+      active   <= n_active;
+      whole    <= n_whole;
+      defect   <= n_defect;
+      ptr      <= n_ptr;
+      grown    <= n_grown;
+      unrooted <= n_unrooted;
+      busy     <= busy_c;
+    end
+  end
+`endif
+
+endmodule

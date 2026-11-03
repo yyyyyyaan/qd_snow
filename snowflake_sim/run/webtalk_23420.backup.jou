@@ -1,0 +1,12 @@
+#-----------------------------------------------------------
+# Webtalk v2020.2 (64-bit)
+# SW Build 3064766 on Wed Nov 18 09:12:45 MST 2020
+# IP Build 3064653 on Wed Nov 18 14:17:31 MST 2020
+# Start of session at: Thu Sep 17 23:30:33 2026
+# Process ID: 23420
+# Current directory: D:/ycz/doc/deepseek_workzone/decoder/snowflake_sim/run
+# Command line: wbtcv.exe -mode batch -source D:/ycz/doc/deepseek_workzone/decoder/snowflake_sim/run/xsim.dir/tb_pearr/webtalk/xsim_webtalk.tcl -notrace
+# Log file: D:/ycz/doc/deepseek_workzone/decoder/snowflake_sim/run/webtalk.log
+# Journal file: D:/ycz/doc/deepseek_workzone/decoder/snowflake_sim/run\webtalk.jou
+#-----------------------------------------------------------
+source D:/ycz/doc/deepseek_workzone/decoder/snowflake_sim/run/xsim.dir/tb_pearr/webtalk/xsim_webtalk.tcl -notrace

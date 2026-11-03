@@ -1,0 +1,21 @@
+
+****** Vivado v2020.2 (64-bit)
+  **** SW Build 3064766 on Wed Nov 18 09:12:45 MST 2020
+  **** IP Build 3064653 on Wed Nov 18 14:17:31 MST 2020
+    ** Copyright 1986-2020 Xilinx, Inc. All Rights Reserved.
+
+source probe3.tcl
+# foreach p {xcvu29p-fsvh2892-2-e xcvu29p* xczu7ev-ffvc1156-2-e xcku040-ffva1156-2-e xcvu9p-flga2104-2L-e xcvu9p*} {
+#   if {[catch {set l [get_parts $p]} e]} { puts "PARTS $p : error $e" } else { puts "PARTS $p : [llength $l] -> $l" }
+# }
+WARNING: [Coretcl 2-179] No part matched the expression you provided ("xcvu29p-fsvh2892-2-e").
+PARTS xcvu29p-fsvh2892-2-e : 0 -> 
+WARNING: [Coretcl 2-179] No part matched the expression you provided ("xcvu29p*").
+PARTS xcvu29p* : 0 -> 
+PARTS xczu7ev-ffvc1156-2-e : 1 -> xczu7ev-ffvc1156-2-e
+PARTS xcku040-ffva1156-2-e : 1 -> xcku040-ffva1156-2-e
+PARTS xcvu9p-flga2104-2L-e : 1 -> xcvu9p-flga2104-2L-e
+PARTS xcvu9p* : 35 -> xcvu9p-flga2104-1-e xcvu9p-flga2104-1-i xcvu9p-flga2104-2-e xcvu9p-flga2104-2-i xcvu9p-flga2104-2L-e xcvu9p-flga2104-2LV-e xcvu9p-flga2104-3-e xcvu9p-flga2577-1-e xcvu9p-flga2577-1-i xcvu9p-flga2577-2-e xcvu9p-flga2577-2-i xcvu9p-flga2577-2L-e xcvu9p-flga2577-2LV-e xcvu9p-flga2577-3-e xcvu9p-flgb2104-1-e xcvu9p-flgb2104-1-i xcvu9p-flgb2104-2-e xcvu9p-flgb2104-2-i xcvu9p-flgb2104-2L-e xcvu9p-flgb2104-2LV-e xcvu9p-flgb2104-3-e xcvu9p-flgc2104-1-e xcvu9p-flgc2104-1-i xcvu9p-flgc2104-2-e xcvu9p-flgc2104-2-i xcvu9p-flgc2104-2L-e xcvu9p-flgc2104-2LV-e xcvu9p-flgc2104-3-e xcvu9p-fsgd2104-1-e xcvu9p-fsgd2104-1-i xcvu9p-fsgd2104-2-e xcvu9p-fsgd2104-2-i xcvu9p-fsgd2104-2L-e xcvu9p-fsgd2104-2LV-e xcvu9p-fsgd2104-3-e
+# puts "PARTCOUNT [llength [get_parts]]"
+PARTCOUNT 2477
+INFO: [Common 17-206] Exiting Vivado at Tue Sep 15 18:38:16 2026...

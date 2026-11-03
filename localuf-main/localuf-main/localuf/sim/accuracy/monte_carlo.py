@@ -1,0 +1,233 @@
+"""Emulate logical success/failure to deduce accuracy thresholds.
+
+Available functions:
+
+* monte_carlo
+* monte_carlo_pymatching
+* monte_carlo_special
+* subset_sample
+"""
+
+from collections.abc import Callable
+import itertools
+from typing import Sequence, Type
+
+import numpy as np
+import pandas as pd
+from pandas import DataFrame, MultiIndex
+
+from localuf.sim._height_calculator import get_heights
+from localuf.type_aliases import NoiseModel, DecodingScheme, Parametrization, FloatSequence, IntSequence
+from localuf._base_classes import Code, Decoder
+from localuf.decoders import MWPM
+
+
+def monte_carlo(
+        sample_counts: dict[int, list[tuple[float, int]]],
+        code_class: Type[Code],
+        decoder_class: Type[Decoder],
+        noise: NoiseModel,
+        scheme: DecodingScheme = 'batch',
+        get_commit_height: Callable[[int], int] | None = None,
+        get_buffer_height: Callable[[int], int] | None = None,
+        parametrization: Parametrization = 'balanced',
+        demolition: bool = False,
+        monolingual: bool = False,
+        _merge_redundant_edges: bool = True,
+        **kwargs_for_decoder_class,
+):
+    """Make threshold data for any decoder.
+    
+    :param sample_counts: A dictionary mapping code distances to lists of (noise level, sample count) pairs.
+        If ``scheme`` is 'global batch',
+        each sample count must be the same for all noise levels of a given distance.
+        For a more detailed definition of 'sample', see ``_base_classes.Scheme.run``.
+    :param code_class: The class of the code; either ``localuf.Repetition`` or ``localuf.Surface``.
+    :param decoder_class: The class of the decoder;
+        available decoders are listed in ``localuf.decoders``.
+    :param noise: The noise model.
+    :param scheme: The decoding scheme; either 'batch', 'global batch', 'forward' or 'frugal'.
+        In global batch scheme, the decoding graph is ``d*n`` layers tall i.e.
+        as tall as the (entire) decoding graph would be in forward scheme with commit height ``d``.
+    :param get_commit_height: A function with input ``d`` that outputs commit height
+        e.g. ``lambda d: 2*(d//2)``.
+        If ``None``, commit height is ``d`` for forward scheme and ``1`` for frugal scheme.
+        Affects only forward and frugal decoding schemes.
+    :param get_buffer_height: A function with input ``d`` that outputs buffer height.
+        If ``None``, buffer height is ``d`` for forward scheme and ``2*(d//2)`` for frugal scheme.
+        Affects only forward and frugal decoding schemes.
+    :param parametrization: defines relative fault probabilities of
+        1- and 2-qubit gates, and prep/measurement.
+        Affects only circuit-level noise.
+    :param demolition: whether measurement destroys the ancilla qubit state
+        which hence needs to be initialized for next measurement cycle.
+        Affects only circuit-level noise.
+    :param monolingual: whether can prep/measure in only Z basis
+        hence X-basis prep/measurement needs Hadamard gates.
+        Affects only circuit-level noise.
+    :param _merge_redundant_edges: whether to merge redundant boundary edges.
+        Affects only circuit-level noise.
+    :param kwargs_for_decoder_class: are for ``decoder_class``.
+    
+    :return df: A DataFrame where each column is a (distance, probability);
+        rows 'm', 'n' indicate number of logical errors and samples, respectively.
+    """
+    dc: dict[tuple[int, float], tuple[int, int | float]] = {}
+    for d, list_ in sample_counts.items():
+        window_height, commit_height, buffer_height = get_heights(
+            d,
+            list_[0][1],
+            scheme,
+            get_commit_height,
+            get_buffer_height,
+        )
+        code = code_class(
+            d,
+            noise,
+            scheme=scheme,
+            window_height=window_height,
+            commit_height=commit_height,
+            buffer_height=buffer_height,
+            parametrization=parametrization,
+            demolition=demolition,
+            monolingual=monolingual,
+            _merge_redundant_edges=_merge_redundant_edges,
+        )
+        decoder = decoder_class(code, **kwargs_for_decoder_class)
+        for noise_level, n in list_:
+            dc[d, noise_level] = code.SCHEME.run(decoder, noise_level, n)
+    df = DataFrame(dc, index=('m', 'n'))
+    df.columns.set_names(['d', 'p'], inplace=True)
+    return df
+
+
+def monte_carlo_results_to_sample_counts(results: DataFrame):
+    """Convert ``monte_carlo`` output to its first input.
+    
+    Assumes row 'n' of ``results`` is the input of ``_base_classes.Scheme.run``.
+    """
+    sample_counts: dict[int, list[tuple[float, int]]] = {}
+    for (d, noise_level), (_, n) in results.items(): # type: ignore
+        if d not in sample_counts:
+            sample_counts[d] = []
+        sample_counts[d].append((noise_level, int(n)))
+    return sample_counts
+
+
+def monte_carlo_pymatching(
+        ds: Sequence[int],
+        noise_levels: FloatSequence,
+        ns: int | IntSequence,
+        code_class: Type[Code],
+        noise: NoiseModel,
+        **kwargs_for_code_class,
+):
+    """Make threshold data for PyMatching decoder.
+    
+    
+    :param ds: same as for ``monte_carlo``.
+    :param noise_levels: same as for ``monte_carlo``.
+    :param ns: same as for ``monte_carlo``.
+    :param code_class: same as for ``monte_carlo``.
+    :param noise: same as for ``monte_carlo``.
+    :param kwargs_for_code_class: for ``code_class``.
+    
+    :return df: Output same as for ``monte_carlo``.
+    """
+    if isinstance(ns, int):
+        ns = [ns] * len(noise_levels)
+    elif len(ns) != len(noise_levels):
+        raise ValueError('Sequence `ns` must have same length as `ps`')
+    mi = MultiIndex.from_product([list(ds), list(noise_levels)], names=['d', 'p'])
+    df = DataFrame(columns=mi)
+    for d in ds:
+        code = code_class(
+            d=d,
+            noise=noise,
+            **kwargs_for_code_class,
+        )
+        decoder = MWPM(code)
+        dc: dict[float, tuple[int, int]] = {}
+        for noise_level, n in zip(noise_levels, ns):
+            matching = decoder.get_matching(noise_level)
+            m = 0
+            for _ in itertools.repeat(None, n):  # TODO: use `decode_batch`
+                error, syndrome = matching.add_noise() # type: ignore
+                correction = matching.decode(syndrome)
+                m += not np.array_equal(error, correction) # type: ignore
+            dc[noise_level] = (m, n)
+        df[d] = DataFrame(dc, index=('m', 'n'))
+    return df
+
+def monte_carlo_special(
+        ds: Sequence[int],
+        noise_levels: FloatSequence,
+        ns: int | IntSequence,
+        code_class: Type[Code],
+        decoder_class: Type[Decoder],
+        parametrization: Parametrization = 'balanced',
+        demolition: bool = False,
+        monolingual: bool = False,
+        _merge_redundant_edges: bool = True,
+        **kwargs_for_decoder_class,
+):
+    """Make threshold data where
+    code noise model is circuit-level;
+    decoder noise model, phenomenological.
+    
+    Input & output same as for ``monte_carlo``.
+    """
+    if isinstance(ns, int):
+        ns = [ns] * len(noise_levels)
+    elif len(ns) != len(noise_levels):
+        raise ValueError('Sequence ns must have same length as noise_levels')
+    mi = MultiIndex.from_product([list(ds), list(noise_levels)], names=['d', 'p'])
+    df = DataFrame(columns=mi)
+    for d in ds:
+        code = code_class(
+            d,
+            noise='circuit-level',
+            parametrization=parametrization,
+            demolition=demolition,
+            monolingual=monolingual,
+            _merge_redundant_edges=_merge_redundant_edges,
+        )
+        decoder = decoder_class(
+            code_class(d, noise='phenomenological'),
+            **kwargs_for_decoder_class,
+        )
+        dc = {noise_level: code.SCHEME.run(
+            decoder, noise_level, n) for noise_level, n in zip(noise_levels, ns)}
+        df[d] = DataFrame(dc, index=('m', 'n'))
+    return df
+
+def subset_sample(
+        ds: Sequence[int],
+        noise_level: float,
+        n: int,
+        code_class: Type[Code],
+        decoder_class: Type[Decoder],
+        noise: NoiseModel,
+        parametrization: Parametrization = 'balanced',
+        tol: float = 5e-1,
+):
+    """Make threshold data for any decoder using subset sampling.
+    
+    
+    :return df: A DataFrame indexed by (distance, error weight), with columns:
+        1. 'subset prob' probability of error of that weight, given distance.
+        2. 'survival prob' complement of cumulative sum of 'subset prob'.
+        3. 'm' failure count.
+        4. 'n' shot count.
+    """
+    ls = []
+    for d in ds:
+        code = code_class(
+            d,
+            noise=noise,
+            parametrization=parametrization,
+        )
+        decoder = decoder_class(code)
+        ls.append(decoder.subset_sample(noise_level, n, tol=tol))
+    df = pd.concat(ls, keys=ds, names=['d'])
+    return df

@@ -1,0 +1,5 @@
+# surface d7 synthesis with the 6-direction graph (-Graph graphs/surface_d7_used.svh).
+# Compare against the 12-direction baseline: utilhier total 73,310 LUT (synth).
+# If the dead ports already fold away the LUT count will be identical; a
+# difference means the extra direction buses really cost silicon/routing.
+surface 7 2:1 xcvu9p-flga2104-2L-e 5.0 SNOW_PEARRAY;SNOW_DIRSUSED

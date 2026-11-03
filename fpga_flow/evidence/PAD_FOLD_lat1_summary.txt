@@ -1,0 +1,110 @@
+P0'  FOLDING EXPERIMENT -- evidence summary
+==========================================
+Question: a shared-lattice array instantiates ONE datapath per SLOT.  A rotated
+surface code's check lattice fills only HALF of its own bounding box (d21:
+bbox 22x20 = 440 slots, 220 real -- fpga_flow/logs/rotated_slots.txt).  Does a
+slot that is never valid in any context cost area after synthesis, or is it
+folded away?  This decides whether the measured ~2x graph-size advantage of the
+rotated code (fpga_flow/logs/pricing_rotated.txt) turns into real area.
+
+Method: `fpga_flow/make_lattice_sim.py --pad K` multiplies the SPATIAL box by K
+(P -> K*P, so NSLOT/ESLOT x K) and sets `*_VALID = 0` in EVERY context for the
+added slots.  The layer window GMAX is untouched, so every real cell keeps its
+(layout layer, rank), its address formula and all four address-band assertions.
+The RTL is NOT touched.  Driver: fpga_flow/pad_fold_battery.ps1 (serial, one
+Vivado at a time); part xcvu9p-flga2104-2L-e, period 5.0 ns, -Mode synth.
+Each K lands in its own tag / log / report / CSV row (`lat1_pad<K>_...`).
+
+
+1. RED LINE: `--pad 1` IS BYTE-IDENTICAL TO THE PREVIOUS GENERATOR
+------------------------------------------------------------------
+Regenerated with the new generator and compared against three cached headers
+that were produced BEFORE the change (they cover the 1-D rank branch, the 2-D
+rank branch and n != 2):
+
+  config          sha256 of reference = sha256 of new --pad 1 output
+  rep d3 n=2      eb4202478122ca4df72160163699448be12c863fa96cb692fffc52f818fcc119
+  rep d5 n=2      d8ba96b988f6c1b4ad89b7f2b3791f7b01347b6a2cd7c2e03f60b85862eb1b82
+  surface d5 n=5  f4ef7be01ed7b1332790eccbeea07df690146d3681528a21b0193e1c4abf0191
+
+References: fpga_flow/msim_lat/design/generated/snowflake_lattice.svh (rep d3 n=2),
+fpga_flow/pad_exp/snowflake_lattice.baseline.svh (rep d5 n=2, = what the repo held
+at session start), fpga_flow/msim_lat1/design/generated/snowflake_lattice.svh
+(surface d5 n=5).  Regenerated copies kept in fpga_flow/pad_exp/v_*.svh.
+
+2. GEOMETRY RE-CONFIRMED (nothing the numbering relies on moved)
+----------------------------------------------------------------
+  python fpga_flow/check_lattice_slots.py rep 3 2       -> PASS
+  python fpga_flow/check_lattice_slots.py surface 3 2   -> PASS
+  python fpga_flow/check_lattice_slots.py               -> LATTICE_SLOT_VERDICT PASS (5 configs, 4 s)
+
+plus the generator's own assertions (layer-set isomorphism, (slot,slice)
+bijection, four disjoint address bands, generator-vs-RTL address replay),
+which run on every --pad value and did not fire.
+
+3. RESULTS -- rep d3 n=2   (baseline = the line-by-line verified config)
+------------------------------------------------------------------------
+ pad  PE inst  edge inst  total inst  never-valid cells   LUT    FF   WNS    fmax   levels
+  1        8        10         18      11 of 36 (31%)     1149   406  0.206  208.6     17
+  2       16        20         36      45 of 72 (62.5%)   1152   406  0.212  208.9     17
+  4       32        40         72     117 of 144 (81.2%)  1152   406  0.212  208.9     17
+
+  -> datapath instances x4, LUT +3 (+0.26%), FF unchanged, timing unchanged.
+  -> pad = 2 and pad = 4 give the SAME numbers: the +3 is a ONE-TIME effect
+     (the address space doubled, MEM 216 -> 432 -> 864, AW 8 -> 9 -> 10), NOT a
+     per-slot cost.  Marginal cost of a dead datapath = 0.
+
+4. RESULTS -- surface d3 n=2   (the 2-D config)
+-----------------------------------------------
+ pad  PE inst  edge inst  total inst   LUT    FF   WNS     fmax   levels
+  1       24        38         62      4343   1241  -5.076   99.2     35
+  2       48        76        124      4542   1224  -4.693  103.2     34
+  4       96       152        248      4551   1223  -4.694  103.2     34
+
+  -> instances x4, LUT +208 (+4.8%), FF -18, timing slightly BETTER.
+  -> the whole +208 lands in the FIRST doubling (62 -> 124 instances: +199);
+     the SECOND doubling (124 -> 248 instances, the same number of added
+     instances) costs +9 LUT.  Cost is therefore NOT proportional to the number
+     of dead instances -- it is a one-time perturbation of the live slots'
+     constant-folded read map (per-instance LUT deltas have both signs,
+     -18 .. +38; the address space went 744 -> 1488 -> 2976 words, AW 10 -> 11
+     -> 12, so every live cell's constant bank addresses changed).
+  -> NB this one-time width/permutation effect does NOT apply to the rotated
+     build: its slot space (440) is the same size as the unrotated one (462),
+     so it pays no address-width penalty at all -- only its FILL halves.
+
+5. WHERE THE DEAD INSTANCES WENT (direct observation, not inference)
+--------------------------------------------------------------------
+report_utilization -hierarchical of the pad = 2 rep d3 run
+(fpga_flow/logs/utilhier_synth_lat1_pad2_rep_d3_2to1_lattice_lat_xcvu9p.rpt)
+lists only the 8 real `g_slot[*].pe_i` (60/143/149/60 + 55/142/135/57) and the
+10 real `g_eslot[*].ed_i` (6/6/6/6/6 + 6/6/6/6/5) -- identical to the pad = 1
+baseline within 1 LUT on one slot.  `g_slot[4..7]`, `g_slot[12..15]`,
+`g_eslot[5..9]`, `g_eslot[15..19]` are NOT IN THE REPORT AT ALL: no cells.
+The pad = 2 vs pad = 4 comparison tables differ ONLY in the instance indices of
+those same real slots; every LUT/FF number is identical.
+
+6. VERDICT
+----------
+Folding HOLDS (the pre-registered rule was: LUT/FF ~ unchanged -> dead slots
+fold -> the rotated ~2x is real; LUT/FF ~ K x -> dead slots cost full price).
+A never-valid slot has no state registers (`own`/`omir`/`eown` are declared
+inside `generate if (*_VALID)`, snowflake_pe_array_lat1.sv:424/618) and no write
+enable (`run` = NVALID/EVALID && ...), so only combinational logic remains, its
+outputs are unread, and Vivado deletes the instance.
+
+  area scales with LIVE cells, not with instantiated slots
+    -> unrotated d21: 462 slots/layer, ALL 462 real (verified:
+       check_lattice_slots.py surface 21 7, box 21x22, 0% waste), 9,702 graph nodes
+    -> rotated   d21: 440 slots/layer, 220 real (50% fill), 4,620 graph nodes
+    -> factor 2.10x on nodes, 1.97x on graph edges (100,038 -> 50,838)
+  => Z-7020 d7: 72,982 -> ~37K LUT (137% -> 70%)
+  => circuit-level d21 inside ONE VU9P: ~1.1M -> ~560K LUT (Helios: n/a)
+
+7. COMMANDS
+-----------
+  python fpga_flow/make_lattice_sim.py --code rep --d 3 --slices 2 --pad 2 --out <path>
+  powershell -NoProfile -ExecutionPolicy Bypass -File fpga_flow/pad_fold_battery.ps1
+  powershell -NoProfile -ExecutionPolicy Bypass -File fpga_flow/synth_lattice1.ps1 `
+      -Code surface -D 3 -Slices 2 -Pad 4 -Mode synth
+  rows: fpga_flow/summary_synth.csv, tags lat1_pad{2,4}_*, logs fpga_flow/logs/flow_synth_lat1_pad*_*.log

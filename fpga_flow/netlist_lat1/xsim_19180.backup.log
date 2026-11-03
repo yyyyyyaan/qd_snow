@@ -1,0 +1,85 @@
+#-----------------------------------------------------------
+# xsim v2020.2 (64-bit)
+# SW Build 3064766 on Wed Nov 18 09:12:45 MST 2020
+# IP Build 3064653 on Wed Nov 18 14:17:31 MST 2020
+# Start of session at: Wed Sep 23 13:48:41 2026
+# Process ID: 19180
+# Current directory: D:/ycz/doc/deepseek_workzone/decoder/fpga_flow/netlist_lat1
+# Command line: xsim.exe -mode tcl -source {xsim.dir/tb_net_lat1/xsim_script.tcl}
+# Log file: D:/ycz/doc/deepseek_workzone/decoder/fpga_flow/netlist_lat1/xsim.log
+# Journal file: D:/ycz/doc/deepseek_workzone/decoder/fpga_flow/netlist_lat1\xsim.jou
+#-----------------------------------------------------------
+source xsim.dir/tb_net_lat1/xsim_script.tcl
+# xsim {tb_net_lat1} -autoloadwcfg -tclbatch {sim_run.tcl}
+Vivado Simulator 2020.2
+Time resolution is 1 ps
+source sim_run.tcl
+## run all
+[net] c1 reset=1 start=0 done=0 stage=0 step=0 valid=0 busy=0 live=0 obsbusy=000000
+[net] c2 reset=1 start=0 done=0 stage=0 step=0 valid=0 busy=0 live=0 obsbusy=000000
+[net] c3 reset=1 start=0 done=0 stage=0 step=0 valid=0 busy=0 live=0 obsbusy=000000
+[net] c4 reset=1 start=0 done=0 stage=0 step=0 valid=0 busy=0 live=0 obsbusy=000000
+[net] c5 reset=1 start=0 done=0 stage=0 step=0 valid=0 busy=0 live=0 obsbusy=000000
+[net] c6 reset=1 start=0 done=0 stage=0 step=0 valid=0 busy=0 live=0 obsbusy=000000
+[net] c7 reset=1 start=0 done=0 stage=0 step=0 valid=0 busy=0 live=0 obsbusy=000000
+[net] c8 reset=1 start=0 done=0 stage=0 step=0 valid=0 busy=0 live=0 obsbusy=000000
+[net] c9 reset=1 start=0 done=0 stage=0 step=0 valid=0 busy=0 live=0 obsbusy=000000
+[net] c10 reset=1 start=0 done=0 stage=0 step=0 valid=0 busy=0 live=0 obsbusy=000000
+[net] c11 reset=1 start=0 done=0 stage=0 step=0 valid=0 busy=0 live=0 obsbusy=000000
+[net] c12 reset=1 start=0 done=0 stage=0 step=0 valid=0 busy=0 live=0 obsbusy=000000
+[net] c13 reset=1 start=0 done=0 stage=0 step=0 valid=0 busy=0 live=0 obsbusy=000000
+[net] c14 reset=1 start=0 done=0 stage=0 step=0 valid=0 busy=0 live=0 obsbusy=000000
+[net] c15 reset=1 start=0 done=0 stage=0 step=0 valid=0 busy=0 live=0 obsbusy=000000
+[net] c16 reset=1 start=0 done=0 stage=0 step=0 valid=0 busy=0 live=0 obsbusy=000000
+[net] c17 reset=0 start=0 done=0 stage=0 step=0 valid=0 busy=0 live=0 obsbusy=000000
+[net] c18 reset=0 start=0 done=0 stage=0 step=0 valid=0 busy=0 live=0 obsbusy=000000
+[net] c19 reset=0 start=1 done=0 stage=0 step=0 valid=0 busy=0 live=0 obsbusy=000000
+[net] c20 reset=0 start=0 done=0 stage=0 step=0 valid=0 busy=0 live=0 obsbusy=000000
+[net] c21 reset=0 start=0 done=0 stage=0 step=0 valid=0 busy=0 live=1 obsbusy=000000
+[net] c22 reset=0 start=0 done=0 stage=1 step=1 valid=1 busy=0 live=2 obsbusy=000000
+[net] c23 reset=0 start=0 done=0 stage=1 step=1 valid=0 busy=0 live=3 obsbusy=000000
+[net] c24 reset=0 start=0 done=0 stage=2 step=1 valid=1 busy=0 live=4 obsbusy=000000
+[net] c25 reset=0 start=0 done=0 stage=2 step=1 valid=0 busy=0 live=5 obsbusy=000000
+[net] c26 reset=0 start=0 done=0 stage=2 step=1 valid=0 busy=0 live=6 obsbusy=000000
+[net] c27 reset=0 start=0 done=0 stage=2 step=1 valid=0 busy=0 live=7 obsbusy=000000
+[net] c28 reset=0 start=0 done=0 stage=3 step=1 valid=1 busy=0 live=8 obsbusy=000000
+[net] c29 reset=0 start=0 done=0 stage=3 step=1 valid=0 busy=0 live=9 obsbusy=000000
+[net] c30 reset=0 start=0 done=0 stage=4 step=1 valid=1 busy=0 live=10 obsbusy=000000
+[net] c31 reset=0 start=0 done=0 stage=4 step=1 valid=0 busy=0 live=11 obsbusy=000000
+[net] c32 reset=0 start=0 done=0 stage=4 step=1 valid=0 busy=0 live=12 obsbusy=000000
+[net] c33 reset=0 start=0 done=0 stage=4 step=1 valid=0 busy=0 live=13 obsbusy=000000
+[net] c34 reset=0 start=0 done=1 stage=5 step=1 valid=1 busy=0 live=14 obsbusy=000000
+[cyc] round=0 cycles=16
+[net] c35 reset=0 start=1 done=0 stage=5 step=1 valid=0 busy=0 live=14 obsbusy=000000
+[net] c36 reset=0 start=0 done=0 stage=5 step=1 valid=0 busy=0 live=14 obsbusy=000000
+[net] c37 reset=0 start=0 done=0 stage=5 step=1 valid=0 busy=0 live=15 obsbusy=000000
+[net] c38 reset=0 start=0 done=0 stage=1 step=1 valid=1 busy=0 live=16 obsbusy=000000
+[net] c39 reset=0 start=0 done=0 stage=1 step=1 valid=0 busy=0 live=17 obsbusy=000000
+[net] c40 reset=0 start=0 done=0 stage=2 step=1 valid=1 busy=0 live=18 obsbusy=000000
+[net] c41 reset=0 start=0 done=0 stage=2 step=1 valid=0 busy=0 live=19 obsbusy=000000
+[net] c42 reset=0 start=0 done=0 stage=2 step=1 valid=0 busy=0 live=20 obsbusy=000000
+[net] c43 reset=0 start=0 done=0 stage=2 step=1 valid=0 busy=1 live=21 obsbusy=000000
+[net] c44 reset=0 start=0 done=0 stage=3 step=1 valid=1 busy=1 live=22 obsbusy=001000
+[net] c45 reset=0 start=0 done=0 stage=3 step=1 valid=0 busy=0 live=23 obsbusy=001000
+[net] c46 reset=0 start=0 done=0 stage=3 step=1 valid=0 busy=1 live=24 obsbusy=000000
+[net] c47 reset=0 start=0 done=0 stage=3 step=1 valid=0 busy=0 live=25 obsbusy=000000
+[net] c48 reset=0 start=0 done=0 stage=3 step=2 valid=1 busy=0 live=26 obsbusy=000000
+[cyc] round=1 cycles=20
+[cyc] round=2 cycles=20
+[net] c100 reset=0 start=0 done=0 stage=5 step=2 valid=0 busy=0 live=74 obsbusy=000000
+[cyc] round=3 cycles=28
+[cyc] round=4 cycles=40
+[cyc] round=5 cycles=28
+[cyc] round=6 cycles=20
+[net] c200 reset=0 start=0 done=0 stage=3 step=1 valid=1 busy=1 live=166 obsbusy=002000
+[cyc] round=7 cycles=28
+[cyc] round=8 cycles=20
+[cyc] round=9 cycles=40
+[net] c300 reset=0 start=0 done=0 stage=5 step=1 valid=0 busy=1 live=260 obsbusy=c50200
+[cyc] round=10 cycles=28
+[cyc] round=11 cycles=20
+LAT stats: live_cycles=284 push_xfer_cycles=142 flip_xfer_cycles=142
+RTL trace written to rtl_trace.txt (12 rounds, ONE_ONE=0, NN=24, NE=55, clk_cycles=326)
+$finish called at time : 3255 ns : File "D:/ycz/doc/deepseek_workzone/decoder/Helios_scalable_QEC-main/Helios_scalable_QEC-main/test_benches/snowflake/tb_snowflake_pe_array_lat1.sv" Line 215
+## quit
+INFO: [Common 17-206] Exiting xsim at Wed Sep 23 13:48:45 2026...

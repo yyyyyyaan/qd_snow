@@ -1,0 +1,64 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1280 720" font-family="微软雅黑, Arial, PingFang SC, Noto Sans CJK SC, sans-serif" data-pptx-page-role="content">
+  <rect id="bg" data-pptx-role="background" x="0" y="0" width="1280" height="720" fill="#FFFFFF"/>
+
+  <g id="page-head" data-pptx-bounds="72 36 1136 80">
+    <text x="72" y="52" font-size="15" fill="#5A6672" letter-spacing="1.4">07 / 风险、计划与总结</text>
+    <text x="72" y="100" font-size="38" font-weight="bold" fill="#12263A">四个风险，两个在关键路径上</text>
+    <rect x="1160" y="40" width="8" height="8" fill="#B23A2E"/>
+    <text x="1208" y="49" font-size="15" fill="#B23A2E" text-anchor="end">未做</text>
+    <line x1="72" y1="118" x2="1208" y2="118" stroke="#D8DEE5" stroke-width="1"/>
+  </g>
+
+  <g id="risk-list" data-pptx-bounds="72 176 688 372">
+    <line x1="72" y1="176" x2="760" y2="176" stroke="#D8DEE5" stroke-width="1"/>
+    <rect x="72" y="196" width="10" height="10" fill="#B23A2E"/>
+    <rect x="90" y="196" width="10" height="10" fill="#B23A2E"/>
+    <rect x="108" y="196" width="10" height="10" fill="#B23A2E"/>
+    <text x="132" y="208" font-size="22" font-weight="bold" fill="#12263A">d7 距 5 ns 差 1.36 ns</text>
+    <text x="132" y="238" font-size="22" fill="#5A6672">再压需要新结构，不是调几个参数</text>
+    <line x1="72" y1="264" x2="760" y2="264" stroke="#D8DEE5" stroke-width="1"/>
+    <rect x="72" y="296" width="10" height="10" fill="#B23A2E"/>
+    <rect x="90" y="296" width="10" height="10" fill="#B23A2E"/>
+    <rect x="108" y="296" width="10" height="10" fill="#D8DEE5"/>
+    <text x="132" y="308" font-size="22" font-weight="bold" fill="#12263A">共享晶格 option B 未测量</text>
+    <text x="132" y="338" font-size="22" fill="#5A6672">面积预估值目前不可信</text>
+    <line x1="72" y1="364" x2="760" y2="364" stroke="#D8DEE5" stroke-width="1"/>
+    <rect x="72" y="396" width="10" height="10" fill="#B23A2E"/>
+    <rect x="90" y="396" width="10" height="10" fill="#B23A2E"/>
+    <rect x="108" y="396" width="10" height="10" fill="#D8DEE5"/>
+    <text x="132" y="408" font-size="22" font-weight="bold" fill="#12263A">板级流程全缺</text>
+    <text x="132" y="438" font-size="22" fill="#5A6672">XDC / PS7 / bitstream / BOOT</text>
+    <line x1="72" y1="464" x2="760" y2="464" stroke="#D8DEE5" stroke-width="1"/>
+    <rect x="72" y="496" width="10" height="10" fill="#B23A2E"/>
+    <rect x="90" y="496" width="10" height="10" fill="#D8DEE5"/>
+    <rect x="108" y="496" width="10" height="10" fill="#D8DEE5"/>
+    <text x="132" y="508" font-size="22" font-weight="bold" fill="#12263A">面积地板约 430K LUT</text>
+    <text x="132" y="538" font-size="22" fill="#5A6672">d&gt;21 必须换 LUTRAM 存状态</text>
+  </g>
+
+  <g id="plan" data-pptx-bounds="800 176 408 372">
+    <text x="800" y="208" font-size="26" font-weight="bold" fill="#12263A">下一阶段三步</text>
+    <line x1="818" y1="240" x2="818" y2="500" stroke="#D8DEE5" stroke-width="1.4"/>
+    <circle cx="818" cy="268" r="5" fill="#B23A2E"/>
+    <text x="844" y="266" font-size="22" fill="#1B2632">补板级闭环</text>
+    <text x="844" y="294" font-size="15" fill="#5A6672">拿到第一份真实轨迹</text>
+    <circle cx="818" cy="368" r="5" fill="#12263A"/>
+    <text x="844" y="366" font-size="22" fill="#1B2632">测 option B</text>
+    <text x="844" y="394" font-size="15" fill="#5A6672">确认共享倍率</text>
+    <circle cx="818" cy="468" r="5" fill="#12263A"/>
+    <text x="844" y="466" font-size="22" fill="#1B2632">再决定状态存储</text>
+    <text x="844" y="492" font-size="15" fill="#5A6672">是否为 d&gt;21 换 LUTRAM</text>
+  </g>
+
+  <g id="ask" data-pptx-bounds="72 566 1136 60">
+    <rect x="72" y="566" width="1136" height="60" fill="#F2F4F7"/>
+    <rect x="72" y="566" width="4" height="60" fill="#B23A2E"/>
+    <text x="104" y="604" font-size="26" fill="#12263A">请老师判断：先补闭环，还是先攻这 1.36 ns？</text>
+  </g>
+
+  <g id="page-foot" data-pptx-role="footer" data-pptx-bounds="72 636 1136 44">
+    <line x1="72" y1="640" x2="1208" y2="640" stroke="#D8DEE5" stroke-width="1"/>
+    <text x="72" y="666" font-size="15" fill="#5A6672">严重度按"是否卡住下一步"排，不按工作量排</text>
+    <text x="1208" y="666" font-size="15" fill="#5A6672" text-anchor="end">25 / 26</text>
+  </g>
+</svg>

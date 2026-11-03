@@ -1,0 +1,27 @@
+=== default path (red line)
+[msim] rep_d3                             REGRESS_VERDICT PASS golden_lines=2314 rtl_lines=2314 golden_commits=6 rtl_commits=6 golden=golden_rep_d3.txt rtl=rtl_trace_rep_d3.txt
+=== MINTS rep d3
+[msim] rep_d3_SNOW_MINTS                  REGRESS_VERDICT PASS golden_lines=2314 rtl_lines=2314 golden_commits=6 rtl_commits=6 golden=golden_rep_d3_SNOW_MINTS.txt rtl=rtl_trace_rep_d3_SNOW_MINTS.txt
+=== MINTS surface d3
+[msim] surface_d3_SNOW_MINTS              REGRESS_VERDICT PASS golden_lines=7832 rtl_lines=7832 golden_commits=6 rtl_commits=6 golden=golden_surface_d3_SNOW_MINTS.txt rtl=rtl_trace_surface_d3_SNOW_MINTS.txt
+=== MINTS surface d5
+[msim] surface_d5_SNOW_MINTS              REGRESS_VERDICT PASS golden_lines=40112 rtl_lines=40112 golden_commits=4 rtl_commits=4 golden=golden_surface_d5_SNOW_MINTS.txt rtl=rtl_trace_surface_d5_SNOW_MINTS.txt
+=== MINTS+SLICED rep d3
+[msim] rep_d3_SNOW_MINTS_SNOW_SLICED      REGRESS_VERDICT PASS golden_lines=2314 rtl_lines=2314 golden_commits=6 rtl_commits=6 golden=golden_rep_d3_SNOW_MINTS_SNOW_SLICED.txt rtl=rtl_trace_rep_d3_SNOW_MINTS_SNOW_SLICED.txt
+=== MINTS+SLICED+seampat rep d3
+[msim] rep_d3_SNOW_MINTS_SNOW_SLICED_seam REGRESS_VERDICT PASS golden_lines=2366 rtl_lines=2366 golden_commits=8 rtl_commits=8 golden=golden_rep_d3_SNOW_MINTS_SNOW_SLICED_seam.txt rtl=rtl_trace_rep_d3_SNOW_MINTS_SNOW_SLICED_seam.txt
+=== MINTS+SLICED surface d3
+[msim] surface_d3_SNOW_MINTS_SNOW_SLICED  REGRESS_VERDICT PASS golden_lines=7832 rtl_lines=7832 golden_commits=6 rtl_commits=6 golden=golden_surface_d3_SNOW_MINTS_SNOW_SLICED.txt rtl=rtl_trace_surface_d3_SNOW_MINTS_SNOW_SLICED.txt
+=== MINTS+SLICED+seampat surface d3
+[msim] surface_d3_SNOW_MINTS_SNOW_SLICED_seam REGRESS_VERDICT PASS golden_lines=12232 rtl_lines=12232 golden_commits=21 rtl_commits=21 golden=golden_surface_d3_SNOW_MINTS_SNOW_SLICED_seam.txt rtl=rtl_trace_surface_d3_SNOW_MINTS_SNOW_SLICED_seam.txt
+=== MINTS+SLICED surface d5
+[msim] surface_d5_SNOW_MINTS_SNOW_SLICED  REGRESS_VERDICT PASS golden_lines=40112 rtl_lines=40112 golden_commits=4 rtl_commits=4 golden=golden_surface_d5_SNOW_MINTS_SNOW_SLICED.txt rtl=rtl_trace_surface_d5_SNOW_MINTS_SNOW_SLICED.txt
+=== MINTS+SLICED+seampat surface d5
+[msim] surface_d5_SNOW_MINTS_SNOW_SLICED_seam REGRESS_VERDICT PASS golden_lines=105948 rtl_lines=105948 golden_commits=50 rtl_commits=50 golden=golden_surface_d5_SNOW_MINTS_SNOW_SLICED_seam.txt rtl=rtl_trace_surface_d5_SNOW_MINTS_SNOW_SLICED_seam.txt
+=== MINTS+BUSYREG rep d3
+[msim] rep_d3_SNOW_MINTS_SNOW_BUSYREG     REGRESS_VERDICT PASS golden_lines=2314 rtl_lines=2314 golden_commits=6 rtl_commits=6 golden=golden_rep_d3_SNOW_MINTS_SNOW_BUSYREG.txt rtl=rtl_trace_rep_d3_SNOW_MINTS_SNOW_BUSYREG.txt
+=== MINTS+BUSYREG surface d3
+[msim] surface_d3_SNOW_MINTS_SNOW_BUSYREG REGRESS_VERDICT PASS golden_lines=7832 rtl_lines=7832 golden_commits=6 rtl_commits=6 golden=golden_surface_d3_SNOW_MINTS_SNOW_BUSYREG.txt rtl=rtl_trace_surface_d3_SNOW_MINTS_SNOW_BUSYREG.txt
+=== MINTS+BUSYREG surface d5
+[msim] surface_d5_SNOW_MINTS_SNOW_BUSYREG REGRESS_VERDICT PASS golden_lines=40112 rtl_lines=40112 golden_commits=4 rtl_commits=4 golden=golden_surface_d5_SNOW_MINTS_SNOW_BUSYREG.txt rtl=rtl_trace_surface_d5_SNOW_MINTS_SNOW_BUSYREG.txt
+=== ALL DONE

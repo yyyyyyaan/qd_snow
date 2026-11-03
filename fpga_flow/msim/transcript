@@ -1,0 +1,8 @@
+# vsim -c -quiet -do "run -all; quit -f" work.tb_snowflake_pe_array 
+# Start time: 21:19:31 on Sep 20,2026
+# run -all
+# RTL trace written to rtl_trace.txt (12 rounds, ONE_ONE=0, NN=12, NE=13, clk_cycles=120)
+# ** Note: $finish    : test_benches/snowflake/tb_snowflake_pe_array.sv(152)
+#    Time: 1195 ns  Iteration: 1  Instance: /tb_snowflake_pe_array
+# End time: 21:19:31 on Sep 20,2026, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0

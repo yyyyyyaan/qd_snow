@@ -1,0 +1,48 @@
+
+****** Vivado v2020.2 (64-bit)
+  **** SW Build 3064766 on Wed Nov 18 09:12:45 MST 2020
+  **** IP Build 3064653 on Wed Nov 18 14:17:31 MST 2020
+    ** Copyright 1986-2020 Xilinx, Inc. All Rights Reserved.
+
+source probe_license.tcl
+# puts "=== Vivado version ==="
+=== Vivado version ===
+# puts [version -short]
+2020.2
+# set f [open "tiny.v" w]
+# puts $f "module tiny(input clk, input [7:0] a, output reg [7:0] q);"
+# puts $f "  always @(posedge clk) q <= a + 8'd1;"
+# puts $f "endmodule"
+# close $f
+# set parts {
+#   xc7z020clg400-1
+#   xc7a100tcsg324-1
+#   xczu7ev-ffvc1156-2-e
+#   xcvu29p-fsvh2892-2-e
+#   xcku040-ffva1156-2-e
+# }
+# foreach p $parts {
+#     if {[catch {read_verilog tiny.v} e]} { puts "read_verilog failed: $e" ; break }
+#     set ok 1
+#     if {[catch {
+#         synth_design -top tiny -part $p -mode out_of_context -quiet
+#     } err]} {
+#         set ok 0
+#         puts "PART $p : SYNTH FAILED"
+#         puts "    [string map {\n { }} [lindex [split $err "\n"] 0]]"
+#     }
+#     if {$ok} {
+#         set nlut [llength [get_cells -hier -filter {PRIMITIVE_TYPE =~ CLB.*}]]
+#         puts "PART $p : SYNTH OK"
+#         # 清理以便下一�? part 复用同一进程
+#         catch {close_project -quiet}
+#     }
+#     catch {remove_files -quiet [get_files -quiet]}
+# }
+WARNING: [Vivado 12-180] No cells matched 'get_cells -hier -filter {PRIMITIVE_TYPE =~ CLB.*}'.
+PART xc7z020clg400-1 : SYNTH OK
+WARNING: [Vivado 12-180] No cells matched 'get_cells -hier -filter {PRIMITIVE_TYPE =~ CLB.*}'.
+PART xc7a100tcsg324-1 : SYNTH OK
+PART xczu7ev-ffvc1156-2-e : SYNTH OK
+ERROR: [Common 17-53] User Exception: No open design. Please open an elaborated, synthesized or implemented design before executing this command.
+INFO: [Common 17-206] Exiting Vivado at Tue Sep 15 18:33:51 2026...

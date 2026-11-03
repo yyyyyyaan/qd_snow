@@ -1,0 +1,23 @@
+#-----------------------------------------------------------
+# xsim v2020.2 (64-bit)
+# SW Build 3064766 on Wed Nov 18 09:12:45 MST 2020
+# IP Build 3064653 on Wed Nov 18 14:17:31 MST 2020
+# Start of session at: Wed Sep 16 18:58:13 2026
+# Process ID: 17412
+# Current directory: D:/ycz/doc/deepseek_workzone/decoder/fpga_flow/lint/parrctx
+# Command line: xsim.exe -mode tcl -source {xsim.dir/tbp/xsim_script.tcl}
+# Log file: D:/ycz/doc/deepseek_workzone/decoder/fpga_flow/lint/parrctx/xsim.log
+# Journal file: D:/ycz/doc/deepseek_workzone/decoder/fpga_flow/lint/parrctx\xsim.jou
+#-----------------------------------------------------------
+source xsim.dir/tbp/xsim_script.tcl
+# xsim {tbp} -autoloadwcfg -tclbatch {run.tcl}
+Vivado Simulator 2020.2
+Time resolution is 1 ps
+source run.tcl
+## run all
+PROBE ctx=x cid=z active=z whole=z ptr=z busy=z
+PROBE ctx=x cid=z active=z whole=z ptr=z busy=z
+PROBE after DROP: cid=z whole=z
+$finish called at time : 56 ns : File "D:/ycz/doc/deepseek_workzone/decoder/fpga_flow/lint/parrctx/tb_probe.sv" Line 47
+## quit
+INFO: [Common 17-206] Exiting xsim at Wed Sep 16 18:58:16 2026...

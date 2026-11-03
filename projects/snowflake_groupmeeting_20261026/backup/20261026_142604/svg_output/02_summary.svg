@@ -1,0 +1,65 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1280 720" font-family="微软雅黑, Arial, PingFang SC, Noto Sans CJK SC, sans-serif" data-pptx-page-role="toc">
+  <rect id="bg" data-pptx-role="background" x="0" y="0" width="1280" height="720" fill="#FFFFFF"/>
+
+  <g id="page-head" data-pptx-bounds="72 36 1136 80">
+    <text x="72" y="52" font-size="15" fill="#5A6672" letter-spacing="1.4">00 / 全篇速览</text>
+    <text x="72" y="100" font-size="38" font-weight="bold" fill="#12263A">三句话说完：做成了什么、凭什么信、还缺什么</text>
+    <rect x="1160" y="40" width="8" height="8" fill="#5A6672"/>
+    <text x="1208" y="49" font-size="15" fill="#5A6672" text-anchor="end">总览</text>
+    <line x1="72" y1="118" x2="1208" y2="118" stroke="#D8DEE5" stroke-width="1"/>
+  </g>
+
+  <g id="summary-c1" data-pptx-bounds="72 156 357 234">
+    <line x1="72" y1="160" x2="429" y2="160" stroke="#12263A" stroke-width="2"/>
+    <text x="72" y="196" font-size="22" font-weight="bold" fill="#B23A2E">01</text>
+    <text x="72" y="234" font-size="26" font-weight="bold" fill="#12263A">做成了</text>
+    <text x="72" y="278" font-size="22" fill="#1B2632">板级形态可综合<tspan x="72" dy="32">可逐行回归</tspan><tspan x="72" dy="32">d3、d5 已实测</tspan><tspan x="72" dy="32">d7 为外推</tspan></text>
+  </g>
+
+  <g id="summary-c2" data-pptx-bounds="461 156 357 234">
+    <line x1="461" y1="160" x2="818" y2="160" stroke="#12263A" stroke-width="2"/>
+    <text x="461" y="196" font-size="22" font-weight="bold" fill="#B23A2E">02</text>
+    <text x="461" y="234" font-size="26" font-weight="bold" fill="#12263A">凭什么信</text>
+    <text x="461" y="278" font-size="22" fill="#1B2632">与黄金轨迹逐行相等<tspan x="461" dy="32">最大一次 105,948 行</tspan><tspan x="461" dy="32">负对照必须失败</tspan><tspan x="461" dy="32">缺一不可</tspan></text>
+  </g>
+
+  <g id="summary-c3" data-pptx-bounds="850 156 358 234">
+    <line x1="850" y1="160" x2="1208" y2="160" stroke="#12263A" stroke-width="2"/>
+    <text x="850" y="196" font-size="22" font-weight="bold" fill="#B23A2E">03</text>
+    <text x="850" y="234" font-size="26" font-weight="bold" fill="#12263A">还缺什么</text>
+    <text x="850" y="278" font-size="22" fill="#1B2632">d7 距 5 ns 差 1.36 ns<tspan x="850" dy="32">板级流程未打通</tspan><tspan x="850" dy="32">host 未编译</tspan><tspan x="850" dy="32">上板测试为零</tspan></text>
+  </g>
+
+  <g id="toc" data-pptx-bounds="72 430 1136 190">
+    <text x="72" y="452" font-size="22" fill="#5A6672">七个部分，后面逐条展开</text>
+    <line x1="72" y1="480" x2="1208" y2="480" stroke="#D8DEE5" stroke-width="1"/>
+    <text x="72" y="516" font-size="15" font-weight="bold" fill="#B23A2E">1</text>
+    <text x="72" y="544" font-size="15" fill="#12263A">背景与问题定义</text>
+    <text x="72" y="572" font-size="15" fill="#5A6672">P03–P06</text>
+    <text x="234" y="516" font-size="15" font-weight="bold" fill="#B23A2E">2</text>
+    <text x="234" y="544" font-size="15" fill="#12263A">解码算法与系统方案</text>
+    <text x="234" y="572" font-size="15" fill="#5A6672">P07–P10</text>
+    <text x="396" y="516" font-size="15" font-weight="bold" fill="#B23A2E">3</text>
+    <text x="396" y="544" font-size="15" fill="#12263A">硬件架构与关键模块</text>
+    <text x="396" y="572" font-size="15" fill="#5A6672">P11–P15</text>
+    <text x="558" y="516" font-size="15" font-weight="bold" fill="#B23A2E">4</text>
+    <text x="558" y="544" font-size="15" fill="#12263A">RTL 实现与综合结果</text>
+    <text x="558" y="572" font-size="15" fill="#5A6672">P16–P19</text>
+    <text x="720" y="516" font-size="15" font-weight="bold" fill="#B23A2E">5</text>
+    <text x="720" y="544" font-size="15" fill="#12263A">验证方法与当前进度</text>
+    <text x="720" y="572" font-size="15" fill="#5A6672">P20–P22</text>
+    <text x="882" y="516" font-size="15" font-weight="bold" fill="#B23A2E">6</text>
+    <text x="882" y="544" font-size="15" fill="#12263A">与相关工作的定位</text>
+    <text x="882" y="572" font-size="15" fill="#5A6672">P23–P24</text>
+    <text x="1044" y="516" font-size="15" font-weight="bold" fill="#B23A2E">7</text>
+    <text x="1044" y="544" font-size="15" fill="#12263A">风险、计划与总结</text>
+    <text x="1044" y="572" font-size="15" fill="#5A6672">P25–P26</text>
+    <line x1="72" y1="596" x2="1208" y2="596" stroke="#D8DEE5" stroke-width="1"/>
+  </g>
+
+  <g id="page-foot" data-pptx-role="footer" data-pptx-bounds="72 636 1136 44">
+    <line x1="72" y1="640" x2="1208" y2="640" stroke="#D8DEE5" stroke-width="1"/>
+    <text x="72" y="666" font-size="15" fill="#5A6672">口径：全部数字来自工作区六份文档，不引入外部数据</text>
+    <text x="1208" y="666" font-size="15" fill="#5A6672" text-anchor="end">02 / 26</text>
+  </g>
+</svg>

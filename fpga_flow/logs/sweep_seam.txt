@@ -1,0 +1,10 @@
+[jobs] 4 job(s) from fpga_flow/jobs_seam_impl.txt
+[run ] surface_d3_2to1_sliced_xcvu9p  top=snowflake_pe_array part=xcvu9p-flga2104-2L-e period=5.0 mode=impl defs=[SNOW_SLICED] graph=[D:\ycz\doc\deepseek_workzone\decoder\fpga_flow\graphs\surface_d3.svh]
+[done] surface_d3_2to1_sliced_xcvu9p  wns=-3.157 lut=4213 ff=1139 fmax=122.6MHz  (14.7 min)
+[run ] surface_d3_2to1_sliced_serial_xcvu9p  top=snowflake_pe_array part=xcvu9p-flga2104-2L-e period=5.0 mode=impl defs=[SNOW_SLICED;SNOW_SERIAL] graph=[D:\ycz\doc\deepseek_workzone\decoder\fpga_flow\graphs\surface_d3.svh]
+[done] surface_d3_2to1_sliced_serial_xcvu9p  wns=-1.809 lut=4535 ff=1382 fmax=146.9MHz  (14.0 min)
+[run ] surface_d5_2to1_sliced_xcvu9p  top=snowflake_pe_array part=xcvu9p-flga2104-2L-e period=5.0 mode=impl defs=[SNOW_SLICED] graph=[D:\ycz\doc\deepseek_workzone\decoder\fpga_flow\graphs\surface_d5.svh]
+[done] surface_d5_2to1_sliced_xcvu9p  wns=-4.636 lut=24559 ff=4879 fmax=103.8MHz  (40.1 min)
+[run ] surface_d5_2to1_sliced_serial_xcvu9p  top=snowflake_pe_array part=xcvu9p-flga2104-2L-e period=5.0 mode=impl defs=[SNOW_SLICED;SNOW_SERIAL] graph=[D:\ycz\doc\deepseek_workzone\decoder\fpga_flow\graphs\surface_d5.svh]
+[done] surface_d5_2to1_sliced_serial_xcvu9p  wns=-4.524 lut=25458 ff=5637 fmax=105.0MHz  (44.3 min)
+sweep finished -> D:\ycz\doc\deepseek_workzone\decoder\fpga_flow\summary_impl.csv

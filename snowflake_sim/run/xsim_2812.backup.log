@@ -1,0 +1,21 @@
+#-----------------------------------------------------------
+# xsim v2020.2 (64-bit)
+# SW Build 3064766 on Wed Nov 18 09:12:45 MST 2020
+# IP Build 3064653 on Wed Nov 18 14:17:31 MST 2020
+# Start of session at: Fri Sep 18 03:02:29 2026
+# Process ID: 2812
+# Current directory: D:/ycz/doc/deepseek_workzone/decoder/snowflake_sim/run
+# Command line: xsim.exe -mode tcl -source {xsim.dir/tb_pearr/xsim_script.tcl}
+# Log file: D:/ycz/doc/deepseek_workzone/decoder/snowflake_sim/run/xsim.log
+# Journal file: D:/ycz/doc/deepseek_workzone/decoder/snowflake_sim/run\xsim.jou
+#-----------------------------------------------------------
+source xsim.dir/tb_pearr/xsim_script.tcl
+# xsim {tb_pearr} -autoloadwcfg -tclbatch {sim_run.tcl}
+Vivado Simulator 2020.2
+Time resolution is 1 ps
+source sim_run.tcl
+## run all
+RTL trace written to rtl_trace.txt (12 rounds, ONE_ONE=0, NN=36, NE=51, clk_cycles=120)
+$finish called at time : 1195 ns : File "D:/ycz/doc/deepseek_workzone/decoder/Helios_scalable_QEC-main/Helios_scalable_QEC-main/test_benches/snowflake/tb_snowflake_pe_array.sv" Line 136
+## quit
+INFO: [Common 17-206] Exiting xsim at Fri Sep 18 03:02:34 2026...

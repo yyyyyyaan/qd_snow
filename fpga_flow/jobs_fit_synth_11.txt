@@ -1,0 +1,4 @@
+# 1:1 area points (synthesis only) -- extra well-conditioned points for the fit
+rep 3 1:1 xcvu9p-flga2104-2L-e 5.0
+rep 5 1:1 xcvu9p-flga2104-2L-e 5.0
+surface 3 1:1 xcvu9p-flga2104-2L-e 5.0

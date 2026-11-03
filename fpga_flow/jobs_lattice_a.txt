@@ -1,0 +1,19 @@
+# SNOW_LATTICE step (a): PE identity driven as data instead of baked in as a
+# parameter (design doc 9 item 4a, report 6.19).
+#
+# Semantics already verified 7/7 line-exact (rep d3 default + LATTICE, surface
+# d3/d5 LATTICE, and LATTICE+SLICED+SERIAL at rep d3 seam / surface d3 seam /
+# surface d5 std).  This run is a NEGATIVE CONTROL on area, not a search for a
+# win: the array still instantiates NN PEs and still drives p_id/p_is_* from the
+# same elaboration-time constants, so Vivado must constant-fold every port and
+# the result must come out at (or within noise of) the matching non-LATTICE row.
+#
+#   surface d3 baseline          :  4,091 LUT /  797 FF / 7.243 ns / 138.1 MHz
+#   surface d3 SLICED            :  4,213 LUT / 1139 FF / 8.157 ns / 122.6 MHz
+#   surface d3 SLICED+SERIAL     :  4,535 LUT / 1382 FF / 6.809 ns / 146.9 MHz
+#
+# If a row comes out clearly LARGER than its counterpart, the folding did not
+# happen and the port list itself costs something -- which would have to be
+# counted into the step (b) budget.  Either way the number is informative.
+surface 3 2:1 xcvu9p-flga2104-2L-e 5.0 SNOW_LATTICE
+surface 3 2:1 xcvu9p-flga2104-2L-e 5.0 SNOW_LATTICE;SNOW_SLICED;SNOW_SERIAL

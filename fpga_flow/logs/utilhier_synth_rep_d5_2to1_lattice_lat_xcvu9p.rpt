@@ -1,0 +1,99 @@
+Copyright 1986-2020 Xilinx, Inc. All Rights Reserved.
+----------------------------------------------------------------------------------------------------------------------------------------------------------------
+| Tool Version : Vivado v.2020.2 (win64) Build 3064766 Wed Nov 18 09:12:45 MST 2020
+| Date         : Sat Sep 19 23:30:03 2026
+| Host         : DESKTOP-TO7M6OH running 64-bit major release  (build 9200)
+| Command      : report_utilization -hierarchical -file {D:\ycz\doc\deepseek_workzone\decoder\fpga_flow\logs/utilhier_synth_rep_d5_2to1_lattice_lat_xcvu9p.rpt}
+| Design       : snowflake_pe_array_lat
+| Device       : xcvu9pflga2104-2L
+| Design State : Synthesized
+----------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+Utilization Design Information
+
+Table of Contents
+-----------------
+1. Utilization by Hierarchy
+
+1. Utilization by Hierarchy
+---------------------------
+
++-----------------------------+--------------------+------------+------------+---------+------+------+--------+--------+------+------------+
+|           Instance          |       Module       | Total LUTs | Logic LUTs | LUTRAMs | SRLs |  FFs | RAMB36 | RAMB18 | URAM | DSP Blocks |
++-----------------------------+--------------------+------------+------------+---------+------+------+--------+--------+------+------------+
+| snowflake_pe_array_lat      |              (top) |       3603 |       3603 |       0 |    0 | 1570 |      0 |      0 |    0 |          0 |
+|   (snowflake_pe_array_lat)  |              (top) |        652 |        652 |       0 |    0 | 1570 |      0 |      0 |    0 |          0 |
+|   g_eslot[0].g_ectx[0].ed_i |     snowflake_edge |          6 |          6 |       0 |    0 |    0 |      0 |      0 |    0 |          0 |
+|   g_eslot[0].g_ectx[1].ed_i | snowflake_edge__44 |          6 |          6 |       0 |    0 |    0 |      0 |      0 |    0 |          0 |
+|   g_eslot[0].g_ectx[2].ed_i | snowflake_edge__43 |          6 |          6 |       0 |    0 |    0 |      0 |      0 |    0 |          0 |
+|   g_eslot[0].g_ectx[3].ed_i | snowflake_edge__42 |          6 |          6 |       0 |    0 |    0 |      0 |      0 |    0 |          0 |
+|   g_eslot[0].g_ectx[4].ed_i | snowflake_edge__41 |          4 |          4 |       0 |    0 |    0 |      0 |      0 |    0 |          0 |
+|   g_eslot[1].g_ectx[0].ed_i | snowflake_edge__40 |          6 |          6 |       0 |    0 |    0 |      0 |      0 |    0 |          0 |
+|   g_eslot[1].g_ectx[1].ed_i | snowflake_edge__39 |          6 |          6 |       0 |    0 |    0 |      0 |      0 |    0 |          0 |
+|   g_eslot[1].g_ectx[2].ed_i | snowflake_edge__38 |          6 |          6 |       0 |    0 |    0 |      0 |      0 |    0 |          0 |
+|   g_eslot[1].g_ectx[3].ed_i | snowflake_edge__37 |          6 |          6 |       0 |    0 |    0 |      0 |      0 |    0 |          0 |
+|   g_eslot[1].g_ectx[4].ed_i | snowflake_edge__36 |          5 |          5 |       0 |    0 |    0 |      0 |      0 |    0 |          0 |
+|   g_eslot[2].g_ectx[0].ed_i | snowflake_edge__35 |          6 |          6 |       0 |    0 |    0 |      0 |      0 |    0 |          0 |
+|   g_eslot[2].g_ectx[1].ed_i | snowflake_edge__34 |          6 |          6 |       0 |    0 |    0 |      0 |      0 |    0 |          0 |
+|   g_eslot[2].g_ectx[2].ed_i | snowflake_edge__33 |          6 |          6 |       0 |    0 |    0 |      0 |      0 |    0 |          0 |
+|   g_eslot[2].g_ectx[3].ed_i | snowflake_edge__32 |          6 |          6 |       0 |    0 |    0 |      0 |      0 |    0 |          0 |
+|   g_eslot[2].g_ectx[4].ed_i | snowflake_edge__31 |          5 |          5 |       0 |    0 |    0 |      0 |      0 |    0 |          0 |
+|   g_eslot[3].g_ectx[0].ed_i | snowflake_edge__30 |          6 |          6 |       0 |    0 |    0 |      0 |      0 |    0 |          0 |
+|   g_eslot[3].g_ectx[1].ed_i | snowflake_edge__29 |          6 |          6 |       0 |    0 |    0 |      0 |      0 |    0 |          0 |
+|   g_eslot[3].g_ectx[2].ed_i | snowflake_edge__28 |          6 |          6 |       0 |    0 |    0 |      0 |      0 |    0 |          0 |
+|   g_eslot[3].g_ectx[3].ed_i | snowflake_edge__27 |          6 |          6 |       0 |    0 |    0 |      0 |      0 |    0 |          0 |
+|   g_eslot[3].g_ectx[4].ed_i | snowflake_edge__26 |          5 |          5 |       0 |    0 |    0 |      0 |      0 |    0 |          0 |
+|   g_eslot[4].g_ectx[0].ed_i | snowflake_edge__25 |          6 |          6 |       0 |    0 |    0 |      0 |      0 |    0 |          0 |
+|   g_eslot[4].g_ectx[1].ed_i | snowflake_edge__24 |          6 |          6 |       0 |    0 |    0 |      0 |      0 |    0 |          0 |
+|   g_eslot[4].g_ectx[2].ed_i | snowflake_edge__23 |          6 |          6 |       0 |    0 |    0 |      0 |      0 |    0 |          0 |
+|   g_eslot[4].g_ectx[3].ed_i | snowflake_edge__22 |          6 |          6 |       0 |    0 |    0 |      0 |      0 |    0 |          0 |
+|   g_eslot[4].g_ectx[4].ed_i | snowflake_edge__21 |          4 |          4 |       0 |    0 |    0 |      0 |      0 |    0 |          0 |
+|   g_eslot[5].g_ectx[0].ed_i | snowflake_edge__20 |          6 |          6 |       0 |    0 |    0 |      0 |      0 |    0 |          0 |
+|   g_eslot[5].g_ectx[1].ed_i | snowflake_edge__19 |          6 |          6 |       0 |    0 |    0 |      0 |      0 |    0 |          0 |
+|   g_eslot[5].g_ectx[2].ed_i | snowflake_edge__18 |          6 |          6 |       0 |    0 |    0 |      0 |      0 |    0 |          0 |
+|   g_eslot[5].g_ectx[3].ed_i | snowflake_edge__17 |          5 |          5 |       0 |    0 |    0 |      0 |      0 |    0 |          0 |
+|   g_eslot[6].g_ectx[0].ed_i | snowflake_edge__15 |          6 |          6 |       0 |    0 |    0 |      0 |      0 |    0 |          0 |
+|   g_eslot[6].g_ectx[1].ed_i | snowflake_edge__14 |          6 |          6 |       0 |    0 |    0 |      0 |      0 |    0 |          0 |
+|   g_eslot[6].g_ectx[2].ed_i | snowflake_edge__13 |          6 |          6 |       0 |    0 |    0 |      0 |      0 |    0 |          0 |
+|   g_eslot[6].g_ectx[3].ed_i | snowflake_edge__12 |          5 |          5 |       0 |    0 |    0 |      0 |      0 |    0 |          0 |
+|   g_eslot[7].g_ectx[0].ed_i | snowflake_edge__10 |          6 |          6 |       0 |    0 |    0 |      0 |      0 |    0 |          0 |
+|   g_eslot[7].g_ectx[1].ed_i |  snowflake_edge__9 |          6 |          6 |       0 |    0 |    0 |      0 |      0 |    0 |          0 |
+|   g_eslot[7].g_ectx[2].ed_i |  snowflake_edge__8 |          6 |          6 |       0 |    0 |    0 |      0 |      0 |    0 |          0 |
+|   g_eslot[7].g_ectx[3].ed_i |  snowflake_edge__7 |          5 |          5 |       0 |    0 |    0 |      0 |      0 |    0 |          0 |
+|   g_eslot[8].g_ectx[0].ed_i |  snowflake_edge__5 |          6 |          6 |       0 |    0 |    0 |      0 |      0 |    0 |          0 |
+|   g_eslot[8].g_ectx[1].ed_i |  snowflake_edge__4 |          6 |          6 |       0 |    0 |    0 |      0 |      0 |    0 |          0 |
+|   g_eslot[8].g_ectx[2].ed_i |  snowflake_edge__3 |          6 |          6 |       0 |    0 |    0 |      0 |      0 |    0 |          0 |
+|   g_eslot[8].g_ectx[3].ed_i |  snowflake_edge__2 |          5 |          5 |       0 |    0 |    0 |      0 |      0 |    0 |          0 |
+|   g_slot[0].g_ctx[0].pe_i   |       snowflake_pe |         50 |         50 |       0 |    0 |    0 |      0 |      0 |    0 |          0 |
+|   g_slot[0].g_ctx[1].pe_i   |    snowflake_pe__1 |         46 |         46 |       0 |    0 |    0 |      0 |      0 |    0 |          0 |
+|   g_slot[0].g_ctx[2].pe_i   |    snowflake_pe__2 |         44 |         44 |       0 |    0 |    0 |      0 |      0 |    0 |          0 |
+|   g_slot[0].g_ctx[3].pe_i   |    snowflake_pe__3 |         44 |         44 |       0 |    0 |    0 |      0 |      0 |    0 |          0 |
+|   g_slot[0].g_ctx[4].pe_i   |    snowflake_pe__4 |         30 |         30 |       0 |    0 |    0 |      0 |      0 |    0 |          0 |
+|   g_slot[1].g_ctx[0].pe_i   |   snowflake_pe__29 |         97 |         97 |       0 |    0 |    0 |      0 |      0 |    0 |          0 |
+|   g_slot[1].g_ctx[1].pe_i   |   snowflake_pe__28 |        126 |        126 |       0 |    0 |    0 |      0 |      0 |    0 |          0 |
+|   g_slot[1].g_ctx[2].pe_i   |    snowflake_pe__5 |        122 |        122 |       0 |    0 |    0 |      0 |      0 |    0 |          0 |
+|   g_slot[1].g_ctx[3].pe_i   |    snowflake_pe__6 |        125 |        125 |       0 |    0 |    0 |      0 |      0 |    0 |          0 |
+|   g_slot[1].g_ctx[4].pe_i   |    snowflake_pe__7 |         82 |         82 |       0 |    0 |    0 |      0 |      0 |    0 |          0 |
+|   g_slot[2].g_ctx[0].pe_i   |   snowflake_pe__27 |        109 |        109 |       0 |    0 |    0 |      0 |      0 |    0 |          0 |
+|   g_slot[2].g_ctx[1].pe_i   |   snowflake_pe__26 |        134 |        134 |       0 |    0 |    0 |      0 |      0 |    0 |          0 |
+|   g_slot[2].g_ctx[2].pe_i   |   snowflake_pe__24 |        126 |        126 |       0 |    0 |    0 |      0 |      0 |    0 |          0 |
+|   g_slot[2].g_ctx[3].pe_i   |    snowflake_pe__8 |        134 |        134 |       0 |    0 |    0 |      0 |      0 |    0 |          0 |
+|   g_slot[2].g_ctx[4].pe_i   |    snowflake_pe__9 |         91 |         91 |       0 |    0 |    0 |      0 |      0 |    0 |          0 |
+|   g_slot[3].g_ctx[0].pe_i   |   snowflake_pe__25 |        112 |        112 |       0 |    0 |    0 |      0 |      0 |    0 |          0 |
+|   g_slot[3].g_ctx[1].pe_i   |   snowflake_pe__23 |        118 |        118 |       0 |    0 |    0 |      0 |      0 |    0 |          0 |
+|   g_slot[3].g_ctx[2].pe_i   |   snowflake_pe__22 |        117 |        117 |       0 |    0 |    0 |      0 |      0 |    0 |          0 |
+|   g_slot[3].g_ctx[3].pe_i   |   snowflake_pe__21 |        123 |        123 |       0 |    0 |    0 |      0 |      0 |    0 |          0 |
+|   g_slot[3].g_ctx[4].pe_i   |   snowflake_pe__10 |         96 |         96 |       0 |    0 |    0 |      0 |      0 |    0 |          0 |
+|   g_slot[4].g_ctx[0].pe_i   |   snowflake_pe__11 |        112 |        112 |       0 |    0 |    0 |      0 |      0 |    0 |          0 |
+|   g_slot[4].g_ctx[1].pe_i   |   snowflake_pe__12 |        127 |        127 |       0 |    0 |    0 |      0 |      0 |    0 |          0 |
+|   g_slot[4].g_ctx[2].pe_i   |   snowflake_pe__13 |        124 |        124 |       0 |    0 |    0 |      0 |      0 |    0 |          0 |
+|   g_slot[4].g_ctx[3].pe_i   |   snowflake_pe__19 |        122 |        122 |       0 |    0 |    0 |      0 |      0 |    0 |          0 |
+|   g_slot[4].g_ctx[4].pe_i   |   snowflake_pe__18 |         87 |         87 |       0 |    0 |    0 |      0 |      0 |    0 |          0 |
+|   g_slot[5].g_ctx[0].pe_i   |   snowflake_pe__14 |         50 |         50 |       0 |    0 |    0 |      0 |      0 |    0 |          0 |
+|   g_slot[5].g_ctx[1].pe_i   |   snowflake_pe__20 |         46 |         46 |       0 |    0 |    0 |      0 |      0 |    0 |          0 |
+|   g_slot[5].g_ctx[2].pe_i   |   snowflake_pe__15 |         46 |         46 |       0 |    0 |    0 |      0 |      0 |    0 |          0 |
+|   g_slot[5].g_ctx[3].pe_i   |   snowflake_pe__17 |         46 |         46 |       0 |    0 |    0 |      0 |      0 |    0 |          0 |
+|   g_slot[5].g_ctx[4].pe_i   |   snowflake_pe__16 |         30 |         30 |       0 |    0 |    0 |      0 |      0 |    0 |          0 |
++-----------------------------+--------------------+------------+------------+---------+------+------+--------+--------+------+------------+
+
+

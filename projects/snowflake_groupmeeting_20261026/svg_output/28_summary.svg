@@ -1,0 +1,37 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1280 720" font-family="微软雅黑, Arial, PingFang SC, Noto Sans CJK SC, sans-serif" data-pptx-page-role="ending">
+  <rect id="bg" data-pptx-role="background" x="0" y="0" width="1280" height="720" fill="#FFFFFF"/>
+
+  <g id="page-head" data-pptx-bounds="72 36 1136 80">
+    <text x="72" y="52" font-size="15" fill="#5A6672" letter-spacing="1.4">07 / 风险、计划与总结</text>
+    <text x="72" y="100" font-size="38" font-weight="bold" fill="#12263A">三句话总结 + 三件仍待确定的事</text>
+    <rect x="1160" y="40" width="8" height="8" fill="#5A6672"/>
+    <text x="1208" y="49" font-size="15" fill="#5A6672" text-anchor="end">总结</text>
+    <line x1="72" y1="118" x2="1208" y2="118" stroke="#D8DEE5" stroke-width="1"/>
+  </g>
+
+  <g id="summary-three" data-pptx-bounds="72 176 620 340">
+    <text x="72" y="212" font-size="26" font-weight="bold" fill="#12263A">01　归属清楚</text>
+    <text x="72" y="244" font-size="22" fill="#1B2632">算法与阵列组织都不是我提的，我交付实现与验证</text>
+    <text x="72" y="312" font-size="26" font-weight="bold" fill="#12263A">02　证据成立</text>
+    <text x="72" y="344" font-size="22" fill="#1B2632">逐行回归是信任基础，最大一次 105,948 行全等</text>
+    <text x="72" y="412" font-size="26" font-weight="bold" fill="#12263A">03　缺口明确</text>
+    <text x="72" y="444" font-size="22" fill="#1B2632">板级闭环与 d7 的 1.36 ns 是下一步两个硬目标</text>
+  </g>
+
+  <g id="questions" data-pptx-bounds="760 176 448 340">
+    <text x="760" y="212" font-size="15" fill="#B23A2E" letter-spacing="1.2">三件仍待确定的事</text>
+    <text x="760" y="264" font-size="22" fill="#1B2632">一、板级闭环先行，<tspan x="760" dy="30">时序改造随后再定</tspan></text>
+    <text x="760" y="344" font-size="22" fill="#1B2632">二、共享晶格先测 option B，<tspan x="760" dy="30">再决定是否继续投入</tspan></text>
+    <text x="760" y="424" font-size="22" fill="#1B2632">三、这套材料可整理为<tspan x="760" dy="30">开题的技术章节</tspan></text>
+  </g>
+
+  <g id="closing" data-pptx-bounds="72 540 1136 80">
+    <line x1="72" y1="548" x2="1208" y2="548" stroke="#12263A" stroke-width="2"/>
+    <text x="72" y="596" font-size="26" fill="#12263A">实现与验证已成立，定位与时序仍开放。</text>
+  </g>
+
+  <g id="page-foot" data-pptx-role="footer" data-pptx-bounds="72 636 1136 44">
+    <line x1="72" y1="640" x2="1208" y2="640" stroke="#D8DEE5" stroke-width="1"/>
+    <text x="72" y="666" font-size="15" fill="#5A6672">技术细节见 docs/Snowflake解码器技术文档.md</text>
+  </g>
+</svg>

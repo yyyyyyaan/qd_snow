@@ -1,0 +1,9 @@
+# code d schedule part period_ns
+rep 3 2:1 xcvu9p-flga2104-2L-e 5.0
+rep 3 1:1 xcvu9p-flga2104-2L-e 5.0
+surface 3 2:1 xcvu9p-flga2104-2L-e 5.0
+surface 3 1:1 xcvu9p-flga2104-2L-e 5.0
+rep 5 2:1 xcvu9p-flga2104-2L-e 5.0
+rep 5 1:1 xcvu9p-flga2104-2L-e 5.0
+surface 5 2:1 xcvu9p-flga2104-2L-e 5.0
+surface 5 1:1 xcvu9p-flga2104-2L-e 5.0

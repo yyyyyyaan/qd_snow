@@ -1,0 +1,93 @@
+ASCII-projection diff (code only): qwen 614 lines, current 652 lines
+=== replace qwen[0:8] cur[0:5]
+  Q| """Snowflake ######### Helios # build_scripts/generate.py#
+  Q| 
+  Q| ##### localuf ######**#######**### SystemVerilog include ###
+  Q| # design/snowflake/snowflake_core.sv ######/###########
+  Q| 
+  Q| ##:
+  Q|     python generate_snowflake.py --d 3                      # repetition (##)
+  Q|     python generate_snowflake.py --code surface --d 3       # ###(2D, ###)
+  C| """Snowflake #############?Helios #?build_scripts/generate.py#?
+  C| #######?localuf #########**##########?*####?SystemVerilog include ####?#?design/snowflake/snowflake_core.sv #########/############
+  C| ###:
+  C|     python generate_snowflake.py --d 3                      # repetition (###)
+  C|     python generate_snowflake.py --code surface --d 3       # ####?2D, ####?
+=== replace qwen[10:21] cur[7:16]
+  Q| #### <name>_part.json#########################
+  Q| #### FPGA #####
+  Q| 
+  Q| #####Verilog include#:
+  Q|     SNOW_NN / SNOW_NE / SNOW_NCOMMIT / SNOW_NSYN   ##
+  Q|     SNOW_CID_W / SNOW_NW / SNOW_EW / SNOW_PTR_W    ##
+  Q|     SNOW_IS_BND / SNOW_IS_TOP / SNOW_IS_BOT        ####
+  Q|     SNOW_NODE_BELOW / SNOW_CID_DELTA               drop ##
+  Q|     SNOW_NDIR / SNOW_NB / SNOW_EDGE_OF             ###(##########)
+  Q|     SNOW_EDGE_U/V/ABOVE, SNOW_IS_COMMIT/IDX        ######
+  C| ###### <name>_part.json#####################################?###### FPGA #######?
+  C| ########erilog include#?
+  C|     SNOW_NN / SNOW_NE / SNOW_NCOMMIT / SNOW_NSYN   ###
+  C|     SNOW_CID_W / SNOW_NW / SNOW_EW / SNOW_PTR_W    ###
+  C|     SNOW_IS_BND / SNOW_IS_TOP / SNOW_IS_BOT        ######
+  C|     SNOW_NODE_BELOW / SNOW_CID_DELTA               drop ###
+  C|     SNOW_NDIR / SNOW_NB / SNOW_EDGE_OF             ####?###############?
+  C|     SNOW_EDGE_U/V/ABOVE, SNOW_IS_COMMIT/IDX        #########
+  C|     SNOW_SYN_NODE                                  ############
+=== replace qwen[48:50] cur[43:44]
+  Q| # Python #####"###"########### id######## 1#
+  Q| NO_NODE = -1
+  C| # Python #######?####?################?id############ 1#?NO_NODE = -1
+=== insert qwen[51:51] cur[45:58]
+  C| 
+  C| # Header FORMAT version, written into every generated header as
+  C| # `// SNOW_GRAPH_FORMAT <n>` so a CACHED header can be told apart from a stale
+  C| # one.  `fpga_flow/synth_lattice1.ps1` pins `graphs/<code>_d<d>_<noise>.svh` and
+  C| # reuses it, and a stale pin is silent until synthesis fails: after the
+  C| # SNOW_PTR_DOWN_MASK repair (report 6.32) the new `snowflake_pe.sv` met an old
+  C| # pinned header and Vivado said `[Synth 8-1031] SNOW_PTR_DOWN_MASK is not
+  C| # declared`.  Bump this whenever the header's CONTENTS change shape:
+  C| #   1 = original
+  C| #   2 = adds SNOW_PTR_DOWN_MASK ("'D' in pointer", report 6.32)
+=== replace qwen[80:81] cur[87:88]
+  Q|     """localuf # id_below ##: id < limit # delta=small, ## delta=big.
+  C|     """localuf #?id_below ###: id < limit #?delta=small, ### delta=big.
+=== replace qwen[191:192] cur[198:199]
+  Q|     # ####### FPGA ###: ######
+  C|     # ##########?FPGA ####? #########
+=== replace qwen[212:213] cur[219:220]
+  Q|     """#########=## -> # 1######### a0*16+a1#"""
+  C|     """#############?### -> #?1############## a0*16+a1#?""
+=== insert qwen[245:245] cur[252:253]
+  C|           f"// SNOW_GRAPH_FORMAT {GRAPH_FORMAT}",
+=== replace qwen[272:273] cur[280:281]
+  Q|     # ####: 0 = C(root), d+1 = ## d
+  C|     # ######: 0 = C(root), d+1 = ### d
+=== replace qwen[275:276] cur[283:314]
+  Q|     L.append(f"localparam [SNOW_PTR_W-1:0] SNOW_PTR_D = {dir_d};   // 'D' = ##")
+  C|     L.append(f"localparam [SNOW_PTR_W-1:0] SNOW_PTR_D = {dir_d};   // 'D' = ###")
+  C|     # find_broken_pointers(): localuf unroots a bottom-sheet node when its
+  C|     # pointer CONTAINS a 'D' (`if 'D' in self.NODE.pointer`, i.e. the direction's
+  C|     # time step is -1).  The RTL used to compare the pointer against the single
+  C|     # constant SNOW_PTR_D above, which is the same test only when 'D' is the ONLY
+  C|     # direction name containing a 'D':
+  C|     #   unrotated phenomenological  N,S,E,W,U,D          -> equal
+  C|     #   rotated   phenomenological  NW,NE,SW,SE,U,D      -> equal
+  C|     #   ANY circuit-level graph      adds SD/WD/NWD (unrotated) or
+  C|     #                                E2D/SED/SWD (rotated) -> NOT equal
+=== replace qwen[354:355] cur[392:393]
+  Q|     L.append("  // drop # cid #####: # localuf # Snowflake.id_below ####")
+  C|     L.append("  // drop #?cid #######? #?localuf #?Snowflake.id_below ######?)
+=== replace qwen[362:363] cur[400:401]
+  Q|     L.append("  // ### -> ###(3 ##), # testbench ##")
+  C|     L.append("  // ####?-> ####?3 ###), #?testbench ###")
+=== replace qwen[374:377] cur[412:414]
+  Q|     # ###### FPGA / hub-leaf ######## leaf#
+  Q|     L.append(f"localparam integer SNOW_NPART = {g['n_layers']};")
+  Q|     L.append("  // ## -> ## leaf######")
+  C|     # ######### FPGA / hub-leaf ############ leaf#?    L.append(f"localparam integer SNOW_NPART = {g['n_layers']};")
+  C|     L.append("  // ### -> ###?leaf#########")
+=== replace qwen[431:432] cur[468:469]
+  Q|     L.append("  // # leaf ######### hub ####")
+  C|     L.append("  // #?leaf #############?hub ######")
+=== insert qwen[614:614] cur[651:652]
+  C| 

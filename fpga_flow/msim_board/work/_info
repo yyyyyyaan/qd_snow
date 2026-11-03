@@ -1,0 +1,418 @@
+m255
+K4
+z2
+!s11f vlog 2020.1 2020.02, Feb 28 2020
+13
+!s112 1.1
+!i10d 8192
+!i10e 25
+!i10f 100
+cModel Technology
+Z0 dD:/ycz/doc/deepseek_workzone/decoder/fpga_flow/msim_board
+vsnowflake_board_top
+Z1 DXx6 sv_std 3 std 0 22 VYECXdT12H8WgbUP_5Y6:3
+DXx4 work 27 snowflake_board_top_sv_unit 0 22 MaDGcX>d]S2R[=cdg@mP^0
+Z2 !s110 1790209411
+Z3 VDg1SIo80bB@j0V0VzS_@n1
+r1
+!s85 0
+!i10b 1
+!s100 O23_cRZhm=HAU6UOHViXe3
+IlEkmDYW1]aUAPb_CZ]V`[2
+!s105 snowflake_board_top_sv_unit
+S1
+R0
+w1790208525
+Z4 8design\board\snowflake_board_top.sv
+Z5 Fdesign\board\snowflake_board_top.sv
+!i122 10
+L0 40 131
+Z6 OV;L;2020.1;71
+31
+Z7 !s108 1790209411.000000
+!s107 test_benches\snowflake\..\..\design\generated\snowflake_lattice.svh|test_benches\snowflake\..\..\design\generated\snowflake_graph.svh|design\board\..\generated\snowflake_lattice.svh|design\board\..\generated\snowflake_graph.svh|design\snowflake\..\generated\snowflake_lattice.svh|design\snowflake\..\generated\snowflake_graph.svh|test_benches\snowflake\tb_snowflake_board_lat1.sv|design\board\snowflake_board_top.sv|design\board\snowflake_host_regs.sv|design\board\snowflake_trace_capture.sv|design\board\snowflake_reset_sync.sv|design\snowflake\snowflake_pe_array_lat1.sv|design\snowflake\snowflake_pe.sv|design\snowflake\snowflake_edge.sv|
+Z8 !s90 -sv|-quiet|+define+SNOW_LAT|+define+SNOW_LATTICE|design\snowflake\snowflake_edge.sv|design\snowflake\snowflake_pe.sv|design\snowflake\snowflake_pe_array_lat1.sv|design\board\snowflake_reset_sync.sv|design\board\snowflake_trace_capture.sv|design\board\snowflake_host_regs.sv|design\board\snowflake_board_top.sv|test_benches\snowflake\tb_snowflake_board_lat1.sv|
+!i113 1
+Z9 o-quiet -sv
+Z10 !s92 -quiet -sv +define+SNOW_LAT +define+SNOW_LATTICE
+Z11 tCvgOpt 0
+Xsnowflake_board_top_sv_unit
+R1
+R2
+VMaDGcX>d]S2R[=cdg@mP^0
+r1
+!s85 0
+!i10b 1
+!s100 ;nfF2imACWhHF^1FfWT?71
+IMaDGcX>d]S2R[=cdg@mP^0
+!i103 1
+S1
+R0
+Z12 w1790209403
+R4
+R5
+Fdesign\board\..\generated\snowflake_lattice.svh
+Z13 Fdesign\board\..\generated\snowflake_graph.svh
+!i122 10
+Z14 L0 12 0
+R6
+31
+R7
+Z15 !s107 test_benches\snowflake\..\..\design\generated\snowflake_lattice.svh|test_benches\snowflake\..\..\design\generated\snowflake_graph.svh|design\board\..\generated\snowflake_lattice.svh|design\board\..\generated\snowflake_graph.svh|design\snowflake\..\generated\snowflake_lattice.svh|design\snowflake\..\generated\snowflake_graph.svh|test_benches\snowflake\tb_snowflake_board_lat1.sv|design\board\snowflake_board_top.sv|design\board\snowflake_host_regs.sv|design\board\snowflake_trace_capture.sv|design\board\snowflake_reset_sync.sv|design\snowflake\snowflake_pe_array_lat1.sv|design\snowflake\snowflake_pe.sv|design\snowflake\snowflake_edge.sv|
+R8
+!i113 1
+R9
+R10
+R11
+vsnowflake_edge
+R1
+DXx4 work 22 snowflake_edge_sv_unit 0 22 B;ljlz0HgKDcd1G_lMz5=3
+R2
+R3
+r1
+!s85 0
+!i10b 1
+!s100 cT1eTaQ1IXXen<@TmEO7Z2
+Ibn;F>UIi;K:Jm=3V`>DXk0
+!s105 snowflake_edge_sv_unit
+S1
+R0
+w1789786737
+Z16 8design\snowflake\snowflake_edge.sv
+Z17 Fdesign\snowflake\snowflake_edge.sv
+!i122 10
+L0 23 90
+R6
+31
+R7
+R15
+R8
+!i113 1
+R9
+R10
+R11
+Xsnowflake_edge_sv_unit
+R1
+R2
+VB;ljlz0HgKDcd1G_lMz5=3
+r1
+!s85 0
+!i10b 1
+!s100 Ihj;bN:3ZGZZJ2;@zzWN^3
+IB;ljlz0HgKDcd1G_lMz5=3
+!i103 1
+S1
+R0
+Z18 w1790209400
+R16
+R17
+Z19 Fdesign\snowflake\..\generated\snowflake_graph.svh
+!i122 10
+R14
+R6
+31
+R7
+R15
+R8
+!i113 1
+R9
+R10
+R11
+vsnowflake_host_regs
+R1
+DXx4 work 27 snowflake_host_regs_sv_unit 0 22 Dj4eK<[kT4GaJbLiPaHf40
+R2
+R3
+r1
+!s85 0
+!i10b 1
+!s100 mijF:G@Uf0lHFRL811LVS0
+ISO0LW9O:LW;VGU>83;5@B0
+!s105 snowflake_host_regs_sv_unit
+S1
+R0
+w1790209395
+Z20 8design\board\snowflake_host_regs.sv
+Z21 Fdesign\board\snowflake_host_regs.sv
+!i122 10
+L0 76 343
+R6
+31
+R7
+R15
+R8
+!i113 1
+R9
+R10
+R11
+Xsnowflake_host_regs_sv_unit
+R1
+R2
+VDj4eK<[kT4GaJbLiPaHf40
+r1
+!s85 0
+!i10b 1
+!s100 ZcCX;14XBYe^iXF4HJeg13
+IDj4eK<[kT4GaJbLiPaHf40
+!i103 1
+S1
+R0
+R18
+R20
+R21
+R13
+!i122 10
+R14
+R6
+31
+R7
+R15
+R8
+!i113 1
+R9
+R10
+R11
+vsnowflake_pe
+R1
+DXx4 work 20 snowflake_pe_sv_unit 0 22 I`JONZgQ1BUkCT_m^HZ:m1
+R2
+R3
+r1
+!s85 0
+!i10b 1
+!s100 eA9WSK7Gz87_jULATa@l[1
+ID`=3G@X`05A:QK4k=VY;]1
+!s105 snowflake_pe_sv_unit
+S1
+R0
+w1790158933
+Z22 8design\snowflake\snowflake_pe.sv
+Z23 Fdesign\snowflake\snowflake_pe.sv
+!i122 10
+L0 40 691
+R6
+31
+R7
+R15
+R8
+!i113 1
+R9
+R10
+R11
+vsnowflake_pe_array_lat1
+R1
+DXx4 work 31 snowflake_pe_array_lat1_sv_unit 0 22 D2diJNSkJ:Ql@KeC@Olg;1
+R2
+R3
+r1
+!s85 0
+!i10b 1
+!s100 z?T7MU<@<;X_o3_I5<@TQ0
+I]8hR8^e8hfZg0NV1o_USf2
+!s105 snowflake_pe_array_lat1_sv_unit
+S1
+R0
+w1790170713
+Z24 8design\snowflake\snowflake_pe_array_lat1.sv
+Z25 Fdesign\snowflake\snowflake_pe_array_lat1.sv
+!i122 10
+L0 45 779
+R6
+31
+R7
+R15
+R8
+!i113 1
+R9
+R10
+R11
+Xsnowflake_pe_array_lat1_sv_unit
+R1
+R2
+VD2diJNSkJ:Ql@KeC@Olg;1
+r1
+!s85 0
+!i10b 1
+!s100 4fhbgd?[0EZ8?@QOaCN2o3
+ID2diJNSkJ:Ql@KeC@Olg;1
+!i103 1
+S1
+R0
+R12
+R24
+R25
+Fdesign\snowflake\..\generated\snowflake_lattice.svh
+R19
+!i122 10
+R14
+R6
+31
+R7
+R15
+R8
+!i113 1
+R9
+R10
+R11
+Xsnowflake_pe_sv_unit
+R1
+R2
+VI`JONZgQ1BUkCT_m^HZ:m1
+r1
+!s85 0
+!i10b 1
+!s100 3ncoJUobd3K9<K4::46Q:1
+II`JONZgQ1BUkCT_m^HZ:m1
+!i103 1
+S1
+R0
+R18
+R22
+R23
+R19
+!i122 10
+R14
+R6
+31
+R7
+R15
+R8
+!i113 1
+R9
+R10
+R11
+vsnowflake_reset_sync
+R1
+R2
+!i10b 1
+!s100 cBm4i<bi]?BV1VQo23G?T0
+!s11b Dg1SIo80bB@j0V0VzS_@n1
+IgB;NZ6fO?Vh3WMSjNBmB`3
+R3
+S1
+R0
+w1790208837
+8design\board\snowflake_reset_sync.sv
+Fdesign\board\snowflake_reset_sync.sv
+!i122 10
+L0 43 66
+R6
+r1
+!s85 0
+31
+R7
+R15
+R8
+!i113 1
+R9
+R10
+R11
+vsnowflake_trace_capture
+R1
+DXx4 work 31 snowflake_trace_capture_sv_unit 0 22 VMN6=URGLN;9nEa48MQgJ3
+R2
+R3
+r1
+!s85 0
+!i10b 1
+!s100 lK:2n7kf4Ue:Dd@27f[>[1
+IT?nP=2S0me<oJf1SGN8;f1
+!s105 snowflake_trace_capture_sv_unit
+S1
+R0
+w1790208749
+Z26 8design\board\snowflake_trace_capture.sv
+Z27 Fdesign\board\snowflake_trace_capture.sv
+!i122 10
+L0 65 156
+R6
+31
+R7
+R15
+R8
+!i113 1
+R9
+R10
+R11
+Xsnowflake_trace_capture_sv_unit
+R1
+R2
+VVMN6=URGLN;9nEa48MQgJ3
+r1
+!s85 0
+!i10b 1
+!s100 _d2M:=[daX[a4]WXNGNo@1
+IVMN6=URGLN;9nEa48MQgJ3
+!i103 1
+S1
+R0
+R18
+R26
+R27
+R13
+!i122 10
+R14
+R6
+31
+R7
+R15
+R8
+!i113 1
+R9
+R10
+R11
+vtb_snowflake_board_lat1
+R1
+DXx4 work 31 tb_snowflake_board_lat1_sv_unit 0 22 =0hfZ6NAYY_zRlOFI9i8Q1
+R2
+R3
+r1
+!s85 0
+!i10b 1
+!s100 Nc6PA9GFE6Ye74D;C_gX[2
+IRBG_1z_ZR8nS=doHcJcCH1
+!s105 tb_snowflake_board_lat1_sv_unit
+S1
+R0
+w1790208699
+Z28 8test_benches\snowflake\tb_snowflake_board_lat1.sv
+Z29 Ftest_benches\snowflake\tb_snowflake_board_lat1.sv
+!i122 10
+L0 30 232
+R6
+31
+R7
+R15
+R8
+!i113 1
+R9
+R10
+R11
+Xtb_snowflake_board_lat1_sv_unit
+R1
+R2
+V=0hfZ6NAYY_zRlOFI9i8Q1
+r1
+!s85 0
+!i10b 1
+!s100 WTG0Po>_@8ACSh?7Zml363
+I=0hfZ6NAYY_zRlOFI9i8Q1
+!i103 1
+S1
+R0
+R12
+R28
+R29
+Ftest_benches\snowflake\..\..\design\generated\snowflake_graph.svh
+Ftest_benches\snowflake\..\..\design\generated\snowflake_lattice.svh
+!i122 10
+R14
+R6
+31
+R7
+R15
+R8
+!i113 1
+R9
+R10
+R11

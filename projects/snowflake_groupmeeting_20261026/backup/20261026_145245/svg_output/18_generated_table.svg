@@ -1,0 +1,45 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1280 720" font-family="微软雅黑, Arial, PingFang SC, Noto Sans CJK SC, sans-serif" data-pptx-page-role="content">
+  <rect id="bg" data-pptx-role="background" x="0" y="0" width="1280" height="720" fill="#FFFFFF"/>
+
+  <g id="page-head" data-pptx-bounds="72 36 1136 80">
+    <text x="72" y="52" font-size="15" fill="#5A6672" letter-spacing="1.4">04 / RTL 实现与综合结果</text>
+    <text x="72" y="100" font-size="38" font-weight="bold" fill="#12263A">生成表长什么样：36 个节点、51 条边，全是常量</text>
+    <rect x="1160" y="40" width="8" height="8" fill="#2C6E9B"/>
+    <text x="1208" y="49" font-size="15" fill="#2C6E9B" text-anchor="end">已完成</text>
+    <line x1="72" y1="118" x2="1208" y2="118" stroke="#D8DEE5" stroke-width="1"/>
+  </g>
+
+  <g id="table-code" data-pptx-bounds="72 176 688 364">
+    <rect x="72" y="176" width="688" height="364" fill="#F2F4F7"/>
+    <text x="96" y="206" font-size="15" fill="#5A6672">snowflake_graph_surface_d3.svh（生成物，勿手改）</text>
+    <text x="96" y="242" font-size="15" font-family="Consolas, Cascadia Mono, Courier New, monospace" fill="#1B2632">localparam integer SNOW_NN    = 36;   // 节点数<tspan x="96" dy="21">localparam integer SNOW_NE    = 51;   // 边数</tspan><tspan x="96" dy="21">localparam integer SNOW_NSYN  = 6;    // 综合症位数</tspan><tspan x="96" dy="21">localparam integer SNOW_CID_W = 7;    // 簇号位宽</tspan><tspan x="96" dy="21">localparam integer SNOW_NDIR  = 12;   // 方向数</tspan></text>
+    <text x="96" y="357" font-size="15" font-family="Consolas, Cascadia Mono, Courier New, monospace" fill="#12263A">localparam [215:0]  SNOW_ABOVE_VEC = {6'd29, ..., 6'd63};</text>
+    <text x="96" y="378" font-size="15" font-family="Consolas, Cascadia Mono, Courier New, monospace" fill="#12263A">localparam [35:0]   SNOW_BND_VEC   = {1'd0, ..., 1'd1};</text>
+    <text x="96" y="399" font-size="15" font-family="Consolas, Cascadia Mono, Courier New, monospace" fill="#12263A">localparam [2591:0] SNOW_NB_VEC    = {6'd63, ..., 6'd63};</text>
+    <text x="96" y="436" font-size="15" fill="#5A6672">阵列里这样取用（常量位选，不是数组下标）</text>
+    <text x="96" y="470" font-size="15" font-family="Consolas, Cascadia Mono, Courier New, monospace" fill="#1B2632">localparam integer ABOVE = SNOW_ABOVE_VEC[n*NW +: NW];</text>
+    <text x="96" y="491" font-size="15" font-family="Consolas, Cascadia Mono, Courier New, monospace" fill="#1B2632">localparam integer NBR   = SNOW_NB_VEC[(n*NDIR+d)*NW +: NW];</text>
+    <text x="96" y="522" font-size="15" fill="#5A6672">63 = 6'b111111：这个方向没有邻居</text>
+  </g>
+
+  <g id="table-why" data-pptx-bounds="800 176 408 364">
+    <text x="800" y="206" font-size="26" font-weight="bold" fill="#12263A">为什么这样定义</text>
+    <text x="800" y="252" font-size="22" font-weight="bold" fill="#12263A">规模写死</text>
+    <text x="800" y="282" font-size="22" fill="#1B2632">节点数、边数、位宽都是常量</text>
+    <text x="800" y="332" font-size="22" font-weight="bold" fill="#12263A">哨兵统一</text>
+    <text x="800" y="362" font-size="22" fill="#1B2632">全 1 表示"不存在"，比较前先看 valid</text>
+    <text x="800" y="412" font-size="22" font-weight="bold" fill="#12263A">位选是常量</text>
+    <text x="800" y="442" font-size="22" fill="#1B2632">综合后是固定连线，不是查表</text>
+    <text x="800" y="490" font-size="15" fill="#5A6672">换码型 = 重跑生成器 + 重综合，RTL 不改</text>
+    <text x="800" y="518" font-size="15" fill="#B23A2E">canonical 的 snowflake_graph.svh 是过期别名</text>
+  </g>
+
+  <g id="table-takeaway" data-pptx-bounds="72 570 1136 56">
+    <text x="72" y="606" font-size="22" fill="#12263A">图在综合前就是常量：运行时没有 ROM、没有 LUTRAM、没有地址计算。</text>
+  </g>
+
+  <g id="page-foot" data-pptx-role="footer" data-pptx-bounds="72 636 1136 44">
+    <line x1="72" y1="640" x2="1208" y2="640" stroke="#D8DEE5" stroke-width="1"/>
+    <text x="72" y="666" font-size="15" fill="#5A6672">数组省略了中间项；完整表由 generate_snowflake.py 写在同一目录</text>
+  </g>
+</svg>

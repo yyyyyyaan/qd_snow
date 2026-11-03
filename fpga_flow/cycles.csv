@@ -1,0 +1,11 @@
+tag,code,d,schedule,rounds,cycles,drop,grow,grow_half,merge,cycles_per_round,merge_per_round,cycles_with_split_merge,split_factor
+rep_d3_2to1,rep,3,2:1,12,89,12,12,12,53,7.417,4.417,142,1.596
+rep_d3_1to1,rep,3,1:1,12,58,12,12,0,34,4.833,2.833,92,1.586
+surface_d3_2to1,surface,3,2:1,12,89,12,12,12,53,7.417,4.417,142,1.596
+surface_d3_1to1,surface,3,1:1,12,58,12,12,0,34,4.833,2.833,92,1.586
+rep_d5_2to1,rep,5,2:1,12,92,12,12,12,56,7.667,4.667,148,1.609
+rep_d5_1to1,rep,5,1:1,12,64,12,12,0,40,5.333,3.333,104,1.625
+surface_d5_2to1,surface,5,2:1,12,92,12,12,12,56,7.667,4.667,148,1.609
+surface_d5_1to1,surface,5,1:1,12,53,12,12,0,29,4.417,2.417,82,1.547
+surface_d7_2to1,surface,7,2:1,12,93,12,12,12,57,7.750,4.750,150,1.613
+surface_d7_1to1,surface,7,1:1,12,52,12,12,0,28,4.333,2.333,80,1.538

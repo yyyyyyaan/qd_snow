@@ -1,0 +1,85 @@
+==========================================================================================
+PRICING EXPERIMENT v3 -- rotated vs unrotated surface code, circuit-level noise
+  stim 1.15.0 | depolarizing 1e-3 on CNOT/meas/reset/data | rounds = d | memory_z
+==========================================================================================
+layout       d detectors graph_edges edges/round det/rnd max_ports
+unrotated    3        36        138          46      12       10
+unrotated    5       200        934         187      40       12
+unrotated    7       588       2962         423      84       12
+unrotated    9      1296       6798         755     144       12
+unrotated   21     17640     100038        4764     840       12
+rotated      3        24         78          26       8        8
+rotated      5       120        502         100      24       12
+rotated      7       336       1558         223      48       12
+rotated      9       720       3534         393      80       12
+rotated     21      9240      50838        2421     440       12
+
+------------------------------------------------------------------------------------------
+Q3  real ratio (identical experiment, only the code layout differs)
+------------------------------------------------------------------------------------------
+  d   det(unrot)     det(rot)    ratio  edge(unrot)    edge(rot)    ratio
+  3           36           24     1.50          138           78     1.77
+  5          200          120     1.67          934          502     1.86
+  7          588          336     1.75         2962         1558     1.90
+  9         1296          720     1.80         6798         3534     1.92
+ 21        17640         9240     1.91       100038        50838     1.97
+
+------------------------------------------------------------------------------------------
+Q2  distinct edges touching one detector = PE ports needed
+------------------------------------------------------------------------------------------
+rotated    d=3   max_ports=8    hist(ports:nodes)={3: 4, 5: 8, 6: 8, 8: 4}
+unrotated  d=3   max_ports=10   hist(ports:nodes)={4: 4, 5: 4, 6: 10, 7: 8, 8: 6, 10: 4}
+rotated    d=5   max_ports=12   hist(ports:nodes)={3: 6, 4: 2, 5: 8, 6: 26, 7: 16, 8: 20, 9: 18, 11: 12, 12: 12}
+unrotated  d=5   max_ports=12   hist(ports:nodes)={4: 4, 5: 8, 6: 14, 7: 36, 8: 30, 9: 36, 10: 36, 12: 36}
+rotated    d=7   max_ports=12   hist(ports:nodes)={3: 8, 4: 4, 5: 8, 6: 44, 7: 48, 8: 44, 9: 60, 11: 40, 12: 80}
+unrotated  d=7   max_ports=12   hist(ports:nodes)={4: 4, 5: 12, 6: 18, 7: 64, 8: 70, 9: 120, 10: 100, 12: 200}
+rotated    d=9   max_ports=12   hist(ports:nodes)={3: 10, 4: 6, 5: 8, 6: 62, 7: 96, 8: 76, 9: 126, 11: 84, 12: 252}
+unrotated  d=9   max_ports=12   hist(ports:nodes)={4: 4, 5: 16, 6: 22, 7: 92, 8: 126, 9: 252, 10: 196, 12: 588}
+rotated    d=21  max_ports=12   hist(ports:nodes)={3: 22, 4: 18, 5: 8, 6: 170, 7: 720, 8: 436, 9: 1026, 11: 684, 12: 6156}
+unrotated  d=21  max_ports=12   hist(ports:nodes)={4: 4, 5: 40, 6: 46, 7: 260, 8: 798, 9: 2052, 10: 1444, 12: 12996}
+
+------------------------------------------------------------------------------------------
+Q1  per-round footprint in CHECK-LATTICE coords (rank of x / rank of y)
+------------------------------------------------------------------------------------------
+rotated    d=3   n=8    best=xy  fill= 50.0%  (8 occupied of 4x4=16)
+unrotated  d=3   n=12   best=45  fill= 75.0%  (12 occupied of 4x4=16)
+rotated    d=5   n=24   best=xy  fill= 66.7%  (24 occupied of 6x6=36)
+unrotated  d=5   n=40   best=45  fill= 62.5%  (40 occupied of 8x8=64)
+rotated    d=7   n=48   best=xy  fill= 75.0%  (48 occupied of 8x8=64)
+unrotated  d=7   n=84   best=45  fill= 58.3%  (84 occupied of 12x12=144)
+rotated    d=9   n=80   best=xy  fill= 80.0%  (80 occupied of 10x10=100)
+unrotated  d=9   n=144  best=45  fill= 56.2%  (144 occupied of 16x16=256)
+rotated    d=21  n=440  best=xy  fill= 90.9%  (440 occupied of 22x22=484)
+unrotated  d=21  n=840  best=45  fill= 52.5%  (840 occupied of 40x40=1600)
+
+------------------------------------------------------------------------------------------
+Q1  maps, d=9, one round, check-lattice coords ('#'=detector, '.'=empty)
+------------------------------------------------------------------------------------------
+unrotated  (indexing=45, fill=56.2%, 16x16)
+    .......##.......
+    ......####......
+    .....######.....
+    ....########....
+    ...##########...
+    ..############..
+    .##############.
+    ################
+    ################
+    .##############.
+    ..############..
+    ...##########...
+    ....########....
+    .....######.....
+    ......####......
+    .......##.......
+rotated  (indexing=xy, fill=80.0%, 10x10)
+    ..#.#.#.#.
+    #########.
+    .#########
+    #########.
+    .#########
+    #########.
+    .#########
+    #########.
+    .#########
+    .#.#.#.#..

@@ -1,0 +1,28 @@
+# snowflake-n seam cost, implementation level (report 6.16 / 6.18).
+#
+# Both builds are FULL instantiations -- every node still has its own PE and
+# every edge its own snowflake_edge -- so neither saves area.  What they price
+# is the seam itself:
+#   SNOW_SLICED  cut the 15 cross-slice wires and insert the seam registers
+#                (D-shadow for state crossings, negedge for combinational
+#                ones).  Same cycle count as the baseline (120/120/123),
+#                trace line-identical.  => this row is "what do registers on
+#                the boundary cost".
+#   SNOW_SLICED;SNOW_SERIAL  the ping-pong serial protocol: one global step
+#                spans NSLICE phases, each slice commits only in its own
+#                phase, and combinational crossings follow a direction rule
+#                (source phase earlier -> read the latch; later -> read live).
+#                => this row adds "what do the phase muxes cost", which is the
+#                protocol every area-shared snowflake-n will run.
+#
+# Baseline for comparison (same flow, bus on, report 6.4):
+#   surface d3:  4,091 LUT /   797 FF / 7.243 ns / 138.1 MHz / WNS -2.243
+#   surface d5: 23,168 LUT / 3,725 FF / 9.603 ns / 104.1 MHz / WNS -4.603
+#
+# NOTE the sweep now pins design/generated/snowflake_seam.svh per job
+# (FLOW_SEAM -> graphs/seam_<code>_d<d>_s<N>.svh) because make_sliced_sim.py
+# and msim_regress.ps1 both write that file into the repo.
+surface 3 2:1 xcvu9p-flga2104-2L-e 5.0 SNOW_SLICED
+surface 3 2:1 xcvu9p-flga2104-2L-e 5.0 SNOW_SLICED;SNOW_SERIAL
+surface 5 2:1 xcvu9p-flga2104-2L-e 5.0 SNOW_SLICED
+surface 5 2:1 xcvu9p-flga2104-2L-e 5.0 SNOW_SLICED;SNOW_SERIAL

@@ -1,0 +1,1 @@
+"tb_snowflake_pe_array" -s "tb_pearr" -debug "typical" --timescale "1ns/1ps" 

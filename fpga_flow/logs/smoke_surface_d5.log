@@ -1,0 +1,27 @@
+
+****** Vivado v2020.2 (64-bit)
+  **** SW Build 3064766 on Wed Nov 18 09:12:45 MST 2020
+  **** IP Build 3064653 on Wed Nov 18 14:17:31 MST 2020
+    ** Copyright 1986-2020 Xilinx, Inc. All Rights Reserved.
+
+source {D:\ycz\doc\deepseek_workzone\decoder\fpga_flow\smoke_impl.tcl}
+# set repo   $::env(SMOKE_REPO)
+# set part   $::env(SMOKE_PART)
+# set period $::env(SMOKE_PERIOD)
+# set tag    $::env(SMOKE_TAG)
+# set outdir $::env(SMOKE_OUT)
+# file mkdir $outdir
+# set fh [open "$outdir/ooc_$tag.xdc" w]
+# puts $fh "create_clock -name clk -period $period \[get_ports clk\]"
+# puts $fh "set_input_delay  -clock clk 0.0 \[remove_from_collection \[all_inputs\] \[get_ports clk\]\]"
+# puts $fh "set_output_delay -clock clk 0.0 \[all_outputs\]"
+# close $fh
+# read_xdc "$outdir/ooc_$tag.xdc"
+# read_verilog -sv "$repo/design/snowflake/snowflake_core.sv"
+# synth_design -top snowflake_core -part $part -mode out_of_context -flatten_hierarchy none
+Command: synth_design -top snowflake_core -part xcvu29p-fsvh2892-2-e -mode out_of_context -flatten_hierarchy none
+WARNING: [Device 21-436] No parts matched 'xcvu29p-fsvh2892-2-e'
+0 Infos, 1 Warnings, 0 Critical Warnings and 1 Errors encountered.
+synth_design failed
+ERROR: [Common 17-162] Invalid option value specified for '-part'.
+INFO: [Common 17-206] Exiting Vivado at Tue Sep 15 18:38:04 2026...

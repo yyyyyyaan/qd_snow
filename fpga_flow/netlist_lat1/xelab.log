@@ -1,0 +1,70 @@
+Vivado Simulator 2020.2
+Copyright 1986-1999, 2001-2020 Xilinx, Inc. All Rights Reserved.
+Running: D:/ycz/vivado/Vivado/2020.2/bin/unwrapped/win64.o/xelab.exe tb_snowflake_pe_array_lat1 glbl -s tb_net_lat1 -L unisims_ver -L secureip --debug typical --timescale 1ns/1ps 
+Multi-threading is on. Using 10 slave threads.
+Starting static elaboration
+Pass Through NonSizing Optimizer
+Completed static elaboration
+Starting simulation data flow analysis
+Completed simulation data flow analysis
+Time Resolution for simulation is 1ps
+Compiling package work.$unit_netlist_lat1_rotated_d3_s2...
+Compiling module unisims_ver.x_lut3_mux8
+Compiling module unisims_ver.LUT3
+Compiling module unisims_ver.LUT6
+Compiling module unisims_ver.LUT5
+Compiling module unisims_ver.FDRE_default
+Compiling module unisims_ver.LUT4
+Compiling module unisims_ver.x_lut2_mux4
+Compiling module unisims_ver.LUT2
+Compiling module work.snowflake_edge__1
+Compiling module work.snowflake_edge__11
+Compiling module work.snowflake_edge__12
+Compiling module work.snowflake_edge__13
+Compiling module work.snowflake_edge__14
+Compiling module work.snowflake_edge__15
+Compiling module work.snowflake_edge__16
+Compiling module work.snowflake_edge__17
+Compiling module work.snowflake_edge__18
+Compiling module work.snowflake_edge__19
+Compiling module work.snowflake_edge__20
+Compiling module work.snowflake_edge__2
+Compiling module work.snowflake_edge__21
+Compiling module work.snowflake_edge__22
+Compiling module work.snowflake_edge__23
+Compiling module work.snowflake_edge__24
+Compiling module work.snowflake_edge__25
+Compiling module work.snowflake_edge
+Compiling module work.snowflake_edge__3
+Compiling module work.snowflake_edge__4
+Compiling module work.snowflake_edge__5
+Compiling module work.snowflake_edge__6
+Compiling module work.snowflake_edge__7
+Compiling module work.snowflake_edge__8
+Compiling module work.snowflake_edge__9
+Compiling module work.snowflake_edge__10
+Compiling module unisims_ver.FDSE_default
+Compiling module unisims_ver.GND
+Compiling module work.snowflake_pe__1
+Compiling module unisims_ver.x_lut1_mux2
+Compiling module unisims_ver.LUT1
+Compiling module work.snowflake_pe__9
+Compiling module work.snowflake_pe__11
+Compiling module work.snowflake_pe__12
+Compiling module work.snowflake_pe__13
+Compiling module work.snowflake_pe__15
+Compiling module work.snowflake_pe__16
+Compiling module work.snowflake_pe__18
+Compiling module work.snowflake_pe__19
+Compiling module work.snowflake_pe__21
+Compiling module work.snowflake_pe__22
+Compiling module work.snowflake_pe__2
+Compiling module work.snowflake_pe__24
+Compiling module work.snowflake_pe__4
+Compiling module work.snowflake_pe__6
+Compiling module work.snowflake_pe__7
+Compiling module unisims_ver.CARRY8
+Compiling module work.snowflake_pe_array_lat1
+Compiling module work.tb_snowflake_pe_array_lat1
+Compiling module work.glbl
+Built simulation snapshot tb_net_lat1

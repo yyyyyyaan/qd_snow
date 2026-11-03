@@ -1,0 +1,1810 @@
+
+****** Vivado v2020.2 (64-bit)
+  **** SW Build 3064766 on Wed Nov 18 09:12:45 MST 2020
+  **** IP Build 3064653 on Wed Nov 18 14:17:31 MST 2020
+    ** Copyright 1986-2020 Xilinx, Inc. All Rights Reserved.
+
+source {D:\ycz\doc\deepseek_workzone\decoder\fpga_flow\run_ooc.tcl}
+# set repo    $::env(FLOW_REPO)
+# set top     $::env(FLOW_TOP)
+# set part    $::env(FLOW_PART)
+# set period  $::env(FLOW_PERIOD)
+# set tag     $::env(FLOW_TAG)
+# set outdir  $::env(FLOW_OUT)
+# set mode    [expr {[info exists ::env(FLOW_MODE)] ? $::env(FLOW_MODE) : "impl"}]
+# set flatten [expr {[info exists ::env(FLOW_FLATTEN)] ? $::env(FLOW_FLATTEN) : "none"}]
+# set srcs    [expr {[info exists ::env(FLOW_SRCS)] ? [split $::env(FLOW_SRCS) ";"] \
+#                    : [list "$repo/design/snowflake/snowflake_core.sv"]}]
+# set defs    [expr {[info exists ::env(FLOW_DEFS)] ? [split $::env(FLOW_DEFS) ";"] : [list]}]
+# file mkdir $outdir
+# if {[info exists ::env(FLOW_GRAPH)] && $::env(FLOW_GRAPH) ne ""} {
+#   set dst "$repo/design/generated/snowflake_graph.svh"
+#   if {![string equal -nocase [file normalize $::env(FLOW_GRAPH)] [file normalize $dst]]} {
+#     file copy -force $::env(FLOW_GRAPH) $dst
+#   }
+#   puts "FLOW_GRAPH_PINNED [file tail $::env(FLOW_GRAPH)] -> $dst"
+# }
+FLOW_GRAPH_PINNED surface_d3.svh -> D:\ycz\doc\deepseek_workzone\decoder\Helios_scalable_QEC-main\Helios_scalable_QEC-main/design/generated/snowflake_graph.svh
+# set xdc "$outdir/ooc_$tag.xdc"
+# set fh [open $xdc w]
+# puts $fh "create_clock -name clk -period $period \[get_ports clk\]"
+# puts $fh "set_input_delay  -clock clk 0.0 \[remove_from_collection \[all_inputs\] \[get_ports clk\]\]"
+# puts $fh "set_output_delay -clock clk 0.0 \[all_outputs\]"
+# close $fh
+# read_xdc $xdc
+# foreach s $srcs { read_verilog -sv $s }
+# set synth_args [list -top $top -part $part -mode out_of_context -flatten_hierarchy $flatten]
+# if {[llength $defs]} { lappend synth_args -verilog_define [join $defs " "] }
+# if {[info exists ::env(FLOW_GENERICS)] && $::env(FLOW_GENERICS) ne ""} {
+#   set generics [split $::env(FLOW_GENERICS) ";"]
+#   puts "FLOW_GENERICS $generics"
+#   lappend synth_args -generic $generics
+# }
+# puts "FLOW_SYNTH $synth_args"
+FLOW_SYNTH -top snowflake_pe_array -part xcvu9p-flga2104-2L-e -mode out_of_context -flatten_hierarchy none -verilog_define SNOW_MINTS
+# synth_design {*}$synth_args
+Command: synth_design -top snowflake_pe_array -part xcvu9p-flga2104-2L-e -mode out_of_context -flatten_hierarchy none -verilog_define SNOW_MINTS
+Starting synth_design
+Attempting to get a license for feature 'Synthesis' and/or device 'xcvu9p'
+INFO: [Common 17-349] Got license for feature 'Synthesis' and/or device 'xcvu9p'
+INFO: [Device 21-403] Loading part xcvu9p-flga2104-2L-e
+INFO: [Synth 8-7079] Multithreading enabled for synth_design using a maximum of 2 processes.
+INFO: [Synth 8-7078] Launching helper process for spawning children vivado processes
+INFO: [Synth 8-7075] Helper process launched with PID 19648
+---------------------------------------------------------------------------------
+Starting RTL Elaboration : Time (s): cpu = 00:00:06 ; elapsed = 00:00:06 . Memory (MB): peak = 1862.098 ; gain = 250.688
+---------------------------------------------------------------------------------
+INFO: [Synth 8-6157] synthesizing module 'snowflake_pe_array' [D:/ycz/doc/deepseek_workzone/decoder/Helios_scalable_QEC-main/Helios_scalable_QEC-main/design/snowflake/snowflake_pe_array.sv:36]
+	Parameter ONE_ONE bound to: 0 - type: integer 
+	Parameter DEBUG_OBS bound to: 1 - type: integer 
+	Parameter NN bound to: 36 - type: integer 
+	Parameter NE bound to: 51 - type: integer 
+	Parameter CW bound to: 7 - type: integer 
+	Parameter NDIR bound to: 12 - type: integer 
+	Parameter NW bound to: 6 - type: integer 
+	Parameter EW bound to: 6 - type: integer 
+	Parameter RVW bound to: 4 - type: integer 
+	Parameter CBW bound to: 5 - type: integer 
+	Parameter SYN_IDX_W bound to: 3 - type: integer 
+	Parameter SYN_NONE bound to: 3'b111 
+	Parameter ST_IDLE bound to: 3'b000 
+	Parameter ST_DROP bound to: 3'b001 
+	Parameter ST_GW bound to: 3'b010 
+	Parameter ST_MW bound to: 3'b011 
+	Parameter ST_GH bound to: 3'b100 
+	Parameter ST_MH bound to: 3'b101 
+	Parameter MTS_G bound to: 3 - type: integer 
+	Parameter MTS_W bound to: 2 - type: integer 
+INFO: [Synth 8-6157] synthesizing module 'snowflake_pe' [D:/ycz/doc/deepseek_workzone/decoder/Helios_scalable_QEC-main/Helios_scalable_QEC-main/design/snowflake/snowflake_pe.sv:24]
+	Parameter ONE_ONE bound to: 0 - type: integer 
+	Parameter ID bound to: 0 - type: integer 
+	Parameter HAS_ABOVE bound to: 0 - type: integer 
+	Parameter IS_BND bound to: 1 - type: integer 
+	Parameter IS_TOP bound to: 1 - type: integer 
+	Parameter IS_BOT bound to: 0 - type: integer 
+	Parameter SYN_IDX bound to: 0 - type: integer 
+	Parameter ST_IDLE bound to: 3'b000 
+	Parameter ST_DROP bound to: 3'b001 
+	Parameter ST_GW bound to: 3'b010 
+	Parameter ST_MW bound to: 3'b011 
+	Parameter ST_GH bound to: 3'b100 
+	Parameter ST_MH bound to: 3'b101 
+	Parameter MTS_G bound to: 3 - type: integer 
+	Parameter MTS_DP bound to: 4 - type: integer 
+	Parameter MTS_G0 bound to: 8 - type: integer 
+INFO: [Synth 8-6155] done synthesizing module 'snowflake_pe' (1#1) [D:/ycz/doc/deepseek_workzone/decoder/Helios_scalable_QEC-main/Helios_scalable_QEC-main/design/snowflake/snowflake_pe.sv:24]
+INFO: [Synth 8-6157] synthesizing module 'snowflake_pe__parameterized0' [D:/ycz/doc/deepseek_workzone/decoder/Helios_scalable_QEC-main/Helios_scalable_QEC-main/design/snowflake/snowflake_pe.sv:24]
+	Parameter ONE_ONE bound to: 0 - type: integer 
+	Parameter ID bound to: 1 - type: integer 
+	Parameter HAS_ABOVE bound to: 0 - type: integer 
+	Parameter IS_BND bound to: 1 - type: integer 
+	Parameter IS_TOP bound to: 1 - type: integer 
+	Parameter IS_BOT bound to: 0 - type: integer 
+	Parameter SYN_IDX bound to: 0 - type: integer 
+	Parameter ST_IDLE bound to: 3'b000 
+	Parameter ST_DROP bound to: 3'b001 
+	Parameter ST_GW bound to: 3'b010 
+	Parameter ST_MW bound to: 3'b011 
+	Parameter ST_GH bound to: 3'b100 
+	Parameter ST_MH bound to: 3'b101 
+	Parameter MTS_G bound to: 3 - type: integer 
+	Parameter MTS_DP bound to: 4 - type: integer 
+	Parameter MTS_G0 bound to: 8 - type: integer 
+INFO: [Synth 8-6155] done synthesizing module 'snowflake_pe__parameterized0' (1#1) [D:/ycz/doc/deepseek_workzone/decoder/Helios_scalable_QEC-main/Helios_scalable_QEC-main/design/snowflake/snowflake_pe.sv:24]
+INFO: [Synth 8-6157] synthesizing module 'snowflake_pe__parameterized1' [D:/ycz/doc/deepseek_workzone/decoder/Helios_scalable_QEC-main/Helios_scalable_QEC-main/design/snowflake/snowflake_pe.sv:24]
+	Parameter ONE_ONE bound to: 0 - type: integer 
+	Parameter ID bound to: 2 - type: integer 
+	Parameter HAS_ABOVE bound to: 0 - type: integer 
+	Parameter IS_BND bound to: 1 - type: integer 
+	Parameter IS_TOP bound to: 1 - type: integer 
+	Parameter IS_BOT bound to: 0 - type: integer 
+	Parameter SYN_IDX bound to: 0 - type: integer 
+	Parameter ST_IDLE bound to: 3'b000 
+	Parameter ST_DROP bound to: 3'b001 
+	Parameter ST_GW bound to: 3'b010 
+	Parameter ST_MW bound to: 3'b011 
+	Parameter ST_GH bound to: 3'b100 
+	Parameter ST_MH bound to: 3'b101 
+	Parameter MTS_G bound to: 3 - type: integer 
+	Parameter MTS_DP bound to: 4 - type: integer 
+	Parameter MTS_G0 bound to: 8 - type: integer 
+INFO: [Synth 8-6155] done synthesizing module 'snowflake_pe__parameterized1' (1#1) [D:/ycz/doc/deepseek_workzone/decoder/Helios_scalable_QEC-main/Helios_scalable_QEC-main/design/snowflake/snowflake_pe.sv:24]
+INFO: [Synth 8-6157] synthesizing module 'snowflake_pe__parameterized2' [D:/ycz/doc/deepseek_workzone/decoder/Helios_scalable_QEC-main/Helios_scalable_QEC-main/design/snowflake/snowflake_pe.sv:24]
+	Parameter ONE_ONE bound to: 0 - type: integer 
+	Parameter ID bound to: 3 - type: integer 
+	Parameter HAS_ABOVE bound to: 0 - type: integer 
+	Parameter IS_BND bound to: 1 - type: integer 
+	Parameter IS_TOP bound to: 1 - type: integer 
+	Parameter IS_BOT bound to: 0 - type: integer 
+	Parameter SYN_IDX bound to: 0 - type: integer 
+	Parameter ST_IDLE bound to: 3'b000 
+	Parameter ST_DROP bound to: 3'b001 
+	Parameter ST_GW bound to: 3'b010 
+	Parameter ST_MW bound to: 3'b011 
+	Parameter ST_GH bound to: 3'b100 
+	Parameter ST_MH bound to: 3'b101 
+	Parameter MTS_G bound to: 3 - type: integer 
+	Parameter MTS_DP bound to: 4 - type: integer 
+	Parameter MTS_G0 bound to: 8 - type: integer 
+INFO: [Synth 8-6155] done synthesizing module 'snowflake_pe__parameterized2' (1#1) [D:/ycz/doc/deepseek_workzone/decoder/Helios_scalable_QEC-main/Helios_scalable_QEC-main/design/snowflake/snowflake_pe.sv:24]
+INFO: [Synth 8-6157] synthesizing module 'snowflake_pe__parameterized3' [D:/ycz/doc/deepseek_workzone/decoder/Helios_scalable_QEC-main/Helios_scalable_QEC-main/design/snowflake/snowflake_pe.sv:24]
+	Parameter ONE_ONE bound to: 0 - type: integer 
+	Parameter ID bound to: 4 - type: integer 
+	Parameter HAS_ABOVE bound to: 0 - type: integer 
+	Parameter IS_BND bound to: 1 - type: integer 
+	Parameter IS_TOP bound to: 1 - type: integer 
+	Parameter IS_BOT bound to: 0 - type: integer 
+	Parameter SYN_IDX bound to: 0 - type: integer 
+	Parameter ST_IDLE bound to: 3'b000 
+	Parameter ST_DROP bound to: 3'b001 
+	Parameter ST_GW bound to: 3'b010 
+	Parameter ST_MW bound to: 3'b011 
+	Parameter ST_GH bound to: 3'b100 
+	Parameter ST_MH bound to: 3'b101 
+	Parameter MTS_G bound to: 3 - type: integer 
+	Parameter MTS_DP bound to: 4 - type: integer 
+	Parameter MTS_G0 bound to: 8 - type: integer 
+INFO: [Synth 8-6155] done synthesizing module 'snowflake_pe__parameterized3' (1#1) [D:/ycz/doc/deepseek_workzone/decoder/Helios_scalable_QEC-main/Helios_scalable_QEC-main/design/snowflake/snowflake_pe.sv:24]
+INFO: [Synth 8-6157] synthesizing module 'snowflake_pe__parameterized4' [D:/ycz/doc/deepseek_workzone/decoder/Helios_scalable_QEC-main/Helios_scalable_QEC-main/design/snowflake/snowflake_pe.sv:24]
+	Parameter ONE_ONE bound to: 0 - type: integer 
+	Parameter ID bound to: 5 - type: integer 
+	Parameter HAS_ABOVE bound to: 0 - type: integer 
+	Parameter IS_BND bound to: 1 - type: integer 
+	Parameter IS_TOP bound to: 1 - type: integer 
+	Parameter IS_BOT bound to: 0 - type: integer 
+	Parameter SYN_IDX bound to: 0 - type: integer 
+	Parameter ST_IDLE bound to: 3'b000 
+	Parameter ST_DROP bound to: 3'b001 
+	Parameter ST_GW bound to: 3'b010 
+	Parameter ST_MW bound to: 3'b011 
+	Parameter ST_GH bound to: 3'b100 
+	Parameter ST_MH bound to: 3'b101 
+	Parameter MTS_G bound to: 3 - type: integer 
+	Parameter MTS_DP bound to: 4 - type: integer 
+	Parameter MTS_G0 bound to: 8 - type: integer 
+INFO: [Synth 8-6155] done synthesizing module 'snowflake_pe__parameterized4' (1#1) [D:/ycz/doc/deepseek_workzone/decoder/Helios_scalable_QEC-main/Helios_scalable_QEC-main/design/snowflake/snowflake_pe.sv:24]
+INFO: [Synth 8-6157] synthesizing module 'snowflake_pe__parameterized5' [D:/ycz/doc/deepseek_workzone/decoder/Helios_scalable_QEC-main/Helios_scalable_QEC-main/design/snowflake/snowflake_pe.sv:24]
+	Parameter ONE_ONE bound to: 0 - type: integer 
+	Parameter ID bound to: 6 - type: integer 
+	Parameter HAS_ABOVE bound to: 1 - type: integer 
+	Parameter IS_BND bound to: 1 - type: integer 
+	Parameter IS_TOP bound to: 0 - type: integer 
+	Parameter IS_BOT bound to: 0 - type: integer 
+	Parameter SYN_IDX bound to: 0 - type: integer 
+	Parameter ST_IDLE bound to: 3'b000 
+	Parameter ST_DROP bound to: 3'b001 
+	Parameter ST_GW bound to: 3'b010 
+	Parameter ST_MW bound to: 3'b011 
+	Parameter ST_GH bound to: 3'b100 
+	Parameter ST_MH bound to: 3'b101 
+	Parameter MTS_G bound to: 3 - type: integer 
+	Parameter MTS_DP bound to: 4 - type: integer 
+	Parameter MTS_G0 bound to: 8 - type: integer 
+INFO: [Synth 8-6155] done synthesizing module 'snowflake_pe__parameterized5' (1#1) [D:/ycz/doc/deepseek_workzone/decoder/Helios_scalable_QEC-main/Helios_scalable_QEC-main/design/snowflake/snowflake_pe.sv:24]
+INFO: [Synth 8-6157] synthesizing module 'snowflake_pe__parameterized6' [D:/ycz/doc/deepseek_workzone/decoder/Helios_scalable_QEC-main/Helios_scalable_QEC-main/design/snowflake/snowflake_pe.sv:24]
+	Parameter ONE_ONE bound to: 0 - type: integer 
+	Parameter ID bound to: 7 - type: integer 
+	Parameter HAS_ABOVE bound to: 1 - type: integer 
+	Parameter IS_BND bound to: 1 - type: integer 
+	Parameter IS_TOP bound to: 0 - type: integer 
+	Parameter IS_BOT bound to: 0 - type: integer 
+	Parameter SYN_IDX bound to: 0 - type: integer 
+	Parameter ST_IDLE bound to: 3'b000 
+	Parameter ST_DROP bound to: 3'b001 
+	Parameter ST_GW bound to: 3'b010 
+	Parameter ST_MW bound to: 3'b011 
+	Parameter ST_GH bound to: 3'b100 
+	Parameter ST_MH bound to: 3'b101 
+	Parameter MTS_G bound to: 3 - type: integer 
+	Parameter MTS_DP bound to: 4 - type: integer 
+	Parameter MTS_G0 bound to: 8 - type: integer 
+INFO: [Synth 8-6155] done synthesizing module 'snowflake_pe__parameterized6' (1#1) [D:/ycz/doc/deepseek_workzone/decoder/Helios_scalable_QEC-main/Helios_scalable_QEC-main/design/snowflake/snowflake_pe.sv:24]
+INFO: [Synth 8-6157] synthesizing module 'snowflake_pe__parameterized7' [D:/ycz/doc/deepseek_workzone/decoder/Helios_scalable_QEC-main/Helios_scalable_QEC-main/design/snowflake/snowflake_pe.sv:24]
+	Parameter ONE_ONE bound to: 0 - type: integer 
+	Parameter ID bound to: 8 - type: integer 
+	Parameter HAS_ABOVE bound to: 1 - type: integer 
+	Parameter IS_BND bound to: 1 - type: integer 
+	Parameter IS_TOP bound to: 0 - type: integer 
+	Parameter IS_BOT bound to: 0 - type: integer 
+	Parameter SYN_IDX bound to: 0 - type: integer 
+	Parameter ST_IDLE bound to: 3'b000 
+	Parameter ST_DROP bound to: 3'b001 
+	Parameter ST_GW bound to: 3'b010 
+	Parameter ST_MW bound to: 3'b011 
+	Parameter ST_GH bound to: 3'b100 
+	Parameter ST_MH bound to: 3'b101 
+	Parameter MTS_G bound to: 3 - type: integer 
+	Parameter MTS_DP bound to: 4 - type: integer 
+	Parameter MTS_G0 bound to: 8 - type: integer 
+INFO: [Synth 8-6155] done synthesizing module 'snowflake_pe__parameterized7' (1#1) [D:/ycz/doc/deepseek_workzone/decoder/Helios_scalable_QEC-main/Helios_scalable_QEC-main/design/snowflake/snowflake_pe.sv:24]
+INFO: [Synth 8-6157] synthesizing module 'snowflake_pe__parameterized8' [D:/ycz/doc/deepseek_workzone/decoder/Helios_scalable_QEC-main/Helios_scalable_QEC-main/design/snowflake/snowflake_pe.sv:24]
+	Parameter ONE_ONE bound to: 0 - type: integer 
+	Parameter ID bound to: 9 - type: integer 
+	Parameter HAS_ABOVE bound to: 1 - type: integer 
+	Parameter IS_BND bound to: 1 - type: integer 
+	Parameter IS_TOP bound to: 0 - type: integer 
+	Parameter IS_BOT bound to: 0 - type: integer 
+	Parameter SYN_IDX bound to: 0 - type: integer 
+	Parameter ST_IDLE bound to: 3'b000 
+	Parameter ST_DROP bound to: 3'b001 
+	Parameter ST_GW bound to: 3'b010 
+	Parameter ST_MW bound to: 3'b011 
+	Parameter ST_GH bound to: 3'b100 
+	Parameter ST_MH bound to: 3'b101 
+	Parameter MTS_G bound to: 3 - type: integer 
+	Parameter MTS_DP bound to: 4 - type: integer 
+	Parameter MTS_G0 bound to: 8 - type: integer 
+INFO: [Synth 8-6155] done synthesizing module 'snowflake_pe__parameterized8' (1#1) [D:/ycz/doc/deepseek_workzone/decoder/Helios_scalable_QEC-main/Helios_scalable_QEC-main/design/snowflake/snowflake_pe.sv:24]
+INFO: [Synth 8-6157] synthesizing module 'snowflake_pe__parameterized9' [D:/ycz/doc/deepseek_workzone/decoder/Helios_scalable_QEC-main/Helios_scalable_QEC-main/design/snowflake/snowflake_pe.sv:24]
+	Parameter ONE_ONE bound to: 0 - type: integer 
+	Parameter ID bound to: 10 - type: integer 
+	Parameter HAS_ABOVE bound to: 1 - type: integer 
+	Parameter IS_BND bound to: 1 - type: integer 
+	Parameter IS_TOP bound to: 0 - type: integer 
+	Parameter IS_BOT bound to: 0 - type: integer 
+	Parameter SYN_IDX bound to: 0 - type: integer 
+	Parameter ST_IDLE bound to: 3'b000 
+	Parameter ST_DROP bound to: 3'b001 
+	Parameter ST_GW bound to: 3'b010 
+	Parameter ST_MW bound to: 3'b011 
+	Parameter ST_GH bound to: 3'b100 
+	Parameter ST_MH bound to: 3'b101 
+	Parameter MTS_G bound to: 3 - type: integer 
+	Parameter MTS_DP bound to: 4 - type: integer 
+	Parameter MTS_G0 bound to: 8 - type: integer 
+INFO: [Synth 8-6155] done synthesizing module 'snowflake_pe__parameterized9' (1#1) [D:/ycz/doc/deepseek_workzone/decoder/Helios_scalable_QEC-main/Helios_scalable_QEC-main/design/snowflake/snowflake_pe.sv:24]
+INFO: [Synth 8-6157] synthesizing module 'snowflake_pe__parameterized10' [D:/ycz/doc/deepseek_workzone/decoder/Helios_scalable_QEC-main/Helios_scalable_QEC-main/design/snowflake/snowflake_pe.sv:24]
+	Parameter ONE_ONE bound to: 0 - type: integer 
+	Parameter ID bound to: 11 - type: integer 
+	Parameter HAS_ABOVE bound to: 1 - type: integer 
+	Parameter IS_BND bound to: 1 - type: integer 
+	Parameter IS_TOP bound to: 0 - type: integer 
+	Parameter IS_BOT bound to: 0 - type: integer 
+	Parameter SYN_IDX bound to: 0 - type: integer 
+	Parameter ST_IDLE bound to: 3'b000 
+	Parameter ST_DROP bound to: 3'b001 
+	Parameter ST_GW bound to: 3'b010 
+	Parameter ST_MW bound to: 3'b011 
+	Parameter ST_GH bound to: 3'b100 
+	Parameter ST_MH bound to: 3'b101 
+	Parameter MTS_G bound to: 3 - type: integer 
+	Parameter MTS_DP bound to: 4 - type: integer 
+	Parameter MTS_G0 bound to: 8 - type: integer 
+INFO: [Synth 8-6155] done synthesizing module 'snowflake_pe__parameterized10' (1#1) [D:/ycz/doc/deepseek_workzone/decoder/Helios_scalable_QEC-main/Helios_scalable_QEC-main/design/snowflake/snowflake_pe.sv:24]
+INFO: [Synth 8-6157] synthesizing module 'snowflake_pe__parameterized11' [D:/ycz/doc/deepseek_workzone/decoder/Helios_scalable_QEC-main/Helios_scalable_QEC-main/design/snowflake/snowflake_pe.sv:24]
+	Parameter ONE_ONE bound to: 0 - type: integer 
+	Parameter ID bound to: 12 - type: integer 
+	Parameter HAS_ABOVE bound to: 1 - type: integer 
+	Parameter IS_BND bound to: 1 - type: integer 
+	Parameter IS_TOP bound to: 0 - type: integer 
+	Parameter IS_BOT bound to: 1 - type: integer 
+	Parameter SYN_IDX bound to: 0 - type: integer 
+	Parameter ST_IDLE bound to: 3'b000 
+	Parameter ST_DROP bound to: 3'b001 
+	Parameter ST_GW bound to: 3'b010 
+	Parameter ST_MW bound to: 3'b011 
+	Parameter ST_GH bound to: 3'b100 
+	Parameter ST_MH bound to: 3'b101 
+	Parameter MTS_G bound to: 3 - type: integer 
+	Parameter MTS_DP bound to: 4 - type: integer 
+	Parameter MTS_G0 bound to: 8 - type: integer 
+INFO: [Synth 8-6155] done synthesizing module 'snowflake_pe__parameterized11' (1#1) [D:/ycz/doc/deepseek_workzone/decoder/Helios_scalable_QEC-main/Helios_scalable_QEC-main/design/snowflake/snowflake_pe.sv:24]
+INFO: [Synth 8-6157] synthesizing module 'snowflake_pe__parameterized12' [D:/ycz/doc/deepseek_workzone/decoder/Helios_scalable_QEC-main/Helios_scalable_QEC-main/design/snowflake/snowflake_pe.sv:24]
+	Parameter ONE_ONE bound to: 0 - type: integer 
+	Parameter ID bound to: 13 - type: integer 
+	Parameter HAS_ABOVE bound to: 1 - type: integer 
+	Parameter IS_BND bound to: 1 - type: integer 
+	Parameter IS_TOP bound to: 0 - type: integer 
+	Parameter IS_BOT bound to: 1 - type: integer 
+	Parameter SYN_IDX bound to: 0 - type: integer 
+	Parameter ST_IDLE bound to: 3'b000 
+	Parameter ST_DROP bound to: 3'b001 
+	Parameter ST_GW bound to: 3'b010 
+	Parameter ST_MW bound to: 3'b011 
+	Parameter ST_GH bound to: 3'b100 
+	Parameter ST_MH bound to: 3'b101 
+	Parameter MTS_G bound to: 3 - type: integer 
+	Parameter MTS_DP bound to: 4 - type: integer 
+	Parameter MTS_G0 bound to: 8 - type: integer 
+INFO: [Synth 8-6155] done synthesizing module 'snowflake_pe__parameterized12' (1#1) [D:/ycz/doc/deepseek_workzone/decoder/Helios_scalable_QEC-main/Helios_scalable_QEC-main/design/snowflake/snowflake_pe.sv:24]
+INFO: [Synth 8-6157] synthesizing module 'snowflake_pe__parameterized13' [D:/ycz/doc/deepseek_workzone/decoder/Helios_scalable_QEC-main/Helios_scalable_QEC-main/design/snowflake/snowflake_pe.sv:24]
+	Parameter ONE_ONE bound to: 0 - type: integer 
+	Parameter ID bound to: 14 - type: integer 
+	Parameter HAS_ABOVE bound to: 1 - type: integer 
+	Parameter IS_BND bound to: 1 - type: integer 
+	Parameter IS_TOP bound to: 0 - type: integer 
+	Parameter IS_BOT bound to: 1 - type: integer 
+	Parameter SYN_IDX bound to: 0 - type: integer 
+	Parameter ST_IDLE bound to: 3'b000 
+	Parameter ST_DROP bound to: 3'b001 
+	Parameter ST_GW bound to: 3'b010 
+	Parameter ST_MW bound to: 3'b011 
+	Parameter ST_GH bound to: 3'b100 
+	Parameter ST_MH bound to: 3'b101 
+	Parameter MTS_G bound to: 3 - type: integer 
+	Parameter MTS_DP bound to: 4 - type: integer 
+	Parameter MTS_G0 bound to: 8 - type: integer 
+INFO: [Synth 8-6155] done synthesizing module 'snowflake_pe__parameterized13' (1#1) [D:/ycz/doc/deepseek_workzone/decoder/Helios_scalable_QEC-main/Helios_scalable_QEC-main/design/snowflake/snowflake_pe.sv:24]
+INFO: [Synth 8-6157] synthesizing module 'snowflake_pe__parameterized14' [D:/ycz/doc/deepseek_workzone/decoder/Helios_scalable_QEC-main/Helios_scalable_QEC-main/design/snowflake/snowflake_pe.sv:24]
+	Parameter ONE_ONE bound to: 0 - type: integer 
+	Parameter ID bound to: 15 - type: integer 
+	Parameter HAS_ABOVE bound to: 1 - type: integer 
+	Parameter IS_BND bound to: 1 - type: integer 
+	Parameter IS_TOP bound to: 0 - type: integer 
+	Parameter IS_BOT bound to: 1 - type: integer 
+	Parameter SYN_IDX bound to: 0 - type: integer 
+	Parameter ST_IDLE bound to: 3'b000 
+	Parameter ST_DROP bound to: 3'b001 
+	Parameter ST_GW bound to: 3'b010 
+	Parameter ST_MW bound to: 3'b011 
+	Parameter ST_GH bound to: 3'b100 
+	Parameter ST_MH bound to: 3'b101 
+	Parameter MTS_G bound to: 3 - type: integer 
+	Parameter MTS_DP bound to: 4 - type: integer 
+	Parameter MTS_G0 bound to: 8 - type: integer 
+INFO: [Synth 8-6155] done synthesizing module 'snowflake_pe__parameterized14' (1#1) [D:/ycz/doc/deepseek_workzone/decoder/Helios_scalable_QEC-main/Helios_scalable_QEC-main/design/snowflake/snowflake_pe.sv:24]
+INFO: [Synth 8-6157] synthesizing module 'snowflake_pe__parameterized15' [D:/ycz/doc/deepseek_workzone/decoder/Helios_scalable_QEC-main/Helios_scalable_QEC-main/design/snowflake/snowflake_pe.sv:24]
+	Parameter ONE_ONE bound to: 0 - type: integer 
+	Parameter ID bound to: 16 - type: integer 
+	Parameter HAS_ABOVE bound to: 1 - type: integer 
+	Parameter IS_BND bound to: 1 - type: integer 
+	Parameter IS_TOP bound to: 0 - type: integer 
+	Parameter IS_BOT bound to: 1 - type: integer 
+	Parameter SYN_IDX bound to: 0 - type: integer 
+	Parameter ST_IDLE bound to: 3'b000 
+	Parameter ST_DROP bound to: 3'b001 
+	Parameter ST_GW bound to: 3'b010 
+	Parameter ST_MW bound to: 3'b011 
+	Parameter ST_GH bound to: 3'b100 
+	Parameter ST_MH bound to: 3'b101 
+	Parameter MTS_G bound to: 3 - type: integer 
+	Parameter MTS_DP bound to: 4 - type: integer 
+	Parameter MTS_G0 bound to: 8 - type: integer 
+INFO: [Synth 8-6155] done synthesizing module 'snowflake_pe__parameterized15' (1#1) [D:/ycz/doc/deepseek_workzone/decoder/Helios_scalable_QEC-main/Helios_scalable_QEC-main/design/snowflake/snowflake_pe.sv:24]
+INFO: [Synth 8-6157] synthesizing module 'snowflake_pe__parameterized16' [D:/ycz/doc/deepseek_workzone/decoder/Helios_scalable_QEC-main/Helios_scalable_QEC-main/design/snowflake/snowflake_pe.sv:24]
+	Parameter ONE_ONE bound to: 0 - type: integer 
+	Parameter ID bound to: 17 - type: integer 
+	Parameter HAS_ABOVE bound to: 1 - type: integer 
+	Parameter IS_BND bound to: 1 - type: integer 
+	Parameter IS_TOP bound to: 0 - type: integer 
+	Parameter IS_BOT bound to: 1 - type: integer 
+	Parameter SYN_IDX bound to: 0 - type: integer 
+	Parameter ST_IDLE bound to: 3'b000 
+	Parameter ST_DROP bound to: 3'b001 
+	Parameter ST_GW bound to: 3'b010 
+	Parameter ST_MW bound to: 3'b011 
+	Parameter ST_GH bound to: 3'b100 
+	Parameter ST_MH bound to: 3'b101 
+	Parameter MTS_G bound to: 3 - type: integer 
+	Parameter MTS_DP bound to: 4 - type: integer 
+	Parameter MTS_G0 bound to: 8 - type: integer 
+INFO: [Synth 8-6155] done synthesizing module 'snowflake_pe__parameterized16' (1#1) [D:/ycz/doc/deepseek_workzone/decoder/Helios_scalable_QEC-main/Helios_scalable_QEC-main/design/snowflake/snowflake_pe.sv:24]
+INFO: [Synth 8-6157] synthesizing module 'snowflake_pe__parameterized17' [D:/ycz/doc/deepseek_workzone/decoder/Helios_scalable_QEC-main/Helios_scalable_QEC-main/design/snowflake/snowflake_pe.sv:24]
+	Parameter ONE_ONE bound to: 0 - type: integer 
+	Parameter ID bound to: 18 - type: integer 
+	Parameter HAS_ABOVE bound to: 0 - type: integer 
+	Parameter IS_BND bound to: 0 - type: integer 
+	Parameter IS_TOP bound to: 1 - type: integer 
+	Parameter IS_BOT bound to: 0 - type: integer 
+	Parameter SYN_IDX bound to: 0 - type: integer 
+	Parameter ST_IDLE bound to: 3'b000 
+	Parameter ST_DROP bound to: 3'b001 
+	Parameter ST_GW bound to: 3'b010 
+	Parameter ST_MW bound to: 3'b011 
+	Parameter ST_GH bound to: 3'b100 
+	Parameter ST_MH bound to: 3'b101 
+	Parameter MTS_G bound to: 3 - type: integer 
+	Parameter MTS_DP bound to: 4 - type: integer 
+	Parameter MTS_G0 bound to: 8 - type: integer 
+INFO: [Synth 8-6155] done synthesizing module 'snowflake_pe__parameterized17' (1#1) [D:/ycz/doc/deepseek_workzone/decoder/Helios_scalable_QEC-main/Helios_scalable_QEC-main/design/snowflake/snowflake_pe.sv:24]
+INFO: [Synth 8-6157] synthesizing module 'snowflake_pe__parameterized18' [D:/ycz/doc/deepseek_workzone/decoder/Helios_scalable_QEC-main/Helios_scalable_QEC-main/design/snowflake/snowflake_pe.sv:24]
+	Parameter ONE_ONE bound to: 0 - type: integer 
+	Parameter ID bound to: 19 - type: integer 
+	Parameter HAS_ABOVE bound to: 0 - type: integer 
+	Parameter IS_BND bound to: 0 - type: integer 
+	Parameter IS_TOP bound to: 1 - type: integer 
+	Parameter IS_BOT bound to: 0 - type: integer 
+	Parameter SYN_IDX bound to: 1 - type: integer 
+	Parameter ST_IDLE bound to: 3'b000 
+	Parameter ST_DROP bound to: 3'b001 
+	Parameter ST_GW bound to: 3'b010 
+	Parameter ST_MW bound to: 3'b011 
+	Parameter ST_GH bound to: 3'b100 
+	Parameter ST_MH bound to: 3'b101 
+	Parameter MTS_G bound to: 3 - type: integer 
+	Parameter MTS_DP bound to: 4 - type: integer 
+	Parameter MTS_G0 bound to: 8 - type: integer 
+INFO: [Synth 8-6155] done synthesizing module 'snowflake_pe__parameterized18' (1#1) [D:/ycz/doc/deepseek_workzone/decoder/Helios_scalable_QEC-main/Helios_scalable_QEC-main/design/snowflake/snowflake_pe.sv:24]
+INFO: [Synth 8-6157] synthesizing module 'snowflake_pe__parameterized19' [D:/ycz/doc/deepseek_workzone/decoder/Helios_scalable_QEC-main/Helios_scalable_QEC-main/design/snowflake/snowflake_pe.sv:24]
+	Parameter ONE_ONE bound to: 0 - type: integer 
+	Parameter ID bound to: 20 - type: integer 
+	Parameter HAS_ABOVE bound to: 0 - type: integer 
+	Parameter IS_BND bound to: 0 - type: integer 
+	Parameter IS_TOP bound to: 1 - type: integer 
+	Parameter IS_BOT bound to: 0 - type: integer 
+	Parameter SYN_IDX bound to: 2 - type: integer 
+	Parameter ST_IDLE bound to: 3'b000 
+	Parameter ST_DROP bound to: 3'b001 
+	Parameter ST_GW bound to: 3'b010 
+	Parameter ST_MW bound to: 3'b011 
+	Parameter ST_GH bound to: 3'b100 
+	Parameter ST_MH bound to: 3'b101 
+	Parameter MTS_G bound to: 3 - type: integer 
+	Parameter MTS_DP bound to: 4 - type: integer 
+	Parameter MTS_G0 bound to: 8 - type: integer 
+INFO: [Synth 8-6155] done synthesizing module 'snowflake_pe__parameterized19' (1#1) [D:/ycz/doc/deepseek_workzone/decoder/Helios_scalable_QEC-main/Helios_scalable_QEC-main/design/snowflake/snowflake_pe.sv:24]
+INFO: [Synth 8-6157] synthesizing module 'snowflake_pe__parameterized20' [D:/ycz/doc/deepseek_workzone/decoder/Helios_scalable_QEC-main/Helios_scalable_QEC-main/design/snowflake/snowflake_pe.sv:24]
+	Parameter ONE_ONE bound to: 0 - type: integer 
+	Parameter ID bound to: 21 - type: integer 
+	Parameter HAS_ABOVE bound to: 0 - type: integer 
+	Parameter IS_BND bound to: 0 - type: integer 
+	Parameter IS_TOP bound to: 1 - type: integer 
+	Parameter IS_BOT bound to: 0 - type: integer 
+	Parameter SYN_IDX bound to: 3 - type: integer 
+	Parameter ST_IDLE bound to: 3'b000 
+	Parameter ST_DROP bound to: 3'b001 
+	Parameter ST_GW bound to: 3'b010 
+	Parameter ST_MW bound to: 3'b011 
+	Parameter ST_GH bound to: 3'b100 
+	Parameter ST_MH bound to: 3'b101 
+	Parameter MTS_G bound to: 3 - type: integer 
+	Parameter MTS_DP bound to: 4 - type: integer 
+	Parameter MTS_G0 bound to: 8 - type: integer 
+INFO: [Synth 8-6155] done synthesizing module 'snowflake_pe__parameterized20' (1#1) [D:/ycz/doc/deepseek_workzone/decoder/Helios_scalable_QEC-main/Helios_scalable_QEC-main/design/snowflake/snowflake_pe.sv:24]
+INFO: [Synth 8-6157] synthesizing module 'snowflake_pe__parameterized21' [D:/ycz/doc/deepseek_workzone/decoder/Helios_scalable_QEC-main/Helios_scalable_QEC-main/design/snowflake/snowflake_pe.sv:24]
+	Parameter ONE_ONE bound to: 0 - type: integer 
+	Parameter ID bound to: 22 - type: integer 
+	Parameter HAS_ABOVE bound to: 0 - type: integer 
+	Parameter IS_BND bound to: 0 - type: integer 
+	Parameter IS_TOP bound to: 1 - type: integer 
+	Parameter IS_BOT bound to: 0 - type: integer 
+	Parameter SYN_IDX bound to: 4 - type: integer 
+	Parameter ST_IDLE bound to: 3'b000 
+	Parameter ST_DROP bound to: 3'b001 
+	Parameter ST_GW bound to: 3'b010 
+	Parameter ST_MW bound to: 3'b011 
+	Parameter ST_GH bound to: 3'b100 
+	Parameter ST_MH bound to: 3'b101 
+	Parameter MTS_G bound to: 3 - type: integer 
+	Parameter MTS_DP bound to: 4 - type: integer 
+	Parameter MTS_G0 bound to: 8 - type: integer 
+INFO: [Synth 8-6155] done synthesizing module 'snowflake_pe__parameterized21' (1#1) [D:/ycz/doc/deepseek_workzone/decoder/Helios_scalable_QEC-main/Helios_scalable_QEC-main/design/snowflake/snowflake_pe.sv:24]
+INFO: [Synth 8-6157] synthesizing module 'snowflake_pe__parameterized22' [D:/ycz/doc/deepseek_workzone/decoder/Helios_scalable_QEC-main/Helios_scalable_QEC-main/design/snowflake/snowflake_pe.sv:24]
+	Parameter ONE_ONE bound to: 0 - type: integer 
+	Parameter ID bound to: 23 - type: integer 
+	Parameter HAS_ABOVE bound to: 0 - type: integer 
+	Parameter IS_BND bound to: 0 - type: integer 
+	Parameter IS_TOP bound to: 1 - type: integer 
+	Parameter IS_BOT bound to: 0 - type: integer 
+	Parameter SYN_IDX bound to: 5 - type: integer 
+	Parameter ST_IDLE bound to: 3'b000 
+	Parameter ST_DROP bound to: 3'b001 
+	Parameter ST_GW bound to: 3'b010 
+	Parameter ST_MW bound to: 3'b011 
+	Parameter ST_GH bound to: 3'b100 
+	Parameter ST_MH bound to: 3'b101 
+	Parameter MTS_G bound to: 3 - type: integer 
+	Parameter MTS_DP bound to: 4 - type: integer 
+	Parameter MTS_G0 bound to: 8 - type: integer 
+INFO: [Synth 8-6155] done synthesizing module 'snowflake_pe__parameterized22' (1#1) [D:/ycz/doc/deepseek_workzone/decoder/Helios_scalable_QEC-main/Helios_scalable_QEC-main/design/snowflake/snowflake_pe.sv:24]
+INFO: [Synth 8-6157] synthesizing module 'snowflake_pe__parameterized23' [D:/ycz/doc/deepseek_workzone/decoder/Helios_scalable_QEC-main/Helios_scalable_QEC-main/design/snowflake/snowflake_pe.sv:24]
+	Parameter ONE_ONE bound to: 0 - type: integer 
+	Parameter ID bound to: 24 - type: integer 
+	Parameter HAS_ABOVE bound to: 1 - type: integer 
+	Parameter IS_BND bound to: 0 - type: integer 
+	Parameter IS_TOP bound to: 0 - type: integer 
+	Parameter IS_BOT bound to: 0 - type: integer 
+	Parameter SYN_IDX bound to: 0 - type: integer 
+	Parameter ST_IDLE bound to: 3'b000 
+	Parameter ST_DROP bound to: 3'b001 
+	Parameter ST_GW bound to: 3'b010 
+	Parameter ST_MW bound to: 3'b011 
+	Parameter ST_GH bound to: 3'b100 
+	Parameter ST_MH bound to: 3'b101 
+	Parameter MTS_G bound to: 3 - type: integer 
+	Parameter MTS_DP bound to: 4 - type: integer 
+	Parameter MTS_G0 bound to: 8 - type: integer 
+INFO: [Synth 8-6155] done synthesizing module 'snowflake_pe__parameterized23' (1#1) [D:/ycz/doc/deepseek_workzone/decoder/Helios_scalable_QEC-main/Helios_scalable_QEC-main/design/snowflake/snowflake_pe.sv:24]
+INFO: [Synth 8-6157] synthesizing module 'snowflake_pe__parameterized24' [D:/ycz/doc/deepseek_workzone/decoder/Helios_scalable_QEC-main/Helios_scalable_QEC-main/design/snowflake/snowflake_pe.sv:24]
+	Parameter ONE_ONE bound to: 0 - type: integer 
+	Parameter ID bound to: 25 - type: integer 
+	Parameter HAS_ABOVE bound to: 1 - type: integer 
+	Parameter IS_BND bound to: 0 - type: integer 
+	Parameter IS_TOP bound to: 0 - type: integer 
+	Parameter IS_BOT bound to: 0 - type: integer 
+	Parameter SYN_IDX bound to: 0 - type: integer 
+	Parameter ST_IDLE bound to: 3'b000 
+	Parameter ST_DROP bound to: 3'b001 
+	Parameter ST_GW bound to: 3'b010 
+	Parameter ST_MW bound to: 3'b011 
+	Parameter ST_GH bound to: 3'b100 
+	Parameter ST_MH bound to: 3'b101 
+	Parameter MTS_G bound to: 3 - type: integer 
+	Parameter MTS_DP bound to: 4 - type: integer 
+	Parameter MTS_G0 bound to: 8 - type: integer 
+INFO: [Synth 8-6155] done synthesizing module 'snowflake_pe__parameterized24' (1#1) [D:/ycz/doc/deepseek_workzone/decoder/Helios_scalable_QEC-main/Helios_scalable_QEC-main/design/snowflake/snowflake_pe.sv:24]
+INFO: [Synth 8-6157] synthesizing module 'snowflake_pe__parameterized25' [D:/ycz/doc/deepseek_workzone/decoder/Helios_scalable_QEC-main/Helios_scalable_QEC-main/design/snowflake/snowflake_pe.sv:24]
+	Parameter ONE_ONE bound to: 0 - type: integer 
+	Parameter ID bound to: 26 - type: integer 
+	Parameter HAS_ABOVE bound to: 1 - type: integer 
+	Parameter IS_BND bound to: 0 - type: integer 
+	Parameter IS_TOP bound to: 0 - type: integer 
+	Parameter IS_BOT bound to: 0 - type: integer 
+	Parameter SYN_IDX bound to: 0 - type: integer 
+	Parameter ST_IDLE bound to: 3'b000 
+	Parameter ST_DROP bound to: 3'b001 
+	Parameter ST_GW bound to: 3'b010 
+	Parameter ST_MW bound to: 3'b011 
+	Parameter ST_GH bound to: 3'b100 
+	Parameter ST_MH bound to: 3'b101 
+	Parameter MTS_G bound to: 3 - type: integer 
+	Parameter MTS_DP bound to: 4 - type: integer 
+	Parameter MTS_G0 bound to: 8 - type: integer 
+INFO: [Synth 8-6155] done synthesizing module 'snowflake_pe__parameterized25' (1#1) [D:/ycz/doc/deepseek_workzone/decoder/Helios_scalable_QEC-main/Helios_scalable_QEC-main/design/snowflake/snowflake_pe.sv:24]
+INFO: [Synth 8-6157] synthesizing module 'snowflake_pe__parameterized26' [D:/ycz/doc/deepseek_workzone/decoder/Helios_scalable_QEC-main/Helios_scalable_QEC-main/design/snowflake/snowflake_pe.sv:24]
+	Parameter ONE_ONE bound to: 0 - type: integer 
+	Parameter ID bound to: 27 - type: integer 
+	Parameter HAS_ABOVE bound to: 1 - type: integer 
+	Parameter IS_BND bound to: 0 - type: integer 
+	Parameter IS_TOP bound to: 0 - type: integer 
+	Parameter IS_BOT bound to: 0 - type: integer 
+	Parameter SYN_IDX bound to: 0 - type: integer 
+	Parameter ST_IDLE bound to: 3'b000 
+	Parameter ST_DROP bound to: 3'b001 
+	Parameter ST_GW bound to: 3'b010 
+	Parameter ST_MW bound to: 3'b011 
+	Parameter ST_GH bound to: 3'b100 
+	Parameter ST_MH bound to: 3'b101 
+	Parameter MTS_G bound to: 3 - type: integer 
+	Parameter MTS_DP bound to: 4 - type: integer 
+	Parameter MTS_G0 bound to: 8 - type: integer 
+INFO: [Synth 8-6155] done synthesizing module 'snowflake_pe__parameterized26' (1#1) [D:/ycz/doc/deepseek_workzone/decoder/Helios_scalable_QEC-main/Helios_scalable_QEC-main/design/snowflake/snowflake_pe.sv:24]
+INFO: [Synth 8-6157] synthesizing module 'snowflake_pe__parameterized27' [D:/ycz/doc/deepseek_workzone/decoder/Helios_scalable_QEC-main/Helios_scalable_QEC-main/design/snowflake/snowflake_pe.sv:24]
+	Parameter ONE_ONE bound to: 0 - type: integer 
+	Parameter ID bound to: 28 - type: integer 
+	Parameter HAS_ABOVE bound to: 1 - type: integer 
+	Parameter IS_BND bound to: 0 - type: integer 
+	Parameter IS_TOP bound to: 0 - type: integer 
+	Parameter IS_BOT bound to: 0 - type: integer 
+	Parameter SYN_IDX bound to: 0 - type: integer 
+	Parameter ST_IDLE bound to: 3'b000 
+	Parameter ST_DROP bound to: 3'b001 
+	Parameter ST_GW bound to: 3'b010 
+	Parameter ST_MW bound to: 3'b011 
+	Parameter ST_GH bound to: 3'b100 
+	Parameter ST_MH bound to: 3'b101 
+	Parameter MTS_G bound to: 3 - type: integer 
+	Parameter MTS_DP bound to: 4 - type: integer 
+	Parameter MTS_G0 bound to: 8 - type: integer 
+INFO: [Synth 8-6155] done synthesizing module 'snowflake_pe__parameterized27' (1#1) [D:/ycz/doc/deepseek_workzone/decoder/Helios_scalable_QEC-main/Helios_scalable_QEC-main/design/snowflake/snowflake_pe.sv:24]
+INFO: [Synth 8-6157] synthesizing module 'snowflake_pe__parameterized28' [D:/ycz/doc/deepseek_workzone/decoder/Helios_scalable_QEC-main/Helios_scalable_QEC-main/design/snowflake/snowflake_pe.sv:24]
+	Parameter ONE_ONE bound to: 0 - type: integer 
+	Parameter ID bound to: 29 - type: integer 
+	Parameter HAS_ABOVE bound to: 1 - type: integer 
+	Parameter IS_BND bound to: 0 - type: integer 
+	Parameter IS_TOP bound to: 0 - type: integer 
+	Parameter IS_BOT bound to: 0 - type: integer 
+	Parameter SYN_IDX bound to: 0 - type: integer 
+	Parameter ST_IDLE bound to: 3'b000 
+	Parameter ST_DROP bound to: 3'b001 
+	Parameter ST_GW bound to: 3'b010 
+	Parameter ST_MW bound to: 3'b011 
+	Parameter ST_GH bound to: 3'b100 
+	Parameter ST_MH bound to: 3'b101 
+	Parameter MTS_G bound to: 3 - type: integer 
+	Parameter MTS_DP bound to: 4 - type: integer 
+	Parameter MTS_G0 bound to: 8 - type: integer 
+INFO: [Synth 8-6155] done synthesizing module 'snowflake_pe__parameterized28' (1#1) [D:/ycz/doc/deepseek_workzone/decoder/Helios_scalable_QEC-main/Helios_scalable_QEC-main/design/snowflake/snowflake_pe.sv:24]
+INFO: [Synth 8-6157] synthesizing module 'snowflake_pe__parameterized29' [D:/ycz/doc/deepseek_workzone/decoder/Helios_scalable_QEC-main/Helios_scalable_QEC-main/design/snowflake/snowflake_pe.sv:24]
+	Parameter ONE_ONE bound to: 0 - type: integer 
+	Parameter ID bound to: 30 - type: integer 
+	Parameter HAS_ABOVE bound to: 1 - type: integer 
+	Parameter IS_BND bound to: 0 - type: integer 
+	Parameter IS_TOP bound to: 0 - type: integer 
+	Parameter IS_BOT bound to: 1 - type: integer 
+	Parameter SYN_IDX bound to: 0 - type: integer 
+	Parameter ST_IDLE bound to: 3'b000 
+	Parameter ST_DROP bound to: 3'b001 
+	Parameter ST_GW bound to: 3'b010 
+	Parameter ST_MW bound to: 3'b011 
+	Parameter ST_GH bound to: 3'b100 
+	Parameter ST_MH bound to: 3'b101 
+	Parameter MTS_G bound to: 3 - type: integer 
+	Parameter MTS_DP bound to: 4 - type: integer 
+	Parameter MTS_G0 bound to: 8 - type: integer 
+INFO: [Synth 8-6155] done synthesizing module 'snowflake_pe__parameterized29' (1#1) [D:/ycz/doc/deepseek_workzone/decoder/Helios_scalable_QEC-main/Helios_scalable_QEC-main/design/snowflake/snowflake_pe.sv:24]
+INFO: [Synth 8-6157] synthesizing module 'snowflake_pe__parameterized30' [D:/ycz/doc/deepseek_workzone/decoder/Helios_scalable_QEC-main/Helios_scalable_QEC-main/design/snowflake/snowflake_pe.sv:24]
+	Parameter ONE_ONE bound to: 0 - type: integer 
+	Parameter ID bound to: 31 - type: integer 
+	Parameter HAS_ABOVE bound to: 1 - type: integer 
+	Parameter IS_BND bound to: 0 - type: integer 
+	Parameter IS_TOP bound to: 0 - type: integer 
+	Parameter IS_BOT bound to: 1 - type: integer 
+	Parameter SYN_IDX bound to: 0 - type: integer 
+	Parameter ST_IDLE bound to: 3'b000 
+	Parameter ST_DROP bound to: 3'b001 
+	Parameter ST_GW bound to: 3'b010 
+	Parameter ST_MW bound to: 3'b011 
+	Parameter ST_GH bound to: 3'b100 
+	Parameter ST_MH bound to: 3'b101 
+	Parameter MTS_G bound to: 3 - type: integer 
+	Parameter MTS_DP bound to: 4 - type: integer 
+	Parameter MTS_G0 bound to: 8 - type: integer 
+INFO: [Synth 8-6155] done synthesizing module 'snowflake_pe__parameterized30' (1#1) [D:/ycz/doc/deepseek_workzone/decoder/Helios_scalable_QEC-main/Helios_scalable_QEC-main/design/snowflake/snowflake_pe.sv:24]
+INFO: [Synth 8-6157] synthesizing module 'snowflake_pe__parameterized31' [D:/ycz/doc/deepseek_workzone/decoder/Helios_scalable_QEC-main/Helios_scalable_QEC-main/design/snowflake/snowflake_pe.sv:24]
+	Parameter ONE_ONE bound to: 0 - type: integer 
+	Parameter ID bound to: 32 - type: integer 
+	Parameter HAS_ABOVE bound to: 1 - type: integer 
+	Parameter IS_BND bound to: 0 - type: integer 
+	Parameter IS_TOP bound to: 0 - type: integer 
+	Parameter IS_BOT bound to: 1 - type: integer 
+	Parameter SYN_IDX bound to: 0 - type: integer 
+	Parameter ST_IDLE bound to: 3'b000 
+	Parameter ST_DROP bound to: 3'b001 
+	Parameter ST_GW bound to: 3'b010 
+	Parameter ST_MW bound to: 3'b011 
+	Parameter ST_GH bound to: 3'b100 
+	Parameter ST_MH bound to: 3'b101 
+	Parameter MTS_G bound to: 3 - type: integer 
+	Parameter MTS_DP bound to: 4 - type: integer 
+	Parameter MTS_G0 bound to: 8 - type: integer 
+INFO: [Synth 8-6155] done synthesizing module 'snowflake_pe__parameterized31' (1#1) [D:/ycz/doc/deepseek_workzone/decoder/Helios_scalable_QEC-main/Helios_scalable_QEC-main/design/snowflake/snowflake_pe.sv:24]
+INFO: [Synth 8-6157] synthesizing module 'snowflake_pe__parameterized32' [D:/ycz/doc/deepseek_workzone/decoder/Helios_scalable_QEC-main/Helios_scalable_QEC-main/design/snowflake/snowflake_pe.sv:24]
+	Parameter ONE_ONE bound to: 0 - type: integer 
+	Parameter ID bound to: 33 - type: integer 
+	Parameter HAS_ABOVE bound to: 1 - type: integer 
+	Parameter IS_BND bound to: 0 - type: integer 
+	Parameter IS_TOP bound to: 0 - type: integer 
+	Parameter IS_BOT bound to: 1 - type: integer 
+	Parameter SYN_IDX bound to: 0 - type: integer 
+	Parameter ST_IDLE bound to: 3'b000 
+	Parameter ST_DROP bound to: 3'b001 
+	Parameter ST_GW bound to: 3'b010 
+	Parameter ST_MW bound to: 3'b011 
+	Parameter ST_GH bound to: 3'b100 
+	Parameter ST_MH bound to: 3'b101 
+	Parameter MTS_G bound to: 3 - type: integer 
+	Parameter MTS_DP bound to: 4 - type: integer 
+	Parameter MTS_G0 bound to: 8 - type: integer 
+INFO: [Synth 8-6155] done synthesizing module 'snowflake_pe__parameterized32' (1#1) [D:/ycz/doc/deepseek_workzone/decoder/Helios_scalable_QEC-main/Helios_scalable_QEC-main/design/snowflake/snowflake_pe.sv:24]
+INFO: [Synth 8-6157] synthesizing module 'snowflake_pe__parameterized33' [D:/ycz/doc/deepseek_workzone/decoder/Helios_scalable_QEC-main/Helios_scalable_QEC-main/design/snowflake/snowflake_pe.sv:24]
+	Parameter ONE_ONE bound to: 0 - type: integer 
+	Parameter ID bound to: 34 - type: integer 
+	Parameter HAS_ABOVE bound to: 1 - type: integer 
+	Parameter IS_BND bound to: 0 - type: integer 
+	Parameter IS_TOP bound to: 0 - type: integer 
+	Parameter IS_BOT bound to: 1 - type: integer 
+	Parameter SYN_IDX bound to: 0 - type: integer 
+	Parameter ST_IDLE bound to: 3'b000 
+	Parameter ST_DROP bound to: 3'b001 
+	Parameter ST_GW bound to: 3'b010 
+	Parameter ST_MW bound to: 3'b011 
+	Parameter ST_GH bound to: 3'b100 
+	Parameter ST_MH bound to: 3'b101 
+	Parameter MTS_G bound to: 3 - type: integer 
+	Parameter MTS_DP bound to: 4 - type: integer 
+	Parameter MTS_G0 bound to: 8 - type: integer 
+INFO: [Synth 8-6155] done synthesizing module 'snowflake_pe__parameterized33' (1#1) [D:/ycz/doc/deepseek_workzone/decoder/Helios_scalable_QEC-main/Helios_scalable_QEC-main/design/snowflake/snowflake_pe.sv:24]
+INFO: [Synth 8-6157] synthesizing module 'snowflake_pe__parameterized34' [D:/ycz/doc/deepseek_workzone/decoder/Helios_scalable_QEC-main/Helios_scalable_QEC-main/design/snowflake/snowflake_pe.sv:24]
+	Parameter ONE_ONE bound to: 0 - type: integer 
+	Parameter ID bound to: 35 - type: integer 
+	Parameter HAS_ABOVE bound to: 1 - type: integer 
+	Parameter IS_BND bound to: 0 - type: integer 
+	Parameter IS_TOP bound to: 0 - type: integer 
+	Parameter IS_BOT bound to: 1 - type: integer 
+	Parameter SYN_IDX bound to: 0 - type: integer 
+	Parameter ST_IDLE bound to: 3'b000 
+	Parameter ST_DROP bound to: 3'b001 
+	Parameter ST_GW bound to: 3'b010 
+	Parameter ST_MW bound to: 3'b011 
+	Parameter ST_GH bound to: 3'b100 
+	Parameter ST_MH bound to: 3'b101 
+	Parameter MTS_G bound to: 3 - type: integer 
+	Parameter MTS_DP bound to: 4 - type: integer 
+	Parameter MTS_G0 bound to: 8 - type: integer 
+INFO: [Synth 8-6155] done synthesizing module 'snowflake_pe__parameterized34' (1#1) [D:/ycz/doc/deepseek_workzone/decoder/Helios_scalable_QEC-main/Helios_scalable_QEC-main/design/snowflake/snowflake_pe.sv:24]
+INFO: [Synth 8-6157] synthesizing module 'snowflake_edge' [D:/ycz/doc/deepseek_workzone/decoder/Helios_scalable_QEC-main/Helios_scalable_QEC-main/design/snowflake/snowflake_edge.sv:16]
+	Parameter ST_DROP bound to: 3'b001 
+	Parameter ST_GW bound to: 3'b010 
+	Parameter ST_MW bound to: 3'b011 
+	Parameter ST_GH bound to: 3'b100 
+	Parameter ST_MH bound to: 3'b101 
+INFO: [Synth 8-6155] done synthesizing module 'snowflake_edge' (2#1) [D:/ycz/doc/deepseek_workzone/decoder/Helios_scalable_QEC-main/Helios_scalable_QEC-main/design/snowflake/snowflake_edge.sv:16]
+INFO: [Synth 8-6155] done synthesizing module 'snowflake_pe_array' (3#1) [D:/ycz/doc/deepseek_workzone/decoder/Helios_scalable_QEC-main/Helios_scalable_QEC-main/design/snowflake/snowflake_pe_array.sv:36]
+---------------------------------------------------------------------------------
+Finished RTL Elaboration : Time (s): cpu = 00:00:23 ; elapsed = 00:00:24 . Memory (MB): peak = 2267.762 ; gain = 656.352
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Handling Custom Attributes
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Handling Custom Attributes : Time (s): cpu = 00:00:27 ; elapsed = 00:00:29 . Memory (MB): peak = 2288.082 ; gain = 676.672
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished RTL Optimization Phase 1 : Time (s): cpu = 00:00:27 ; elapsed = 00:00:29 . Memory (MB): peak = 2288.082 ; gain = 676.672
+---------------------------------------------------------------------------------
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.258 . Memory (MB): peak = 2288.082 ; gain = 0.000
+INFO: [Project 1-570] Preparing netlist for logic optimization
+
+Processing XDC Constraints
+Initializing timing engine
+Parsing XDC File [D:/ycz/doc/deepseek_workzone/decoder/fpga_flow/logs/ooc_surface_d3_2to1_mints_xcvu9p.xdc]
+CRITICAL WARNING: [Designutils 20-1307] Command 'remove_from_collection' is not supported in the xdc constraint file. [D:/ycz/doc/deepseek_workzone/decoder/fpga_flow/logs/ooc_surface_d3_2to1_mints_xcvu9p.xdc:2]
+Finished Parsing XDC File [D:/ycz/doc/deepseek_workzone/decoder/fpga_flow/logs/ooc_surface_d3_2to1_mints_xcvu9p.xdc]
+Completed Processing XDC Constraints
+
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.005 . Memory (MB): peak = 2361.309 ; gain = 0.000
+INFO: [Project 1-111] Unisim Transformation Summary:
+No Unisim elements were transformed.
+
+Constraint Validation Runtime : Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.227 . Memory (MB): peak = 2361.309 ; gain = 0.000
+---------------------------------------------------------------------------------
+Finished Constraint Validation : Time (s): cpu = 00:00:45 ; elapsed = 00:00:48 . Memory (MB): peak = 2361.309 ; gain = 749.898
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Loading Part and Timing Information
+---------------------------------------------------------------------------------
+Loading part: xcvu9p-flga2104-2L-e
+INFO: [Synth 8-6742] Reading net delay rules and data
+INFO: [Synth 8-802] inferred FSM for state register 'stage_reg' in module 'snowflake_pe_array'
+---------------------------------------------------------------------------------------------------
+                   State |                     New Encoding |                Previous Encoding 
+---------------------------------------------------------------------------------------------------
+                 ST_IDLE |                              000 |                              000
+                 ST_DROP |                              001 |                              001
+                   ST_GW |                              010 |                              010
+                   ST_MW |                              011 |                              011
+                   ST_GH |                              100 |                              100
+                   ST_MH |                              101 |                              101
+                  iSTATE |                              110 |                              111
+*
+---------------------------------------------------------------------------------------------------
+INFO: [Synth 8-3354] encoded FSM with state register 'stage_reg' using encoding 'sequential' in module 'snowflake_pe_array'
+---------------------------------------------------------------------------------
+Finished RTL Optimization Phase 2 : Time (s): cpu = 00:02:02 ; elapsed = 00:02:17 . Memory (MB): peak = 2361.309 ; gain = 749.898
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start RTL Component Statistics 
+---------------------------------------------------------------------------------
+Detailed RTL Component Info : 
++---Adders : 
+	   2 Input    8 Bit       Adders := 1     
+	   2 Input    7 Bit       Adders := 24    
+	   2 Input    4 Bit       Adders := 72    
+	   3 Input    2 Bit       Adders := 51    
+	   2 Input    2 Bit       Adders := 1     
++---XORs : 
+	   2 Input      1 Bit         XORs := 576   
++---Registers : 
+	               19 Bit    Registers := 1     
+	                8 Bit    Registers := 2     
+	                7 Bit    Registers := 72    
+	                4 Bit    Registers := 72    
+	                3 Bit    Registers := 1     
+	                2 Bit    Registers := 52    
+	                1 Bit    Registers := 449   
++---Muxes : 
+	   2 Input   19 Bit        Muxes := 2     
+	   2 Input   12 Bit        Muxes := 36    
+	   5 Input   12 Bit        Muxes := 18    
+	   2 Input    8 Bit        Muxes := 2     
+	   7 Input    8 Bit        Muxes := 1     
+	   3 Input    7 Bit        Muxes := 144   
+	   2 Input    7 Bit        Muxes := 1620  
+	   5 Input    7 Bit        Muxes := 24    
+	   5 Input    4 Bit        Muxes := 24    
+	   2 Input    4 Bit        Muxes := 828   
+	   4 Input    4 Bit        Muxes := 144   
+	   7 Input    3 Bit        Muxes := 2     
+	   2 Input    3 Bit        Muxes := 1     
+	   2 Input    2 Bit        Muxes := 102   
+	   2 Input    1 Bit        Muxes := 6542  
+	   3 Input    1 Bit        Muxes := 432   
+	   6 Input    1 Bit        Muxes := 72    
+	   5 Input    1 Bit        Muxes := 402   
+	   7 Input    1 Bit        Muxes := 3     
+---------------------------------------------------------------------------------
+Finished RTL Component Statistics 
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Part Resource Summary
+---------------------------------------------------------------------------------
+Part Resources:
+DSPs: 6840 (col length:120)
+BRAMs: 4320 (col length: RAMB18 360 RAMB36 180)
+---------------------------------------------------------------------------------
+Finished Part Resource Summary
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Cross Boundary and Area Optimization
+---------------------------------------------------------------------------------
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (\g_pe[16].pe_i /\mts_dir_r_reg[3] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (\g_pe[32].pe_i /\mts_dir_r_reg[3] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (\g_pe[29].pe_i /\mts_dir_r_reg[3] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (\g_pe[35].pe_i /\mts_dir_r_reg[3] )
+WARNING: [Synth 8-7129] Port ab_cid[6] in module snowflake_pe__parameterized21 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port ab_cid[5] in module snowflake_pe__parameterized21 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port ab_cid[4] in module snowflake_pe__parameterized21 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port ab_cid[3] in module snowflake_pe__parameterized21 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port ab_cid[2] in module snowflake_pe__parameterized21 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port ab_cid[1] in module snowflake_pe__parameterized21 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port ab_cid[0] in module snowflake_pe__parameterized21 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port ab_active in module snowflake_pe__parameterized21 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port ab_whole in module snowflake_pe__parameterized21 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port ab_defect in module snowflake_pe__parameterized21 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port ab_ptr[3] in module snowflake_pe__parameterized21 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port ab_ptr[2] in module snowflake_pe__parameterized21 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port ab_ptr[1] in module snowflake_pe__parameterized21 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port ab_ptr[0] in module snowflake_pe__parameterized21 is either unconnected or has no load
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (\g_pe[10].pe_i /\mts_dir_r_reg[3] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (\g_pe[17].pe_i /\mts_dir_r_reg[3] )
+WARNING: [Synth 8-7129] Port ab_cid[6] in module snowflake_pe__parameterized18 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port ab_cid[5] in module snowflake_pe__parameterized18 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port ab_cid[4] in module snowflake_pe__parameterized18 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port ab_cid[3] in module snowflake_pe__parameterized18 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port ab_cid[2] in module snowflake_pe__parameterized18 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port ab_cid[1] in module snowflake_pe__parameterized18 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port ab_cid[0] in module snowflake_pe__parameterized18 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port ab_active in module snowflake_pe__parameterized18 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port ab_whole in module snowflake_pe__parameterized18 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port ab_defect in module snowflake_pe__parameterized18 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port ab_ptr[3] in module snowflake_pe__parameterized18 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port ab_ptr[2] in module snowflake_pe__parameterized18 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port ab_ptr[1] in module snowflake_pe__parameterized18 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port ab_ptr[0] in module snowflake_pe__parameterized18 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port ab_cid[6] in module snowflake_pe__parameterized17 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port ab_cid[5] in module snowflake_pe__parameterized17 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port ab_cid[4] in module snowflake_pe__parameterized17 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port ab_cid[3] in module snowflake_pe__parameterized17 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port ab_cid[2] in module snowflake_pe__parameterized17 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port ab_cid[1] in module snowflake_pe__parameterized17 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port ab_cid[0] in module snowflake_pe__parameterized17 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port ab_active in module snowflake_pe__parameterized17 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port ab_whole in module snowflake_pe__parameterized17 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port ab_defect in module snowflake_pe__parameterized17 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port ab_ptr[3] in module snowflake_pe__parameterized17 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port ab_ptr[2] in module snowflake_pe__parameterized17 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port ab_ptr[1] in module snowflake_pe__parameterized17 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port ab_ptr[0] in module snowflake_pe__parameterized17 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port ab_cid[6] in module snowflake_pe__parameterized19 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port ab_cid[5] in module snowflake_pe__parameterized19 is either unconnected or has no load
+INFO: [Common 17-14] Message 'Synth 8-7129' appears 100 times and further instances of the messages will be disabled. Use the Tcl command set_msg_config to change the current settings.
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (\g_pe[14].pe_i /\mts_dir_r_reg[3] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (\g_pe[20].pe_i /\mts_dir_r_reg[3] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (\g_pe[26].pe_i /\mts_dir_r_reg[3] )
+WARNING: [Synth 8-7129] Port ab_cid[6] in module snowflake_pe__parameterized3 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port ab_cid[5] in module snowflake_pe__parameterized3 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port ab_cid[4] in module snowflake_pe__parameterized3 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port ab_cid[3] in module snowflake_pe__parameterized3 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port ab_cid[2] in module snowflake_pe__parameterized3 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port ab_cid[1] in module snowflake_pe__parameterized3 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port ab_cid[0] in module snowflake_pe__parameterized3 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port ab_active in module snowflake_pe__parameterized3 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port ab_whole in module snowflake_pe__parameterized3 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port ab_defect in module snowflake_pe__parameterized3 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port ab_ptr[3] in module snowflake_pe__parameterized3 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port ab_ptr[2] in module snowflake_pe__parameterized3 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port ab_ptr[1] in module snowflake_pe__parameterized3 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port ab_ptr[0] in module snowflake_pe__parameterized3 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port ab_cid[6] in module snowflake_pe__parameterized4 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port ab_cid[5] in module snowflake_pe__parameterized4 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port ab_cid[4] in module snowflake_pe__parameterized4 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port ab_cid[3] in module snowflake_pe__parameterized4 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port ab_cid[2] in module snowflake_pe__parameterized4 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port ab_cid[1] in module snowflake_pe__parameterized4 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port ab_cid[0] in module snowflake_pe__parameterized4 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port ab_active in module snowflake_pe__parameterized4 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port ab_whole in module snowflake_pe__parameterized4 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port ab_defect in module snowflake_pe__parameterized4 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port ab_ptr[3] in module snowflake_pe__parameterized4 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port ab_ptr[2] in module snowflake_pe__parameterized4 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port ab_ptr[1] in module snowflake_pe__parameterized4 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port ab_ptr[0] in module snowflake_pe__parameterized4 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port ab_cid[6] in module snowflake_pe__parameterized22 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port ab_cid[5] in module snowflake_pe__parameterized22 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port ab_cid[4] in module snowflake_pe__parameterized22 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port ab_cid[3] in module snowflake_pe__parameterized22 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port ab_cid[2] in module snowflake_pe__parameterized22 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port ab_cid[1] in module snowflake_pe__parameterized22 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port ab_cid[0] in module snowflake_pe__parameterized22 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port ab_active in module snowflake_pe__parameterized22 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port ab_whole in module snowflake_pe__parameterized22 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port ab_defect in module snowflake_pe__parameterized22 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port ab_ptr[3] in module snowflake_pe__parameterized22 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port ab_ptr[2] in module snowflake_pe__parameterized22 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port ab_ptr[1] in module snowflake_pe__parameterized22 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port ab_ptr[0] in module snowflake_pe__parameterized22 is either unconnected or has no load
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (\g_pe[4].pe_i /\mts_dir_r_reg[3] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (\g_pe[5].pe_i /\mts_dir_r_reg[3] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (\g_pe[11].pe_i /\mts_dir_r_reg[3] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (\g_pe[23].pe_i /\mts_dir_r_reg[3] )
+WARNING: [Synth 8-7129] Port ab_cid[6] in module snowflake_pe__parameterized0 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port ab_cid[5] in module snowflake_pe__parameterized0 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port ab_cid[4] in module snowflake_pe__parameterized0 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port ab_cid[3] in module snowflake_pe__parameterized0 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port ab_cid[2] in module snowflake_pe__parameterized0 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port ab_cid[1] in module snowflake_pe__parameterized0 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port ab_cid[0] in module snowflake_pe__parameterized0 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port ab_active in module snowflake_pe__parameterized0 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port ab_whole in module snowflake_pe__parameterized0 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port ab_defect in module snowflake_pe__parameterized0 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port ab_ptr[3] in module snowflake_pe__parameterized0 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port ab_ptr[2] in module snowflake_pe__parameterized0 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port ab_ptr[1] in module snowflake_pe__parameterized0 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port ab_ptr[0] in module snowflake_pe__parameterized0 is either unconnected or has no load
+INFO: [Common 17-14] Message 'Synth 8-7129' appears 100 times and further instances of the messages will be disabled. Use the Tcl command set_msg_config to change the current settings.
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (\g_pe[1].pe_i /\mts_dir_r_reg[3] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (\g_pe[2].pe_i /\mts_dir_r_reg[3] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (\g_pe[7].pe_i /\mts_dir_r_reg[3] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (\g_pe[8].pe_i /\mts_dir_r_reg[3] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (\g_pe[12].pe_i /\mts_dir_r_reg[3] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (\g_pe[13].pe_i /\mts_dir_r_reg[3] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (\g_pe[0].pe_i /\mts_dir_r_reg[3] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (\g_pe[3].pe_i /\mts_dir_r_reg[3] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (\g_pe[6].pe_i /\mts_dir_r_reg[3] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (\g_pe[9].pe_i /\mts_dir_r_reg[3] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (\g_pe[15].pe_i /\mts_dir_r_reg[3] )
+---------------------------------------------------------------------------------
+Finished Cross Boundary and Area Optimization : Time (s): cpu = 00:03:11 ; elapsed = 00:03:58 . Memory (MB): peak = 2361.309 ; gain = 749.898
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Applying XDC Timing Constraints
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Applying XDC Timing Constraints : Time (s): cpu = 00:03:25 ; elapsed = 00:04:13 . Memory (MB): peak = 2550.430 ; gain = 939.020
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Timing Optimization
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Timing Optimization : Time (s): cpu = 00:03:44 ; elapsed = 00:04:33 . Memory (MB): peak = 2638.258 ; gain = 1026.848
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Technology Mapping
+---------------------------------------------------------------------------------
+INFO: [Synth 8-3886] merging instance 'i_0/g_pe[0].pe_i/mts_dir_r_reg[2]' (FDE) to 'i_0/g_pe[0].pe_i/mts_found_r_reg'
+INFO: [Synth 8-3886] merging instance 'i_0/g_pe[3].pe_i/mts_found_r_reg' (FDE) to 'i_0/g_pe[3].pe_i/mts_dir_r_reg[2]'
+INFO: [Synth 8-3886] merging instance 'i_0/g_pe[4].pe_i/mts_dir_r_reg[2]' (FDE) to 'i_0/g_pe[4].pe_i/mts_found_r_reg'
+INFO: [Synth 8-3886] merging instance 'i_0/g_pe[5].pe_i/mts_found_r_reg' (FDE) to 'i_0/g_pe[5].pe_i/mts_dir_r_reg[2]'
+INFO: [Synth 8-3886] merging instance 'i_0/g_pe[6].pe_i/mts_found_r_reg' (FDE) to 'i_0/g_pe[6].pe_i/mts_dir_r_reg[2]'
+INFO: [Synth 8-3886] merging instance 'i_0/g_pe[9].pe_i/mts_found_r_reg' (FDE) to 'i_0/g_pe[9].pe_i/mts_dir_r_reg[2]'
+INFO: [Synth 8-3886] merging instance 'i_0/g_pe[10].pe_i/mts_found_r_reg' (FDE) to 'i_0/g_pe[10].pe_i/mts_dir_r_reg[2]'
+INFO: [Synth 8-3886] merging instance 'i_0/g_pe[11].pe_i/mts_found_r_reg' (FDE) to 'i_0/g_pe[11].pe_i/mts_dir_r_reg[2]'
+INFO: [Synth 8-3886] merging instance 'i_0/g_pe[15].pe_i/mts_dir_r_reg[2]' (FDE) to 'i_0/g_pe[15].pe_i/mts_found_r_reg'
+INFO: [Synth 8-3886] merging instance 'i_0/g_pe[16].pe_i/mts_dir_r_reg[2]' (FDE) to 'i_0/g_pe[16].pe_i/mts_found_r_reg'
+INFO: [Synth 8-3886] merging instance 'i_0/g_pe[17].pe_i/mts_found_r_reg' (FDE) to 'i_0/g_pe[17].pe_i/mts_dir_r_reg[2]'
+---------------------------------------------------------------------------------
+Finished Technology Mapping : Time (s): cpu = 00:03:47 ; elapsed = 00:04:59 . Memory (MB): peak = 2650.152 ; gain = 1038.742
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start IO Insertion
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Final Netlist Cleanup
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Final Netlist Cleanup
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished IO Insertion : Time (s): cpu = 00:03:52 ; elapsed = 00:05:05 . Memory (MB): peak = 2650.152 ; gain = 1038.742
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Renaming Generated Instances
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Renaming Generated Instances : Time (s): cpu = 00:03:52 ; elapsed = 00:05:05 . Memory (MB): peak = 2650.152 ; gain = 1038.742
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Handling Custom Attributes
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Handling Custom Attributes : Time (s): cpu = 00:03:53 ; elapsed = 00:05:07 . Memory (MB): peak = 2650.152 ; gain = 1038.742
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Writing Synthesis Report
+---------------------------------------------------------------------------------
+
+Report BlackBoxes: 
++-+--------------+----------+
+| |BlackBox name |Instances |
++-+--------------+----------+
++-+--------------+----------+
+
+Report Cell Usage: 
++------+-------+------+
+|      |Cell   |Count |
++------+-------+------+
+|1     |CARRY8 |    98|
+|2     |LUT1   |     5|
+|3     |LUT2   |   434|
+|4     |LUT3   |   741|
+|5     |LUT4   |  1109|
+|6     |LUT5   |  1159|
+|7     |LUT6   |  3157|
+|8     |FDRE   |  1177|
+|9     |FDSE   |   167|
++------+-------+------+
+---------------------------------------------------------------------------------
+Finished Writing Synthesis Report : Time (s): cpu = 00:03:53 ; elapsed = 00:05:07 . Memory (MB): peak = 2650.152 ; gain = 1038.742
+---------------------------------------------------------------------------------
+Synthesis finished with 0 errors, 0 critical warnings and 156 warnings.
+Synthesis Optimization Runtime : Time (s): cpu = 00:03:16 ; elapsed = 00:04:59 . Memory (MB): peak = 2650.152 ; gain = 965.516
+Synthesis Optimization Complete : Time (s): cpu = 00:03:54 ; elapsed = 00:05:09 . Memory (MB): peak = 2650.152 ; gain = 1038.742
+INFO: [Project 1-571] Translating synthesized netlist
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.105 . Memory (MB): peak = 2659.914 ; gain = 0.000
+INFO: [Netlist 29-17] Analyzing 98 Unisim elements for replacement
+INFO: [Netlist 29-28] Unisim Transformation completed in 0 CPU seconds
+INFO: [Project 1-570] Preparing netlist for logic optimization
+Parsing XDC File [D:/ycz/doc/deepseek_workzone/decoder/fpga_flow/logs/ooc_surface_d3_2to1_mints_xcvu9p.xdc]
+CRITICAL WARNING: [Designutils 20-1307] Command 'remove_from_collection' is not supported in the xdc constraint file. [D:/ycz/doc/deepseek_workzone/decoder/fpga_flow/logs/ooc_surface_d3_2to1_mints_xcvu9p.xdc:2]
+Finished Parsing XDC File [D:/ycz/doc/deepseek_workzone/decoder/fpga_flow/logs/ooc_surface_d3_2to1_mints_xcvu9p.xdc]
+INFO: [Opt 31-138] Pushed 0 inverter(s) to 0 load pin(s).
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.002 . Memory (MB): peak = 2689.371 ; gain = 0.000
+INFO: [Project 1-111] Unisim Transformation Summary:
+No Unisim elements were transformed.
+
+INFO: [Common 17-83] Releasing license: Synthesis
+130 Infos, 100 Warnings, 2 Critical Warnings and 0 Errors encountered.
+synth_design completed successfully
+synth_design: Time (s): cpu = 00:04:13 ; elapsed = 00:05:32 . Memory (MB): peak = 2689.371 ; gain = 1547.703
+# report_utilization -file "$outdir/util_synth_$tag.rpt"
+# report_utilization -hierarchical -file "$outdir/utilhier_synth_$tag.rpt"
+# if {$mode eq "impl"} {
+#   # ---- optional layout constraints -----------------------------------
+#   # FLOW_KEEP_HIER=1 : stop opt_design from dissolving the PE / edge module
+#   #   boundaries (KEEP_HIERARCHY), so the comparison shows whether the modular
+#   #   structure helps or hurts the placer.
+#   # FLOW_PBLOCK=<k>  : split the PE array into k full-height vertical stripes of
+#   #   clock regions and pin node blocks [i*NN/k, (i+1)*NN/k) into stripe i.
+#   #   The generator emits nodes in spatial order, so a contiguous index block is
+#   #   a spatial neighbourhood; the stripe cuts are what costs (the long wires
+#   #   that must now cross between stripes).
+#   if {[info exists ::env(FLOW_KEEP_HIER)] && $::env(FLOW_KEEP_HIER) ne ""} {
+#     set kh_cells [get_cells -hier -quiet -filter {REF_NAME =~ snowflake_pe* || REF_NAME =~ snowflake_edge*}]
+#     puts "FLOW_KEEP_HIER [llength $kh_cells] cells"
+#     if {[llength $kh_cells]} { set_property KEEP_HIERARCHY TRUE $kh_cells }
+#   }
+#   if {[info exists ::env(FLOW_PBLOCK)] && $::env(FLOW_PBLOCK) ne ""} {
+#     set k [expr {int($::env(FLOW_PBLOCK))}]
+#     set xvals {}
+#     set yvals {}
+#     # NOTE: get_clock_regions returns objects whose NAME is "X0Y0" (no
+#     # CLOCKREGION_ prefix) -- matching on "CLOCKREGION_X.." found nothing, left
+#     # xvals empty, clamped k to 0 and silently ran the UNCONSTRAINED baseline.
+#     # That is why the first pb4/pb8 runs came out bit-identical to the baseline.
+#     foreach cr [get_clock_regions] {
+#       set nm [get_property NAME $cr]
+#       if {[regexp {^X(\d+)Y(\d+)$} $nm -> cx cy]} {
+#         if {[lsearch -exact $xvals $cx] < 0} { lappend xvals $cx }
+#         if {[lsearch -exact $yvals $cy] < 0} { lappend yvals $cy }
+#       }
+#     }
+#     if {![llength $xvals]} {
+#       puts "FLOW_PBLOCK_FAILED no clock regions found -- refusing to run an unconstrained build"
+#       exit 1
+#     }
+#     set xvals [lsort -integer $xvals]
+#     set yvals [lsort -integer $yvals]
+#     set nx [llength $xvals]
+#     set y0 [lindex $yvals 0]
+#     set y1 [lindex $yvals end]
+#     if {$k > $nx} { set k $nx }
+#     # every PE instance, sorted with -dictionary so g_pe[10] > g_pe[9]
+#     set pe_cells [lsort -dictionary [get_cells -hier -quiet -filter {REF_NAME =~ snowflake_pe*}]]
+#     set nn [llength $pe_cells]
+#     puts "FLOW_PBLOCK k=$k clock_region_x=$xvals y=$y0..$y1 pe_cells=$nn"
+#     for {set i 0} {$i < $k} {incr i} {
+#       # floor boundaries shared by the region split and the node split, so that
+#       # PE block i really lands in stripe i and no clock-region column is skipped
+#       set b0 [expr {$i * $nx / $k}]
+#       set b1 [expr {($i + 1) * $nx / $k}]
+#       if {$b1 <= $b0} { continue }
+#       set xi0 [lindex $xvals $b0]
+#       set xi1 [lindex $xvals [expr {$b1 - 1}]]
+#       set n0 [expr {$i * $nn / $k}]
+#       set n1 [expr {($i + 1) * $nn / $k}]
+#       create_pblock "pb_$i"
+#       resize_pblock "pb_$i" -add "CLOCKREGION_X${xi0}Y${y0}:CLOCKREGION_X${xi1}Y${y1}"
+#       set cells [lrange $pe_cells $n0 [expr {$n1 - 1}]]
+#       add_cells_to_pblock "pb_$i" $cells
+#       puts "FLOW_PBLOCK pb_$i x=$xi0..$xi1 nodes=$n0..[expr {$n1-1}] cells=[llength $cells]"
+#     }
+#   }
+#   opt_design
+#   place_design
+#   phys_opt_design
+#   route_design
+#   report_utilization         -file "$outdir/util_route_$tag.rpt"
+#   report_utilization         -hierarchical -file "$outdir/utilhier_route_$tag.rpt"
+#   report_timing_summary      -delay_type max -max_paths 20 -file "$outdir/timing_$tag.rpt"
+#   report_timing              -delay_type max -max_paths 20 -input_pins -file "$outdir/timing_paths_$tag.rpt"
+#   report_design_analysis     -logic_level_distribution -file "$outdir/logic_levels_$tag.rpt"
+#   catch { report_power      -file "$outdir/power_$tag.rpt" }
+#   catch { report_drc        -file "$outdir/drc_$tag.rpt" }
+#   catch { report_clock_utilization -file "$outdir/clocks_$tag.rpt" }
+#   write_checkpoint -force "$outdir/postroute_$tag.dcp"
+# } else {
+#   report_timing_summary -delay_type max -max_paths 20 -file "$outdir/timing_synth_$tag.rpt"
+#   write_checkpoint -force "$outdir/postsynth_$tag.dcp"
+# }
+Command: opt_design
+Attempting to get a license for feature 'Implementation' and/or device 'xcvu9p'
+INFO: [Common 17-349] Got license for feature 'Implementation' and/or device 'xcvu9p'
+Running DRC as a precondition to command opt_design
+
+Starting DRC Task
+INFO: [DRC 23-27] Running DRC with 2 threads
+INFO: [Project 1-461] DRC finished with 0 Errors
+INFO: [Project 1-462] Please refer to the DRC report (report_drc) for more information.
+
+Time (s): cpu = 00:00:03 ; elapsed = 00:00:02 . Memory (MB): peak = 2690.250 ; gain = 0.879
+
+Starting Cache Timing Information Task
+INFO: [Timing 38-35] Done setting XDC timing constraints.
+Ending Cache Timing Information Task | Checksum: e4cdbcd3
+
+Time (s): cpu = 00:00:01 ; elapsed = 00:00:00.497 . Memory (MB): peak = 2778.223 ; gain = 87.973
+
+Starting Logic Optimization Task
+
+Phase 1 Retarget
+INFO: [Opt 31-138] Pushed 0 inverter(s) to 0 load pin(s).
+INFO: [Opt 31-49] Retargeted 0 cell(s).
+Phase 1 Retarget | Checksum: 8a14c820
+
+Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.514 . Memory (MB): peak = 2822.516 ; gain = 0.000
+INFO: [Opt 31-389] Phase Retarget created 15 cells and removed 19 cells
+
+Phase 2 Constant propagation
+INFO: [Opt 31-138] Pushed 0 inverter(s) to 0 load pin(s).
+Phase 2 Constant propagation | Checksum: 8a14c820
+
+Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.591 . Memory (MB): peak = 2822.516 ; gain = 0.000
+INFO: [Opt 31-389] Phase Constant propagation created 0 cells and removed 0 cells
+
+Phase 3 Sweep
+Phase 3 Sweep | Checksum: 11b47e63e
+
+Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.756 . Memory (MB): peak = 2822.516 ; gain = 0.000
+INFO: [Opt 31-389] Phase Sweep created 0 cells and removed 0 cells
+
+Phase 4 BUFG optimization
+INFO: [Opt 31-1077] Phase BUFG optimization inserted 0 global clock buffer(s) for CLOCK_LOW_FANOUT.
+Phase 4 BUFG optimization | Checksum: 11b47e63e
+
+Time (s): cpu = 00:00:01 ; elapsed = 00:00:00.806 . Memory (MB): peak = 2822.516 ; gain = 0.000
+INFO: [Opt 31-662] Phase BUFG optimization created 0 cells of which 0 are BUFGs and removed 0 cells.
+
+Phase 5 Shift Register Optimization
+INFO: [Opt 31-1064] SRL Remap converted 0 SRLs to 0 registers and converted 0 registers of register chains to 0 SRLs
+Phase 5 Shift Register Optimization | Checksum: 11b47e63e
+
+Time (s): cpu = 00:00:01 ; elapsed = 00:00:00.828 . Memory (MB): peak = 2822.516 ; gain = 0.000
+INFO: [Opt 31-389] Phase Shift Register Optimization created 0 cells and removed 0 cells
+
+Phase 6 Post Processing Netlist
+Phase 6 Post Processing Netlist | Checksum: 11b47e63e
+
+Time (s): cpu = 00:00:01 ; elapsed = 00:00:00.874 . Memory (MB): peak = 2822.516 ; gain = 0.000
+INFO: [Opt 31-389] Phase Post Processing Netlist created 0 cells and removed 0 cells
+Opt_design Change Summary
+=========================
+
+
+-------------------------------------------------------------------------------------------------------------------------
+|  Phase                        |  #Cells created  |  #Cells Removed  |  #Constrained objects preventing optimizations  |
+-------------------------------------------------------------------------------------------------------------------------
+|  Retarget                     |              15  |              19  |                                              0  |
+|  Constant propagation         |               0  |               0  |                                              0  |
+|  Sweep                        |               0  |               0  |                                              0  |
+|  BUFG optimization            |               0  |               0  |                                              0  |
+|  Shift Register Optimization  |               0  |               0  |                                              0  |
+|  Post Processing Netlist      |               0  |               0  |                                              0  |
+-------------------------------------------------------------------------------------------------------------------------
+
+
+
+Starting Connectivity Check Task
+
+Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.033 . Memory (MB): peak = 2822.516 ; gain = 0.000
+Ending Logic Optimization Task | Checksum: f9528af6
+
+Time (s): cpu = 00:00:01 ; elapsed = 00:00:01 . Memory (MB): peak = 2822.516 ; gain = 0.000
+
+Starting Power Optimization Task
+INFO: [Pwropt 34-132] Skipping clock gating for clocks with a period < 2.00 ns.
+Ending Power Optimization Task | Checksum: f9528af6
+
+Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.015 . Memory (MB): peak = 2822.516 ; gain = 0.000
+
+Starting Final Cleanup Task
+Ending Final Cleanup Task | Checksum: f9528af6
+
+Time (s): cpu = 00:00:00 ; elapsed = 00:00:00 . Memory (MB): peak = 2822.516 ; gain = 0.000
+
+Starting Netlist Obfuscation Task
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.003 . Memory (MB): peak = 2822.516 ; gain = 0.000
+Ending Netlist Obfuscation Task | Checksum: f9528af6
+
+Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.003 . Memory (MB): peak = 2822.516 ; gain = 0.000
+INFO: [Common 17-83] Releasing license: Implementation
+18 Infos, 0 Warnings, 0 Critical Warnings and 0 Errors encountered.
+opt_design completed successfully
+opt_design: Time (s): cpu = 00:00:08 ; elapsed = 00:00:07 . Memory (MB): peak = 2822.516 ; gain = 133.145
+Command: place_design
+Attempting to get a license for feature 'Implementation' and/or device 'xcvu9p'
+INFO: [Common 17-349] Got license for feature 'Implementation' and/or device 'xcvu9p'
+WARNING: [Vivado_Tcl 4-1403] general.maxThreads 2 is less than number of SLRs 3. Continuing placement in non-ultrathreads mode.
+INFO: [Timing 38-35] Done setting XDC timing constraints.
+WARNING: [Timing 38-242] The property HD.CLK_SRC of clock port "clk" is not set. In out-of-context mode, this prevents timing estimation for clock delay/skew
+Resolution: Set the HD.CLK_SRC property of the out-of-context port to the location of the clock buffer instance in the top-level design
+INFO: [DRC 23-27] Running DRC with 2 threads
+INFO: [Vivado_Tcl 4-198] DRC finished with 0 Errors
+INFO: [Vivado_Tcl 4-199] Please refer to the DRC report (report_drc) for more information.
+Running DRC as a precondition to command place_design
+INFO: [DRC 23-27] Running DRC with 2 threads
+INFO: [Vivado_Tcl 4-198] DRC finished with 0 Errors
+INFO: [Vivado_Tcl 4-199] Please refer to the DRC report (report_drc) for more information.
+
+Starting Placer Task
+INFO: [Place 30-611] Multithreading enabled for place_design using a maximum of 2 CPUs
+
+Phase 1 Placer Initialization
+
+Phase 1.1 Placer Initialization Netlist Sorting
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.002 . Memory (MB): peak = 3641.492 ; gain = 0.000
+Phase 1.1 Placer Initialization Netlist Sorting | Checksum: 6be2db6f
+
+Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.011 . Memory (MB): peak = 3641.492 ; gain = 0.000
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.004 . Memory (MB): peak = 3641.492 ; gain = 0.000
+
+Phase 1.2 IO Placement/ Clock Placement/ Build Placer Device
+Phase 1.2 IO Placement/ Clock Placement/ Build Placer Device | Checksum: 33ec4beb
+
+Time (s): cpu = 00:00:04 ; elapsed = 00:00:04 . Memory (MB): peak = 3641.492 ; gain = 0.000
+
+Phase 1.3 Build Placer Netlist Model
+Phase 1.3 Build Placer Netlist Model | Checksum: aa1c6bfb
+
+Time (s): cpu = 00:00:09 ; elapsed = 00:00:08 . Memory (MB): peak = 3666.512 ; gain = 25.020
+
+Phase 1.4 Constrain Clocks/Macros
+Phase 1.4 Constrain Clocks/Macros | Checksum: aa1c6bfb
+
+Time (s): cpu = 00:00:09 ; elapsed = 00:00:08 . Memory (MB): peak = 3666.512 ; gain = 25.020
+Phase 1 Placer Initialization | Checksum: aa1c6bfb
+
+Time (s): cpu = 00:00:09 ; elapsed = 00:00:08 . Memory (MB): peak = 3666.512 ; gain = 25.020
+
+Phase 2 Global Placement
+
+Phase 2.1 Floorplanning
+
+Phase 2.1.1 Partition Driven Placement
+
+Phase 2.1.1.1 PBP: Partition Driven Placement
+Phase 2.1.1.1 PBP: Partition Driven Placement | Checksum: f8b4a66a
+
+Time (s): cpu = 00:00:13 ; elapsed = 00:00:11 . Memory (MB): peak = 3666.512 ; gain = 25.020
+
+Phase 2.1.1.2 PBP: Clock Region Placement
+Phase 2.1.1.2 PBP: Clock Region Placement | Checksum: f8b4a66a
+
+Time (s): cpu = 00:00:13 ; elapsed = 00:00:12 . Memory (MB): peak = 3666.512 ; gain = 25.020
+
+Phase 2.1.1.3 PBP: Compute Congestion
+Phase 2.1.1.3 PBP: Compute Congestion | Checksum: f8b4a66a
+
+Time (s): cpu = 00:00:17 ; elapsed = 00:00:16 . Memory (MB): peak = 3666.512 ; gain = 25.020
+
+Phase 2.1.1.4 PBP: UpdateTiming
+Phase 2.1.1.4 PBP: UpdateTiming | Checksum: 115fc4e35
+
+Time (s): cpu = 00:00:18 ; elapsed = 00:00:17 . Memory (MB): peak = 3666.512 ; gain = 25.020
+
+Phase 2.1.1.5 PBP: Add part constraints
+Phase 2.1.1.5 PBP: Add part constraints | Checksum: 115fc4e35
+
+Time (s): cpu = 00:00:18 ; elapsed = 00:00:17 . Memory (MB): peak = 3666.512 ; gain = 25.020
+Phase 2.1.1 Partition Driven Placement | Checksum: 115fc4e35
+
+Time (s): cpu = 00:00:18 ; elapsed = 00:00:17 . Memory (MB): peak = 3666.512 ; gain = 25.020
+Phase 2.1 Floorplanning | Checksum: b3bdba79
+
+Time (s): cpu = 00:00:18 ; elapsed = 00:00:17 . Memory (MB): peak = 3666.512 ; gain = 25.020
+
+Phase 2.2 Update Timing before SLR Path Opt
+Phase 2.2 Update Timing before SLR Path Opt | Checksum: b3bdba79
+
+Time (s): cpu = 00:00:18 ; elapsed = 00:00:17 . Memory (MB): peak = 3666.512 ; gain = 25.020
+
+Phase 2.3 Global Placement Core
+SLR(matching) [0-1]       0     0     0     0     0     0     0     0     0     0     0     0  Total:     0
+SLR(matching) [1-2]       0     0     0     0     0     0     0     0     0     0     0     0  Total:     0
+
+Phase 2.3.1 Physical Synthesis In Placer
+INFO: [Physopt 32-1035] Found 45 LUTNM shape to break, 472 LUT instances to create LUTNM shape
+INFO: [Physopt 32-1044] Break lutnm for timing: one critical 29, two critical 16, total 45, new lutff created 1
+INFO: [Physopt 32-775] End 1 Pass. Optimized 220 nets or cells. Created 45 new cells, deleted 175 existing cells and moved 0 existing cell
+INFO: [Physopt 32-1030] Pass 1. Identified 2 candidate driver sets for equivalent driver rewiring.
+INFO: [Physopt 32-661] Optimized 2 nets.  Re-placed 31 instances.
+INFO: [Physopt 32-775] End 1 Pass. Optimized 2 nets or cells. Created 0 new cell, deleted 0 existing cell and moved 31 existing cells
+Netlist sorting complete. Time (s): cpu = 00:00:01 ; elapsed = 00:00:00.042 . Memory (MB): peak = 3878.004 ; gain = 0.000
+INFO: [Physopt 32-76] Pass 1. Identified 2 candidate nets for fanout optimization.
+INFO: [Physopt 32-81] Processed net mts_sub_reg_n_0_[0]. Replicated 16 times.
+INFO: [Physopt 32-81] Processed net mts_sub_reg_n_0_[1]. Replicated 14 times.
+INFO: [Physopt 32-232] Optimized 2 nets. Created 30 new instances.
+INFO: [Physopt 32-775] End 1 Pass. Optimized 2 nets or cells. Created 30 new cells, deleted 0 existing cell and moved 0 existing cell
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.078 . Memory (MB): peak = 3878.004 ; gain = 0.000
+INFO: [Physopt 32-456] No candidate cells for DSP register optimization found in the design.
+INFO: [Physopt 32-775] End 2 Pass. Optimized 0 net or cell. Created 0 new cell, deleted 0 existing cell and moved 0 existing cell
+INFO: [Physopt 32-1123] No candidate cells found for Shift Register to Pipeline optimization
+INFO: [Physopt 32-775] End 1 Pass. Optimized 0 net or cell. Created 0 new cell, deleted 0 existing cell and moved 0 existing cell
+INFO: [Physopt 32-677] No candidate cells for Shift Register optimization found in the design
+INFO: [Physopt 32-775] End 1 Pass. Optimized 0 net or cell. Created 0 new cell, deleted 0 existing cell and moved 0 existing cell
+INFO: [Physopt 32-526] No candidate cells for BRAM register optimization found in the design
+INFO: [Physopt 32-775] End 1 Pass. Optimized 0 net or cell. Created 0 new cell, deleted 0 existing cell and moved 0 existing cell
+INFO: [Physopt 32-846] No candidate cells for URAM register optimization found in the design
+INFO: [Physopt 32-775] End 2 Pass. Optimized 0 net or cell. Created 0 new cell, deleted 0 existing cell and moved 0 existing cell
+INFO: [Physopt 32-949] No candidate nets found for dynamic/static region interface net replication
+INFO: [Physopt 32-775] End 1 Pass. Optimized 0 net or cell. Created 0 new cell, deleted 0 existing cell and moved 0 existing cell
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.004 . Memory (MB): peak = 3878.004 ; gain = 0.000
+
+Summary of Physical Synthesis Optimizations
+============================================
+
+
+-----------------------------------------------------------------------------------------------------------------------------------------------------------
+|  Optimization                                     |  Added Cells  |  Removed Cells  |  Optimized Cells/Nets  |  Dont Touch  |  Iterations  |  Elapsed   |
+-----------------------------------------------------------------------------------------------------------------------------------------------------------
+|  LUT Combining                                    |           45  |            175  |                   220  |           0  |           1  |  00:00:01  |
+|  Equivalent Driver Rewiring                       |            0  |              0  |                     2  |           0  |           1  |  00:00:00  |
+|  Very High Fanout                                 |           30  |              0  |                     2  |           0  |           1  |  00:00:02  |
+|  DSP Register                                     |            0  |              0  |                     0  |           0  |           1  |  00:00:00  |
+|  Shift Register to Pipeline                       |            0  |              0  |                     0  |           0  |           1  |  00:00:00  |
+|  Shift Register                                   |            0  |              0  |                     0  |           0  |           1  |  00:00:00  |
+|  BRAM Register                                    |            0  |              0  |                     0  |           0  |           1  |  00:00:00  |
+|  URAM Register                                    |            0  |              0  |                     0  |           0  |           1  |  00:00:00  |
+|  Dynamic/Static Region Interface Net Replication  |            0  |              0  |                     0  |           0  |           1  |  00:00:00  |
+|  Total                                            |           75  |            175  |                   224  |           0  |           9  |  00:00:03  |
+-----------------------------------------------------------------------------------------------------------------------------------------------------------
+
+
+Phase 2.3.1 Physical Synthesis In Placer | Checksum: eb5f3460
+
+Time (s): cpu = 00:01:32 ; elapsed = 00:01:21 . Memory (MB): peak = 3878.004 ; gain = 236.512
+SLR(matching) [0-1]       0     0     0     0     0     0     0     0     0     0     0     0  Total:     0
+SLR(matching) [1-2]       0     0     0     0     0     0     0     0     0     0     0     0  Total:     0
+Phase 2.3 Global Placement Core | Checksum: 146407688
+
+Time (s): cpu = 00:01:38 ; elapsed = 00:01:27 . Memory (MB): peak = 3878.004 ; gain = 236.512
+Phase 2 Global Placement | Checksum: 146407688
+
+Time (s): cpu = 00:01:38 ; elapsed = 00:01:27 . Memory (MB): peak = 3878.004 ; gain = 236.512
+
+Phase 3 Detail Placement
+
+Phase 3.1 Commit Multi Column Macros
+Phase 3.1 Commit Multi Column Macros | Checksum: f6fff3f2
+
+Time (s): cpu = 00:01:43 ; elapsed = 00:01:32 . Memory (MB): peak = 3878.004 ; gain = 236.512
+
+Phase 3.2 Commit Most Macros & LUTRAMs
+SLR(matching) [0-1]       0     0     0     0     0     0     0     0     0     0     0     0  Total:     0
+SLR(matching) [1-2]       0     0     0     0     0     0     0     0     0     0     0     0  Total:     0
+Phase 3.2 Commit Most Macros & LUTRAMs | Checksum: 16537984d
+
+Time (s): cpu = 00:01:44 ; elapsed = 00:01:33 . Memory (MB): peak = 3878.004 ; gain = 236.512
+
+Phase 3.3 Small Shape DP
+
+Phase 3.3.1 Small Shape Clustering
+SLR(matching) [0-1]       0     0     0     0     0     0     0     0     0     0     0     0  Total:     0
+SLR(matching) [1-2]       0     0     0     0     0     0     0     0     0     0     0     0  Total:     0
+Phase 3.3.1 Small Shape Clustering | Checksum: f8645cee
+
+Time (s): cpu = 00:01:55 ; elapsed = 00:01:45 . Memory (MB): peak = 3878.004 ; gain = 236.512
+
+Phase 3.3.2 Flow Legalize Slice Clusters
+Phase 3.3.2 Flow Legalize Slice Clusters | Checksum: 175ad1143
+
+Time (s): cpu = 00:01:59 ; elapsed = 00:01:49 . Memory (MB): peak = 3878.004 ; gain = 236.512
+
+Phase 3.3.3 Slice Area Swap
+SLR(matching) [0-1]       0     0     0     0     0     0     0     0     0     0     0     0  Total:     0
+SLR(matching) [1-2]       0     0     0     0     0     0     0     0     0     0     0     0  Total:     0
+SLR(matching) [0-1]       0     0     0     0     0     0     0     0     0     0     0     0  Total:     0
+SLR(matching) [1-2]       0     0     0     0     0     0     0     0     0     0     0     0  Total:     0
+Phase 3.3.3 Slice Area Swap | Checksum: fcb6292d
+
+Time (s): cpu = 00:02:02 ; elapsed = 00:01:52 . Memory (MB): peak = 3878.004 ; gain = 236.512
+Phase 3.3 Small Shape DP | Checksum: 1c9e5a3c5
+
+Time (s): cpu = 00:02:11 ; elapsed = 00:02:01 . Memory (MB): peak = 3926.258 ; gain = 284.766
+
+Phase 3.4 Re-assign LUT pins
+Phase 3.4 Re-assign LUT pins | Checksum: 187358615
+
+Time (s): cpu = 00:02:12 ; elapsed = 00:02:02 . Memory (MB): peak = 3926.258 ; gain = 284.766
+
+Phase 3.5 Pipeline Register Optimization
+Phase 3.5 Pipeline Register Optimization | Checksum: 1a2512b80
+
+Time (s): cpu = 00:02:12 ; elapsed = 00:02:02 . Memory (MB): peak = 3926.258 ; gain = 284.766
+
+Phase 3.6 Fast Optimization
+Phase 3.6 Fast Optimization | Checksum: 167fa0fce
+
+Time (s): cpu = 00:02:16 ; elapsed = 00:02:05 . Memory (MB): peak = 3926.258 ; gain = 284.766
+Phase 3 Detail Placement | Checksum: 167fa0fce
+
+Time (s): cpu = 00:02:16 ; elapsed = 00:02:05 . Memory (MB): peak = 3926.258 ; gain = 284.766
+
+Phase 4 Post Placement Optimization and Clean-Up
+
+Phase 4.1 Post Commit Optimization
+INFO: [Timing 38-35] Done setting XDC timing constraints.
+
+Phase 4.1.1 Post Placement Optimization
+Post Placement Optimization Initialization | Checksum: 17ba8149b
+
+Phase 4.1.1.1 BUFG Insertion
+
+Starting Physical Synthesis Task
+
+Phase 1 Physical Synthesis Initialization
+INFO: [Physopt 32-721] Multithreading enabled for phys_opt_design using a maximum of 2 CPUs
+INFO: [Physopt 32-619] Estimated Timing Summary | WNS=0.011 | TNS=0.000 |
+Phase 1 Physical Synthesis Initialization | Checksum: 10bf78fdf
+
+Time (s): cpu = 00:00:01 ; elapsed = 00:00:00.277 . Memory (MB): peak = 3926.258 ; gain = 0.000
+INFO: [Place 46-56] BUFG insertion identified 0 candidate nets. Inserted BUFG: 0, Replicated BUFG Driver: 0, Skipped due to Placement/Routing Conflicts: 0, Skipped due to Timing Degradation: 0, Skipped due to Illegal Netlist: 0.
+Ending Physical Synthesis Task | Checksum: 16c21b227
+
+Time (s): cpu = 00:00:01 ; elapsed = 00:00:00.350 . Memory (MB): peak = 3926.258 ; gain = 0.000
+Phase 4.1.1.1 BUFG Insertion | Checksum: 17ba8149b
+
+Time (s): cpu = 00:02:24 ; elapsed = 00:02:12 . Memory (MB): peak = 3926.258 ; gain = 284.766
+
+Phase 4.1.1.2 BUFG Replication
+INFO: [Place 46-63] BUFG replication identified 0 candidate nets: Replicated nets: 0, Replicated BUFGs: 0, Replicated BUFG Driver: 0, Skipped due to Placement / Routing Conflict: 0, Skipped due to Timing: 0, Skipped due to constraints: 0
+Phase 4.1.1.2 BUFG Replication | Checksum: 17ba8149b
+
+Time (s): cpu = 00:02:24 ; elapsed = 00:02:12 . Memory (MB): peak = 3926.258 ; gain = 284.766
+INFO: [Place 30-746] Post Placement Timing Summary WNS=0.505. For the most accurate timing information please run report_timing.
+
+Phase 4.1.1.3 Replication
+INFO: [Place 46-19] Post Replication Timing Summary WNS=0.505. For the most accurate timing information please run report_timing.
+Phase 4.1.1.3 Replication | Checksum: 12eb1db33
+
+Time (s): cpu = 00:02:53 ; elapsed = 00:02:45 . Memory (MB): peak = 3926.258 ; gain = 284.766
+
+Time (s): cpu = 00:02:53 ; elapsed = 00:02:45 . Memory (MB): peak = 3926.258 ; gain = 284.766
+Phase 4.1 Post Commit Optimization | Checksum: 12eb1db33
+
+Time (s): cpu = 00:02:53 ; elapsed = 00:02:45 . Memory (MB): peak = 3926.258 ; gain = 284.766
+
+Phase 4.2 Post Placement Cleanup
+Phase 4.2 Post Placement Cleanup | Checksum: 12eb1db33
+
+Time (s): cpu = 00:03:27 ; elapsed = 00:03:21 . Memory (MB): peak = 3926.258 ; gain = 284.766
+
+Phase 4.3 Placer Reporting
+
+Phase 4.3.1 Print Estimated Congestion
+INFO: [Place 30-612] Post-Placement Estimated Congestion 
+ ________________________________________________________________________
+|           | Global Congestion | Long Congestion   | Short Congestion  |
+| Direction | Region Size       | Region Size       | Region Size       |
+|___________|___________________|___________________|___________________|
+|      North|                1x1|                1x1|                1x1|
+|___________|___________________|___________________|___________________|
+|      South|                1x1|                1x1|                1x1|
+|___________|___________________|___________________|___________________|
+|       East|                1x1|                1x1|                2x2|
+|___________|___________________|___________________|___________________|
+|       West|                1x1|                1x1|                2x2|
+|___________|___________________|___________________|___________________|
+
+Phase 4.3.1 Print Estimated Congestion | Checksum: 12eb1db33
+
+Time (s): cpu = 00:03:27 ; elapsed = 00:03:21 . Memory (MB): peak = 3926.258 ; gain = 284.766
+Phase 4.3 Placer Reporting | Checksum: 12eb1db33
+
+Time (s): cpu = 00:03:27 ; elapsed = 00:03:21 . Memory (MB): peak = 3926.258 ; gain = 284.766
+
+Phase 4.4 Final Placement Cleanup
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.003 . Memory (MB): peak = 3926.258 ; gain = 0.000
+
+Time (s): cpu = 00:03:27 ; elapsed = 00:03:21 . Memory (MB): peak = 3926.258 ; gain = 284.766
+Phase 4 Post Placement Optimization and Clean-Up | Checksum: 983a0db0
+
+Time (s): cpu = 00:03:27 ; elapsed = 00:03:21 . Memory (MB): peak = 3926.258 ; gain = 284.766
+Ending Placer Task | Checksum: 89c44300
+
+Time (s): cpu = 00:03:27 ; elapsed = 00:03:21 . Memory (MB): peak = 3926.258 ; gain = 284.766
+INFO: [Common 17-83] Releasing license: Implementation
+59 Infos, 2 Warnings, 0 Critical Warnings and 0 Errors encountered.
+place_design completed successfully
+place_design: Time (s): cpu = 00:04:03 ; elapsed = 00:03:57 . Memory (MB): peak = 3926.258 ; gain = 1103.742
+Command: phys_opt_design
+Attempting to get a license for feature 'Implementation' and/or device 'xcvu9p'
+INFO: [Common 17-349] Got license for feature 'Implementation' and/or device 'xcvu9p'
+INFO: [Vivado_Tcl 4-383] Design worst setup slack (WNS) is greater than or equal to 0.000 ns. Skipping all physical synthesis optimizations.
+INFO: [Vivado_Tcl 4-232] No setup violation found. The netlist was not modified.
+INFO: [Common 17-83] Releasing license: Implementation
+63 Infos, 2 Warnings, 0 Critical Warnings and 0 Errors encountered.
+phys_opt_design completed successfully
+Command: route_design
+Attempting to get a license for feature 'Implementation' and/or device 'xcvu9p'
+INFO: [Common 17-349] Got license for feature 'Implementation' and/or device 'xcvu9p'
+Running DRC as a precondition to command route_design
+INFO: [DRC 23-27] Running DRC with 2 threads
+INFO: [Vivado_Tcl 4-198] DRC finished with 0 Errors
+INFO: [Vivado_Tcl 4-199] Please refer to the DRC report (report_drc) for more information.
+
+
+Starting Routing Task
+INFO: [Route 35-254] Multithreading enabled for route_design using a maximum of 2 CPUs
+Checksum: PlaceDB: 65896c8a ConstDB: 0 ShapeSum: 243ad676 RouteDB: 0
+
+Phase 1 Build RT Design
+Nodegraph reading from file.  Time (s): cpu = 00:00:02 ; elapsed = 00:00:03 . Memory (MB): peak = 3926.258 ; gain = 0.000
+WARNING: [Route 35-197] Clock port "clk" does not have an associated HD.CLK_SRC. Without this constraint, timing analysis may not be accurate and upstream checks cannot be done to ensure correct clock placement.
+WARNING: [Route 35-198] Port "reset" does not have an associated HD.PARTPIN_LOCS, which will prevent the partial routing of the signal "reset". Without this partial route, timing analysis to/from this port will not be accurate, and no routing information for this port can be exported.
+WARNING: [Route 35-198] Port "syndrome[3]" does not have an associated HD.PARTPIN_LOCS, which will prevent the partial routing of the signal "syndrome[3]". Without this partial route, timing analysis to/from this port will not be accurate, and no routing information for this port can be exported.
+WARNING: [Route 35-198] Port "syndrome[0]" does not have an associated HD.PARTPIN_LOCS, which will prevent the partial routing of the signal "syndrome[0]". Without this partial route, timing analysis to/from this port will not be accurate, and no routing information for this port can be exported.
+WARNING: [Route 35-198] Port "start" does not have an associated HD.PARTPIN_LOCS, which will prevent the partial routing of the signal "start". Without this partial route, timing analysis to/from this port will not be accurate, and no routing information for this port can be exported.
+WARNING: [Route 35-198] Port "syndrome[4]" does not have an associated HD.PARTPIN_LOCS, which will prevent the partial routing of the signal "syndrome[4]". Without this partial route, timing analysis to/from this port will not be accurate, and no routing information for this port can be exported.
+WARNING: [Route 35-198] Port "syndrome[1]" does not have an associated HD.PARTPIN_LOCS, which will prevent the partial routing of the signal "syndrome[1]". Without this partial route, timing analysis to/from this port will not be accurate, and no routing information for this port can be exported.
+WARNING: [Route 35-198] Port "syndrome[5]" does not have an associated HD.PARTPIN_LOCS, which will prevent the partial routing of the signal "syndrome[5]". Without this partial route, timing analysis to/from this port will not be accurate, and no routing information for this port can be exported.
+WARNING: [Route 35-198] Port "syndrome[2]" does not have an associated HD.PARTPIN_LOCS, which will prevent the partial routing of the signal "syndrome[2]". Without this partial route, timing analysis to/from this port will not be accurate, and no routing information for this port can be exported.
+Phase 1 Build RT Design | Checksum: 4462a35d
+
+Time (s): cpu = 00:00:18 ; elapsed = 00:00:19 . Memory (MB): peak = 3926.258 ; gain = 0.000
+Post Restoration Checksum: NetGraph: 3bd61c9 NumContArr: 40a54194 Constraints: 0 Timing: 0
+
+Phase 2 Router Initialization
+
+Phase 2.1 Create Timer
+Phase 2.1 Create Timer | Checksum: 4462a35d
+
+Time (s): cpu = 00:00:18 ; elapsed = 00:00:19 . Memory (MB): peak = 3926.258 ; gain = 0.000
+
+Phase 2.2 Fix Topology Constraints
+Phase 2.2 Fix Topology Constraints | Checksum: 4462a35d
+
+Time (s): cpu = 00:00:18 ; elapsed = 00:00:19 . Memory (MB): peak = 3926.258 ; gain = 0.000
+
+Phase 2.3 Pre Route Cleanup
+Phase 2.3 Pre Route Cleanup | Checksum: 4462a35d
+
+Time (s): cpu = 00:00:18 ; elapsed = 00:00:19 . Memory (MB): peak = 3926.258 ; gain = 0.000
+
+Phase 2.4 Global Clock Net Routing
+Phase 2.4 Global Clock Net Routing | Checksum: 4462a35d
+
+Time (s): cpu = 00:00:24 ; elapsed = 00:00:23 . Memory (MB): peak = 4399.137 ; gain = 472.879
+
+Phase 2.5 Update Timing
+Phase 2.5 Update Timing | Checksum: b8bb6f46
+
+Time (s): cpu = 00:00:28 ; elapsed = 00:00:26 . Memory (MB): peak = 4399.137 ; gain = 472.879
+INFO: [Route 35-416] Intermediate Timing Summary | WNS=0.742  | TNS=0.000  | WHS=0.024  | THS=0.000  |
+
+Phase 2 Router Initialization | Checksum: 645634e9
+
+Time (s): cpu = 00:00:29 ; elapsed = 00:00:27 . Memory (MB): peak = 4399.137 ; gain = 472.879
+
+Router Utilization Summary
+  Global Vertical Routing Utilization    = 0 %
+  Global Horizontal Routing Utilization  = 0 %
+  Routable Net Status*
+  *Does not include unroutable nets such as driverless and loadless.
+  Run report_route_status for detailed report.
+  Number of Failed Nets               = 6326
+    (Failed Nets is the sum of unrouted and partially routed nets)
+  Number of Unrouted Nets             = 3160
+  Number of Partially Routed Nets     = 3166
+  Number of Node Overlaps             = 0
+
+
+Phase 3 Initial Routing
+
+Phase 3.1 Global Routing
+Phase 3.1 Global Routing | Checksum: 645634e9
+
+Time (s): cpu = 00:00:35 ; elapsed = 00:00:32 . Memory (MB): peak = 4423.125 ; gain = 496.867
+Phase 3 Initial Routing | Checksum: 224eb6077
+
+Time (s): cpu = 00:00:47 ; elapsed = 00:00:39 . Memory (MB): peak = 4423.125 ; gain = 496.867
+
+Phase 4 Rip-up And Reroute
+
+Phase 4.1 Global Iteration 0
+ Number of Nodes with overlaps = 1870
+ Number of Nodes with overlaps = 223
+ Number of Nodes with overlaps = 44
+ Number of Nodes with overlaps = 14
+ Number of Nodes with overlaps = 5
+ Number of Nodes with overlaps = 0
+INFO: [Route 35-416] Intermediate Timing Summary | WNS=0.201  | TNS=0.000  | WHS=0.039  | THS=0.000  |
+
+Phase 4.1 Global Iteration 0 | Checksum: 13d4a04fe
+
+Time (s): cpu = 00:01:08 ; elapsed = 00:00:55 . Memory (MB): peak = 4423.125 ; gain = 496.867
+
+Phase 4.2 Additional Iteration for Hold
+Phase 4.2 Additional Iteration for Hold | Checksum: 171342336
+
+Time (s): cpu = 00:01:08 ; elapsed = 00:00:56 . Memory (MB): peak = 4423.125 ; gain = 496.867
+Phase 4 Rip-up And Reroute | Checksum: 171342336
+
+Time (s): cpu = 00:01:08 ; elapsed = 00:00:56 . Memory (MB): peak = 4423.125 ; gain = 496.867
+
+Phase 5 Delay and Skew Optimization
+
+Phase 5.1 Delay CleanUp
+Phase 5.1 Delay CleanUp | Checksum: 171342336
+
+Time (s): cpu = 00:01:08 ; elapsed = 00:00:56 . Memory (MB): peak = 4423.125 ; gain = 496.867
+
+Phase 5.2 Clock Skew Optimization
+Phase 5.2 Clock Skew Optimization | Checksum: 171342336
+
+Time (s): cpu = 00:01:09 ; elapsed = 00:00:56 . Memory (MB): peak = 4423.125 ; gain = 496.867
+Phase 5 Delay and Skew Optimization | Checksum: 171342336
+
+Time (s): cpu = 00:01:09 ; elapsed = 00:00:56 . Memory (MB): peak = 4423.125 ; gain = 496.867
+
+Phase 6 Post Hold Fix
+
+Phase 6.1 Hold Fix Iter
+
+Phase 6.1.1 Update Timing
+Phase 6.1.1 Update Timing | Checksum: 193eb30e9
+
+Time (s): cpu = 00:01:10 ; elapsed = 00:00:57 . Memory (MB): peak = 4423.125 ; gain = 496.867
+INFO: [Route 35-416] Intermediate Timing Summary | WNS=0.201  | TNS=0.000  | WHS=0.039  | THS=0.000  |
+
+Phase 6.1 Hold Fix Iter | Checksum: 193eb30e9
+
+Time (s): cpu = 00:01:10 ; elapsed = 00:00:57 . Memory (MB): peak = 4423.125 ; gain = 496.867
+Phase 6 Post Hold Fix | Checksum: 193eb30e9
+
+Time (s): cpu = 00:01:10 ; elapsed = 00:00:57 . Memory (MB): peak = 4423.125 ; gain = 496.867
+
+Phase 7 Route finalize
+
+Router Utilization Summary
+  Global Vertical Routing Utilization    = 0.0940861 %
+  Global Horizontal Routing Utilization  = 0.0864585 %
+  Routable Net Status*
+  *Does not include unroutable nets such as driverless and loadless.
+  Run report_route_status for detailed report.
+  Number of Failed Nets               = 0
+    (Failed Nets is the sum of unrouted and partially routed nets)
+  Number of Unrouted Nets             = 0
+  Number of Partially Routed Nets     = 0
+  Number of Node Overlaps             = 0
+
+Phase 7 Route finalize | Checksum: d358c9ca
+
+Time (s): cpu = 00:01:13 ; elapsed = 00:00:59 . Memory (MB): peak = 4423.125 ; gain = 496.867
+
+Phase 8 Verifying routed nets
+
+ Verification completed successfully
+Phase 8 Verifying routed nets | Checksum: d358c9ca
+
+Time (s): cpu = 00:01:13 ; elapsed = 00:00:59 . Memory (MB): peak = 4423.125 ; gain = 496.867
+
+Phase 9 Depositing Routes
+Phase 9 Depositing Routes | Checksum: d358c9ca
+
+Time (s): cpu = 00:01:14 ; elapsed = 00:01:00 . Memory (MB): peak = 4423.125 ; gain = 496.867
+
+Phase 10 Post Router Timing
+INFO: [Route 35-57] Estimated Timing Summary | WNS=0.201  | TNS=0.000  | WHS=0.039  | THS=0.000  |
+
+INFO: [Route 35-327] The final timing numbers are based on the router estimated timing analysis. For a complete and accurate timing signoff, please run report_timing_summary.
+Phase 10 Post Router Timing | Checksum: d358c9ca
+
+Time (s): cpu = 00:01:14 ; elapsed = 00:01:00 . Memory (MB): peak = 4423.125 ; gain = 496.867
+INFO: [Route 35-16] Router Completed Successfully
+
+Time (s): cpu = 00:01:14 ; elapsed = 00:01:00 . Memory (MB): peak = 4423.125 ; gain = 496.867
+
+Routing Is Done.
+INFO: [Common 17-83] Releasing license: Implementation
+75 Infos, 11 Warnings, 0 Critical Warnings and 0 Errors encountered.
+route_design completed successfully
+route_design: Time (s): cpu = 00:01:20 ; elapsed = 00:01:03 . Memory (MB): peak = 4423.125 ; gain = 496.867
+INFO: [Timing 38-91] UpdateTimingParams: Speed grade: -2L, Temperature grade: E, Delay Type: max.
+INFO: [Timing 38-191] Multithreading enabled for timing update using a maximum of 2 CPUs
+WARNING: [Timing 38-242] The property HD.CLK_SRC of clock port "clk" is not set. In out-of-context mode, this prevents timing estimation for clock delay/skew
+Resolution: Set the HD.CLK_SRC property of the out-of-context port to the location of the clock buffer instance in the top-level design
+INFO: [Timing 38-91] UpdateTimingParams: Speed grade: -2L, Temperature grade: E, Delay Type: max.
+INFO: [Timing 38-191] Multithreading enabled for timing update using a maximum of 2 CPUs
+INFO: [Timing 38-78] ReportTimingParams: -max_paths 20 -nworst 1 -delay_type max -sort_by slack.
+Command: report_power -file {D:\ycz\doc\deepseek_workzone\decoder\fpga_flow\logs/power_surface_d3_2to1_mints_xcvu9p.rpt}
+Running Vector-less Activity Propagation...
+
+Finished Running Vector-less Activity Propagation
+80 Infos, 12 Warnings, 0 Critical Warnings and 0 Errors encountered.
+report_power completed successfully
+report_power: Time (s): cpu = 00:00:09 ; elapsed = 00:00:07 . Memory (MB): peak = 4423.125 ; gain = 0.000
+Command: report_drc -file {D:\ycz\doc\deepseek_workzone\decoder\fpga_flow\logs/drc_surface_d3_2to1_mints_xcvu9p.rpt}
+INFO: [IP_Flow 19-234] Refreshing IP repositories
+INFO: [IP_Flow 19-1704] No user IP repositories specified
+INFO: [IP_Flow 19-2313] Loaded Vivado IP repository 'D:/ycz/vivado/Vivado/2020.2/data/ip'.
+INFO: [DRC 23-27] Running DRC with 2 threads
+INFO: [Coretcl 2-168] The results of DRC are in file D:/ycz/doc/deepseek_workzone/decoder/fpga_flow/logs/drc_surface_d3_2to1_mints_xcvu9p.rpt.
+report_drc completed successfully
+report_drc: Time (s): cpu = 00:00:10 ; elapsed = 00:00:08 . Memory (MB): peak = 4423.125 ; gain = 0.000
+report_clock_utilization: Time (s): cpu = 00:00:19 ; elapsed = 00:00:20 . Memory (MB): peak = 4423.125 ; gain = 0.000
+INFO: [Timing 38-480] Writing timing data to binary archive.
+Writing placer database...
+Writing XDEF routing.
+Writing XDEF routing logical nets.
+Writing XDEF routing special nets.
+Write XDEF Complete: Time (s): cpu = 00:00:02 ; elapsed = 00:00:00.860 . Memory (MB): peak = 4423.125 ; gain = 0.000
+INFO: [Common 17-1381] The checkpoint 'D:/ycz/doc/deepseek_workzone/decoder/fpga_flow/logs/postroute_surface_d3_2to1_mints_xcvu9p.dcp' has been generated.
+# set util_file [expr {$mode eq "impl" ? "$outdir/util_route_$tag.rpt" : "$outdir/util_synth_$tag.rpt"}]
+# proc util_row {file label} {
+#   if {![file exists $file]} { return "NA" }
+#   set fh [open $file r]
+#   set data [read $fh]
+#   close $fh
+#   foreach line [split $data "\n"] {
+#     if {[string first $label $line] >= 0} {
+#       set cols [regexp -all -inline {\S+} $line]
+#       # rows look like:  | CLB LUTs | 780 | 0 | 1182240 | 0.07 |
+#       foreach c $cols { if {[string is integer -strict $c]} { return $c } }
+#     }
+#   }
+#   return "NA"
+# }
+# set wns "NA";
+# set levels "NA";
+# set minp "NA";
+# set fmax "NA"
+# set tp [get_timing_paths -delay_type max -max_paths 1 -quiet]
+# if {[llength $tp]} {
+#   set wns [get_property SLACK $tp]
+#   set levels [get_property LOGIC_LEVELS $tp]
+#   if {$wns ne ""} { set minp [expr {$period - $wns}]
+#                     if {$minp > 0} { set fmax [format "%.1f" [expr {1000.0 / $minp}]] } }
+# }
+# puts "FLOW_RESULT tag=$tag top=$top part=$part period=$period mode=$mode \
+# wns=$wns levels=$levels min_period=$minp fmax_mhz=$fmax \
+# lut=[util_row $util_file {CLB LUTs}] \
+# ff=[util_row $util_file {CLB Registers}] \
+# lutram=[util_row $util_file {LUT as Memory}] \
+# bram=[util_row $util_file {Block RAM Tile}] \
+# uram=[util_row $util_file {URAM}] \
+# dsp=[util_row $util_file {DSPs}]"
+FLOW_RESULT tag=surface_d3_2to1_mints_xcvu9p top=snowflake_pe_array part=xcvu9p-flga2104-2L-e period=5.0 mode=impl  wns=0.201 levels=17 min_period=4.799 fmax_mhz=208.4  lut=5529  ff=1374  lutram=0  bram=0  uram=0  dsp=0
+# puts "FLOW_DONE $tag"
+FLOW_DONE surface_d3_2to1_mints_xcvu9p
+INFO: [Common 17-206] Exiting Vivado at Fri Sep 18 22:54:36 2026...

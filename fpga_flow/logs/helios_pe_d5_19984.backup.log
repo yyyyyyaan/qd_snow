@@ -1,0 +1,159 @@
+#-----------------------------------------------------------
+# Vivado v2020.2 (64-bit)
+# SW Build 3064766 on Wed Nov 18 09:12:45 MST 2020
+# IP Build 3064653 on Wed Nov 18 14:17:31 MST 2020
+# Start of session at: Wed Sep 16 22:32:35 2026
+# Process ID: 19984
+# Current directory: D:/ycz/doc/deepseek_workzone/decoder
+# Command line: vivado.exe -mode batch -source fpga_flow\synth_helios_pe.tcl -log fpga_flow\logs\helios_pe_d5.log -journal fpga_flow\logs\helios_pe_d5.jou
+# Log file: D:/ycz/doc/deepseek_workzone/decoder/fpga_flow/logs/helios_pe_d5.log
+# Journal file: D:/ycz/doc/deepseek_workzone/decoder\fpga_flow\logs\helios_pe_d5.jou
+#-----------------------------------------------------------
+source {fpga_flow\synth_helios_pe.tcl}
+# set here [file dirname [file normalize [info script]]]
+# set repo [file join $here helios_baseline]
+# set outdir [file join $here logs]
+# set tag "helios_pe_d21"
+# if {[info exists ::env(HELIOS_TAG)] && $::env(HELIOS_TAG) ne ""} { set tag $::env(HELIOS_TAG) }
+# set part xcvu9p-flga2104-2L-e
+# set period 5.0
+# set top processing_unit
+# file mkdir $outdir
+# set srcs {}
+# foreach rel {
+#   parameters/parameters.sv
+#   design/pe/processing_unit.sv
+#   design/generics/tree_compare_solver.sv
+#   design/generics/tree_distance_3d_solver.sv
+#   design/generics/many_to_one_mux.sv
+#   design/channels/blocking_channel.sv
+#   design/channels/nonblocking_channel.sv
+#   design/channels/neighbor_link.sv
+#   design/channels/neigbor_link_fifo.sv
+#   design/channels/pu_arbitration.sv
+#   design/channels/final_arbitration.sv
+# } {
+#   set f [file join $repo $rel]
+#   if {[file exists $f]} { lappend srcs $f } else { puts "HELIOS_MISSING $rel" }
+# }
+# foreach f [lsort [glob -nocomplain [file join $repo design generics *.v]]] {
+#   if {[string match "*fifo*" $f]} { lappend srcs $f }
+# }
+# puts "HELIOS_PE_SRCS [llength $srcs] files"
+HELIOS_PE_SRCS 12 files
+# foreach s $srcs { puts "  [file tail $s]" }
+  parameters.sv
+  processing_unit.sv
+  tree_compare_solver.sv
+  tree_distance_3d_solver.sv
+  many_to_one_mux.sv
+  blocking_channel.sv
+  nonblocking_channel.sv
+  neighbor_link.sv
+  neigbor_link_fifo.sv
+  pu_arbitration.sv
+  final_arbitration.sv
+  fifo_fwft.v
+# foreach s $srcs { read_verilog -sv $s }
+# set xdc [file join $outdir "ooc_$tag.xdc"]
+# set fh [open $xdc w]
+# puts $fh "create_clock -name clk -period $period \[get_ports clk\]"
+# close $fh
+# read_xdc $xdc
+# if {[catch {
+#   set gens {}
+#   # The repository's PE carries DIRECT_CHANNEL_COUNT = 3 (low-latency "ll_connected"
+#   # channels) on top of the six neighbour links.  The paper's 200 LUT/PE figure is
+#   # quoted for "a PE for d = 21 with six adjacent PEs", i.e. WITHOUT direct
+#   # channels, so the comparison needs a variant that drops them:
+#   #   $env(HELIOS_PE_GENERICS) = "DIRECT_CHANNEL_COUNT 1"
+#   if {[info exists ::env(HELIOS_PE_GENERICS)] && $::env(HELIOS_PE_GENERICS) ne ""} {
+#     set gens [split $::env(HELIOS_PE_GENERICS)]
+#     puts "HELIOS_PE_GENERICS $gens"
+#   }
+#   if {[llength $gens]} {
+#     synth_design -top $top -part $part -mode out_of_context -flatten_hierarchy none \
+#         -generic $gens
+#   } else {
+#     synth_design -top $top -part $part -mode out_of_context -flatten_hierarchy none
+#   }
+# } err]} {
+#   puts "HELIOS_PE_SYNTH_FAILED [lindex [split $err "\n"] 0]"
+#   exit 1
+# }
+HELIOS_PE_GENERICS ADDRESS_WIDTH 9 DISTANCE_WIDTH 4 MEASUREMENT_ROUNDS 5 CODE_DISTANCE_X 5 CODE_DISTANCE_Z 5 DIRECT_CHANNEL_COUNT 1
+Command: synth_design -top processing_unit -part xcvu9p-flga2104-2L-e -mode out_of_context -flatten_hierarchy none -generic {ADDRESS_WIDTH 9 DISTANCE_WIDTH 4 MEASUREMENT_ROUNDS 5 CODE_DISTANCE_X 5 CODE_DISTANCE_Z 5 DIRECT_CHANNEL_COUNT 1}
+Starting synth_design
+Attempting to get a license for feature 'Synthesis' and/or device 'xcvu9p'
+INFO: [Common 17-349] Got license for feature 'Synthesis' and/or device 'xcvu9p'
+INFO: [Device 21-403] Loading part xcvu9p-flga2104-2L-e
+INFO: [Synth 8-7079] Multithreading enabled for synth_design using a maximum of 2 processes.
+INFO: [Synth 8-7078] Launching helper process for spawning children vivado processes
+INFO: [Synth 8-7075] Helper process launched with PID 10324
+WARNING: [Synth 8-6901] identifier 'updated_is_touching_boundary' is used before its declaration [D:/ycz/doc/deepseek_workzone/decoder/fpga_flow/helios_baseline/design/pe/processing_unit.sv:239]
+WARNING: [Synth 8-6901] identifier 'updated_is_touching_boundary' is used before its declaration [D:/ycz/doc/deepseek_workzone/decoder/fpga_flow/helios_baseline/design/pe/processing_unit.sv:239]
+WARNING: [Synth 8-2507] parameter declaration becomes local in min_val_less_8x_with_index with formal parameter declaration list [D:/ycz/doc/deepseek_workzone/decoder/fpga_flow/helios_baseline/design/generics/tree_compare_solver.sv:216]
+WARNING: [Synth 8-6901] identifier 'ADDRESS_WIDTH' is used before its declaration [D:/ycz/doc/deepseek_workzone/decoder/fpga_flow/helios_baseline/design/channels/neigbor_link_fifo.sv:16]
+WARNING: [Synth 8-6901] identifier 'ADDRESS_WIDTH' is used before its declaration [D:/ycz/doc/deepseek_workzone/decoder/fpga_flow/helios_baseline/design/channels/neigbor_link_fifo.sv:17]
+WARNING: [Synth 8-6901] identifier 'ADDRESS_WIDTH' is used before its declaration [D:/ycz/doc/deepseek_workzone/decoder/fpga_flow/helios_baseline/design/channels/neigbor_link_fifo.sv:21]
+WARNING: [Synth 8-6901] identifier 'ADDRESS_WIDTH' is used before its declaration [D:/ycz/doc/deepseek_workzone/decoder/fpga_flow/helios_baseline/design/channels/neigbor_link_fifo.sv:24]
+WARNING: [Synth 8-1935] empty port in module declaration [D:/ycz/doc/deepseek_workzone/decoder/fpga_flow/helios_baseline/design/channels/pu_arbitration.sv:29]
+---------------------------------------------------------------------------------
+Starting RTL Elaboration : Time (s): cpu = 00:00:03 ; elapsed = 00:00:04 . Memory (MB): peak = 1862.707 ; gain = 251.406
+---------------------------------------------------------------------------------
+INFO: [Synth 8-6157] synthesizing module 'processing_unit' [D:/ycz/doc/deepseek_workzone/decoder/fpga_flow/helios_baseline/design/pe/processing_unit.sv:6]
+	Parameter ADDRESS_WIDTH bound to: 0 - type: integer 
+	Parameter DISTANCE_WIDTH bound to: 0 - type: integer 
+	Parameter BOUNDARY_WIDTH bound to: 2 - type: integer 
+	Parameter NEIGHBOR_COUNT bound to: 6 - type: integer 
+	Parameter FAST_CHANNEL_COUNT bound to: 0 - type: integer 
+	Parameter I bound to: 1 - type: integer 
+	Parameter J bound to: 2 - type: integer 
+	Parameter K bound to: 6 - type: integer 
+	Parameter CODE_DISTANCE_X bound to: 0 - type: integer 
+	Parameter CODE_DISTANCE_Z bound to: 0 - type: integer 
+	Parameter MEASUREMENT_ROUNDS bound to: 0 - type: integer 
+	Parameter INIT_BOUNDARY_COST_X bound to: 2 - type: integer 
+	Parameter INIT_BOUNDARY_COST_Z bound to: 2 - type: integer 
+	Parameter INIT_BOUNDARY_COST_UD bound to: 2 - type: integer 
+	Parameter DIRECT_CHANNEL_COUNT bound to: 0 - type: integer 
+	Parameter STAGE_WIDTH bound to: 4 - type: integer 
+	Parameter STAGE_IDLE bound to: 4'b0000 
+	Parameter STAGE_MEASUREMENT_LOADING bound to: 4'b0001 
+	Parameter STAGE_GROW bound to: 4'b0010 
+	Parameter STAGE_MERGE bound to: 4'b0011 
+	Parameter STAGE_PEELING bound to: 4'b0100 
+	Parameter STAGE_RESULT_VALID bound to: 4'b0101 
+	Parameter STAGE_PARAMETERS_LOADING bound to: 4'b0110 
+	Parameter STAGE_SPREAD_CLUSTER bound to: 4'b0111 
+	Parameter STAGE_GROW_BOUNDARY bound to: 4'b1000 
+	Parameter STAGE_SYNC_IS_ODD_CLUSTER bound to: 4'b1001 
+	Parameter STAGE_RESULT_CALCULATING bound to: 4'b1010 
+	Parameter STAGE_MEASUREMENT_PREPARING bound to: 4'b0111 
+	Parameter START_DECODING_MSG bound to: 8'b00000001 
+	Parameter MEASUREMENT_DATA_HEADER bound to: 8'b00000010 
+	Parameter CHANNEL_COUNT bound to: 6 - type: integer 
+	Parameter CHANNEL_WIDTH bound to: 3 - type: integer 
+	Parameter DIRECT_CHANNEL_WIDTH bound to: 0 - type: integer 
+	Parameter UNION_MESSAGE_WIDTH bound to: 0 - type: integer 
+	Parameter DIRECT_MESSAGE_WIDTH bound to: 2 - type: integer 
+	Parameter PER_DIMENSION_WIDTH bound to: -1 - type: integer 
+	Parameter CHANNEL_DEPTH bound to: 3 - type: integer 
+	Parameter DIRECT_CHANNEL_DEPTH bound to: 0 - type: integer 
+	Parameter CHANNEL_EXPAND_COUNT bound to: 8 - type: integer 
+	Parameter DIRECT_CHANNEL_EXPAND_COUNT bound to: 1 - type: integer 
+	Parameter CHANNEL_ALL_EXPAND_COUNT bound to: 15 - type: integer 
+	Parameter DIRECT_CHANNEL_ALL_EXPAND_COUNT bound to: 1 - type: integer 
+	Parameter CHANNEL_ROOT_IDX bound to: 14 - type: integer 
+	Parameter DIRECT_CHANNEL_ROOT_IDX bound to: 0 - type: integer 
+ERROR: [Synth 8-523] part-select [-1:-2] does not match declaration [D:/ycz/doc/deepseek_workzone/decoder/fpga_flow/helios_baseline/design/pe/processing_unit.sv:132]
+ERROR: [Synth 8-6156] failed synthesizing module 'processing_unit' [D:/ycz/doc/deepseek_workzone/decoder/fpga_flow/helios_baseline/design/pe/processing_unit.sv:6]
+---------------------------------------------------------------------------------
+Finished RTL Elaboration : Time (s): cpu = 00:00:04 ; elapsed = 00:00:05 . Memory (MB): peak = 1913.035 ; gain = 301.734
+---------------------------------------------------------------------------------
+RTL Elaboration failed
+INFO: [Common 17-83] Releasing license: Synthesis
+7 Infos, 8 Warnings, 0 Critical Warnings and 3 Errors encountered.
+synth_design failed
+HELIOS_PE_SYNTH_FAILED ERROR: [Common 17-69] Command failed: Synthesis failed - please see the console or run log file for details
+INFO: [Common 17-206] Exiting Vivado at Wed Sep 16 22:32:56 2026...

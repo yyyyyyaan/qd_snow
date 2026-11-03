@@ -1,0 +1,181 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1280 720" font-family="微软雅黑, Arial, PingFang SC, Noto Sans CJK SC, sans-serif" data-pptx-page-role="content">
+  <defs>
+    <marker id="arrow-graph" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto">
+      <path d="M0 0L10 5L0 10z" fill="#12263A"/>
+    </marker>
+  </defs>
+  <rect id="bg" data-pptx-role="background" x="0" y="0" width="1280" height="720" fill="#FFFFFF"/>
+
+  <g id="page-head" data-pptx-bounds="72 36 1136 80">
+    <text x="72" y="52" font-size="15" fill="#5A6672" letter-spacing="1.4">01 / 背景与问题定义</text>
+    <text x="72" y="100" font-size="38" font-weight="bold" fill="#12263A">一次解码 = 在 2 空间 + 1 时间的图上找连通块</text>
+    <rect x="1184" y="40" width="8" height="8" fill="#5A6672"/>
+    <text x="1208" y="49" font-size="15" fill="#5A6672" text-anchor="end">基础</text>
+    <line x1="72" y1="118" x2="1208" y2="118" stroke="#D8DEE5" stroke-width="1"/>
+  </g>
+
+  <g id="graph-legend" data-pptx-bounds="380 160 330 120">
+    <circle cx="388" cy="182" r="4" fill="#12263A"/>
+    <text x="404" y="188" font-size="15" fill="#5A6672">探测器节点</text>
+    <circle cx="388" cy="210" r="4" fill="#2C6E9B"/>
+    <text x="404" y="216" font-size="15" fill="#5A6672">边界节点</text>
+    <line x1="380" y1="238" x2="396" y2="238" stroke="#5A6672" stroke-width="1.2"/>
+    <text x="404" y="244" font-size="15" fill="#5A6672">解码图的边</text>
+    <line x1="380" y1="272" x2="396" y2="266" stroke="#12263A" stroke-width="1.4" marker-end="url(#arrow-graph)"/>
+    <text x="404" y="274" font-size="15" fill="#5A6672">时间轴 = 测量轮次</text>
+  </g>
+
+  <g id="graph-diagram" data-pptx-bounds="80 290 400 340">
+    <g id="layer-0">
+      <line x1="110" y1="600" x2="242" y2="600" stroke="#5A6672" stroke-width="1"/>
+      <line x1="126" y1="578" x2="258" y2="578" stroke="#5A6672" stroke-width="1"/>
+      <line x1="142" y1="556" x2="274" y2="556" stroke="#5A6672" stroke-width="1"/>
+      <line x1="158" y1="534" x2="290" y2="534" stroke="#5A6672" stroke-width="1"/>
+      <line x1="174" y1="512" x2="306" y2="512" stroke="#5A6672" stroke-width="1"/>
+      <line x1="110" y1="600" x2="174" y2="512" stroke="#5A6672" stroke-width="1"/>
+      <line x1="154" y1="600" x2="218" y2="512" stroke="#5A6672" stroke-width="1"/>
+      <line x1="198" y1="600" x2="262" y2="512" stroke="#5A6672" stroke-width="1"/>
+      <line x1="242" y1="600" x2="306" y2="512" stroke="#5A6672" stroke-width="1"/>
+      <circle cx="96" cy="596" r="2.8" fill="#2C6E9B"/>
+      <circle cx="112" cy="574" r="2.8" fill="#2C6E9B"/>
+      <circle cx="128" cy="552" r="2.8" fill="#2C6E9B"/>
+      <circle cx="144" cy="530" r="2.8" fill="#2C6E9B"/>
+      <circle cx="160" cy="508" r="2.8" fill="#2C6E9B"/>
+      <circle cx="256" cy="596" r="2.8" fill="#2C6E9B"/>
+      <circle cx="272" cy="574" r="2.8" fill="#2C6E9B"/>
+      <circle cx="288" cy="552" r="2.8" fill="#2C6E9B"/>
+      <circle cx="304" cy="530" r="2.8" fill="#2C6E9B"/>
+      <circle cx="320" cy="508" r="2.8" fill="#2C6E9B"/>
+    </g>
+    <g transform="translate(0,-46)">
+      <line x1="110" y1="600" x2="242" y2="600" stroke="#5A6672" stroke-width="1"/>
+      <line x1="126" y1="578" x2="258" y2="578" stroke="#5A6672" stroke-width="1"/>
+      <line x1="142" y1="556" x2="274" y2="556" stroke="#5A6672" stroke-width="1"/>
+      <line x1="158" y1="534" x2="290" y2="534" stroke="#5A6672" stroke-width="1"/>
+      <line x1="174" y1="512" x2="306" y2="512" stroke="#5A6672" stroke-width="1"/>
+      <line x1="110" y1="600" x2="174" y2="512" stroke="#5A6672" stroke-width="1"/>
+      <line x1="154" y1="600" x2="218" y2="512" stroke="#5A6672" stroke-width="1"/>
+      <line x1="198" y1="600" x2="262" y2="512" stroke="#5A6672" stroke-width="1"/>
+      <line x1="242" y1="600" x2="306" y2="512" stroke="#5A6672" stroke-width="1"/>
+      <circle cx="96" cy="596" r="2.8" fill="#2C6E9B"/>
+      <circle cx="112" cy="574" r="2.8" fill="#2C6E9B"/>
+      <circle cx="128" cy="552" r="2.8" fill="#2C6E9B"/>
+      <circle cx="144" cy="530" r="2.8" fill="#2C6E9B"/>
+      <circle cx="160" cy="508" r="2.8" fill="#2C6E9B"/>
+      <circle cx="256" cy="596" r="2.8" fill="#2C6E9B"/>
+      <circle cx="272" cy="574" r="2.8" fill="#2C6E9B"/>
+      <circle cx="288" cy="552" r="2.8" fill="#2C6E9B"/>
+      <circle cx="304" cy="530" r="2.8" fill="#2C6E9B"/>
+      <circle cx="320" cy="508" r="2.8" fill="#2C6E9B"/>
+    </g>
+    <g transform="translate(0,-92)">
+      <line x1="110" y1="600" x2="242" y2="600" stroke="#5A6672" stroke-width="1"/>
+      <line x1="126" y1="578" x2="258" y2="578" stroke="#5A6672" stroke-width="1"/>
+      <line x1="142" y1="556" x2="274" y2="556" stroke="#5A6672" stroke-width="1"/>
+      <line x1="158" y1="534" x2="290" y2="534" stroke="#5A6672" stroke-width="1"/>
+      <line x1="174" y1="512" x2="306" y2="512" stroke="#5A6672" stroke-width="1"/>
+      <line x1="110" y1="600" x2="174" y2="512" stroke="#5A6672" stroke-width="1"/>
+      <line x1="154" y1="600" x2="218" y2="512" stroke="#5A6672" stroke-width="1"/>
+      <line x1="198" y1="600" x2="262" y2="512" stroke="#5A6672" stroke-width="1"/>
+      <line x1="242" y1="600" x2="306" y2="512" stroke="#5A6672" stroke-width="1"/>
+      <circle cx="96" cy="596" r="2.8" fill="#2C6E9B"/>
+      <circle cx="112" cy="574" r="2.8" fill="#2C6E9B"/>
+      <circle cx="128" cy="552" r="2.8" fill="#2C6E9B"/>
+      <circle cx="144" cy="530" r="2.8" fill="#2C6E9B"/>
+      <circle cx="160" cy="508" r="2.8" fill="#2C6E9B"/>
+      <circle cx="256" cy="596" r="2.8" fill="#2C6E9B"/>
+      <circle cx="272" cy="574" r="2.8" fill="#2C6E9B"/>
+      <circle cx="288" cy="552" r="2.8" fill="#2C6E9B"/>
+      <circle cx="304" cy="530" r="2.8" fill="#2C6E9B"/>
+      <circle cx="320" cy="508" r="2.8" fill="#2C6E9B"/>
+    </g>
+    <g transform="translate(0,-138)">
+      <line x1="110" y1="600" x2="242" y2="600" stroke="#5A6672" stroke-width="1"/>
+      <line x1="126" y1="578" x2="258" y2="578" stroke="#5A6672" stroke-width="1"/>
+      <line x1="142" y1="556" x2="274" y2="556" stroke="#5A6672" stroke-width="1"/>
+      <line x1="158" y1="534" x2="290" y2="534" stroke="#5A6672" stroke-width="1"/>
+      <line x1="174" y1="512" x2="306" y2="512" stroke="#5A6672" stroke-width="1"/>
+      <line x1="110" y1="600" x2="174" y2="512" stroke="#5A6672" stroke-width="1"/>
+      <line x1="154" y1="600" x2="218" y2="512" stroke="#5A6672" stroke-width="1"/>
+      <line x1="198" y1="600" x2="262" y2="512" stroke="#5A6672" stroke-width="1"/>
+      <line x1="242" y1="600" x2="306" y2="512" stroke="#5A6672" stroke-width="1"/>
+      <circle cx="96" cy="596" r="2.8" fill="#2C6E9B"/>
+      <circle cx="112" cy="574" r="2.8" fill="#2C6E9B"/>
+      <circle cx="128" cy="552" r="2.8" fill="#2C6E9B"/>
+      <circle cx="144" cy="530" r="2.8" fill="#2C6E9B"/>
+      <circle cx="160" cy="508" r="2.8" fill="#2C6E9B"/>
+      <circle cx="256" cy="596" r="2.8" fill="#2C6E9B"/>
+      <circle cx="272" cy="574" r="2.8" fill="#2C6E9B"/>
+      <circle cx="288" cy="552" r="2.8" fill="#2C6E9B"/>
+      <circle cx="304" cy="530" r="2.8" fill="#2C6E9B"/>
+      <circle cx="320" cy="508" r="2.8" fill="#2C6E9B"/>
+    </g>
+    <g transform="translate(0,-184)">
+      <line x1="110" y1="600" x2="242" y2="600" stroke="#12263A" stroke-width="1.2"/>
+      <line x1="126" y1="578" x2="258" y2="578" stroke="#12263A" stroke-width="1.2"/>
+      <line x1="142" y1="556" x2="274" y2="556" stroke="#12263A" stroke-width="1.2"/>
+      <line x1="158" y1="534" x2="290" y2="534" stroke="#12263A" stroke-width="1.2"/>
+      <line x1="174" y1="512" x2="306" y2="512" stroke="#12263A" stroke-width="1.2"/>
+      <line x1="110" y1="600" x2="174" y2="512" stroke="#12263A" stroke-width="1.2"/>
+      <line x1="154" y1="600" x2="218" y2="512" stroke="#12263A" stroke-width="1.2"/>
+      <line x1="198" y1="600" x2="262" y2="512" stroke="#12263A" stroke-width="1.2"/>
+      <line x1="242" y1="600" x2="306" y2="512" stroke="#12263A" stroke-width="1.2"/>
+      <circle cx="96" cy="596" r="2.8" fill="#2C6E9B"/>
+      <circle cx="112" cy="574" r="2.8" fill="#2C6E9B"/>
+      <circle cx="128" cy="552" r="2.8" fill="#2C6E9B"/>
+      <circle cx="144" cy="530" r="2.8" fill="#2C6E9B"/>
+      <circle cx="160" cy="508" r="2.8" fill="#2C6E9B"/>
+      <circle cx="256" cy="596" r="2.8" fill="#2C6E9B"/>
+      <circle cx="272" cy="574" r="2.8" fill="#2C6E9B"/>
+      <circle cx="288" cy="552" r="2.8" fill="#2C6E9B"/>
+      <circle cx="304" cy="530" r="2.8" fill="#2C6E9B"/>
+      <circle cx="320" cy="508" r="2.8" fill="#2C6E9B"/>
+    </g>
+    <g id="detectors-top">
+      <circle cx="110" cy="416" r="3" fill="#12263A"/>
+      <circle cx="126" cy="394" r="3" fill="#12263A"/>
+      <circle cx="142" cy="372" r="3" fill="#12263A"/>
+      <circle cx="158" cy="350" r="3" fill="#12263A"/>
+      <circle cx="174" cy="328" r="3" fill="#12263A"/>
+      <circle cx="154" cy="416" r="3" fill="#12263A"/>
+      <circle cx="170" cy="394" r="3" fill="#12263A"/>
+      <circle cx="186" cy="372" r="3" fill="#12263A"/>
+      <circle cx="202" cy="350" r="3" fill="#12263A"/>
+      <circle cx="218" cy="328" r="3" fill="#12263A"/>
+      <circle cx="198" cy="416" r="3" fill="#12263A"/>
+      <circle cx="214" cy="394" r="3" fill="#12263A"/>
+      <circle cx="230" cy="372" r="3" fill="#12263A"/>
+      <circle cx="246" cy="350" r="3" fill="#12263A"/>
+      <circle cx="262" cy="328" r="3" fill="#12263A"/>
+      <circle cx="242" cy="416" r="3" fill="#12263A"/>
+      <circle cx="258" cy="394" r="3" fill="#12263A"/>
+      <circle cx="274" cy="372" r="3" fill="#12263A"/>
+      <circle cx="290" cy="350" r="3" fill="#12263A"/>
+      <circle cx="306" cy="328" r="3" fill="#12263A"/>
+    </g>
+    <line x1="364" y1="600" x2="364" y2="410" stroke="#12263A" stroke-width="1.4" marker-end="url(#arrow-graph)"/>
+    <text x="380" y="470" font-size="15" fill="#5A6672">时间</text>
+    <text x="380" y="494" font-size="15" fill="#5A6672">5 层</text>
+  </g>
+
+  <g id="definitions" data-pptx-bounds="800 160 408 260">
+    <text x="800" y="190" font-size="22" font-weight="bold" fill="#12263A">综合症：稳定子测量结果</text>
+    <text x="800" y="220" font-size="22" fill="#1B2632">相对上一次的变化</text>
+    <text x="800" y="280" font-size="22" font-weight="bold" fill="#12263A">探测器：一次变化事件</text>
+    <text x="800" y="310" font-size="22" fill="#1B2632">在图上就是一个节点</text>
+    <text x="800" y="370" font-size="22" font-weight="bold" fill="#12263A">解码图：节点是探测器</text>
+    <text x="800" y="400" font-size="22" fill="#1B2632">边是可能的错误机制</text>
+  </g>
+
+  <g id="scale-note" data-pptx-bounds="800 460 408 150">
+    <line x1="800" y1="470" x2="1208" y2="470" stroke="#D8DEE5" stroke-width="1"/>
+    <text x="800" y="508" font-size="22" fill="#1B2632">d = 5 未旋转，共 150 个节点<tspan x="800" dy="32">= 5 层 ×（20 探测器 + 2×5 边界）</tspan><tspan x="800" dy="32">每节点按 12 个方向登记邻居</tspan></text>
+    <text x="800" y="600" font-size="15" fill="#5A6672">边界节点只登记存在的方向</text>
+  </g>
+
+  <g id="page-foot" data-pptx-role="footer" data-pptx-bounds="72 636 1136 44">
+    <line x1="72" y1="640" x2="1208" y2="640" stroke="#D8DEE5" stroke-width="1"/>
+    <text x="72" y="666" font-size="15" fill="#5A6672">图中为示意；规模数字来自生成的图常量表</text>
+    <text x="1208" y="666" font-size="15" fill="#5A6672" text-anchor="end">04 / 26</text>
+  </g>
+</svg>

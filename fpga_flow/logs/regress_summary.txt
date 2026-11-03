@@ -1,0 +1,33 @@
+Snowflake-on-Helios : RTL vs localuf line-by-line regression
+============================================================
+Method: for each configuration the graph tables are exported from localuf by
+build_scripts/generate_snowflake.py, a golden per-timestep trace is produced by
+snowflake_sim/ref/gen_golden.py (the reference implementation itself), the RTL
+is simulated with xsim, and every state line and commit event is compared by
+snowflake_sim/ref/compare_trace.py (REGRESS_VERDICT PASS = identical).
+
+One command per configuration:  snowflake_sim\run\regress.bat <rep|surface> <d> [1:1]
+
+config,verdict,golden_lines,rtl_lines,commits
+rep_d3_2to1,PASS,2314,2314,6
+rep_d3_1to1,PASS,1508,1508,6
+surface_d3_2to1,PASS,7832,7832,6
+surface_d3_1to1,PASS,5104,5104,6
+rep_d5_2to1,PASS,6624,6624,4
+surface_d5_2to1,PASS,40112,40112,4
+
+Bugs found by this regression and fixed (none of them were visible in
+simulation before the corresponding configuration was run):
+  1. d = NDIR used as a "break" in a for loop -> Vivado failed synthesis
+     ("loop condition does not converge"); replaced by break.
+  2. generated lookup case statements had no default -> don't-care branches
+     (sim/synth mismatch risk); defaults added.
+  3. SNOW_SYN_NODE emitted a hard-coded 5'd<nid> -> truncated for node ids >= 32
+     (d >= 7); now emitted with the real width.
+  4. SNOW_CID_DELTA was hard-coded to 4 bits -> surface d>=5 and repetition
+     d>=13 step values were truncated; width now derived from the values.
+  5. |busy on an unpacked array is illegal SystemVerilog -> explicit OR loop.
+  6. testbench stimulus table was [15:0] while surface d=5 has 20 detectors ->
+     bits above 15 read as x and poisoned the defect flags; the table is now
+     SNOW_NSYN wide.  This was the only functional failure the sweep of
+     configurations actually caught (surface d5), and it is fixed.

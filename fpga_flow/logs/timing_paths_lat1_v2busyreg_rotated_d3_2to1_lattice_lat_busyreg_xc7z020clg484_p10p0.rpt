@@ -1,0 +1,2089 @@
+Copyright 1986-2020 Xilinx, Inc. All Rights Reserved.
+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+| Tool Version : Vivado v.2020.2 (win64) Build 3064766 Wed Nov 18 09:12:45 MST 2020
+| Date         : Wed Sep 23 20:41:43 2026
+| Host         : DESKTOP-TO7M6OH running 64-bit major release  (build 9200)
+| Command      : report_timing -delay_type max -max_paths 20 -input_pins -file {D:\ycz\doc\deepseek_workzone\decoder\fpga_flow\logs/timing_paths_lat1_v2busyreg_rotated_d3_2to1_lattice_lat_busyreg_xc7z020clg484_p10p0.rpt}
+| Design       : snowflake_pe_array_lat1
+| Device       : 7z020-clg484
+| Speed File   : -1  PRODUCTION 1.12 2019-11-22
+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+Timing Report
+
+Slack (VIOLATED) :        -5.616ns  (required time - arrival time)
+  Source:                 phase_reg[0]__0_rep__1_replica_10/C
+                            (rising edge-triggered cell FDRE clocked by clk  {rise@0.000ns fall@5.000ns period=10.000ns})
+  Destination:            g_slot[21].bshA_reg[21][0]/D
+                            (rising edge-triggered cell FDRE clocked by clk  {rise@0.000ns fall@5.000ns period=10.000ns})
+  Path Group:             clk
+  Path Type:              Setup (Max at Slow Process Corner)
+  Requirement:            10.000ns  (clk rise@10.000ns - clk rise@0.000ns)
+  Data Path Delay:        15.492ns  (logic 2.936ns (18.952%)  route 12.556ns (81.048%))
+  Logic Levels:           20  (LUT2=2 LUT3=1 LUT4=2 LUT5=3 LUT6=12)
+  Clock Path Skew:        -0.049ns (DCD - SCD + CPR)
+    Destination Clock Delay (DCD):    0.924ns = ( 10.924 - 10.000 ) 
+    Source Clock Delay      (SCD):    0.973ns
+    Clock Pessimism Removal (CPR):    0.000ns
+  Clock Uncertainty:      0.035ns  ((TSJ^2 + TIJ^2)^1/2 + DJ) / 2 + PE
+    Total System Jitter     (TSJ):    0.071ns
+    Total Input Jitter      (TIJ):    0.000ns
+    Discrete Jitter          (DJ):    0.000ns
+    Phase Error              (PE):    0.000ns
+
+    Location             Delay type                Incr(ns)  Path(ns)    Netlist Resource(s)
+  -------------------------------------------------------------------    -------------------
+                         (clock clk rise edge)        0.000     0.000 r  
+                                                      0.000     0.000 r  clk (IN)
+                         net (fo=830, unset)          0.973     0.973    clk
+    SLICE_X47Y127        FDRE                                         r  phase_reg[0]__0_rep__1_replica_10/C
+  -------------------------------------------------------------------    -------------------
+    SLICE_X47Y127        FDRE (Prop_fdre_C_Q)         0.456     1.429 r  phase_reg[0]__0_rep__1_replica_10/Q
+                         net (fo=8, routed)           0.546     1.975    phase_reg[0]__0_rep__1_n_0_repN_10
+    SLICE_X47Y128                                                     r  g_slot[5].pe_i_i_6/I1
+    SLICE_X47Y128        LUT2 (Prop_lut2_I1_O)        0.124     2.099 f  g_slot[5].pe_i_i_6/O
+                         net (fo=33, routed)          1.074     3.173    g_slot[21].pe_i/st_in[10]
+    SLICE_X44Y125                                                     f  g_slot[21].pe_i/st_out[14]_INST_0_i_19/I3
+    SLICE_X44Y125        LUT6 (Prop_lut6_I3_O)        0.124     3.297 r  g_slot[21].pe_i/st_out[14]_INST_0_i_19/O
+                         net (fo=1, routed)           0.805     4.103    g_slot[21].pe_i/st_out[14]_INST_0_i_19_n_0
+    SLICE_X45Y125                                                     r  g_slot[21].pe_i/st_out[14]_INST_0_i_11/I3
+    SLICE_X45Y125        LUT6 (Prop_lut6_I3_O)        0.124     4.227 r  g_slot[21].pe_i/st_out[14]_INST_0_i_11/O
+                         net (fo=24, routed)          0.539     4.766    g_slot[21].pe_i/st_out[14]_INST_0_i_11_n_0
+    SLICE_X47Y124                                                     r  g_slot[21].pe_i/st_out[14]_INST_0_i_31/I1
+    SLICE_X47Y124        LUT3 (Prop_lut3_I1_O)        0.124     4.890 r  g_slot[21].pe_i/st_out[14]_INST_0_i_31/O
+                         net (fo=5, routed)           0.646     5.536    g_slot[21].pe_i/st_out[14]_INST_0_i_31_n_0
+    SLICE_X47Y124                                                     r  g_slot[21].pe_i/st_out[14]_INST_0_i_23/I1
+    SLICE_X47Y124        LUT4 (Prop_lut4_I1_O)        0.124     5.660 r  g_slot[21].pe_i/st_out[14]_INST_0_i_23/O
+                         net (fo=3, routed)           0.541     6.201    g_slot[21].pe_i/st_out[14]_INST_0_i_23_n_0
+    SLICE_X46Y124                                                     r  g_slot[21].pe_i/st_out[14]_INST_0_i_12/I1
+    SLICE_X46Y124        LUT6 (Prop_lut6_I1_O)        0.124     6.325 r  g_slot[21].pe_i/st_out[14]_INST_0_i_12/O
+                         net (fo=23, routed)          0.365     6.690    g_slot[21].pe_i/st_out[14]_INST_0_i_12_n_0
+    SLICE_X44Y123                                                     r  g_slot[21].pe_i/st_out[11]_INST_0_i_5/I1
+    SLICE_X44Y123        LUT5 (Prop_lut5_I1_O)        0.124     6.814 r  g_slot[21].pe_i/st_out[11]_INST_0_i_5/O
+                         net (fo=3, routed)           0.606     7.420    g_slot[21].pe_i/st_out[11]_INST_0_i_5_n_0
+    SLICE_X41Y123                                                     r  g_slot[21].pe_i/st_out[3]_INST_0_i_8_comp/I3
+    SLICE_X41Y123        LUT6 (Prop_lut6_I3_O)        0.124     7.544 f  g_slot[21].pe_i/st_out[3]_INST_0_i_8_comp/O
+                         net (fo=1, routed)           0.769     8.313    g_slot[21].pe_i/st_out[3]_INST_0_i_8_n_0
+    SLICE_X43Y124                                                     f  g_slot[21].pe_i/st_out[3]_INST_0_i_4/I3
+    SLICE_X43Y124        LUT6 (Prop_lut6_I3_O)        0.124     8.437 r  g_slot[21].pe_i/st_out[3]_INST_0_i_4/O
+                         net (fo=17, routed)          0.744     9.181    g_slot[21].pe_i/st_out[3]_INST_0_i_4_n_0
+    SLICE_X42Y125                                                     r  g_slot[21].pe_i/st_out[15]_INST_0_i_18/I1
+    SLICE_X42Y125        LUT6 (Prop_lut6_I1_O)        0.124     9.305 f  g_slot[21].pe_i/st_out[15]_INST_0_i_18/O
+                         net (fo=1, routed)           0.444     9.749    g_slot[21].pe_i/st_out[15]_INST_0_i_18_n_0
+    SLICE_X42Y124                                                     f  g_slot[21].pe_i/st_out[15]_INST_0_i_11/I1
+    SLICE_X42Y124        LUT6 (Prop_lut6_I1_O)        0.124     9.873 r  g_slot[21].pe_i/st_out[15]_INST_0_i_11/O
+                         net (fo=14, routed)          0.538    10.411    g_slot[21].pe_i/st_out[15]_INST_0_i_11_n_0
+    SLICE_X40Y124                                                     r  g_slot[21].pe_i/st_out[12]_INST_0_i_13/I1
+    SLICE_X40Y124        LUT5 (Prop_lut5_I1_O)        0.124    10.535 f  g_slot[21].pe_i/st_out[12]_INST_0_i_13/O
+                         net (fo=4, routed)           0.617    11.152    g_slot[21].pe_i/st_out[12]_INST_0_i_13_n_0
+    SLICE_X41Y124                                                     f  g_slot[21].pe_i/st_out[15]_INST_0_i_15/I0
+    SLICE_X41Y124        LUT4 (Prop_lut4_I0_O)        0.124    11.276 f  g_slot[21].pe_i/st_out[15]_INST_0_i_15/O
+                         net (fo=4, routed)           0.468    11.744    g_slot[21].pe_i/st_out[15]_INST_0_i_15_n_0
+    SLICE_X40Y123                                                     f  g_slot[21].pe_i/st_out[15]_INST_0_i_8/I3
+    SLICE_X40Y123        LUT5 (Prop_lut5_I3_O)        0.124    11.868 r  g_slot[21].pe_i/st_out[15]_INST_0_i_8/O
+                         net (fo=15, routed)          0.611    12.479    g_slot[21].pe_i/st_out[15]_INST_0_i_8_n_0
+    SLICE_X36Y123                                                     r  g_slot[21].pe_i/st_out[12]_INST_0_i_11/I2
+    SLICE_X36Y123        LUT6 (Prop_lut6_I2_O)        0.124    12.603 f  g_slot[21].pe_i/st_out[12]_INST_0_i_11/O
+                         net (fo=2, routed)           0.872    13.475    g_slot[21].pe_i/st_out[12]_INST_0_i_11_n_0
+    SLICE_X41Y122                                                     f  g_slot[21].pe_i/st_out[5]_INST_0_i_4_comp/I2
+    SLICE_X41Y122        LUT6 (Prop_lut6_I2_O)        0.124    13.599 r  g_slot[21].pe_i/st_out[5]_INST_0_i_4_comp/O
+                         net (fo=3, routed)           0.442    14.041    g_slot[21].pe_i/st_out[5]_INST_0_i_4_n_0
+    SLICE_X42Y122                                                     r  g_slot[21].pe_i/st_out[5]_INST_0_i_1_comp/I3
+    SLICE_X42Y122        LUT6 (Prop_lut6_I3_O)        0.124    14.165 r  g_slot[21].pe_i/st_out[5]_INST_0_i_1_comp/O
+                         net (fo=5, routed)           0.747    14.912    g_slot[21].pe_i/st_out[5]_INST_0_i_1_n_0
+    SLICE_X39Y122                                                     r  g_slot[21].pe_i/st_out[8]_INST_0_i_3/I3
+    SLICE_X39Y122        LUT6 (Prop_lut6_I3_O)        0.124    15.036 r  g_slot[21].pe_i/st_out[8]_INST_0_i_3/O
+                         net (fo=2, routed)           0.665    15.701    g_slot[21].pe_i/st_out[8]_INST_0_i_3_n_0
+    SLICE_X38Y122                                                     r  g_slot[21].pe_i/st_out[0]_INST_0/I1
+    SLICE_X38Y122        LUT6 (Prop_lut6_I1_O)        0.124    15.825 r  g_slot[21].pe_i/st_out[0]_INST_0/O
+                         net (fo=2, routed)           0.182    16.006    slot_nxt[21][0]
+    SLICE_X38Y122                                                     r  g_slot[21].bshB[21][0]_i_1/I0
+    SLICE_X38Y122        LUT2 (Prop_lut2_I0_O)        0.124    16.130 r  g_slot[21].bshB[21][0]_i_1/O
+                         net (fo=2, routed)           0.335    16.465    p_12_out
+    SLICE_X37Y122        FDRE                                         r  g_slot[21].bshA_reg[21][0]/D
+  -------------------------------------------------------------------    -------------------
+
+                         (clock clk rise edge)       10.000    10.000 r  
+                                                      0.000    10.000 r  clk (IN)
+                         net (fo=830, unset)          0.924    10.924    clk
+    SLICE_X37Y122        FDRE                                         r  g_slot[21].bshA_reg[21][0]/C
+                         clock pessimism              0.000    10.924    
+                         clock uncertainty           -0.035    10.889    
+    SLICE_X37Y122        FDRE (Setup_fdre_C_D)       -0.040    10.849    g_slot[21].bshA_reg[21][0]
+  -------------------------------------------------------------------
+                         required time                         10.849    
+                         arrival time                         -16.465    
+  -------------------------------------------------------------------
+                         slack                                 -5.616    
+
+Slack (VIOLATED) :        -5.531ns  (required time - arrival time)
+  Source:                 g_slot[5].own_reg[27]/C
+                            (rising edge-triggered cell FDSE clocked by clk  {rise@0.000ns fall@5.000ns period=10.000ns})
+  Destination:            g_slot[5].bshA_reg[5][1]/D
+                            (rising edge-triggered cell FDRE clocked by clk  {rise@0.000ns fall@5.000ns period=10.000ns})
+  Path Group:             clk
+  Path Type:              Setup (Max at Slow Process Corner)
+  Requirement:            10.000ns  (clk rise@10.000ns - clk rise@0.000ns)
+  Data Path Delay:        15.404ns  (logic 2.812ns (18.255%)  route 12.592ns (81.745%))
+  Logic Levels:           19  (LUT2=1 LUT3=2 LUT4=1 LUT5=1 LUT6=14)
+  Clock Path Skew:        -0.049ns (DCD - SCD + CPR)
+    Destination Clock Delay (DCD):    0.924ns = ( 10.924 - 10.000 ) 
+    Source Clock Delay      (SCD):    0.973ns
+    Clock Pessimism Removal (CPR):    0.000ns
+  Clock Uncertainty:      0.035ns  ((TSJ^2 + TIJ^2)^1/2 + DJ) / 2 + PE
+    Total System Jitter     (TSJ):    0.071ns
+    Total Input Jitter      (TIJ):    0.000ns
+    Discrete Jitter          (DJ):    0.000ns
+    Phase Error              (PE):    0.000ns
+
+    Location             Delay type                Incr(ns)  Path(ns)    Netlist Resource(s)
+  -------------------------------------------------------------------    -------------------
+                         (clock clk rise edge)        0.000     0.000 r  
+                                                      0.000     0.000 r  clk (IN)
+                         net (fo=830, unset)          0.973     0.973    clk
+    SLICE_X49Y126        FDSE                                         r  g_slot[5].own_reg[27]/C
+  -------------------------------------------------------------------    -------------------
+    SLICE_X49Y126        FDSE (Prop_fdse_C_Q)         0.456     1.429 f  g_slot[5].own_reg[27]/Q
+                         net (fo=3, routed)           0.587     2.016    obs_cid[74]
+    SLICE_X48Y125                                                     f  g_slot[0].pe_i_i_17/I0
+    SLICE_X48Y125        LUT3 (Prop_lut3_I0_O)        0.124     2.140 f  g_slot[0].pe_i_i_17/O
+                         net (fo=37, routed)          1.340     3.480    g_slot[5].pe_i/st_in[11]
+    SLICE_X52Y123                                                     f  g_slot[5].pe_i/st_out[14]_INST_0_i_66/I1
+    SLICE_X52Y123        LUT6 (Prop_lut6_I1_O)        0.124     3.604 r  g_slot[5].pe_i/st_out[14]_INST_0_i_66/O
+                         net (fo=1, routed)           0.669     4.273    g_slot[5].pe_i/st_out[14]_INST_0_i_66_n_0
+    SLICE_X52Y123                                                     r  g_slot[5].pe_i/st_out[14]_INST_0_i_33/I3
+    SLICE_X52Y123        LUT6 (Prop_lut6_I3_O)        0.124     4.397 r  g_slot[5].pe_i/st_out[14]_INST_0_i_33/O
+                         net (fo=20, routed)          0.378     4.775    g_slot[5].pe_i/st_out[14]_INST_0_i_33_n_0
+    SLICE_X51Y123                                                     r  g_slot[5].pe_i/st_out[14]_INST_0_i_87/I1
+    SLICE_X51Y123        LUT3 (Prop_lut3_I1_O)        0.124     4.899 r  g_slot[5].pe_i/st_out[14]_INST_0_i_87/O
+                         net (fo=4, routed)           0.466     5.365    g_slot[5].pe_i/st_out[14]_INST_0_i_87_n_0
+    SLICE_X51Y122                                                     r  g_slot[5].pe_i/st_out[14]_INST_0_i_72/I4
+    SLICE_X51Y122        LUT6 (Prop_lut6_I4_O)        0.124     5.489 f  g_slot[5].pe_i/st_out[14]_INST_0_i_72/O
+                         net (fo=1, routed)           0.653     6.142    g_slot[5].pe_i/st_out[14]_INST_0_i_72_n_0
+    SLICE_X50Y122                                                     f  g_slot[5].pe_i/st_out[14]_INST_0_i_34/I3
+    SLICE_X50Y122        LUT6 (Prop_lut6_I3_O)        0.124     6.266 r  g_slot[5].pe_i/st_out[14]_INST_0_i_34/O
+                         net (fo=18, routed)          0.518     6.784    g_slot[5].pe_i/st_out[14]_INST_0_i_34_n_0
+    SLICE_X51Y119                                                     r  g_slot[5].pe_i/st_out[11]_INST_0_i_7/I1
+    SLICE_X51Y119        LUT5 (Prop_lut5_I1_O)        0.124     6.908 f  g_slot[5].pe_i/st_out[11]_INST_0_i_7/O
+                         net (fo=3, routed)           0.599     7.506    g_slot[5].pe_i/st_out[11]_INST_0_i_7_n_0
+    SLICE_X50Y121                                                     f  g_slot[5].pe_i/st_out[14]_INST_0_i_60/I2
+    SLICE_X50Y121        LUT4 (Prop_lut4_I2_O)        0.124     7.630 r  g_slot[5].pe_i/st_out[14]_INST_0_i_60/O
+                         net (fo=1, routed)           0.670     8.300    g_slot[5].pe_i/st_out[14]_INST_0_i_60_n_0
+    SLICE_X50Y121                                                     r  g_slot[5].pe_i/st_out[14]_INST_0_i_32/I3
+    SLICE_X50Y121        LUT6 (Prop_lut6_I3_O)        0.124     8.424 r  g_slot[5].pe_i/st_out[14]_INST_0_i_32/O
+                         net (fo=16, routed)          0.379     8.803    g_slot[5].pe_i/st_out[14]_INST_0_i_32_n_0
+    SLICE_X51Y120                                                     r  g_slot[5].pe_i/st_out[14]_INST_0_i_22/I3
+    SLICE_X51Y120        LUT6 (Prop_lut6_I3_O)        0.124     8.927 f  g_slot[5].pe_i/st_out[14]_INST_0_i_22/O
+                         net (fo=1, routed)           0.980     9.908    g_slot[5].pe_i/st_out[14]_INST_0_i_22_n_0
+    SLICE_X51Y121                                                     f  g_slot[5].pe_i/st_out[14]_INST_0_i_9/I2
+    SLICE_X51Y121        LUT6 (Prop_lut6_I2_O)        0.124    10.032 f  g_slot[5].pe_i/st_out[14]_INST_0_i_9/O
+                         net (fo=13, routed)          0.388    10.420    g_slot[5].pe_i/st_out[14]_INST_0_i_9_n_0
+    SLICE_X52Y122                                                     f  g_slot[5].pe_i/st_out[12]_INST_0_i_10/I1
+    SLICE_X52Y122        LUT2 (Prop_lut2_I1_O)        0.124    10.544 r  g_slot[5].pe_i/st_out[12]_INST_0_i_10/O
+                         net (fo=9, routed)           0.609    11.153    g_slot[5].pe_i/st_out[12]_INST_0_i_10_n_0
+    SLICE_X53Y121                                                     r  g_slot[5].pe_i/st_out[14]_INST_0_i_27/I0
+    SLICE_X53Y121        LUT6 (Prop_lut6_I0_O)        0.124    11.277 r  g_slot[5].pe_i/st_out[14]_INST_0_i_27/O
+                         net (fo=1, routed)           1.033    12.310    g_slot[5].pe_i/st_out[14]_INST_0_i_27_n_0
+    SLICE_X54Y122                                                     r  g_slot[5].pe_i/st_out[14]_INST_0_i_10/I1
+    SLICE_X54Y122        LUT6 (Prop_lut6_I1_O)        0.124    12.434 r  g_slot[5].pe_i/st_out[14]_INST_0_i_10/O
+                         net (fo=15, routed)          0.488    12.922    g_slot[5].pe_i/st_out[14]_INST_0_i_10_n_0
+    SLICE_X54Y123                                                     r  g_slot[5].pe_i/st_out[14]_INST_0_i_36/I3
+    SLICE_X54Y123        LUT6 (Prop_lut6_I3_O)        0.124    13.046 r  g_slot[5].pe_i/st_out[14]_INST_0_i_36/O
+                         net (fo=2, routed)           0.506    13.552    g_slot[5].pe_i/st_out[14]_INST_0_i_36_n_0
+    SLICE_X55Y123                                                     r  g_slot[5].pe_i/st_out[14]_INST_0_i_12/I1
+    SLICE_X55Y123        LUT6 (Prop_lut6_I1_O)        0.124    13.676 f  g_slot[5].pe_i/st_out[14]_INST_0_i_12/O
+                         net (fo=14, routed)          0.480    14.156    g_slot[5].pe_i/st_out[14]_INST_0_i_12_n_0
+    SLICE_X55Y124                                                     f  g_slot[5].pe_i/st_out[5]_INST_0_i_1/I3
+    SLICE_X55Y124        LUT6 (Prop_lut6_I3_O)        0.124    14.280 r  g_slot[5].pe_i/st_out[5]_INST_0_i_1/O
+                         net (fo=5, routed)           0.797    15.077    g_slot[5].pe_i/st_out[5]_INST_0_i_1_n_0
+    SLICE_X58Y123                                                     r  g_slot[5].pe_i/st_out[0]_INST_0_i_1_comp/I2
+    SLICE_X58Y123        LUT6 (Prop_lut6_I2_O)        0.124    15.201 r  g_slot[5].pe_i/st_out[0]_INST_0_i_1_comp/O
+                         net (fo=1, routed)           0.670    15.871    g_slot[5].pe_i/st_out[0]_INST_0_i_1_n_0
+    SLICE_X58Y123                                                     r  g_slot[5].pe_i/st_out[0]_INST_0/I0
+    SLICE_X58Y123        LUT6 (Prop_lut6_I0_O)        0.124    15.995 r  g_slot[5].pe_i/st_out[0]_INST_0/O
+                         net (fo=6, routed)           0.382    16.377    slot_nxt[5][0]
+    SLICE_X61Y123        FDRE                                         r  g_slot[5].bshA_reg[5][1]/D
+  -------------------------------------------------------------------    -------------------
+
+                         (clock clk rise edge)       10.000    10.000 r  
+                                                      0.000    10.000 r  clk (IN)
+                         net (fo=830, unset)          0.924    10.924    clk
+    SLICE_X61Y123        FDRE                                         r  g_slot[5].bshA_reg[5][1]/C
+                         clock pessimism              0.000    10.924    
+                         clock uncertainty           -0.035    10.889    
+    SLICE_X61Y123        FDRE (Setup_fdre_C_D)       -0.043    10.846    g_slot[5].bshA_reg[5][1]
+  -------------------------------------------------------------------
+                         required time                         10.846    
+                         arrival time                         -16.377    
+  -------------------------------------------------------------------
+                         slack                                 -5.531    
+
+Slack (VIOLATED) :        -5.531ns  (required time - arrival time)
+  Source:                 g_slot[5].own_reg[27]/C
+                            (rising edge-triggered cell FDSE clocked by clk  {rise@0.000ns fall@5.000ns period=10.000ns})
+  Destination:            g_slot[5].bshB_reg[5][0]/D
+                            (rising edge-triggered cell FDRE clocked by clk  {rise@0.000ns fall@5.000ns period=10.000ns})
+  Path Group:             clk
+  Path Type:              Setup (Max at Slow Process Corner)
+  Requirement:            10.000ns  (clk rise@10.000ns - clk rise@0.000ns)
+  Data Path Delay:        15.404ns  (logic 2.812ns (18.255%)  route 12.592ns (81.745%))
+  Logic Levels:           19  (LUT2=1 LUT3=2 LUT4=1 LUT5=1 LUT6=14)
+  Clock Path Skew:        -0.049ns (DCD - SCD + CPR)
+    Destination Clock Delay (DCD):    0.924ns = ( 10.924 - 10.000 ) 
+    Source Clock Delay      (SCD):    0.973ns
+    Clock Pessimism Removal (CPR):    0.000ns
+  Clock Uncertainty:      0.035ns  ((TSJ^2 + TIJ^2)^1/2 + DJ) / 2 + PE
+    Total System Jitter     (TSJ):    0.071ns
+    Total Input Jitter      (TIJ):    0.000ns
+    Discrete Jitter          (DJ):    0.000ns
+    Phase Error              (PE):    0.000ns
+
+    Location             Delay type                Incr(ns)  Path(ns)    Netlist Resource(s)
+  -------------------------------------------------------------------    -------------------
+                         (clock clk rise edge)        0.000     0.000 r  
+                                                      0.000     0.000 r  clk (IN)
+                         net (fo=830, unset)          0.973     0.973    clk
+    SLICE_X49Y126        FDSE                                         r  g_slot[5].own_reg[27]/C
+  -------------------------------------------------------------------    -------------------
+    SLICE_X49Y126        FDSE (Prop_fdse_C_Q)         0.456     1.429 f  g_slot[5].own_reg[27]/Q
+                         net (fo=3, routed)           0.587     2.016    obs_cid[74]
+    SLICE_X48Y125                                                     f  g_slot[0].pe_i_i_17/I0
+    SLICE_X48Y125        LUT3 (Prop_lut3_I0_O)        0.124     2.140 f  g_slot[0].pe_i_i_17/O
+                         net (fo=37, routed)          1.340     3.480    g_slot[5].pe_i/st_in[11]
+    SLICE_X52Y123                                                     f  g_slot[5].pe_i/st_out[14]_INST_0_i_66/I1
+    SLICE_X52Y123        LUT6 (Prop_lut6_I1_O)        0.124     3.604 r  g_slot[5].pe_i/st_out[14]_INST_0_i_66/O
+                         net (fo=1, routed)           0.669     4.273    g_slot[5].pe_i/st_out[14]_INST_0_i_66_n_0
+    SLICE_X52Y123                                                     r  g_slot[5].pe_i/st_out[14]_INST_0_i_33/I3
+    SLICE_X52Y123        LUT6 (Prop_lut6_I3_O)        0.124     4.397 r  g_slot[5].pe_i/st_out[14]_INST_0_i_33/O
+                         net (fo=20, routed)          0.378     4.775    g_slot[5].pe_i/st_out[14]_INST_0_i_33_n_0
+    SLICE_X51Y123                                                     r  g_slot[5].pe_i/st_out[14]_INST_0_i_87/I1
+    SLICE_X51Y123        LUT3 (Prop_lut3_I1_O)        0.124     4.899 r  g_slot[5].pe_i/st_out[14]_INST_0_i_87/O
+                         net (fo=4, routed)           0.466     5.365    g_slot[5].pe_i/st_out[14]_INST_0_i_87_n_0
+    SLICE_X51Y122                                                     r  g_slot[5].pe_i/st_out[14]_INST_0_i_72/I4
+    SLICE_X51Y122        LUT6 (Prop_lut6_I4_O)        0.124     5.489 f  g_slot[5].pe_i/st_out[14]_INST_0_i_72/O
+                         net (fo=1, routed)           0.653     6.142    g_slot[5].pe_i/st_out[14]_INST_0_i_72_n_0
+    SLICE_X50Y122                                                     f  g_slot[5].pe_i/st_out[14]_INST_0_i_34/I3
+    SLICE_X50Y122        LUT6 (Prop_lut6_I3_O)        0.124     6.266 r  g_slot[5].pe_i/st_out[14]_INST_0_i_34/O
+                         net (fo=18, routed)          0.518     6.784    g_slot[5].pe_i/st_out[14]_INST_0_i_34_n_0
+    SLICE_X51Y119                                                     r  g_slot[5].pe_i/st_out[11]_INST_0_i_7/I1
+    SLICE_X51Y119        LUT5 (Prop_lut5_I1_O)        0.124     6.908 f  g_slot[5].pe_i/st_out[11]_INST_0_i_7/O
+                         net (fo=3, routed)           0.599     7.506    g_slot[5].pe_i/st_out[11]_INST_0_i_7_n_0
+    SLICE_X50Y121                                                     f  g_slot[5].pe_i/st_out[14]_INST_0_i_60/I2
+    SLICE_X50Y121        LUT4 (Prop_lut4_I2_O)        0.124     7.630 r  g_slot[5].pe_i/st_out[14]_INST_0_i_60/O
+                         net (fo=1, routed)           0.670     8.300    g_slot[5].pe_i/st_out[14]_INST_0_i_60_n_0
+    SLICE_X50Y121                                                     r  g_slot[5].pe_i/st_out[14]_INST_0_i_32/I3
+    SLICE_X50Y121        LUT6 (Prop_lut6_I3_O)        0.124     8.424 r  g_slot[5].pe_i/st_out[14]_INST_0_i_32/O
+                         net (fo=16, routed)          0.379     8.803    g_slot[5].pe_i/st_out[14]_INST_0_i_32_n_0
+    SLICE_X51Y120                                                     r  g_slot[5].pe_i/st_out[14]_INST_0_i_22/I3
+    SLICE_X51Y120        LUT6 (Prop_lut6_I3_O)        0.124     8.927 f  g_slot[5].pe_i/st_out[14]_INST_0_i_22/O
+                         net (fo=1, routed)           0.980     9.908    g_slot[5].pe_i/st_out[14]_INST_0_i_22_n_0
+    SLICE_X51Y121                                                     f  g_slot[5].pe_i/st_out[14]_INST_0_i_9/I2
+    SLICE_X51Y121        LUT6 (Prop_lut6_I2_O)        0.124    10.032 f  g_slot[5].pe_i/st_out[14]_INST_0_i_9/O
+                         net (fo=13, routed)          0.388    10.420    g_slot[5].pe_i/st_out[14]_INST_0_i_9_n_0
+    SLICE_X52Y122                                                     f  g_slot[5].pe_i/st_out[12]_INST_0_i_10/I1
+    SLICE_X52Y122        LUT2 (Prop_lut2_I1_O)        0.124    10.544 r  g_slot[5].pe_i/st_out[12]_INST_0_i_10/O
+                         net (fo=9, routed)           0.609    11.153    g_slot[5].pe_i/st_out[12]_INST_0_i_10_n_0
+    SLICE_X53Y121                                                     r  g_slot[5].pe_i/st_out[14]_INST_0_i_27/I0
+    SLICE_X53Y121        LUT6 (Prop_lut6_I0_O)        0.124    11.277 r  g_slot[5].pe_i/st_out[14]_INST_0_i_27/O
+                         net (fo=1, routed)           1.033    12.310    g_slot[5].pe_i/st_out[14]_INST_0_i_27_n_0
+    SLICE_X54Y122                                                     r  g_slot[5].pe_i/st_out[14]_INST_0_i_10/I1
+    SLICE_X54Y122        LUT6 (Prop_lut6_I1_O)        0.124    12.434 r  g_slot[5].pe_i/st_out[14]_INST_0_i_10/O
+                         net (fo=15, routed)          0.488    12.922    g_slot[5].pe_i/st_out[14]_INST_0_i_10_n_0
+    SLICE_X54Y123                                                     r  g_slot[5].pe_i/st_out[14]_INST_0_i_36/I3
+    SLICE_X54Y123        LUT6 (Prop_lut6_I3_O)        0.124    13.046 r  g_slot[5].pe_i/st_out[14]_INST_0_i_36/O
+                         net (fo=2, routed)           0.506    13.552    g_slot[5].pe_i/st_out[14]_INST_0_i_36_n_0
+    SLICE_X55Y123                                                     r  g_slot[5].pe_i/st_out[14]_INST_0_i_12/I1
+    SLICE_X55Y123        LUT6 (Prop_lut6_I1_O)        0.124    13.676 f  g_slot[5].pe_i/st_out[14]_INST_0_i_12/O
+                         net (fo=14, routed)          0.480    14.156    g_slot[5].pe_i/st_out[14]_INST_0_i_12_n_0
+    SLICE_X55Y124                                                     f  g_slot[5].pe_i/st_out[5]_INST_0_i_1/I3
+    SLICE_X55Y124        LUT6 (Prop_lut6_I3_O)        0.124    14.280 r  g_slot[5].pe_i/st_out[5]_INST_0_i_1/O
+                         net (fo=5, routed)           0.797    15.077    g_slot[5].pe_i/st_out[5]_INST_0_i_1_n_0
+    SLICE_X58Y123                                                     r  g_slot[5].pe_i/st_out[0]_INST_0_i_1_comp/I2
+    SLICE_X58Y123        LUT6 (Prop_lut6_I2_O)        0.124    15.201 r  g_slot[5].pe_i/st_out[0]_INST_0_i_1_comp/O
+                         net (fo=1, routed)           0.670    15.871    g_slot[5].pe_i/st_out[0]_INST_0_i_1_n_0
+    SLICE_X58Y123                                                     r  g_slot[5].pe_i/st_out[0]_INST_0/I0
+    SLICE_X58Y123        LUT6 (Prop_lut6_I0_O)        0.124    15.995 r  g_slot[5].pe_i/st_out[0]_INST_0/O
+                         net (fo=6, routed)           0.382    16.377    slot_nxt[5][0]
+    SLICE_X60Y123        FDRE                                         r  g_slot[5].bshB_reg[5][0]/D
+  -------------------------------------------------------------------    -------------------
+
+                         (clock clk rise edge)       10.000    10.000 r  
+                                                      0.000    10.000 r  clk (IN)
+                         net (fo=830, unset)          0.924    10.924    clk
+    SLICE_X60Y123        FDRE                                         r  g_slot[5].bshB_reg[5][0]/C
+                         clock pessimism              0.000    10.924    
+                         clock uncertainty           -0.035    10.889    
+    SLICE_X60Y123        FDRE (Setup_fdre_C_D)       -0.043    10.846    g_slot[5].bshB_reg[5][0]
+  -------------------------------------------------------------------
+                         required time                         10.846    
+                         arrival time                         -16.377    
+  -------------------------------------------------------------------
+                         slack                                 -5.531    
+
+Slack (VIOLATED) :        -5.531ns  (required time - arrival time)
+  Source:                 phase_reg[0]__0_rep__1_replica_10/C
+                            (rising edge-triggered cell FDRE clocked by clk  {rise@0.000ns fall@5.000ns period=10.000ns})
+  Destination:            g_slot[21].own_reg[0]/D
+                            (rising edge-triggered cell FDRE clocked by clk  {rise@0.000ns fall@5.000ns period=10.000ns})
+  Path Group:             clk
+  Path Type:              Setup (Max at Slow Process Corner)
+  Requirement:            10.000ns  (clk rise@10.000ns - clk rise@0.000ns)
+  Data Path Delay:        15.431ns  (logic 2.812ns (18.223%)  route 12.619ns (81.777%))
+  Logic Levels:           19  (LUT2=1 LUT3=1 LUT4=2 LUT5=3 LUT6=12)
+  Clock Path Skew:        -0.049ns (DCD - SCD + CPR)
+    Destination Clock Delay (DCD):    0.924ns = ( 10.924 - 10.000 ) 
+    Source Clock Delay      (SCD):    0.973ns
+    Clock Pessimism Removal (CPR):    0.000ns
+  Clock Uncertainty:      0.035ns  ((TSJ^2 + TIJ^2)^1/2 + DJ) / 2 + PE
+    Total System Jitter     (TSJ):    0.071ns
+    Total Input Jitter      (TIJ):    0.000ns
+    Discrete Jitter          (DJ):    0.000ns
+    Phase Error              (PE):    0.000ns
+
+    Location             Delay type                Incr(ns)  Path(ns)    Netlist Resource(s)
+  -------------------------------------------------------------------    -------------------
+                         (clock clk rise edge)        0.000     0.000 r  
+                                                      0.000     0.000 r  clk (IN)
+                         net (fo=830, unset)          0.973     0.973    clk
+    SLICE_X47Y127        FDRE                                         r  phase_reg[0]__0_rep__1_replica_10/C
+  -------------------------------------------------------------------    -------------------
+    SLICE_X47Y127        FDRE (Prop_fdre_C_Q)         0.456     1.429 r  phase_reg[0]__0_rep__1_replica_10/Q
+                         net (fo=8, routed)           0.546     1.975    phase_reg[0]__0_rep__1_n_0_repN_10
+    SLICE_X47Y128                                                     r  g_slot[5].pe_i_i_6/I1
+    SLICE_X47Y128        LUT2 (Prop_lut2_I1_O)        0.124     2.099 f  g_slot[5].pe_i_i_6/O
+                         net (fo=33, routed)          1.074     3.173    g_slot[21].pe_i/st_in[10]
+    SLICE_X44Y125                                                     f  g_slot[21].pe_i/st_out[14]_INST_0_i_19/I3
+    SLICE_X44Y125        LUT6 (Prop_lut6_I3_O)        0.124     3.297 r  g_slot[21].pe_i/st_out[14]_INST_0_i_19/O
+                         net (fo=1, routed)           0.805     4.103    g_slot[21].pe_i/st_out[14]_INST_0_i_19_n_0
+    SLICE_X45Y125                                                     r  g_slot[21].pe_i/st_out[14]_INST_0_i_11/I3
+    SLICE_X45Y125        LUT6 (Prop_lut6_I3_O)        0.124     4.227 r  g_slot[21].pe_i/st_out[14]_INST_0_i_11/O
+                         net (fo=24, routed)          0.539     4.766    g_slot[21].pe_i/st_out[14]_INST_0_i_11_n_0
+    SLICE_X47Y124                                                     r  g_slot[21].pe_i/st_out[14]_INST_0_i_31/I1
+    SLICE_X47Y124        LUT3 (Prop_lut3_I1_O)        0.124     4.890 r  g_slot[21].pe_i/st_out[14]_INST_0_i_31/O
+                         net (fo=5, routed)           0.646     5.536    g_slot[21].pe_i/st_out[14]_INST_0_i_31_n_0
+    SLICE_X47Y124                                                     r  g_slot[21].pe_i/st_out[14]_INST_0_i_23/I1
+    SLICE_X47Y124        LUT4 (Prop_lut4_I1_O)        0.124     5.660 r  g_slot[21].pe_i/st_out[14]_INST_0_i_23/O
+                         net (fo=3, routed)           0.541     6.201    g_slot[21].pe_i/st_out[14]_INST_0_i_23_n_0
+    SLICE_X46Y124                                                     r  g_slot[21].pe_i/st_out[14]_INST_0_i_12/I1
+    SLICE_X46Y124        LUT6 (Prop_lut6_I1_O)        0.124     6.325 r  g_slot[21].pe_i/st_out[14]_INST_0_i_12/O
+                         net (fo=23, routed)          0.365     6.690    g_slot[21].pe_i/st_out[14]_INST_0_i_12_n_0
+    SLICE_X44Y123                                                     r  g_slot[21].pe_i/st_out[11]_INST_0_i_5/I1
+    SLICE_X44Y123        LUT5 (Prop_lut5_I1_O)        0.124     6.814 r  g_slot[21].pe_i/st_out[11]_INST_0_i_5/O
+                         net (fo=3, routed)           0.606     7.420    g_slot[21].pe_i/st_out[11]_INST_0_i_5_n_0
+    SLICE_X41Y123                                                     r  g_slot[21].pe_i/st_out[3]_INST_0_i_8_comp/I3
+    SLICE_X41Y123        LUT6 (Prop_lut6_I3_O)        0.124     7.544 f  g_slot[21].pe_i/st_out[3]_INST_0_i_8_comp/O
+                         net (fo=1, routed)           0.769     8.313    g_slot[21].pe_i/st_out[3]_INST_0_i_8_n_0
+    SLICE_X43Y124                                                     f  g_slot[21].pe_i/st_out[3]_INST_0_i_4/I3
+    SLICE_X43Y124        LUT6 (Prop_lut6_I3_O)        0.124     8.437 r  g_slot[21].pe_i/st_out[3]_INST_0_i_4/O
+                         net (fo=17, routed)          0.744     9.181    g_slot[21].pe_i/st_out[3]_INST_0_i_4_n_0
+    SLICE_X42Y125                                                     r  g_slot[21].pe_i/st_out[15]_INST_0_i_18/I1
+    SLICE_X42Y125        LUT6 (Prop_lut6_I1_O)        0.124     9.305 f  g_slot[21].pe_i/st_out[15]_INST_0_i_18/O
+                         net (fo=1, routed)           0.444     9.749    g_slot[21].pe_i/st_out[15]_INST_0_i_18_n_0
+    SLICE_X42Y124                                                     f  g_slot[21].pe_i/st_out[15]_INST_0_i_11/I1
+    SLICE_X42Y124        LUT6 (Prop_lut6_I1_O)        0.124     9.873 r  g_slot[21].pe_i/st_out[15]_INST_0_i_11/O
+                         net (fo=14, routed)          0.538    10.411    g_slot[21].pe_i/st_out[15]_INST_0_i_11_n_0
+    SLICE_X40Y124                                                     r  g_slot[21].pe_i/st_out[12]_INST_0_i_13/I1
+    SLICE_X40Y124        LUT5 (Prop_lut5_I1_O)        0.124    10.535 f  g_slot[21].pe_i/st_out[12]_INST_0_i_13/O
+                         net (fo=4, routed)           0.617    11.152    g_slot[21].pe_i/st_out[12]_INST_0_i_13_n_0
+    SLICE_X41Y124                                                     f  g_slot[21].pe_i/st_out[15]_INST_0_i_15/I0
+    SLICE_X41Y124        LUT4 (Prop_lut4_I0_O)        0.124    11.276 f  g_slot[21].pe_i/st_out[15]_INST_0_i_15/O
+                         net (fo=4, routed)           0.468    11.744    g_slot[21].pe_i/st_out[15]_INST_0_i_15_n_0
+    SLICE_X40Y123                                                     f  g_slot[21].pe_i/st_out[15]_INST_0_i_8/I3
+    SLICE_X40Y123        LUT5 (Prop_lut5_I3_O)        0.124    11.868 r  g_slot[21].pe_i/st_out[15]_INST_0_i_8/O
+                         net (fo=15, routed)          0.611    12.479    g_slot[21].pe_i/st_out[15]_INST_0_i_8_n_0
+    SLICE_X36Y123                                                     r  g_slot[21].pe_i/st_out[12]_INST_0_i_11/I2
+    SLICE_X36Y123        LUT6 (Prop_lut6_I2_O)        0.124    12.603 f  g_slot[21].pe_i/st_out[12]_INST_0_i_11/O
+                         net (fo=2, routed)           0.872    13.475    g_slot[21].pe_i/st_out[12]_INST_0_i_11_n_0
+    SLICE_X41Y122                                                     f  g_slot[21].pe_i/st_out[5]_INST_0_i_4_comp/I2
+    SLICE_X41Y122        LUT6 (Prop_lut6_I2_O)        0.124    13.599 r  g_slot[21].pe_i/st_out[5]_INST_0_i_4_comp/O
+                         net (fo=3, routed)           0.442    14.041    g_slot[21].pe_i/st_out[5]_INST_0_i_4_n_0
+    SLICE_X42Y122                                                     r  g_slot[21].pe_i/st_out[5]_INST_0_i_1_comp/I3
+    SLICE_X42Y122        LUT6 (Prop_lut6_I3_O)        0.124    14.165 r  g_slot[21].pe_i/st_out[5]_INST_0_i_1_comp/O
+                         net (fo=5, routed)           0.747    14.912    g_slot[21].pe_i/st_out[5]_INST_0_i_1_n_0
+    SLICE_X39Y122                                                     r  g_slot[21].pe_i/st_out[8]_INST_0_i_3/I3
+    SLICE_X39Y122        LUT6 (Prop_lut6_I3_O)        0.124    15.036 r  g_slot[21].pe_i/st_out[8]_INST_0_i_3/O
+                         net (fo=2, routed)           0.665    15.701    g_slot[21].pe_i/st_out[8]_INST_0_i_3_n_0
+    SLICE_X38Y122                                                     r  g_slot[21].pe_i/st_out[0]_INST_0/I1
+    SLICE_X38Y122        LUT6 (Prop_lut6_I1_O)        0.124    15.825 r  g_slot[21].pe_i/st_out[0]_INST_0/O
+                         net (fo=2, routed)           0.579    16.404    slot_nxt[21][0]
+    SLICE_X38Y122        FDRE                                         r  g_slot[21].own_reg[0]/D
+  -------------------------------------------------------------------    -------------------
+
+                         (clock clk rise edge)       10.000    10.000 r  
+                                                      0.000    10.000 r  clk (IN)
+                         net (fo=830, unset)          0.924    10.924    clk
+    SLICE_X38Y122        FDRE                                         r  g_slot[21].own_reg[0]/C
+                         clock pessimism              0.000    10.924    
+                         clock uncertainty           -0.035    10.889    
+    SLICE_X38Y122        FDRE (Setup_fdre_C_D)       -0.016    10.873    g_slot[21].own_reg[0]
+  -------------------------------------------------------------------
+                         required time                         10.873    
+                         arrival time                         -16.404    
+  -------------------------------------------------------------------
+                         slack                                 -5.531    
+
+Slack (VIOLATED) :        -5.530ns  (required time - arrival time)
+  Source:                 g_slot[5].own_reg[27]/C
+                            (rising edge-triggered cell FDSE clocked by clk  {rise@0.000ns fall@5.000ns period=10.000ns})
+  Destination:            g_slot[5].own_reg[16]/D
+                            (rising edge-triggered cell FDRE clocked by clk  {rise@0.000ns fall@5.000ns period=10.000ns})
+  Path Group:             clk
+  Path Type:              Setup (Max at Slow Process Corner)
+  Requirement:            10.000ns  (clk rise@10.000ns - clk rise@0.000ns)
+  Data Path Delay:        15.403ns  (logic 2.812ns (18.256%)  route 12.591ns (81.743%))
+  Logic Levels:           19  (LUT2=1 LUT3=2 LUT4=1 LUT5=1 LUT6=14)
+  Clock Path Skew:        -0.049ns (DCD - SCD + CPR)
+    Destination Clock Delay (DCD):    0.924ns = ( 10.924 - 10.000 ) 
+    Source Clock Delay      (SCD):    0.973ns
+    Clock Pessimism Removal (CPR):    0.000ns
+  Clock Uncertainty:      0.035ns  ((TSJ^2 + TIJ^2)^1/2 + DJ) / 2 + PE
+    Total System Jitter     (TSJ):    0.071ns
+    Total Input Jitter      (TIJ):    0.000ns
+    Discrete Jitter          (DJ):    0.000ns
+    Phase Error              (PE):    0.000ns
+
+    Location             Delay type                Incr(ns)  Path(ns)    Netlist Resource(s)
+  -------------------------------------------------------------------    -------------------
+                         (clock clk rise edge)        0.000     0.000 r  
+                                                      0.000     0.000 r  clk (IN)
+                         net (fo=830, unset)          0.973     0.973    clk
+    SLICE_X49Y126        FDSE                                         r  g_slot[5].own_reg[27]/C
+  -------------------------------------------------------------------    -------------------
+    SLICE_X49Y126        FDSE (Prop_fdse_C_Q)         0.456     1.429 f  g_slot[5].own_reg[27]/Q
+                         net (fo=3, routed)           0.587     2.016    obs_cid[74]
+    SLICE_X48Y125                                                     f  g_slot[0].pe_i_i_17/I0
+    SLICE_X48Y125        LUT3 (Prop_lut3_I0_O)        0.124     2.140 f  g_slot[0].pe_i_i_17/O
+                         net (fo=37, routed)          1.340     3.480    g_slot[5].pe_i/st_in[11]
+    SLICE_X52Y123                                                     f  g_slot[5].pe_i/st_out[14]_INST_0_i_66/I1
+    SLICE_X52Y123        LUT6 (Prop_lut6_I1_O)        0.124     3.604 r  g_slot[5].pe_i/st_out[14]_INST_0_i_66/O
+                         net (fo=1, routed)           0.669     4.273    g_slot[5].pe_i/st_out[14]_INST_0_i_66_n_0
+    SLICE_X52Y123                                                     r  g_slot[5].pe_i/st_out[14]_INST_0_i_33/I3
+    SLICE_X52Y123        LUT6 (Prop_lut6_I3_O)        0.124     4.397 r  g_slot[5].pe_i/st_out[14]_INST_0_i_33/O
+                         net (fo=20, routed)          0.378     4.775    g_slot[5].pe_i/st_out[14]_INST_0_i_33_n_0
+    SLICE_X51Y123                                                     r  g_slot[5].pe_i/st_out[14]_INST_0_i_87/I1
+    SLICE_X51Y123        LUT3 (Prop_lut3_I1_O)        0.124     4.899 r  g_slot[5].pe_i/st_out[14]_INST_0_i_87/O
+                         net (fo=4, routed)           0.466     5.365    g_slot[5].pe_i/st_out[14]_INST_0_i_87_n_0
+    SLICE_X51Y122                                                     r  g_slot[5].pe_i/st_out[14]_INST_0_i_72/I4
+    SLICE_X51Y122        LUT6 (Prop_lut6_I4_O)        0.124     5.489 f  g_slot[5].pe_i/st_out[14]_INST_0_i_72/O
+                         net (fo=1, routed)           0.653     6.142    g_slot[5].pe_i/st_out[14]_INST_0_i_72_n_0
+    SLICE_X50Y122                                                     f  g_slot[5].pe_i/st_out[14]_INST_0_i_34/I3
+    SLICE_X50Y122        LUT6 (Prop_lut6_I3_O)        0.124     6.266 r  g_slot[5].pe_i/st_out[14]_INST_0_i_34/O
+                         net (fo=18, routed)          0.518     6.784    g_slot[5].pe_i/st_out[14]_INST_0_i_34_n_0
+    SLICE_X51Y119                                                     r  g_slot[5].pe_i/st_out[11]_INST_0_i_7/I1
+    SLICE_X51Y119        LUT5 (Prop_lut5_I1_O)        0.124     6.908 f  g_slot[5].pe_i/st_out[11]_INST_0_i_7/O
+                         net (fo=3, routed)           0.599     7.506    g_slot[5].pe_i/st_out[11]_INST_0_i_7_n_0
+    SLICE_X50Y121                                                     f  g_slot[5].pe_i/st_out[14]_INST_0_i_60/I2
+    SLICE_X50Y121        LUT4 (Prop_lut4_I2_O)        0.124     7.630 r  g_slot[5].pe_i/st_out[14]_INST_0_i_60/O
+                         net (fo=1, routed)           0.670     8.300    g_slot[5].pe_i/st_out[14]_INST_0_i_60_n_0
+    SLICE_X50Y121                                                     r  g_slot[5].pe_i/st_out[14]_INST_0_i_32/I3
+    SLICE_X50Y121        LUT6 (Prop_lut6_I3_O)        0.124     8.424 r  g_slot[5].pe_i/st_out[14]_INST_0_i_32/O
+                         net (fo=16, routed)          0.379     8.803    g_slot[5].pe_i/st_out[14]_INST_0_i_32_n_0
+    SLICE_X51Y120                                                     r  g_slot[5].pe_i/st_out[14]_INST_0_i_22/I3
+    SLICE_X51Y120        LUT6 (Prop_lut6_I3_O)        0.124     8.927 f  g_slot[5].pe_i/st_out[14]_INST_0_i_22/O
+                         net (fo=1, routed)           0.980     9.908    g_slot[5].pe_i/st_out[14]_INST_0_i_22_n_0
+    SLICE_X51Y121                                                     f  g_slot[5].pe_i/st_out[14]_INST_0_i_9/I2
+    SLICE_X51Y121        LUT6 (Prop_lut6_I2_O)        0.124    10.032 f  g_slot[5].pe_i/st_out[14]_INST_0_i_9/O
+                         net (fo=13, routed)          0.388    10.420    g_slot[5].pe_i/st_out[14]_INST_0_i_9_n_0
+    SLICE_X52Y122                                                     f  g_slot[5].pe_i/st_out[12]_INST_0_i_10/I1
+    SLICE_X52Y122        LUT2 (Prop_lut2_I1_O)        0.124    10.544 r  g_slot[5].pe_i/st_out[12]_INST_0_i_10/O
+                         net (fo=9, routed)           0.609    11.153    g_slot[5].pe_i/st_out[12]_INST_0_i_10_n_0
+    SLICE_X53Y121                                                     r  g_slot[5].pe_i/st_out[14]_INST_0_i_27/I0
+    SLICE_X53Y121        LUT6 (Prop_lut6_I0_O)        0.124    11.277 r  g_slot[5].pe_i/st_out[14]_INST_0_i_27/O
+                         net (fo=1, routed)           1.033    12.310    g_slot[5].pe_i/st_out[14]_INST_0_i_27_n_0
+    SLICE_X54Y122                                                     r  g_slot[5].pe_i/st_out[14]_INST_0_i_10/I1
+    SLICE_X54Y122        LUT6 (Prop_lut6_I1_O)        0.124    12.434 r  g_slot[5].pe_i/st_out[14]_INST_0_i_10/O
+                         net (fo=15, routed)          0.488    12.922    g_slot[5].pe_i/st_out[14]_INST_0_i_10_n_0
+    SLICE_X54Y123                                                     r  g_slot[5].pe_i/st_out[14]_INST_0_i_36/I3
+    SLICE_X54Y123        LUT6 (Prop_lut6_I3_O)        0.124    13.046 r  g_slot[5].pe_i/st_out[14]_INST_0_i_36/O
+                         net (fo=2, routed)           0.506    13.552    g_slot[5].pe_i/st_out[14]_INST_0_i_36_n_0
+    SLICE_X55Y123                                                     r  g_slot[5].pe_i/st_out[14]_INST_0_i_12/I1
+    SLICE_X55Y123        LUT6 (Prop_lut6_I1_O)        0.124    13.676 f  g_slot[5].pe_i/st_out[14]_INST_0_i_12/O
+                         net (fo=14, routed)          0.480    14.156    g_slot[5].pe_i/st_out[14]_INST_0_i_12_n_0
+    SLICE_X55Y124                                                     f  g_slot[5].pe_i/st_out[5]_INST_0_i_1/I3
+    SLICE_X55Y124        LUT6 (Prop_lut6_I3_O)        0.124    14.280 r  g_slot[5].pe_i/st_out[5]_INST_0_i_1/O
+                         net (fo=5, routed)           0.797    15.077    g_slot[5].pe_i/st_out[5]_INST_0_i_1_n_0
+    SLICE_X58Y123                                                     r  g_slot[5].pe_i/st_out[0]_INST_0_i_1_comp/I2
+    SLICE_X58Y123        LUT6 (Prop_lut6_I2_O)        0.124    15.201 r  g_slot[5].pe_i/st_out[0]_INST_0_i_1_comp/O
+                         net (fo=1, routed)           0.670    15.871    g_slot[5].pe_i/st_out[0]_INST_0_i_1_n_0
+    SLICE_X58Y123                                                     r  g_slot[5].pe_i/st_out[0]_INST_0/I0
+    SLICE_X58Y123        LUT6 (Prop_lut6_I0_O)        0.124    15.995 r  g_slot[5].pe_i/st_out[0]_INST_0/O
+                         net (fo=6, routed)           0.381    16.376    slot_nxt[5][0]
+    SLICE_X55Y123        FDRE                                         r  g_slot[5].own_reg[16]/D
+  -------------------------------------------------------------------    -------------------
+
+                         (clock clk rise edge)       10.000    10.000 r  
+                                                      0.000    10.000 r  clk (IN)
+                         net (fo=830, unset)          0.924    10.924    clk
+    SLICE_X55Y123        FDRE                                         r  g_slot[5].own_reg[16]/C
+                         clock pessimism              0.000    10.924    
+                         clock uncertainty           -0.035    10.889    
+    SLICE_X55Y123        FDRE (Setup_fdre_C_D)       -0.043    10.846    g_slot[5].own_reg[16]
+  -------------------------------------------------------------------
+                         required time                         10.846    
+                         arrival time                         -16.376    
+  -------------------------------------------------------------------
+                         slack                                 -5.530    
+
+Slack (VIOLATED) :        -5.517ns  (required time - arrival time)
+  Source:                 g_slot[5].own_reg[27]/C
+                            (rising edge-triggered cell FDSE clocked by clk  {rise@0.000ns fall@5.000ns period=10.000ns})
+  Destination:            g_slot[5].bshB_reg[5][1]/D
+                            (rising edge-triggered cell FDRE clocked by clk  {rise@0.000ns fall@5.000ns period=10.000ns})
+  Path Group:             clk
+  Path Type:              Setup (Max at Slow Process Corner)
+  Requirement:            10.000ns  (clk rise@10.000ns - clk rise@0.000ns)
+  Data Path Delay:        15.386ns  (logic 2.812ns (18.276%)  route 12.574ns (81.724%))
+  Logic Levels:           19  (LUT2=1 LUT3=2 LUT4=1 LUT5=1 LUT6=14)
+  Clock Path Skew:        -0.049ns (DCD - SCD + CPR)
+    Destination Clock Delay (DCD):    0.924ns = ( 10.924 - 10.000 ) 
+    Source Clock Delay      (SCD):    0.973ns
+    Clock Pessimism Removal (CPR):    0.000ns
+  Clock Uncertainty:      0.035ns  ((TSJ^2 + TIJ^2)^1/2 + DJ) / 2 + PE
+    Total System Jitter     (TSJ):    0.071ns
+    Total Input Jitter      (TIJ):    0.000ns
+    Discrete Jitter          (DJ):    0.000ns
+    Phase Error              (PE):    0.000ns
+
+    Location             Delay type                Incr(ns)  Path(ns)    Netlist Resource(s)
+  -------------------------------------------------------------------    -------------------
+                         (clock clk rise edge)        0.000     0.000 r  
+                                                      0.000     0.000 r  clk (IN)
+                         net (fo=830, unset)          0.973     0.973    clk
+    SLICE_X49Y126        FDSE                                         r  g_slot[5].own_reg[27]/C
+  -------------------------------------------------------------------    -------------------
+    SLICE_X49Y126        FDSE (Prop_fdse_C_Q)         0.456     1.429 f  g_slot[5].own_reg[27]/Q
+                         net (fo=3, routed)           0.587     2.016    obs_cid[74]
+    SLICE_X48Y125                                                     f  g_slot[0].pe_i_i_17/I0
+    SLICE_X48Y125        LUT3 (Prop_lut3_I0_O)        0.124     2.140 f  g_slot[0].pe_i_i_17/O
+                         net (fo=37, routed)          1.340     3.480    g_slot[5].pe_i/st_in[11]
+    SLICE_X52Y123                                                     f  g_slot[5].pe_i/st_out[14]_INST_0_i_66/I1
+    SLICE_X52Y123        LUT6 (Prop_lut6_I1_O)        0.124     3.604 r  g_slot[5].pe_i/st_out[14]_INST_0_i_66/O
+                         net (fo=1, routed)           0.669     4.273    g_slot[5].pe_i/st_out[14]_INST_0_i_66_n_0
+    SLICE_X52Y123                                                     r  g_slot[5].pe_i/st_out[14]_INST_0_i_33/I3
+    SLICE_X52Y123        LUT6 (Prop_lut6_I3_O)        0.124     4.397 r  g_slot[5].pe_i/st_out[14]_INST_0_i_33/O
+                         net (fo=20, routed)          0.378     4.775    g_slot[5].pe_i/st_out[14]_INST_0_i_33_n_0
+    SLICE_X51Y123                                                     r  g_slot[5].pe_i/st_out[14]_INST_0_i_87/I1
+    SLICE_X51Y123        LUT3 (Prop_lut3_I1_O)        0.124     4.899 r  g_slot[5].pe_i/st_out[14]_INST_0_i_87/O
+                         net (fo=4, routed)           0.466     5.365    g_slot[5].pe_i/st_out[14]_INST_0_i_87_n_0
+    SLICE_X51Y122                                                     r  g_slot[5].pe_i/st_out[14]_INST_0_i_72/I4
+    SLICE_X51Y122        LUT6 (Prop_lut6_I4_O)        0.124     5.489 f  g_slot[5].pe_i/st_out[14]_INST_0_i_72/O
+                         net (fo=1, routed)           0.653     6.142    g_slot[5].pe_i/st_out[14]_INST_0_i_72_n_0
+    SLICE_X50Y122                                                     f  g_slot[5].pe_i/st_out[14]_INST_0_i_34/I3
+    SLICE_X50Y122        LUT6 (Prop_lut6_I3_O)        0.124     6.266 r  g_slot[5].pe_i/st_out[14]_INST_0_i_34/O
+                         net (fo=18, routed)          0.518     6.784    g_slot[5].pe_i/st_out[14]_INST_0_i_34_n_0
+    SLICE_X51Y119                                                     r  g_slot[5].pe_i/st_out[11]_INST_0_i_7/I1
+    SLICE_X51Y119        LUT5 (Prop_lut5_I1_O)        0.124     6.908 f  g_slot[5].pe_i/st_out[11]_INST_0_i_7/O
+                         net (fo=3, routed)           0.599     7.506    g_slot[5].pe_i/st_out[11]_INST_0_i_7_n_0
+    SLICE_X50Y121                                                     f  g_slot[5].pe_i/st_out[14]_INST_0_i_60/I2
+    SLICE_X50Y121        LUT4 (Prop_lut4_I2_O)        0.124     7.630 r  g_slot[5].pe_i/st_out[14]_INST_0_i_60/O
+                         net (fo=1, routed)           0.670     8.300    g_slot[5].pe_i/st_out[14]_INST_0_i_60_n_0
+    SLICE_X50Y121                                                     r  g_slot[5].pe_i/st_out[14]_INST_0_i_32/I3
+    SLICE_X50Y121        LUT6 (Prop_lut6_I3_O)        0.124     8.424 r  g_slot[5].pe_i/st_out[14]_INST_0_i_32/O
+                         net (fo=16, routed)          0.379     8.803    g_slot[5].pe_i/st_out[14]_INST_0_i_32_n_0
+    SLICE_X51Y120                                                     r  g_slot[5].pe_i/st_out[14]_INST_0_i_22/I3
+    SLICE_X51Y120        LUT6 (Prop_lut6_I3_O)        0.124     8.927 f  g_slot[5].pe_i/st_out[14]_INST_0_i_22/O
+                         net (fo=1, routed)           0.980     9.908    g_slot[5].pe_i/st_out[14]_INST_0_i_22_n_0
+    SLICE_X51Y121                                                     f  g_slot[5].pe_i/st_out[14]_INST_0_i_9/I2
+    SLICE_X51Y121        LUT6 (Prop_lut6_I2_O)        0.124    10.032 f  g_slot[5].pe_i/st_out[14]_INST_0_i_9/O
+                         net (fo=13, routed)          0.388    10.420    g_slot[5].pe_i/st_out[14]_INST_0_i_9_n_0
+    SLICE_X52Y122                                                     f  g_slot[5].pe_i/st_out[12]_INST_0_i_10/I1
+    SLICE_X52Y122        LUT2 (Prop_lut2_I1_O)        0.124    10.544 r  g_slot[5].pe_i/st_out[12]_INST_0_i_10/O
+                         net (fo=9, routed)           0.609    11.153    g_slot[5].pe_i/st_out[12]_INST_0_i_10_n_0
+    SLICE_X53Y121                                                     r  g_slot[5].pe_i/st_out[14]_INST_0_i_27/I0
+    SLICE_X53Y121        LUT6 (Prop_lut6_I0_O)        0.124    11.277 r  g_slot[5].pe_i/st_out[14]_INST_0_i_27/O
+                         net (fo=1, routed)           1.033    12.310    g_slot[5].pe_i/st_out[14]_INST_0_i_27_n_0
+    SLICE_X54Y122                                                     r  g_slot[5].pe_i/st_out[14]_INST_0_i_10/I1
+    SLICE_X54Y122        LUT6 (Prop_lut6_I1_O)        0.124    12.434 r  g_slot[5].pe_i/st_out[14]_INST_0_i_10/O
+                         net (fo=15, routed)          0.488    12.922    g_slot[5].pe_i/st_out[14]_INST_0_i_10_n_0
+    SLICE_X54Y123                                                     r  g_slot[5].pe_i/st_out[14]_INST_0_i_36/I3
+    SLICE_X54Y123        LUT6 (Prop_lut6_I3_O)        0.124    13.046 r  g_slot[5].pe_i/st_out[14]_INST_0_i_36/O
+                         net (fo=2, routed)           0.506    13.552    g_slot[5].pe_i/st_out[14]_INST_0_i_36_n_0
+    SLICE_X55Y123                                                     r  g_slot[5].pe_i/st_out[14]_INST_0_i_12/I1
+    SLICE_X55Y123        LUT6 (Prop_lut6_I1_O)        0.124    13.676 f  g_slot[5].pe_i/st_out[14]_INST_0_i_12/O
+                         net (fo=14, routed)          0.480    14.156    g_slot[5].pe_i/st_out[14]_INST_0_i_12_n_0
+    SLICE_X55Y124                                                     f  g_slot[5].pe_i/st_out[5]_INST_0_i_1/I3
+    SLICE_X55Y124        LUT6 (Prop_lut6_I3_O)        0.124    14.280 r  g_slot[5].pe_i/st_out[5]_INST_0_i_1/O
+                         net (fo=5, routed)           0.797    15.077    g_slot[5].pe_i/st_out[5]_INST_0_i_1_n_0
+    SLICE_X58Y123                                                     r  g_slot[5].pe_i/st_out[0]_INST_0_i_1_comp/I2
+    SLICE_X58Y123        LUT6 (Prop_lut6_I2_O)        0.124    15.201 r  g_slot[5].pe_i/st_out[0]_INST_0_i_1_comp/O
+                         net (fo=1, routed)           0.670    15.871    g_slot[5].pe_i/st_out[0]_INST_0_i_1_n_0
+    SLICE_X58Y123                                                     r  g_slot[5].pe_i/st_out[0]_INST_0/I0
+    SLICE_X58Y123        LUT6 (Prop_lut6_I0_O)        0.124    15.995 r  g_slot[5].pe_i/st_out[0]_INST_0/O
+                         net (fo=6, routed)           0.365    16.359    slot_nxt[5][0]
+    SLICE_X56Y123        FDRE                                         r  g_slot[5].bshB_reg[5][1]/D
+  -------------------------------------------------------------------    -------------------
+
+                         (clock clk rise edge)       10.000    10.000 r  
+                                                      0.000    10.000 r  clk (IN)
+                         net (fo=830, unset)          0.924    10.924    clk
+    SLICE_X56Y123        FDRE                                         r  g_slot[5].bshB_reg[5][1]/C
+                         clock pessimism              0.000    10.924    
+                         clock uncertainty           -0.035    10.889    
+    SLICE_X56Y123        FDRE (Setup_fdre_C_D)       -0.047    10.842    g_slot[5].bshB_reg[5][1]
+  -------------------------------------------------------------------
+                         required time                         10.842    
+                         arrival time                         -16.359    
+  -------------------------------------------------------------------
+                         slack                                 -5.517    
+
+Slack (VIOLATED) :        -5.510ns  (required time - arrival time)
+  Source:                 phase_reg[0]__0_rep/C
+                            (rising edge-triggered cell FDRE clocked by clk  {rise@0.000ns fall@5.000ns period=10.000ns})
+  Destination:            g_slot[10].bshB_reg[10][0]/D
+                            (rising edge-triggered cell FDRE clocked by clk  {rise@0.000ns fall@5.000ns period=10.000ns})
+  Path Group:             clk
+  Path Type:              Setup (Max at Slow Process Corner)
+  Requirement:            10.000ns  (clk rise@10.000ns - clk rise@0.000ns)
+  Data Path Delay:        15.383ns  (logic 2.936ns (19.086%)  route 12.447ns (80.914%))
+  Logic Levels:           20  (LUT2=1 LUT3=4 LUT4=2 LUT5=1 LUT6=12)
+  Clock Path Skew:        -0.049ns (DCD - SCD + CPR)
+    Destination Clock Delay (DCD):    0.924ns = ( 10.924 - 10.000 ) 
+    Source Clock Delay      (SCD):    0.973ns
+    Clock Pessimism Removal (CPR):    0.000ns
+  Clock Uncertainty:      0.035ns  ((TSJ^2 + TIJ^2)^1/2 + DJ) / 2 + PE
+    Total System Jitter     (TSJ):    0.071ns
+    Total Input Jitter      (TIJ):    0.000ns
+    Discrete Jitter          (DJ):    0.000ns
+    Phase Error              (PE):    0.000ns
+
+    Location             Delay type                Incr(ns)  Path(ns)    Netlist Resource(s)
+  -------------------------------------------------------------------    -------------------
+                         (clock clk rise edge)        0.000     0.000 r  
+                                                      0.000     0.000 r  clk (IN)
+                         net (fo=830, unset)          0.973     0.973    clk
+    SLICE_X49Y125        FDRE                                         r  phase_reg[0]__0_rep/C
+  -------------------------------------------------------------------    -------------------
+    SLICE_X49Y125        FDRE (Prop_fdre_C_Q)         0.456     1.429 r  phase_reg[0]__0_rep/Q
+                         net (fo=435, routed)         0.837     2.266    phase_reg[0]__0_rep_n_0
+    SLICE_X49Y123                                                     r  g_slot[5].pe_i_i_30/I1
+    SLICE_X49Y123        LUT3 (Prop_lut3_I1_O)        0.124     2.390 f  g_slot[5].pe_i_i_30/O
+                         net (fo=28, routed)          0.740     3.130    g_slot[10].pe_i/st_in[14]
+    SLICE_X48Y124                                                     f  g_slot[10].pe_i/st_out[14]_INST_0_i_40/I0
+    SLICE_X48Y124        LUT3 (Prop_lut3_I0_O)        0.124     3.254 r  g_slot[10].pe_i/st_out[14]_INST_0_i_40/O
+                         net (fo=1, routed)           0.667     3.921    g_slot[10].pe_i/st_out[14]_INST_0_i_40_n_0
+    SLICE_X48Y124                                                     r  g_slot[10].pe_i/st_out[14]_INST_0_i_25/I0
+    SLICE_X48Y124        LUT6 (Prop_lut6_I0_O)        0.124     4.045 r  g_slot[10].pe_i/st_out[14]_INST_0_i_25/O
+                         net (fo=21, routed)          0.788     4.833    g_slot[10].pe_i/st_out[14]_INST_0_i_25_n_0
+    SLICE_X49Y124                                                     r  g_slot[10].pe_i/st_out[3]_INST_0_i_23/I2
+    SLICE_X49Y124        LUT4 (Prop_lut4_I2_O)        0.124     4.957 r  g_slot[10].pe_i/st_out[3]_INST_0_i_23/O
+                         net (fo=1, routed)           0.335     5.292    g_slot[10].pe_i/st_out[3]_INST_0_i_23_n_0
+    SLICE_X48Y126                                                     r  g_slot[10].pe_i/st_out[3]_INST_0_i_15/I5
+    SLICE_X48Y126        LUT6 (Prop_lut6_I5_O)        0.124     5.416 r  g_slot[10].pe_i/st_out[3]_INST_0_i_15/O
+                         net (fo=5, routed)           0.693     6.109    g_slot[10].pe_i/st_out[3]_INST_0_i_15_n_0
+    SLICE_X48Y126                                                     r  g_slot[10].pe_i/st_out[3]_INST_0_i_7/I2
+    SLICE_X48Y126        LUT6 (Prop_lut6_I2_O)        0.124     6.233 r  g_slot[10].pe_i/st_out[3]_INST_0_i_7/O
+                         net (fo=12, routed)          0.512     6.744    g_slot[10].pe_i/st_out[3]_INST_0_i_7_n_0
+    SLICE_X49Y128                                                     r  g_slot[10].pe_i/st_out[3]_INST_0_i_9_comp/I4
+    SLICE_X49Y128        LUT6 (Prop_lut6_I4_O)        0.124     6.868 f  g_slot[10].pe_i/st_out[3]_INST_0_i_9_comp/O
+                         net (fo=2, routed)           0.954     7.823    g_slot[10].pe_i/st_out[3]_INST_0_i_9_n_0
+    SLICE_X50Y127                                                     f  g_slot[10].pe_i/st_out[3]_INST_0_i_6_comp/I2
+    SLICE_X50Y127        LUT6 (Prop_lut6_I2_O)        0.124     7.947 r  g_slot[10].pe_i/st_out[3]_INST_0_i_6_comp/O
+                         net (fo=16, routed)          0.555     8.502    g_slot[10].pe_i/st_out[3]_INST_0_i_6_n_0
+    SLICE_X51Y129                                                     r  g_slot[10].pe_i/st_out[13]_INST_0_i_8/I1
+    SLICE_X51Y129        LUT3 (Prop_lut3_I1_O)        0.124     8.626 r  g_slot[10].pe_i/st_out[13]_INST_0_i_8/O
+                         net (fo=2, routed)           0.446     9.072    g_slot[10].pe_i/st_out[13]_INST_0_i_8_n_0
+    SLICE_X52Y128                                                     r  g_slot[10].pe_i/st_out[15]_INST_0_i_13/I4
+    SLICE_X52Y128        LUT6 (Prop_lut6_I4_O)        0.124     9.196 f  g_slot[10].pe_i/st_out[15]_INST_0_i_13/O
+                         net (fo=2, routed)           0.595     9.791    g_slot[10].pe_i/st_out[15]_INST_0_i_13_n_0
+    SLICE_X50Y128                                                     f  g_slot[10].pe_i/st_out[15]_INST_0_i_7/I4
+    SLICE_X50Y128        LUT6 (Prop_lut6_I4_O)        0.124     9.915 r  g_slot[10].pe_i/st_out[15]_INST_0_i_7/O
+                         net (fo=13, routed)          0.473    10.388    g_slot[10].pe_i/st_out[15]_INST_0_i_7_n_0
+    SLICE_X50Y128                                                     r  g_slot[10].pe_i/st_out[13]_INST_0_i_7/I2
+    SLICE_X50Y128        LUT3 (Prop_lut3_I2_O)        0.124    10.512 f  g_slot[10].pe_i/st_out[13]_INST_0_i_7/O
+                         net (fo=6, routed)           0.470    10.981    g_slot[10].pe_i/st_out[13]_INST_0_i_7_n_0
+    SLICE_X52Y129                                                     f  g_slot[10].pe_i/st_out[15]_INST_0_i_16/I0
+    SLICE_X52Y129        LUT4 (Prop_lut4_I0_O)        0.124    11.105 r  g_slot[10].pe_i/st_out[15]_INST_0_i_16/O
+                         net (fo=4, routed)           0.855    11.960    g_slot[10].pe_i/st_out[15]_INST_0_i_16_n_0
+    SLICE_X52Y131                                                     r  g_slot[10].pe_i/st_out[15]_INST_0_i_8/I1
+    SLICE_X52Y131        LUT5 (Prop_lut5_I1_O)        0.124    12.084 r  g_slot[10].pe_i/st_out[15]_INST_0_i_8/O
+                         net (fo=15, routed)          0.348    12.432    g_slot[10].pe_i/st_out[15]_INST_0_i_8_n_0
+    SLICE_X51Y130                                                     r  g_slot[10].pe_i/st_out[14]_INST_0_i_22/I4
+    SLICE_X51Y130        LUT6 (Prop_lut6_I4_O)        0.124    12.556 r  g_slot[10].pe_i/st_out[14]_INST_0_i_22/O
+                         net (fo=1, routed)           0.548    13.104    g_slot[10].pe_i/st_out[14]_INST_0_i_22_n_0
+    SLICE_X52Y130                                                     r  g_slot[10].pe_i/st_out[14]_INST_0_i_8/I3
+    SLICE_X52Y130        LUT6 (Prop_lut6_I3_O)        0.124    13.228 r  g_slot[10].pe_i/st_out[14]_INST_0_i_8/O
+                         net (fo=11, routed)          0.379    13.607    g_slot[10].pe_i/st_out[14]_INST_0_i_8_n_0
+    SLICE_X53Y130                                                     r  g_slot[10].pe_i/st_out[14]_INST_0_i_2/I0
+    SLICE_X53Y130        LUT2 (Prop_lut2_I0_O)        0.124    13.731 r  g_slot[10].pe_i/st_out[14]_INST_0_i_2/O
+                         net (fo=10, routed)          0.490    14.221    g_slot[10].pe_i/st_out[14]_INST_0_i_2_n_0
+    SLICE_X53Y129                                                     r  g_slot[10].pe_i/st_out[4]_INST_0_i_1/I3
+    SLICE_X53Y129        LUT6 (Prop_lut6_I3_O)        0.124    14.345 r  g_slot[10].pe_i/st_out[4]_INST_0_i_1/O
+                         net (fo=4, routed)           1.002    15.347    g_slot[10].pe_i/st_out[4]_INST_0_i_1_n_0
+    SLICE_X52Y128                                                     r  g_slot[10].pe_i/st_out[8]_INST_0_i_3/I3
+    SLICE_X52Y128        LUT6 (Prop_lut6_I3_O)        0.124    15.471 r  g_slot[10].pe_i/st_out[8]_INST_0_i_3/O
+                         net (fo=2, routed)           0.376    15.847    g_slot[10].pe_i/st_out[8]_INST_0_i_3_n_0
+    SLICE_X55Y128                                                     r  g_slot[10].pe_i/st_out[0]_INST_0/I4
+    SLICE_X55Y128        LUT6 (Prop_lut6_I4_O)        0.124    15.971 r  g_slot[10].pe_i/st_out[0]_INST_0/O
+                         net (fo=6, routed)           0.385    16.356    slot_nxt[10][0]
+    SLICE_X57Y128        FDRE                                         r  g_slot[10].bshB_reg[10][0]/D
+  -------------------------------------------------------------------    -------------------
+
+                         (clock clk rise edge)       10.000    10.000 r  
+                                                      0.000    10.000 r  clk (IN)
+                         net (fo=830, unset)          0.924    10.924    clk
+    SLICE_X57Y128        FDRE                                         r  g_slot[10].bshB_reg[10][0]/C
+                         clock pessimism              0.000    10.924    
+                         clock uncertainty           -0.035    10.889    
+    SLICE_X57Y128        FDRE (Setup_fdre_C_D)       -0.043    10.846    g_slot[10].bshB_reg[10][0]
+  -------------------------------------------------------------------
+                         required time                         10.846    
+                         arrival time                         -16.356    
+  -------------------------------------------------------------------
+                         slack                                 -5.510    
+
+Slack (VIOLATED) :        -5.510ns  (required time - arrival time)
+  Source:                 phase_reg[0]__0_rep/C
+                            (rising edge-triggered cell FDRE clocked by clk  {rise@0.000ns fall@5.000ns period=10.000ns})
+  Destination:            g_slot[10].bshB_reg[10][1]/D
+                            (rising edge-triggered cell FDRE clocked by clk  {rise@0.000ns fall@5.000ns period=10.000ns})
+  Path Group:             clk
+  Path Type:              Setup (Max at Slow Process Corner)
+  Requirement:            10.000ns  (clk rise@10.000ns - clk rise@0.000ns)
+  Data Path Delay:        15.383ns  (logic 2.936ns (19.086%)  route 12.447ns (80.914%))
+  Logic Levels:           20  (LUT2=1 LUT3=4 LUT4=2 LUT5=1 LUT6=12)
+  Clock Path Skew:        -0.049ns (DCD - SCD + CPR)
+    Destination Clock Delay (DCD):    0.924ns = ( 10.924 - 10.000 ) 
+    Source Clock Delay      (SCD):    0.973ns
+    Clock Pessimism Removal (CPR):    0.000ns
+  Clock Uncertainty:      0.035ns  ((TSJ^2 + TIJ^2)^1/2 + DJ) / 2 + PE
+    Total System Jitter     (TSJ):    0.071ns
+    Total Input Jitter      (TIJ):    0.000ns
+    Discrete Jitter          (DJ):    0.000ns
+    Phase Error              (PE):    0.000ns
+
+    Location             Delay type                Incr(ns)  Path(ns)    Netlist Resource(s)
+  -------------------------------------------------------------------    -------------------
+                         (clock clk rise edge)        0.000     0.000 r  
+                                                      0.000     0.000 r  clk (IN)
+                         net (fo=830, unset)          0.973     0.973    clk
+    SLICE_X49Y125        FDRE                                         r  phase_reg[0]__0_rep/C
+  -------------------------------------------------------------------    -------------------
+    SLICE_X49Y125        FDRE (Prop_fdre_C_Q)         0.456     1.429 r  phase_reg[0]__0_rep/Q
+                         net (fo=435, routed)         0.837     2.266    phase_reg[0]__0_rep_n_0
+    SLICE_X49Y123                                                     r  g_slot[5].pe_i_i_30/I1
+    SLICE_X49Y123        LUT3 (Prop_lut3_I1_O)        0.124     2.390 f  g_slot[5].pe_i_i_30/O
+                         net (fo=28, routed)          0.740     3.130    g_slot[10].pe_i/st_in[14]
+    SLICE_X48Y124                                                     f  g_slot[10].pe_i/st_out[14]_INST_0_i_40/I0
+    SLICE_X48Y124        LUT3 (Prop_lut3_I0_O)        0.124     3.254 r  g_slot[10].pe_i/st_out[14]_INST_0_i_40/O
+                         net (fo=1, routed)           0.667     3.921    g_slot[10].pe_i/st_out[14]_INST_0_i_40_n_0
+    SLICE_X48Y124                                                     r  g_slot[10].pe_i/st_out[14]_INST_0_i_25/I0
+    SLICE_X48Y124        LUT6 (Prop_lut6_I0_O)        0.124     4.045 r  g_slot[10].pe_i/st_out[14]_INST_0_i_25/O
+                         net (fo=21, routed)          0.788     4.833    g_slot[10].pe_i/st_out[14]_INST_0_i_25_n_0
+    SLICE_X49Y124                                                     r  g_slot[10].pe_i/st_out[3]_INST_0_i_23/I2
+    SLICE_X49Y124        LUT4 (Prop_lut4_I2_O)        0.124     4.957 r  g_slot[10].pe_i/st_out[3]_INST_0_i_23/O
+                         net (fo=1, routed)           0.335     5.292    g_slot[10].pe_i/st_out[3]_INST_0_i_23_n_0
+    SLICE_X48Y126                                                     r  g_slot[10].pe_i/st_out[3]_INST_0_i_15/I5
+    SLICE_X48Y126        LUT6 (Prop_lut6_I5_O)        0.124     5.416 r  g_slot[10].pe_i/st_out[3]_INST_0_i_15/O
+                         net (fo=5, routed)           0.693     6.109    g_slot[10].pe_i/st_out[3]_INST_0_i_15_n_0
+    SLICE_X48Y126                                                     r  g_slot[10].pe_i/st_out[3]_INST_0_i_7/I2
+    SLICE_X48Y126        LUT6 (Prop_lut6_I2_O)        0.124     6.233 r  g_slot[10].pe_i/st_out[3]_INST_0_i_7/O
+                         net (fo=12, routed)          0.512     6.744    g_slot[10].pe_i/st_out[3]_INST_0_i_7_n_0
+    SLICE_X49Y128                                                     r  g_slot[10].pe_i/st_out[3]_INST_0_i_9_comp/I4
+    SLICE_X49Y128        LUT6 (Prop_lut6_I4_O)        0.124     6.868 f  g_slot[10].pe_i/st_out[3]_INST_0_i_9_comp/O
+                         net (fo=2, routed)           0.954     7.823    g_slot[10].pe_i/st_out[3]_INST_0_i_9_n_0
+    SLICE_X50Y127                                                     f  g_slot[10].pe_i/st_out[3]_INST_0_i_6_comp/I2
+    SLICE_X50Y127        LUT6 (Prop_lut6_I2_O)        0.124     7.947 r  g_slot[10].pe_i/st_out[3]_INST_0_i_6_comp/O
+                         net (fo=16, routed)          0.555     8.502    g_slot[10].pe_i/st_out[3]_INST_0_i_6_n_0
+    SLICE_X51Y129                                                     r  g_slot[10].pe_i/st_out[13]_INST_0_i_8/I1
+    SLICE_X51Y129        LUT3 (Prop_lut3_I1_O)        0.124     8.626 r  g_slot[10].pe_i/st_out[13]_INST_0_i_8/O
+                         net (fo=2, routed)           0.446     9.072    g_slot[10].pe_i/st_out[13]_INST_0_i_8_n_0
+    SLICE_X52Y128                                                     r  g_slot[10].pe_i/st_out[15]_INST_0_i_13/I4
+    SLICE_X52Y128        LUT6 (Prop_lut6_I4_O)        0.124     9.196 f  g_slot[10].pe_i/st_out[15]_INST_0_i_13/O
+                         net (fo=2, routed)           0.595     9.791    g_slot[10].pe_i/st_out[15]_INST_0_i_13_n_0
+    SLICE_X50Y128                                                     f  g_slot[10].pe_i/st_out[15]_INST_0_i_7/I4
+    SLICE_X50Y128        LUT6 (Prop_lut6_I4_O)        0.124     9.915 r  g_slot[10].pe_i/st_out[15]_INST_0_i_7/O
+                         net (fo=13, routed)          0.473    10.388    g_slot[10].pe_i/st_out[15]_INST_0_i_7_n_0
+    SLICE_X50Y128                                                     r  g_slot[10].pe_i/st_out[13]_INST_0_i_7/I2
+    SLICE_X50Y128        LUT3 (Prop_lut3_I2_O)        0.124    10.512 f  g_slot[10].pe_i/st_out[13]_INST_0_i_7/O
+                         net (fo=6, routed)           0.470    10.981    g_slot[10].pe_i/st_out[13]_INST_0_i_7_n_0
+    SLICE_X52Y129                                                     f  g_slot[10].pe_i/st_out[15]_INST_0_i_16/I0
+    SLICE_X52Y129        LUT4 (Prop_lut4_I0_O)        0.124    11.105 r  g_slot[10].pe_i/st_out[15]_INST_0_i_16/O
+                         net (fo=4, routed)           0.855    11.960    g_slot[10].pe_i/st_out[15]_INST_0_i_16_n_0
+    SLICE_X52Y131                                                     r  g_slot[10].pe_i/st_out[15]_INST_0_i_8/I1
+    SLICE_X52Y131        LUT5 (Prop_lut5_I1_O)        0.124    12.084 r  g_slot[10].pe_i/st_out[15]_INST_0_i_8/O
+                         net (fo=15, routed)          0.348    12.432    g_slot[10].pe_i/st_out[15]_INST_0_i_8_n_0
+    SLICE_X51Y130                                                     r  g_slot[10].pe_i/st_out[14]_INST_0_i_22/I4
+    SLICE_X51Y130        LUT6 (Prop_lut6_I4_O)        0.124    12.556 r  g_slot[10].pe_i/st_out[14]_INST_0_i_22/O
+                         net (fo=1, routed)           0.548    13.104    g_slot[10].pe_i/st_out[14]_INST_0_i_22_n_0
+    SLICE_X52Y130                                                     r  g_slot[10].pe_i/st_out[14]_INST_0_i_8/I3
+    SLICE_X52Y130        LUT6 (Prop_lut6_I3_O)        0.124    13.228 r  g_slot[10].pe_i/st_out[14]_INST_0_i_8/O
+                         net (fo=11, routed)          0.379    13.607    g_slot[10].pe_i/st_out[14]_INST_0_i_8_n_0
+    SLICE_X53Y130                                                     r  g_slot[10].pe_i/st_out[14]_INST_0_i_2/I0
+    SLICE_X53Y130        LUT2 (Prop_lut2_I0_O)        0.124    13.731 r  g_slot[10].pe_i/st_out[14]_INST_0_i_2/O
+                         net (fo=10, routed)          0.490    14.221    g_slot[10].pe_i/st_out[14]_INST_0_i_2_n_0
+    SLICE_X53Y129                                                     r  g_slot[10].pe_i/st_out[4]_INST_0_i_1/I3
+    SLICE_X53Y129        LUT6 (Prop_lut6_I3_O)        0.124    14.345 r  g_slot[10].pe_i/st_out[4]_INST_0_i_1/O
+                         net (fo=4, routed)           1.002    15.347    g_slot[10].pe_i/st_out[4]_INST_0_i_1_n_0
+    SLICE_X52Y128                                                     r  g_slot[10].pe_i/st_out[8]_INST_0_i_3/I3
+    SLICE_X52Y128        LUT6 (Prop_lut6_I3_O)        0.124    15.471 r  g_slot[10].pe_i/st_out[8]_INST_0_i_3/O
+                         net (fo=2, routed)           0.376    15.847    g_slot[10].pe_i/st_out[8]_INST_0_i_3_n_0
+    SLICE_X55Y128                                                     r  g_slot[10].pe_i/st_out[0]_INST_0/I4
+    SLICE_X55Y128        LUT6 (Prop_lut6_I4_O)        0.124    15.971 r  g_slot[10].pe_i/st_out[0]_INST_0/O
+                         net (fo=6, routed)           0.385    16.356    slot_nxt[10][0]
+    SLICE_X56Y128        FDRE                                         r  g_slot[10].bshB_reg[10][1]/D
+  -------------------------------------------------------------------    -------------------
+
+                         (clock clk rise edge)       10.000    10.000 r  
+                                                      0.000    10.000 r  clk (IN)
+                         net (fo=830, unset)          0.924    10.924    clk
+    SLICE_X56Y128        FDRE                                         r  g_slot[10].bshB_reg[10][1]/C
+                         clock pessimism              0.000    10.924    
+                         clock uncertainty           -0.035    10.889    
+    SLICE_X56Y128        FDRE (Setup_fdre_C_D)       -0.043    10.846    g_slot[10].bshB_reg[10][1]
+  -------------------------------------------------------------------
+                         required time                         10.846    
+                         arrival time                         -16.356    
+  -------------------------------------------------------------------
+                         slack                                 -5.510    
+
+Slack (VIOLATED) :        -5.508ns  (required time - arrival time)
+  Source:                 g_slot[5].own_reg[27]/C
+                            (rising edge-triggered cell FDSE clocked by clk  {rise@0.000ns fall@5.000ns period=10.000ns})
+  Destination:            g_slot[5].own_reg[0]/D
+                            (rising edge-triggered cell FDRE clocked by clk  {rise@0.000ns fall@5.000ns period=10.000ns})
+  Path Group:             clk
+  Path Type:              Setup (Max at Slow Process Corner)
+  Requirement:            10.000ns  (clk rise@10.000ns - clk rise@0.000ns)
+  Data Path Delay:        15.381ns  (logic 2.812ns (18.283%)  route 12.569ns (81.717%))
+  Logic Levels:           19  (LUT2=1 LUT3=2 LUT4=1 LUT5=1 LUT6=14)
+  Clock Path Skew:        -0.049ns (DCD - SCD + CPR)
+    Destination Clock Delay (DCD):    0.924ns = ( 10.924 - 10.000 ) 
+    Source Clock Delay      (SCD):    0.973ns
+    Clock Pessimism Removal (CPR):    0.000ns
+  Clock Uncertainty:      0.035ns  ((TSJ^2 + TIJ^2)^1/2 + DJ) / 2 + PE
+    Total System Jitter     (TSJ):    0.071ns
+    Total Input Jitter      (TIJ):    0.000ns
+    Discrete Jitter          (DJ):    0.000ns
+    Phase Error              (PE):    0.000ns
+
+    Location             Delay type                Incr(ns)  Path(ns)    Netlist Resource(s)
+  -------------------------------------------------------------------    -------------------
+                         (clock clk rise edge)        0.000     0.000 r  
+                                                      0.000     0.000 r  clk (IN)
+                         net (fo=830, unset)          0.973     0.973    clk
+    SLICE_X49Y126        FDSE                                         r  g_slot[5].own_reg[27]/C
+  -------------------------------------------------------------------    -------------------
+    SLICE_X49Y126        FDSE (Prop_fdse_C_Q)         0.456     1.429 f  g_slot[5].own_reg[27]/Q
+                         net (fo=3, routed)           0.587     2.016    obs_cid[74]
+    SLICE_X48Y125                                                     f  g_slot[0].pe_i_i_17/I0
+    SLICE_X48Y125        LUT3 (Prop_lut3_I0_O)        0.124     2.140 f  g_slot[0].pe_i_i_17/O
+                         net (fo=37, routed)          1.340     3.480    g_slot[5].pe_i/st_in[11]
+    SLICE_X52Y123                                                     f  g_slot[5].pe_i/st_out[14]_INST_0_i_66/I1
+    SLICE_X52Y123        LUT6 (Prop_lut6_I1_O)        0.124     3.604 r  g_slot[5].pe_i/st_out[14]_INST_0_i_66/O
+                         net (fo=1, routed)           0.669     4.273    g_slot[5].pe_i/st_out[14]_INST_0_i_66_n_0
+    SLICE_X52Y123                                                     r  g_slot[5].pe_i/st_out[14]_INST_0_i_33/I3
+    SLICE_X52Y123        LUT6 (Prop_lut6_I3_O)        0.124     4.397 r  g_slot[5].pe_i/st_out[14]_INST_0_i_33/O
+                         net (fo=20, routed)          0.378     4.775    g_slot[5].pe_i/st_out[14]_INST_0_i_33_n_0
+    SLICE_X51Y123                                                     r  g_slot[5].pe_i/st_out[14]_INST_0_i_87/I1
+    SLICE_X51Y123        LUT3 (Prop_lut3_I1_O)        0.124     4.899 r  g_slot[5].pe_i/st_out[14]_INST_0_i_87/O
+                         net (fo=4, routed)           0.466     5.365    g_slot[5].pe_i/st_out[14]_INST_0_i_87_n_0
+    SLICE_X51Y122                                                     r  g_slot[5].pe_i/st_out[14]_INST_0_i_72/I4
+    SLICE_X51Y122        LUT6 (Prop_lut6_I4_O)        0.124     5.489 f  g_slot[5].pe_i/st_out[14]_INST_0_i_72/O
+                         net (fo=1, routed)           0.653     6.142    g_slot[5].pe_i/st_out[14]_INST_0_i_72_n_0
+    SLICE_X50Y122                                                     f  g_slot[5].pe_i/st_out[14]_INST_0_i_34/I3
+    SLICE_X50Y122        LUT6 (Prop_lut6_I3_O)        0.124     6.266 r  g_slot[5].pe_i/st_out[14]_INST_0_i_34/O
+                         net (fo=18, routed)          0.518     6.784    g_slot[5].pe_i/st_out[14]_INST_0_i_34_n_0
+    SLICE_X51Y119                                                     r  g_slot[5].pe_i/st_out[11]_INST_0_i_7/I1
+    SLICE_X51Y119        LUT5 (Prop_lut5_I1_O)        0.124     6.908 f  g_slot[5].pe_i/st_out[11]_INST_0_i_7/O
+                         net (fo=3, routed)           0.599     7.506    g_slot[5].pe_i/st_out[11]_INST_0_i_7_n_0
+    SLICE_X50Y121                                                     f  g_slot[5].pe_i/st_out[14]_INST_0_i_60/I2
+    SLICE_X50Y121        LUT4 (Prop_lut4_I2_O)        0.124     7.630 r  g_slot[5].pe_i/st_out[14]_INST_0_i_60/O
+                         net (fo=1, routed)           0.670     8.300    g_slot[5].pe_i/st_out[14]_INST_0_i_60_n_0
+    SLICE_X50Y121                                                     r  g_slot[5].pe_i/st_out[14]_INST_0_i_32/I3
+    SLICE_X50Y121        LUT6 (Prop_lut6_I3_O)        0.124     8.424 r  g_slot[5].pe_i/st_out[14]_INST_0_i_32/O
+                         net (fo=16, routed)          0.379     8.803    g_slot[5].pe_i/st_out[14]_INST_0_i_32_n_0
+    SLICE_X51Y120                                                     r  g_slot[5].pe_i/st_out[14]_INST_0_i_22/I3
+    SLICE_X51Y120        LUT6 (Prop_lut6_I3_O)        0.124     8.927 f  g_slot[5].pe_i/st_out[14]_INST_0_i_22/O
+                         net (fo=1, routed)           0.980     9.908    g_slot[5].pe_i/st_out[14]_INST_0_i_22_n_0
+    SLICE_X51Y121                                                     f  g_slot[5].pe_i/st_out[14]_INST_0_i_9/I2
+    SLICE_X51Y121        LUT6 (Prop_lut6_I2_O)        0.124    10.032 f  g_slot[5].pe_i/st_out[14]_INST_0_i_9/O
+                         net (fo=13, routed)          0.388    10.420    g_slot[5].pe_i/st_out[14]_INST_0_i_9_n_0
+    SLICE_X52Y122                                                     f  g_slot[5].pe_i/st_out[12]_INST_0_i_10/I1
+    SLICE_X52Y122        LUT2 (Prop_lut2_I1_O)        0.124    10.544 r  g_slot[5].pe_i/st_out[12]_INST_0_i_10/O
+                         net (fo=9, routed)           0.609    11.153    g_slot[5].pe_i/st_out[12]_INST_0_i_10_n_0
+    SLICE_X53Y121                                                     r  g_slot[5].pe_i/st_out[14]_INST_0_i_27/I0
+    SLICE_X53Y121        LUT6 (Prop_lut6_I0_O)        0.124    11.277 r  g_slot[5].pe_i/st_out[14]_INST_0_i_27/O
+                         net (fo=1, routed)           1.033    12.310    g_slot[5].pe_i/st_out[14]_INST_0_i_27_n_0
+    SLICE_X54Y122                                                     r  g_slot[5].pe_i/st_out[14]_INST_0_i_10/I1
+    SLICE_X54Y122        LUT6 (Prop_lut6_I1_O)        0.124    12.434 r  g_slot[5].pe_i/st_out[14]_INST_0_i_10/O
+                         net (fo=15, routed)          0.488    12.922    g_slot[5].pe_i/st_out[14]_INST_0_i_10_n_0
+    SLICE_X54Y123                                                     r  g_slot[5].pe_i/st_out[14]_INST_0_i_36/I3
+    SLICE_X54Y123        LUT6 (Prop_lut6_I3_O)        0.124    13.046 r  g_slot[5].pe_i/st_out[14]_INST_0_i_36/O
+                         net (fo=2, routed)           0.506    13.552    g_slot[5].pe_i/st_out[14]_INST_0_i_36_n_0
+    SLICE_X55Y123                                                     r  g_slot[5].pe_i/st_out[14]_INST_0_i_12/I1
+    SLICE_X55Y123        LUT6 (Prop_lut6_I1_O)        0.124    13.676 f  g_slot[5].pe_i/st_out[14]_INST_0_i_12/O
+                         net (fo=14, routed)          0.480    14.156    g_slot[5].pe_i/st_out[14]_INST_0_i_12_n_0
+    SLICE_X55Y124                                                     f  g_slot[5].pe_i/st_out[5]_INST_0_i_1/I3
+    SLICE_X55Y124        LUT6 (Prop_lut6_I3_O)        0.124    14.280 r  g_slot[5].pe_i/st_out[5]_INST_0_i_1/O
+                         net (fo=5, routed)           0.797    15.077    g_slot[5].pe_i/st_out[5]_INST_0_i_1_n_0
+    SLICE_X58Y123                                                     r  g_slot[5].pe_i/st_out[0]_INST_0_i_1_comp/I2
+    SLICE_X58Y123        LUT6 (Prop_lut6_I2_O)        0.124    15.201 r  g_slot[5].pe_i/st_out[0]_INST_0_i_1_comp/O
+                         net (fo=1, routed)           0.670    15.871    g_slot[5].pe_i/st_out[0]_INST_0_i_1_n_0
+    SLICE_X58Y123                                                     r  g_slot[5].pe_i/st_out[0]_INST_0/I0
+    SLICE_X58Y123        LUT6 (Prop_lut6_I0_O)        0.124    15.995 r  g_slot[5].pe_i/st_out[0]_INST_0/O
+                         net (fo=6, routed)           0.359    16.354    slot_nxt[5][0]
+    SLICE_X57Y123        FDRE                                         r  g_slot[5].own_reg[0]/D
+  -------------------------------------------------------------------    -------------------
+
+                         (clock clk rise edge)       10.000    10.000 r  
+                                                      0.000    10.000 r  clk (IN)
+                         net (fo=830, unset)          0.924    10.924    clk
+    SLICE_X57Y123        FDRE                                         r  g_slot[5].own_reg[0]/C
+                         clock pessimism              0.000    10.924    
+                         clock uncertainty           -0.035    10.889    
+    SLICE_X57Y123        FDRE (Setup_fdre_C_D)       -0.043    10.846    g_slot[5].own_reg[0]
+  -------------------------------------------------------------------
+                         required time                         10.846    
+                         arrival time                         -16.354    
+  -------------------------------------------------------------------
+                         slack                                 -5.508    
+
+Slack (VIOLATED) :        -5.501ns  (required time - arrival time)
+  Source:                 phase_reg[0]__0_rep__1_replica_10/C
+                            (rising edge-triggered cell FDRE clocked by clk  {rise@0.000ns fall@5.000ns period=10.000ns})
+  Destination:            g_slot[21].bshB_reg[21][0]/D
+                            (rising edge-triggered cell FDRE clocked by clk  {rise@0.000ns fall@5.000ns period=10.000ns})
+  Path Group:             clk
+  Path Type:              Setup (Max at Slow Process Corner)
+  Requirement:            10.000ns  (clk rise@10.000ns - clk rise@0.000ns)
+  Data Path Delay:        15.359ns  (logic 2.936ns (19.116%)  route 12.423ns (80.884%))
+  Logic Levels:           20  (LUT2=2 LUT3=1 LUT4=2 LUT5=3 LUT6=12)
+  Clock Path Skew:        -0.049ns (DCD - SCD + CPR)
+    Destination Clock Delay (DCD):    0.924ns = ( 10.924 - 10.000 ) 
+    Source Clock Delay      (SCD):    0.973ns
+    Clock Pessimism Removal (CPR):    0.000ns
+  Clock Uncertainty:      0.035ns  ((TSJ^2 + TIJ^2)^1/2 + DJ) / 2 + PE
+    Total System Jitter     (TSJ):    0.071ns
+    Total Input Jitter      (TIJ):    0.000ns
+    Discrete Jitter          (DJ):    0.000ns
+    Phase Error              (PE):    0.000ns
+
+    Location             Delay type                Incr(ns)  Path(ns)    Netlist Resource(s)
+  -------------------------------------------------------------------    -------------------
+                         (clock clk rise edge)        0.000     0.000 r  
+                                                      0.000     0.000 r  clk (IN)
+                         net (fo=830, unset)          0.973     0.973    clk
+    SLICE_X47Y127        FDRE                                         r  phase_reg[0]__0_rep__1_replica_10/C
+  -------------------------------------------------------------------    -------------------
+    SLICE_X47Y127        FDRE (Prop_fdre_C_Q)         0.456     1.429 r  phase_reg[0]__0_rep__1_replica_10/Q
+                         net (fo=8, routed)           0.546     1.975    phase_reg[0]__0_rep__1_n_0_repN_10
+    SLICE_X47Y128                                                     r  g_slot[5].pe_i_i_6/I1
+    SLICE_X47Y128        LUT2 (Prop_lut2_I1_O)        0.124     2.099 f  g_slot[5].pe_i_i_6/O
+                         net (fo=33, routed)          1.074     3.173    g_slot[21].pe_i/st_in[10]
+    SLICE_X44Y125                                                     f  g_slot[21].pe_i/st_out[14]_INST_0_i_19/I3
+    SLICE_X44Y125        LUT6 (Prop_lut6_I3_O)        0.124     3.297 r  g_slot[21].pe_i/st_out[14]_INST_0_i_19/O
+                         net (fo=1, routed)           0.805     4.103    g_slot[21].pe_i/st_out[14]_INST_0_i_19_n_0
+    SLICE_X45Y125                                                     r  g_slot[21].pe_i/st_out[14]_INST_0_i_11/I3
+    SLICE_X45Y125        LUT6 (Prop_lut6_I3_O)        0.124     4.227 r  g_slot[21].pe_i/st_out[14]_INST_0_i_11/O
+                         net (fo=24, routed)          0.539     4.766    g_slot[21].pe_i/st_out[14]_INST_0_i_11_n_0
+    SLICE_X47Y124                                                     r  g_slot[21].pe_i/st_out[14]_INST_0_i_31/I1
+    SLICE_X47Y124        LUT3 (Prop_lut3_I1_O)        0.124     4.890 r  g_slot[21].pe_i/st_out[14]_INST_0_i_31/O
+                         net (fo=5, routed)           0.646     5.536    g_slot[21].pe_i/st_out[14]_INST_0_i_31_n_0
+    SLICE_X47Y124                                                     r  g_slot[21].pe_i/st_out[14]_INST_0_i_23/I1
+    SLICE_X47Y124        LUT4 (Prop_lut4_I1_O)        0.124     5.660 r  g_slot[21].pe_i/st_out[14]_INST_0_i_23/O
+                         net (fo=3, routed)           0.541     6.201    g_slot[21].pe_i/st_out[14]_INST_0_i_23_n_0
+    SLICE_X46Y124                                                     r  g_slot[21].pe_i/st_out[14]_INST_0_i_12/I1
+    SLICE_X46Y124        LUT6 (Prop_lut6_I1_O)        0.124     6.325 r  g_slot[21].pe_i/st_out[14]_INST_0_i_12/O
+                         net (fo=23, routed)          0.365     6.690    g_slot[21].pe_i/st_out[14]_INST_0_i_12_n_0
+    SLICE_X44Y123                                                     r  g_slot[21].pe_i/st_out[11]_INST_0_i_5/I1
+    SLICE_X44Y123        LUT5 (Prop_lut5_I1_O)        0.124     6.814 r  g_slot[21].pe_i/st_out[11]_INST_0_i_5/O
+                         net (fo=3, routed)           0.606     7.420    g_slot[21].pe_i/st_out[11]_INST_0_i_5_n_0
+    SLICE_X41Y123                                                     r  g_slot[21].pe_i/st_out[3]_INST_0_i_8_comp/I3
+    SLICE_X41Y123        LUT6 (Prop_lut6_I3_O)        0.124     7.544 f  g_slot[21].pe_i/st_out[3]_INST_0_i_8_comp/O
+                         net (fo=1, routed)           0.769     8.313    g_slot[21].pe_i/st_out[3]_INST_0_i_8_n_0
+    SLICE_X43Y124                                                     f  g_slot[21].pe_i/st_out[3]_INST_0_i_4/I3
+    SLICE_X43Y124        LUT6 (Prop_lut6_I3_O)        0.124     8.437 r  g_slot[21].pe_i/st_out[3]_INST_0_i_4/O
+                         net (fo=17, routed)          0.744     9.181    g_slot[21].pe_i/st_out[3]_INST_0_i_4_n_0
+    SLICE_X42Y125                                                     r  g_slot[21].pe_i/st_out[15]_INST_0_i_18/I1
+    SLICE_X42Y125        LUT6 (Prop_lut6_I1_O)        0.124     9.305 f  g_slot[21].pe_i/st_out[15]_INST_0_i_18/O
+                         net (fo=1, routed)           0.444     9.749    g_slot[21].pe_i/st_out[15]_INST_0_i_18_n_0
+    SLICE_X42Y124                                                     f  g_slot[21].pe_i/st_out[15]_INST_0_i_11/I1
+    SLICE_X42Y124        LUT6 (Prop_lut6_I1_O)        0.124     9.873 r  g_slot[21].pe_i/st_out[15]_INST_0_i_11/O
+                         net (fo=14, routed)          0.538    10.411    g_slot[21].pe_i/st_out[15]_INST_0_i_11_n_0
+    SLICE_X40Y124                                                     r  g_slot[21].pe_i/st_out[12]_INST_0_i_13/I1
+    SLICE_X40Y124        LUT5 (Prop_lut5_I1_O)        0.124    10.535 f  g_slot[21].pe_i/st_out[12]_INST_0_i_13/O
+                         net (fo=4, routed)           0.617    11.152    g_slot[21].pe_i/st_out[12]_INST_0_i_13_n_0
+    SLICE_X41Y124                                                     f  g_slot[21].pe_i/st_out[15]_INST_0_i_15/I0
+    SLICE_X41Y124        LUT4 (Prop_lut4_I0_O)        0.124    11.276 f  g_slot[21].pe_i/st_out[15]_INST_0_i_15/O
+                         net (fo=4, routed)           0.468    11.744    g_slot[21].pe_i/st_out[15]_INST_0_i_15_n_0
+    SLICE_X40Y123                                                     f  g_slot[21].pe_i/st_out[15]_INST_0_i_8/I3
+    SLICE_X40Y123        LUT5 (Prop_lut5_I3_O)        0.124    11.868 r  g_slot[21].pe_i/st_out[15]_INST_0_i_8/O
+                         net (fo=15, routed)          0.611    12.479    g_slot[21].pe_i/st_out[15]_INST_0_i_8_n_0
+    SLICE_X36Y123                                                     r  g_slot[21].pe_i/st_out[12]_INST_0_i_11/I2
+    SLICE_X36Y123        LUT6 (Prop_lut6_I2_O)        0.124    12.603 f  g_slot[21].pe_i/st_out[12]_INST_0_i_11/O
+                         net (fo=2, routed)           0.872    13.475    g_slot[21].pe_i/st_out[12]_INST_0_i_11_n_0
+    SLICE_X41Y122                                                     f  g_slot[21].pe_i/st_out[5]_INST_0_i_4_comp/I2
+    SLICE_X41Y122        LUT6 (Prop_lut6_I2_O)        0.124    13.599 r  g_slot[21].pe_i/st_out[5]_INST_0_i_4_comp/O
+                         net (fo=3, routed)           0.442    14.041    g_slot[21].pe_i/st_out[5]_INST_0_i_4_n_0
+    SLICE_X42Y122                                                     r  g_slot[21].pe_i/st_out[5]_INST_0_i_1_comp/I3
+    SLICE_X42Y122        LUT6 (Prop_lut6_I3_O)        0.124    14.165 r  g_slot[21].pe_i/st_out[5]_INST_0_i_1_comp/O
+                         net (fo=5, routed)           0.747    14.912    g_slot[21].pe_i/st_out[5]_INST_0_i_1_n_0
+    SLICE_X39Y122                                                     r  g_slot[21].pe_i/st_out[8]_INST_0_i_3/I3
+    SLICE_X39Y122        LUT6 (Prop_lut6_I3_O)        0.124    15.036 r  g_slot[21].pe_i/st_out[8]_INST_0_i_3/O
+                         net (fo=2, routed)           0.665    15.701    g_slot[21].pe_i/st_out[8]_INST_0_i_3_n_0
+    SLICE_X38Y122                                                     r  g_slot[21].pe_i/st_out[0]_INST_0/I1
+    SLICE_X38Y122        LUT6 (Prop_lut6_I1_O)        0.124    15.825 r  g_slot[21].pe_i/st_out[0]_INST_0/O
+                         net (fo=2, routed)           0.182    16.006    slot_nxt[21][0]
+    SLICE_X38Y122                                                     r  g_slot[21].bshB[21][0]_i_1/I0
+    SLICE_X38Y122        LUT2 (Prop_lut2_I0_O)        0.124    16.130 r  g_slot[21].bshB[21][0]_i_1/O
+                         net (fo=2, routed)           0.202    16.332    p_12_out
+    SLICE_X39Y122        FDRE                                         r  g_slot[21].bshB_reg[21][0]/D
+  -------------------------------------------------------------------    -------------------
+
+                         (clock clk rise edge)       10.000    10.000 r  
+                                                      0.000    10.000 r  clk (IN)
+                         net (fo=830, unset)          0.924    10.924    clk
+    SLICE_X39Y122        FDRE                                         r  g_slot[21].bshB_reg[21][0]/C
+                         clock pessimism              0.000    10.924    
+                         clock uncertainty           -0.035    10.889    
+    SLICE_X39Y122        FDRE (Setup_fdre_C_D)       -0.058    10.831    g_slot[21].bshB_reg[21][0]
+  -------------------------------------------------------------------
+                         required time                         10.831    
+                         arrival time                         -16.332    
+  -------------------------------------------------------------------
+                         slack                                 -5.501    
+
+Slack (VIOLATED) :        -5.499ns  (required time - arrival time)
+  Source:                 g_slot[5].own_reg[27]/C
+                            (rising edge-triggered cell FDSE clocked by clk  {rise@0.000ns fall@5.000ns period=10.000ns})
+  Destination:            g_slot[5].own_reg[24]/D
+                            (rising edge-triggered cell FDRE clocked by clk  {rise@0.000ns fall@5.000ns period=10.000ns})
+  Path Group:             clk
+  Path Type:              Setup (Max at Slow Process Corner)
+  Requirement:            10.000ns  (clk rise@10.000ns - clk rise@0.000ns)
+  Data Path Delay:        15.384ns  (logic 2.812ns (18.279%)  route 12.572ns (81.721%))
+  Logic Levels:           19  (LUT2=1 LUT3=3 LUT4=1 LUT5=1 LUT6=13)
+  Clock Path Skew:        -0.049ns (DCD - SCD + CPR)
+    Destination Clock Delay (DCD):    0.924ns = ( 10.924 - 10.000 ) 
+    Source Clock Delay      (SCD):    0.973ns
+    Clock Pessimism Removal (CPR):    0.000ns
+  Clock Uncertainty:      0.035ns  ((TSJ^2 + TIJ^2)^1/2 + DJ) / 2 + PE
+    Total System Jitter     (TSJ):    0.071ns
+    Total Input Jitter      (TIJ):    0.000ns
+    Discrete Jitter          (DJ):    0.000ns
+    Phase Error              (PE):    0.000ns
+
+    Location             Delay type                Incr(ns)  Path(ns)    Netlist Resource(s)
+  -------------------------------------------------------------------    -------------------
+                         (clock clk rise edge)        0.000     0.000 r  
+                                                      0.000     0.000 r  clk (IN)
+                         net (fo=830, unset)          0.973     0.973    clk
+    SLICE_X49Y126        FDSE                                         r  g_slot[5].own_reg[27]/C
+  -------------------------------------------------------------------    -------------------
+    SLICE_X49Y126        FDSE (Prop_fdse_C_Q)         0.456     1.429 f  g_slot[5].own_reg[27]/Q
+                         net (fo=3, routed)           0.587     2.016    obs_cid[74]
+    SLICE_X48Y125                                                     f  g_slot[0].pe_i_i_17/I0
+    SLICE_X48Y125        LUT3 (Prop_lut3_I0_O)        0.124     2.140 f  g_slot[0].pe_i_i_17/O
+                         net (fo=37, routed)          1.340     3.480    g_slot[5].pe_i/st_in[11]
+    SLICE_X52Y123                                                     f  g_slot[5].pe_i/st_out[14]_INST_0_i_66/I1
+    SLICE_X52Y123        LUT6 (Prop_lut6_I1_O)        0.124     3.604 r  g_slot[5].pe_i/st_out[14]_INST_0_i_66/O
+                         net (fo=1, routed)           0.669     4.273    g_slot[5].pe_i/st_out[14]_INST_0_i_66_n_0
+    SLICE_X52Y123                                                     r  g_slot[5].pe_i/st_out[14]_INST_0_i_33/I3
+    SLICE_X52Y123        LUT6 (Prop_lut6_I3_O)        0.124     4.397 r  g_slot[5].pe_i/st_out[14]_INST_0_i_33/O
+                         net (fo=20, routed)          0.378     4.775    g_slot[5].pe_i/st_out[14]_INST_0_i_33_n_0
+    SLICE_X51Y123                                                     r  g_slot[5].pe_i/st_out[14]_INST_0_i_87/I1
+    SLICE_X51Y123        LUT3 (Prop_lut3_I1_O)        0.124     4.899 r  g_slot[5].pe_i/st_out[14]_INST_0_i_87/O
+                         net (fo=4, routed)           0.466     5.365    g_slot[5].pe_i/st_out[14]_INST_0_i_87_n_0
+    SLICE_X51Y122                                                     r  g_slot[5].pe_i/st_out[14]_INST_0_i_72/I4
+    SLICE_X51Y122        LUT6 (Prop_lut6_I4_O)        0.124     5.489 f  g_slot[5].pe_i/st_out[14]_INST_0_i_72/O
+                         net (fo=1, routed)           0.653     6.142    g_slot[5].pe_i/st_out[14]_INST_0_i_72_n_0
+    SLICE_X50Y122                                                     f  g_slot[5].pe_i/st_out[14]_INST_0_i_34/I3
+    SLICE_X50Y122        LUT6 (Prop_lut6_I3_O)        0.124     6.266 r  g_slot[5].pe_i/st_out[14]_INST_0_i_34/O
+                         net (fo=18, routed)          0.518     6.784    g_slot[5].pe_i/st_out[14]_INST_0_i_34_n_0
+    SLICE_X51Y119                                                     r  g_slot[5].pe_i/st_out[11]_INST_0_i_7/I1
+    SLICE_X51Y119        LUT5 (Prop_lut5_I1_O)        0.124     6.908 f  g_slot[5].pe_i/st_out[11]_INST_0_i_7/O
+                         net (fo=3, routed)           0.599     7.506    g_slot[5].pe_i/st_out[11]_INST_0_i_7_n_0
+    SLICE_X50Y121                                                     f  g_slot[5].pe_i/st_out[14]_INST_0_i_60/I2
+    SLICE_X50Y121        LUT4 (Prop_lut4_I2_O)        0.124     7.630 r  g_slot[5].pe_i/st_out[14]_INST_0_i_60/O
+                         net (fo=1, routed)           0.670     8.300    g_slot[5].pe_i/st_out[14]_INST_0_i_60_n_0
+    SLICE_X50Y121                                                     r  g_slot[5].pe_i/st_out[14]_INST_0_i_32/I3
+    SLICE_X50Y121        LUT6 (Prop_lut6_I3_O)        0.124     8.424 r  g_slot[5].pe_i/st_out[14]_INST_0_i_32/O
+                         net (fo=16, routed)          0.379     8.803    g_slot[5].pe_i/st_out[14]_INST_0_i_32_n_0
+    SLICE_X51Y120                                                     r  g_slot[5].pe_i/st_out[14]_INST_0_i_22/I3
+    SLICE_X51Y120        LUT6 (Prop_lut6_I3_O)        0.124     8.927 f  g_slot[5].pe_i/st_out[14]_INST_0_i_22/O
+                         net (fo=1, routed)           0.980     9.908    g_slot[5].pe_i/st_out[14]_INST_0_i_22_n_0
+    SLICE_X51Y121                                                     f  g_slot[5].pe_i/st_out[14]_INST_0_i_9/I2
+    SLICE_X51Y121        LUT6 (Prop_lut6_I2_O)        0.124    10.032 f  g_slot[5].pe_i/st_out[14]_INST_0_i_9/O
+                         net (fo=13, routed)          0.388    10.420    g_slot[5].pe_i/st_out[14]_INST_0_i_9_n_0
+    SLICE_X52Y122                                                     f  g_slot[5].pe_i/st_out[12]_INST_0_i_10/I1
+    SLICE_X52Y122        LUT2 (Prop_lut2_I1_O)        0.124    10.544 r  g_slot[5].pe_i/st_out[12]_INST_0_i_10/O
+                         net (fo=9, routed)           0.609    11.153    g_slot[5].pe_i/st_out[12]_INST_0_i_10_n_0
+    SLICE_X53Y121                                                     r  g_slot[5].pe_i/st_out[14]_INST_0_i_27/I0
+    SLICE_X53Y121        LUT6 (Prop_lut6_I0_O)        0.124    11.277 r  g_slot[5].pe_i/st_out[14]_INST_0_i_27/O
+                         net (fo=1, routed)           1.033    12.310    g_slot[5].pe_i/st_out[14]_INST_0_i_27_n_0
+    SLICE_X54Y122                                                     r  g_slot[5].pe_i/st_out[14]_INST_0_i_10/I1
+    SLICE_X54Y122        LUT6 (Prop_lut6_I1_O)        0.124    12.434 r  g_slot[5].pe_i/st_out[14]_INST_0_i_10/O
+                         net (fo=15, routed)          0.488    12.922    g_slot[5].pe_i/st_out[14]_INST_0_i_10_n_0
+    SLICE_X54Y123                                                     r  g_slot[5].pe_i/st_out[14]_INST_0_i_36/I3
+    SLICE_X54Y123        LUT6 (Prop_lut6_I3_O)        0.124    13.046 r  g_slot[5].pe_i/st_out[14]_INST_0_i_36/O
+                         net (fo=2, routed)           0.506    13.552    g_slot[5].pe_i/st_out[14]_INST_0_i_36_n_0
+    SLICE_X55Y123                                                     r  g_slot[5].pe_i/st_out[14]_INST_0_i_12/I1
+    SLICE_X55Y123        LUT6 (Prop_lut6_I1_O)        0.124    13.676 f  g_slot[5].pe_i/st_out[14]_INST_0_i_12/O
+                         net (fo=14, routed)          0.480    14.156    g_slot[5].pe_i/st_out[14]_INST_0_i_12_n_0
+    SLICE_X55Y124                                                     f  g_slot[5].pe_i/st_out[5]_INST_0_i_1/I3
+    SLICE_X55Y124        LUT6 (Prop_lut6_I3_O)        0.124    14.280 r  g_slot[5].pe_i/st_out[5]_INST_0_i_1/O
+                         net (fo=5, routed)           0.760    15.040    g_slot[5].pe_i/st_out[5]_INST_0_i_1_n_0
+    SLICE_X56Y122                                                     r  g_slot[5].pe_i/st_out[8]_INST_0_i_5/I2
+    SLICE_X56Y122        LUT3 (Prop_lut3_I2_O)        0.124    15.164 r  g_slot[5].pe_i/st_out[8]_INST_0_i_5/O
+                         net (fo=2, routed)           0.738    15.901    g_slot[5].pe_i/st_out[8]_INST_0_i_5_n_0
+    SLICE_X55Y120                                                     r  g_slot[5].pe_i/st_out[8]_INST_0/I4
+    SLICE_X55Y120        LUT6 (Prop_lut6_I4_O)        0.124    16.025 r  g_slot[5].pe_i/st_out[8]_INST_0/O
+                         net (fo=2, routed)           0.332    16.357    slot_nxt[5][8]
+    SLICE_X54Y120        FDRE                                         r  g_slot[5].own_reg[24]/D
+  -------------------------------------------------------------------    -------------------
+
+                         (clock clk rise edge)       10.000    10.000 r  
+                                                      0.000    10.000 r  clk (IN)
+                         net (fo=830, unset)          0.924    10.924    clk
+    SLICE_X54Y120        FDRE                                         r  g_slot[5].own_reg[24]/C
+                         clock pessimism              0.000    10.924    
+                         clock uncertainty           -0.035    10.889    
+    SLICE_X54Y120        FDRE (Setup_fdre_C_D)       -0.031    10.858    g_slot[5].own_reg[24]
+  -------------------------------------------------------------------
+                         required time                         10.858    
+                         arrival time                         -16.357    
+  -------------------------------------------------------------------
+                         slack                                 -5.499    
+
+Slack (VIOLATED) :        -5.497ns  (required time - arrival time)
+  Source:                 phase_reg[0]__0_rep/C
+                            (rising edge-triggered cell FDRE clocked by clk  {rise@0.000ns fall@5.000ns period=10.000ns})
+  Destination:            g_slot[10].own_reg[16]/D
+                            (rising edge-triggered cell FDRE clocked by clk  {rise@0.000ns fall@5.000ns period=10.000ns})
+  Path Group:             clk
+  Path Type:              Setup (Max at Slow Process Corner)
+  Requirement:            10.000ns  (clk rise@10.000ns - clk rise@0.000ns)
+  Data Path Delay:        15.368ns  (logic 2.936ns (19.104%)  route 12.432ns (80.896%))
+  Logic Levels:           20  (LUT2=1 LUT3=4 LUT4=2 LUT5=1 LUT6=12)
+  Clock Path Skew:        -0.049ns (DCD - SCD + CPR)
+    Destination Clock Delay (DCD):    0.924ns = ( 10.924 - 10.000 ) 
+    Source Clock Delay      (SCD):    0.973ns
+    Clock Pessimism Removal (CPR):    0.000ns
+  Clock Uncertainty:      0.035ns  ((TSJ^2 + TIJ^2)^1/2 + DJ) / 2 + PE
+    Total System Jitter     (TSJ):    0.071ns
+    Total Input Jitter      (TIJ):    0.000ns
+    Discrete Jitter          (DJ):    0.000ns
+    Phase Error              (PE):    0.000ns
+
+    Location             Delay type                Incr(ns)  Path(ns)    Netlist Resource(s)
+  -------------------------------------------------------------------    -------------------
+                         (clock clk rise edge)        0.000     0.000 r  
+                                                      0.000     0.000 r  clk (IN)
+                         net (fo=830, unset)          0.973     0.973    clk
+    SLICE_X49Y125        FDRE                                         r  phase_reg[0]__0_rep/C
+  -------------------------------------------------------------------    -------------------
+    SLICE_X49Y125        FDRE (Prop_fdre_C_Q)         0.456     1.429 r  phase_reg[0]__0_rep/Q
+                         net (fo=435, routed)         0.837     2.266    phase_reg[0]__0_rep_n_0
+    SLICE_X49Y123                                                     r  g_slot[5].pe_i_i_30/I1
+    SLICE_X49Y123        LUT3 (Prop_lut3_I1_O)        0.124     2.390 f  g_slot[5].pe_i_i_30/O
+                         net (fo=28, routed)          0.740     3.130    g_slot[10].pe_i/st_in[14]
+    SLICE_X48Y124                                                     f  g_slot[10].pe_i/st_out[14]_INST_0_i_40/I0
+    SLICE_X48Y124        LUT3 (Prop_lut3_I0_O)        0.124     3.254 r  g_slot[10].pe_i/st_out[14]_INST_0_i_40/O
+                         net (fo=1, routed)           0.667     3.921    g_slot[10].pe_i/st_out[14]_INST_0_i_40_n_0
+    SLICE_X48Y124                                                     r  g_slot[10].pe_i/st_out[14]_INST_0_i_25/I0
+    SLICE_X48Y124        LUT6 (Prop_lut6_I0_O)        0.124     4.045 r  g_slot[10].pe_i/st_out[14]_INST_0_i_25/O
+                         net (fo=21, routed)          0.788     4.833    g_slot[10].pe_i/st_out[14]_INST_0_i_25_n_0
+    SLICE_X49Y124                                                     r  g_slot[10].pe_i/st_out[3]_INST_0_i_23/I2
+    SLICE_X49Y124        LUT4 (Prop_lut4_I2_O)        0.124     4.957 r  g_slot[10].pe_i/st_out[3]_INST_0_i_23/O
+                         net (fo=1, routed)           0.335     5.292    g_slot[10].pe_i/st_out[3]_INST_0_i_23_n_0
+    SLICE_X48Y126                                                     r  g_slot[10].pe_i/st_out[3]_INST_0_i_15/I5
+    SLICE_X48Y126        LUT6 (Prop_lut6_I5_O)        0.124     5.416 r  g_slot[10].pe_i/st_out[3]_INST_0_i_15/O
+                         net (fo=5, routed)           0.693     6.109    g_slot[10].pe_i/st_out[3]_INST_0_i_15_n_0
+    SLICE_X48Y126                                                     r  g_slot[10].pe_i/st_out[3]_INST_0_i_7/I2
+    SLICE_X48Y126        LUT6 (Prop_lut6_I2_O)        0.124     6.233 r  g_slot[10].pe_i/st_out[3]_INST_0_i_7/O
+                         net (fo=12, routed)          0.512     6.744    g_slot[10].pe_i/st_out[3]_INST_0_i_7_n_0
+    SLICE_X49Y128                                                     r  g_slot[10].pe_i/st_out[3]_INST_0_i_9_comp/I4
+    SLICE_X49Y128        LUT6 (Prop_lut6_I4_O)        0.124     6.868 f  g_slot[10].pe_i/st_out[3]_INST_0_i_9_comp/O
+                         net (fo=2, routed)           0.954     7.823    g_slot[10].pe_i/st_out[3]_INST_0_i_9_n_0
+    SLICE_X50Y127                                                     f  g_slot[10].pe_i/st_out[3]_INST_0_i_6_comp/I2
+    SLICE_X50Y127        LUT6 (Prop_lut6_I2_O)        0.124     7.947 r  g_slot[10].pe_i/st_out[3]_INST_0_i_6_comp/O
+                         net (fo=16, routed)          0.555     8.502    g_slot[10].pe_i/st_out[3]_INST_0_i_6_n_0
+    SLICE_X51Y129                                                     r  g_slot[10].pe_i/st_out[13]_INST_0_i_8/I1
+    SLICE_X51Y129        LUT3 (Prop_lut3_I1_O)        0.124     8.626 r  g_slot[10].pe_i/st_out[13]_INST_0_i_8/O
+                         net (fo=2, routed)           0.446     9.072    g_slot[10].pe_i/st_out[13]_INST_0_i_8_n_0
+    SLICE_X52Y128                                                     r  g_slot[10].pe_i/st_out[15]_INST_0_i_13/I4
+    SLICE_X52Y128        LUT6 (Prop_lut6_I4_O)        0.124     9.196 f  g_slot[10].pe_i/st_out[15]_INST_0_i_13/O
+                         net (fo=2, routed)           0.595     9.791    g_slot[10].pe_i/st_out[15]_INST_0_i_13_n_0
+    SLICE_X50Y128                                                     f  g_slot[10].pe_i/st_out[15]_INST_0_i_7/I4
+    SLICE_X50Y128        LUT6 (Prop_lut6_I4_O)        0.124     9.915 r  g_slot[10].pe_i/st_out[15]_INST_0_i_7/O
+                         net (fo=13, routed)          0.473    10.388    g_slot[10].pe_i/st_out[15]_INST_0_i_7_n_0
+    SLICE_X50Y128                                                     r  g_slot[10].pe_i/st_out[13]_INST_0_i_7/I2
+    SLICE_X50Y128        LUT3 (Prop_lut3_I2_O)        0.124    10.512 f  g_slot[10].pe_i/st_out[13]_INST_0_i_7/O
+                         net (fo=6, routed)           0.470    10.981    g_slot[10].pe_i/st_out[13]_INST_0_i_7_n_0
+    SLICE_X52Y129                                                     f  g_slot[10].pe_i/st_out[15]_INST_0_i_16/I0
+    SLICE_X52Y129        LUT4 (Prop_lut4_I0_O)        0.124    11.105 r  g_slot[10].pe_i/st_out[15]_INST_0_i_16/O
+                         net (fo=4, routed)           0.855    11.960    g_slot[10].pe_i/st_out[15]_INST_0_i_16_n_0
+    SLICE_X52Y131                                                     r  g_slot[10].pe_i/st_out[15]_INST_0_i_8/I1
+    SLICE_X52Y131        LUT5 (Prop_lut5_I1_O)        0.124    12.084 r  g_slot[10].pe_i/st_out[15]_INST_0_i_8/O
+                         net (fo=15, routed)          0.348    12.432    g_slot[10].pe_i/st_out[15]_INST_0_i_8_n_0
+    SLICE_X51Y130                                                     r  g_slot[10].pe_i/st_out[14]_INST_0_i_22/I4
+    SLICE_X51Y130        LUT6 (Prop_lut6_I4_O)        0.124    12.556 r  g_slot[10].pe_i/st_out[14]_INST_0_i_22/O
+                         net (fo=1, routed)           0.548    13.104    g_slot[10].pe_i/st_out[14]_INST_0_i_22_n_0
+    SLICE_X52Y130                                                     r  g_slot[10].pe_i/st_out[14]_INST_0_i_8/I3
+    SLICE_X52Y130        LUT6 (Prop_lut6_I3_O)        0.124    13.228 r  g_slot[10].pe_i/st_out[14]_INST_0_i_8/O
+                         net (fo=11, routed)          0.379    13.607    g_slot[10].pe_i/st_out[14]_INST_0_i_8_n_0
+    SLICE_X53Y130                                                     r  g_slot[10].pe_i/st_out[14]_INST_0_i_2/I0
+    SLICE_X53Y130        LUT2 (Prop_lut2_I0_O)        0.124    13.731 r  g_slot[10].pe_i/st_out[14]_INST_0_i_2/O
+                         net (fo=10, routed)          0.490    14.221    g_slot[10].pe_i/st_out[14]_INST_0_i_2_n_0
+    SLICE_X53Y129                                                     r  g_slot[10].pe_i/st_out[4]_INST_0_i_1/I3
+    SLICE_X53Y129        LUT6 (Prop_lut6_I3_O)        0.124    14.345 r  g_slot[10].pe_i/st_out[4]_INST_0_i_1/O
+                         net (fo=4, routed)           1.002    15.347    g_slot[10].pe_i/st_out[4]_INST_0_i_1_n_0
+    SLICE_X52Y128                                                     r  g_slot[10].pe_i/st_out[8]_INST_0_i_3/I3
+    SLICE_X52Y128        LUT6 (Prop_lut6_I3_O)        0.124    15.471 r  g_slot[10].pe_i/st_out[8]_INST_0_i_3/O
+                         net (fo=2, routed)           0.376    15.847    g_slot[10].pe_i/st_out[8]_INST_0_i_3_n_0
+    SLICE_X55Y128                                                     r  g_slot[10].pe_i/st_out[0]_INST_0/I4
+    SLICE_X55Y128        LUT6 (Prop_lut6_I4_O)        0.124    15.971 r  g_slot[10].pe_i/st_out[0]_INST_0/O
+                         net (fo=6, routed)           0.370    16.341    slot_nxt[10][0]
+    SLICE_X54Y126        FDRE                                         r  g_slot[10].own_reg[16]/D
+  -------------------------------------------------------------------    -------------------
+
+                         (clock clk rise edge)       10.000    10.000 r  
+                                                      0.000    10.000 r  clk (IN)
+                         net (fo=830, unset)          0.924    10.924    clk
+    SLICE_X54Y126        FDRE                                         r  g_slot[10].own_reg[16]/C
+                         clock pessimism              0.000    10.924    
+                         clock uncertainty           -0.035    10.889    
+    SLICE_X54Y126        FDRE (Setup_fdre_C_D)       -0.045    10.844    g_slot[10].own_reg[16]
+  -------------------------------------------------------------------
+                         required time                         10.844    
+                         arrival time                         -16.341    
+  -------------------------------------------------------------------
+                         slack                                 -5.497    
+
+Slack (VIOLATED) :        -5.489ns  (required time - arrival time)
+  Source:                 phase_reg[0]__0_rep/C
+                            (rising edge-triggered cell FDRE clocked by clk  {rise@0.000ns fall@5.000ns period=10.000ns})
+  Destination:            g_slot[10].bshA_reg[10][0]/D
+                            (rising edge-triggered cell FDRE clocked by clk  {rise@0.000ns fall@5.000ns period=10.000ns})
+  Path Group:             clk
+  Path Type:              Setup (Max at Slow Process Corner)
+  Requirement:            10.000ns  (clk rise@10.000ns - clk rise@0.000ns)
+  Data Path Delay:        15.375ns  (logic 2.936ns (19.095%)  route 12.439ns (80.905%))
+  Logic Levels:           20  (LUT2=1 LUT3=4 LUT4=2 LUT5=1 LUT6=12)
+  Clock Path Skew:        -0.049ns (DCD - SCD + CPR)
+    Destination Clock Delay (DCD):    0.924ns = ( 10.924 - 10.000 ) 
+    Source Clock Delay      (SCD):    0.973ns
+    Clock Pessimism Removal (CPR):    0.000ns
+  Clock Uncertainty:      0.035ns  ((TSJ^2 + TIJ^2)^1/2 + DJ) / 2 + PE
+    Total System Jitter     (TSJ):    0.071ns
+    Total Input Jitter      (TIJ):    0.000ns
+    Discrete Jitter          (DJ):    0.000ns
+    Phase Error              (PE):    0.000ns
+
+    Location             Delay type                Incr(ns)  Path(ns)    Netlist Resource(s)
+  -------------------------------------------------------------------    -------------------
+                         (clock clk rise edge)        0.000     0.000 r  
+                                                      0.000     0.000 r  clk (IN)
+                         net (fo=830, unset)          0.973     0.973    clk
+    SLICE_X49Y125        FDRE                                         r  phase_reg[0]__0_rep/C
+  -------------------------------------------------------------------    -------------------
+    SLICE_X49Y125        FDRE (Prop_fdre_C_Q)         0.456     1.429 r  phase_reg[0]__0_rep/Q
+                         net (fo=435, routed)         0.837     2.266    phase_reg[0]__0_rep_n_0
+    SLICE_X49Y123                                                     r  g_slot[5].pe_i_i_30/I1
+    SLICE_X49Y123        LUT3 (Prop_lut3_I1_O)        0.124     2.390 f  g_slot[5].pe_i_i_30/O
+                         net (fo=28, routed)          0.740     3.130    g_slot[10].pe_i/st_in[14]
+    SLICE_X48Y124                                                     f  g_slot[10].pe_i/st_out[14]_INST_0_i_40/I0
+    SLICE_X48Y124        LUT3 (Prop_lut3_I0_O)        0.124     3.254 r  g_slot[10].pe_i/st_out[14]_INST_0_i_40/O
+                         net (fo=1, routed)           0.667     3.921    g_slot[10].pe_i/st_out[14]_INST_0_i_40_n_0
+    SLICE_X48Y124                                                     r  g_slot[10].pe_i/st_out[14]_INST_0_i_25/I0
+    SLICE_X48Y124        LUT6 (Prop_lut6_I0_O)        0.124     4.045 r  g_slot[10].pe_i/st_out[14]_INST_0_i_25/O
+                         net (fo=21, routed)          0.788     4.833    g_slot[10].pe_i/st_out[14]_INST_0_i_25_n_0
+    SLICE_X49Y124                                                     r  g_slot[10].pe_i/st_out[3]_INST_0_i_23/I2
+    SLICE_X49Y124        LUT4 (Prop_lut4_I2_O)        0.124     4.957 r  g_slot[10].pe_i/st_out[3]_INST_0_i_23/O
+                         net (fo=1, routed)           0.335     5.292    g_slot[10].pe_i/st_out[3]_INST_0_i_23_n_0
+    SLICE_X48Y126                                                     r  g_slot[10].pe_i/st_out[3]_INST_0_i_15/I5
+    SLICE_X48Y126        LUT6 (Prop_lut6_I5_O)        0.124     5.416 r  g_slot[10].pe_i/st_out[3]_INST_0_i_15/O
+                         net (fo=5, routed)           0.693     6.109    g_slot[10].pe_i/st_out[3]_INST_0_i_15_n_0
+    SLICE_X48Y126                                                     r  g_slot[10].pe_i/st_out[3]_INST_0_i_7/I2
+    SLICE_X48Y126        LUT6 (Prop_lut6_I2_O)        0.124     6.233 r  g_slot[10].pe_i/st_out[3]_INST_0_i_7/O
+                         net (fo=12, routed)          0.512     6.744    g_slot[10].pe_i/st_out[3]_INST_0_i_7_n_0
+    SLICE_X49Y128                                                     r  g_slot[10].pe_i/st_out[3]_INST_0_i_9_comp/I4
+    SLICE_X49Y128        LUT6 (Prop_lut6_I4_O)        0.124     6.868 f  g_slot[10].pe_i/st_out[3]_INST_0_i_9_comp/O
+                         net (fo=2, routed)           0.954     7.823    g_slot[10].pe_i/st_out[3]_INST_0_i_9_n_0
+    SLICE_X50Y127                                                     f  g_slot[10].pe_i/st_out[3]_INST_0_i_6_comp/I2
+    SLICE_X50Y127        LUT6 (Prop_lut6_I2_O)        0.124     7.947 r  g_slot[10].pe_i/st_out[3]_INST_0_i_6_comp/O
+                         net (fo=16, routed)          0.555     8.502    g_slot[10].pe_i/st_out[3]_INST_0_i_6_n_0
+    SLICE_X51Y129                                                     r  g_slot[10].pe_i/st_out[13]_INST_0_i_8/I1
+    SLICE_X51Y129        LUT3 (Prop_lut3_I1_O)        0.124     8.626 r  g_slot[10].pe_i/st_out[13]_INST_0_i_8/O
+                         net (fo=2, routed)           0.446     9.072    g_slot[10].pe_i/st_out[13]_INST_0_i_8_n_0
+    SLICE_X52Y128                                                     r  g_slot[10].pe_i/st_out[15]_INST_0_i_13/I4
+    SLICE_X52Y128        LUT6 (Prop_lut6_I4_O)        0.124     9.196 f  g_slot[10].pe_i/st_out[15]_INST_0_i_13/O
+                         net (fo=2, routed)           0.595     9.791    g_slot[10].pe_i/st_out[15]_INST_0_i_13_n_0
+    SLICE_X50Y128                                                     f  g_slot[10].pe_i/st_out[15]_INST_0_i_7/I4
+    SLICE_X50Y128        LUT6 (Prop_lut6_I4_O)        0.124     9.915 r  g_slot[10].pe_i/st_out[15]_INST_0_i_7/O
+                         net (fo=13, routed)          0.473    10.388    g_slot[10].pe_i/st_out[15]_INST_0_i_7_n_0
+    SLICE_X50Y128                                                     r  g_slot[10].pe_i/st_out[13]_INST_0_i_7/I2
+    SLICE_X50Y128        LUT3 (Prop_lut3_I2_O)        0.124    10.512 f  g_slot[10].pe_i/st_out[13]_INST_0_i_7/O
+                         net (fo=6, routed)           0.470    10.981    g_slot[10].pe_i/st_out[13]_INST_0_i_7_n_0
+    SLICE_X52Y129                                                     f  g_slot[10].pe_i/st_out[15]_INST_0_i_16/I0
+    SLICE_X52Y129        LUT4 (Prop_lut4_I0_O)        0.124    11.105 r  g_slot[10].pe_i/st_out[15]_INST_0_i_16/O
+                         net (fo=4, routed)           0.855    11.960    g_slot[10].pe_i/st_out[15]_INST_0_i_16_n_0
+    SLICE_X52Y131                                                     r  g_slot[10].pe_i/st_out[15]_INST_0_i_8/I1
+    SLICE_X52Y131        LUT5 (Prop_lut5_I1_O)        0.124    12.084 r  g_slot[10].pe_i/st_out[15]_INST_0_i_8/O
+                         net (fo=15, routed)          0.348    12.432    g_slot[10].pe_i/st_out[15]_INST_0_i_8_n_0
+    SLICE_X51Y130                                                     r  g_slot[10].pe_i/st_out[14]_INST_0_i_22/I4
+    SLICE_X51Y130        LUT6 (Prop_lut6_I4_O)        0.124    12.556 r  g_slot[10].pe_i/st_out[14]_INST_0_i_22/O
+                         net (fo=1, routed)           0.548    13.104    g_slot[10].pe_i/st_out[14]_INST_0_i_22_n_0
+    SLICE_X52Y130                                                     r  g_slot[10].pe_i/st_out[14]_INST_0_i_8/I3
+    SLICE_X52Y130        LUT6 (Prop_lut6_I3_O)        0.124    13.228 r  g_slot[10].pe_i/st_out[14]_INST_0_i_8/O
+                         net (fo=11, routed)          0.379    13.607    g_slot[10].pe_i/st_out[14]_INST_0_i_8_n_0
+    SLICE_X53Y130                                                     r  g_slot[10].pe_i/st_out[14]_INST_0_i_2/I0
+    SLICE_X53Y130        LUT2 (Prop_lut2_I0_O)        0.124    13.731 r  g_slot[10].pe_i/st_out[14]_INST_0_i_2/O
+                         net (fo=10, routed)          0.490    14.221    g_slot[10].pe_i/st_out[14]_INST_0_i_2_n_0
+    SLICE_X53Y129                                                     r  g_slot[10].pe_i/st_out[4]_INST_0_i_1/I3
+    SLICE_X53Y129        LUT6 (Prop_lut6_I3_O)        0.124    14.345 r  g_slot[10].pe_i/st_out[4]_INST_0_i_1/O
+                         net (fo=4, routed)           1.002    15.347    g_slot[10].pe_i/st_out[4]_INST_0_i_1_n_0
+    SLICE_X52Y128                                                     r  g_slot[10].pe_i/st_out[8]_INST_0_i_3/I3
+    SLICE_X52Y128        LUT6 (Prop_lut6_I3_O)        0.124    15.471 r  g_slot[10].pe_i/st_out[8]_INST_0_i_3/O
+                         net (fo=2, routed)           0.376    15.847    g_slot[10].pe_i/st_out[8]_INST_0_i_3_n_0
+    SLICE_X55Y128                                                     r  g_slot[10].pe_i/st_out[0]_INST_0/I4
+    SLICE_X55Y128        LUT6 (Prop_lut6_I4_O)        0.124    15.971 r  g_slot[10].pe_i/st_out[0]_INST_0/O
+                         net (fo=6, routed)           0.377    16.348    slot_nxt[10][0]
+    SLICE_X58Y128        FDRE                                         r  g_slot[10].bshA_reg[10][0]/D
+  -------------------------------------------------------------------    -------------------
+
+                         (clock clk rise edge)       10.000    10.000 r  
+                                                      0.000    10.000 r  clk (IN)
+                         net (fo=830, unset)          0.924    10.924    clk
+    SLICE_X58Y128        FDRE                                         r  g_slot[10].bshA_reg[10][0]/C
+                         clock pessimism              0.000    10.924    
+                         clock uncertainty           -0.035    10.889    
+    SLICE_X58Y128        FDRE (Setup_fdre_C_D)       -0.030    10.859    g_slot[10].bshA_reg[10][0]
+  -------------------------------------------------------------------
+                         required time                         10.859    
+                         arrival time                         -16.348    
+  -------------------------------------------------------------------
+                         slack                                 -5.489    
+
+Slack (VIOLATED) :        -5.480ns  (required time - arrival time)
+  Source:                 phase_reg[0]__0_rep/C
+                            (rising edge-triggered cell FDRE clocked by clk  {rise@0.000ns fall@5.000ns period=10.000ns})
+  Destination:            g_slot[10].bshA_reg[10][1]/D
+                            (rising edge-triggered cell FDRE clocked by clk  {rise@0.000ns fall@5.000ns period=10.000ns})
+  Path Group:             clk
+  Path Type:              Setup (Max at Slow Process Corner)
+  Requirement:            10.000ns  (clk rise@10.000ns - clk rise@0.000ns)
+  Data Path Delay:        15.366ns  (logic 2.936ns (19.107%)  route 12.430ns (80.893%))
+  Logic Levels:           20  (LUT2=1 LUT3=4 LUT4=2 LUT5=1 LUT6=12)
+  Clock Path Skew:        -0.049ns (DCD - SCD + CPR)
+    Destination Clock Delay (DCD):    0.924ns = ( 10.924 - 10.000 ) 
+    Source Clock Delay      (SCD):    0.973ns
+    Clock Pessimism Removal (CPR):    0.000ns
+  Clock Uncertainty:      0.035ns  ((TSJ^2 + TIJ^2)^1/2 + DJ) / 2 + PE
+    Total System Jitter     (TSJ):    0.071ns
+    Total Input Jitter      (TIJ):    0.000ns
+    Discrete Jitter          (DJ):    0.000ns
+    Phase Error              (PE):    0.000ns
+
+    Location             Delay type                Incr(ns)  Path(ns)    Netlist Resource(s)
+  -------------------------------------------------------------------    -------------------
+                         (clock clk rise edge)        0.000     0.000 r  
+                                                      0.000     0.000 r  clk (IN)
+                         net (fo=830, unset)          0.973     0.973    clk
+    SLICE_X49Y125        FDRE                                         r  phase_reg[0]__0_rep/C
+  -------------------------------------------------------------------    -------------------
+    SLICE_X49Y125        FDRE (Prop_fdre_C_Q)         0.456     1.429 r  phase_reg[0]__0_rep/Q
+                         net (fo=435, routed)         0.837     2.266    phase_reg[0]__0_rep_n_0
+    SLICE_X49Y123                                                     r  g_slot[5].pe_i_i_30/I1
+    SLICE_X49Y123        LUT3 (Prop_lut3_I1_O)        0.124     2.390 f  g_slot[5].pe_i_i_30/O
+                         net (fo=28, routed)          0.740     3.130    g_slot[10].pe_i/st_in[14]
+    SLICE_X48Y124                                                     f  g_slot[10].pe_i/st_out[14]_INST_0_i_40/I0
+    SLICE_X48Y124        LUT3 (Prop_lut3_I0_O)        0.124     3.254 r  g_slot[10].pe_i/st_out[14]_INST_0_i_40/O
+                         net (fo=1, routed)           0.667     3.921    g_slot[10].pe_i/st_out[14]_INST_0_i_40_n_0
+    SLICE_X48Y124                                                     r  g_slot[10].pe_i/st_out[14]_INST_0_i_25/I0
+    SLICE_X48Y124        LUT6 (Prop_lut6_I0_O)        0.124     4.045 r  g_slot[10].pe_i/st_out[14]_INST_0_i_25/O
+                         net (fo=21, routed)          0.788     4.833    g_slot[10].pe_i/st_out[14]_INST_0_i_25_n_0
+    SLICE_X49Y124                                                     r  g_slot[10].pe_i/st_out[3]_INST_0_i_23/I2
+    SLICE_X49Y124        LUT4 (Prop_lut4_I2_O)        0.124     4.957 r  g_slot[10].pe_i/st_out[3]_INST_0_i_23/O
+                         net (fo=1, routed)           0.335     5.292    g_slot[10].pe_i/st_out[3]_INST_0_i_23_n_0
+    SLICE_X48Y126                                                     r  g_slot[10].pe_i/st_out[3]_INST_0_i_15/I5
+    SLICE_X48Y126        LUT6 (Prop_lut6_I5_O)        0.124     5.416 r  g_slot[10].pe_i/st_out[3]_INST_0_i_15/O
+                         net (fo=5, routed)           0.693     6.109    g_slot[10].pe_i/st_out[3]_INST_0_i_15_n_0
+    SLICE_X48Y126                                                     r  g_slot[10].pe_i/st_out[3]_INST_0_i_7/I2
+    SLICE_X48Y126        LUT6 (Prop_lut6_I2_O)        0.124     6.233 r  g_slot[10].pe_i/st_out[3]_INST_0_i_7/O
+                         net (fo=12, routed)          0.512     6.744    g_slot[10].pe_i/st_out[3]_INST_0_i_7_n_0
+    SLICE_X49Y128                                                     r  g_slot[10].pe_i/st_out[3]_INST_0_i_9_comp/I4
+    SLICE_X49Y128        LUT6 (Prop_lut6_I4_O)        0.124     6.868 f  g_slot[10].pe_i/st_out[3]_INST_0_i_9_comp/O
+                         net (fo=2, routed)           0.954     7.823    g_slot[10].pe_i/st_out[3]_INST_0_i_9_n_0
+    SLICE_X50Y127                                                     f  g_slot[10].pe_i/st_out[3]_INST_0_i_6_comp/I2
+    SLICE_X50Y127        LUT6 (Prop_lut6_I2_O)        0.124     7.947 r  g_slot[10].pe_i/st_out[3]_INST_0_i_6_comp/O
+                         net (fo=16, routed)          0.555     8.502    g_slot[10].pe_i/st_out[3]_INST_0_i_6_n_0
+    SLICE_X51Y129                                                     r  g_slot[10].pe_i/st_out[13]_INST_0_i_8/I1
+    SLICE_X51Y129        LUT3 (Prop_lut3_I1_O)        0.124     8.626 r  g_slot[10].pe_i/st_out[13]_INST_0_i_8/O
+                         net (fo=2, routed)           0.446     9.072    g_slot[10].pe_i/st_out[13]_INST_0_i_8_n_0
+    SLICE_X52Y128                                                     r  g_slot[10].pe_i/st_out[15]_INST_0_i_13/I4
+    SLICE_X52Y128        LUT6 (Prop_lut6_I4_O)        0.124     9.196 f  g_slot[10].pe_i/st_out[15]_INST_0_i_13/O
+                         net (fo=2, routed)           0.595     9.791    g_slot[10].pe_i/st_out[15]_INST_0_i_13_n_0
+    SLICE_X50Y128                                                     f  g_slot[10].pe_i/st_out[15]_INST_0_i_7/I4
+    SLICE_X50Y128        LUT6 (Prop_lut6_I4_O)        0.124     9.915 r  g_slot[10].pe_i/st_out[15]_INST_0_i_7/O
+                         net (fo=13, routed)          0.473    10.388    g_slot[10].pe_i/st_out[15]_INST_0_i_7_n_0
+    SLICE_X50Y128                                                     r  g_slot[10].pe_i/st_out[13]_INST_0_i_7/I2
+    SLICE_X50Y128        LUT3 (Prop_lut3_I2_O)        0.124    10.512 f  g_slot[10].pe_i/st_out[13]_INST_0_i_7/O
+                         net (fo=6, routed)           0.470    10.981    g_slot[10].pe_i/st_out[13]_INST_0_i_7_n_0
+    SLICE_X52Y129                                                     f  g_slot[10].pe_i/st_out[15]_INST_0_i_16/I0
+    SLICE_X52Y129        LUT4 (Prop_lut4_I0_O)        0.124    11.105 r  g_slot[10].pe_i/st_out[15]_INST_0_i_16/O
+                         net (fo=4, routed)           0.855    11.960    g_slot[10].pe_i/st_out[15]_INST_0_i_16_n_0
+    SLICE_X52Y131                                                     r  g_slot[10].pe_i/st_out[15]_INST_0_i_8/I1
+    SLICE_X52Y131        LUT5 (Prop_lut5_I1_O)        0.124    12.084 r  g_slot[10].pe_i/st_out[15]_INST_0_i_8/O
+                         net (fo=15, routed)          0.348    12.432    g_slot[10].pe_i/st_out[15]_INST_0_i_8_n_0
+    SLICE_X51Y130                                                     r  g_slot[10].pe_i/st_out[14]_INST_0_i_22/I4
+    SLICE_X51Y130        LUT6 (Prop_lut6_I4_O)        0.124    12.556 r  g_slot[10].pe_i/st_out[14]_INST_0_i_22/O
+                         net (fo=1, routed)           0.548    13.104    g_slot[10].pe_i/st_out[14]_INST_0_i_22_n_0
+    SLICE_X52Y130                                                     r  g_slot[10].pe_i/st_out[14]_INST_0_i_8/I3
+    SLICE_X52Y130        LUT6 (Prop_lut6_I3_O)        0.124    13.228 r  g_slot[10].pe_i/st_out[14]_INST_0_i_8/O
+                         net (fo=11, routed)          0.379    13.607    g_slot[10].pe_i/st_out[14]_INST_0_i_8_n_0
+    SLICE_X53Y130                                                     r  g_slot[10].pe_i/st_out[14]_INST_0_i_2/I0
+    SLICE_X53Y130        LUT2 (Prop_lut2_I0_O)        0.124    13.731 r  g_slot[10].pe_i/st_out[14]_INST_0_i_2/O
+                         net (fo=10, routed)          0.490    14.221    g_slot[10].pe_i/st_out[14]_INST_0_i_2_n_0
+    SLICE_X53Y129                                                     r  g_slot[10].pe_i/st_out[4]_INST_0_i_1/I3
+    SLICE_X53Y129        LUT6 (Prop_lut6_I3_O)        0.124    14.345 r  g_slot[10].pe_i/st_out[4]_INST_0_i_1/O
+                         net (fo=4, routed)           1.002    15.347    g_slot[10].pe_i/st_out[4]_INST_0_i_1_n_0
+    SLICE_X52Y128                                                     r  g_slot[10].pe_i/st_out[8]_INST_0_i_3/I3
+    SLICE_X52Y128        LUT6 (Prop_lut6_I3_O)        0.124    15.471 r  g_slot[10].pe_i/st_out[8]_INST_0_i_3/O
+                         net (fo=2, routed)           0.376    15.847    g_slot[10].pe_i/st_out[8]_INST_0_i_3_n_0
+    SLICE_X55Y128                                                     r  g_slot[10].pe_i/st_out[0]_INST_0/I4
+    SLICE_X55Y128        LUT6 (Prop_lut6_I4_O)        0.124    15.971 r  g_slot[10].pe_i/st_out[0]_INST_0/O
+                         net (fo=6, routed)           0.368    16.339    slot_nxt[10][0]
+    SLICE_X54Y130        FDRE                                         r  g_slot[10].bshA_reg[10][1]/D
+  -------------------------------------------------------------------    -------------------
+
+                         (clock clk rise edge)       10.000    10.000 r  
+                                                      0.000    10.000 r  clk (IN)
+                         net (fo=830, unset)          0.924    10.924    clk
+    SLICE_X54Y130        FDRE                                         r  g_slot[10].bshA_reg[10][1]/C
+                         clock pessimism              0.000    10.924    
+                         clock uncertainty           -0.035    10.889    
+    SLICE_X54Y130        FDRE (Setup_fdre_C_D)       -0.030    10.859    g_slot[10].bshA_reg[10][1]
+  -------------------------------------------------------------------
+                         required time                         10.859    
+                         arrival time                         -16.339    
+  -------------------------------------------------------------------
+                         slack                                 -5.480    
+
+Slack (VIOLATED) :        -5.478ns  (required time - arrival time)
+  Source:                 phase_reg[0]__0_rep/C
+                            (rising edge-triggered cell FDRE clocked by clk  {rise@0.000ns fall@5.000ns period=10.000ns})
+  Destination:            g_slot[10].own_reg[24]/D
+                            (rising edge-triggered cell FDRE clocked by clk  {rise@0.000ns fall@5.000ns period=10.000ns})
+  Path Group:             clk
+  Path Type:              Setup (Max at Slow Process Corner)
+  Requirement:            10.000ns  (clk rise@10.000ns - clk rise@0.000ns)
+  Data Path Delay:        15.313ns  (logic 2.936ns (19.174%)  route 12.377ns (80.826%))
+  Logic Levels:           20  (LUT2=1 LUT3=4 LUT4=2 LUT5=1 LUT6=12)
+  Clock Path Skew:        -0.049ns (DCD - SCD + CPR)
+    Destination Clock Delay (DCD):    0.924ns = ( 10.924 - 10.000 ) 
+    Source Clock Delay      (SCD):    0.973ns
+    Clock Pessimism Removal (CPR):    0.000ns
+  Clock Uncertainty:      0.035ns  ((TSJ^2 + TIJ^2)^1/2 + DJ) / 2 + PE
+    Total System Jitter     (TSJ):    0.071ns
+    Total Input Jitter      (TIJ):    0.000ns
+    Discrete Jitter          (DJ):    0.000ns
+    Phase Error              (PE):    0.000ns
+
+    Location             Delay type                Incr(ns)  Path(ns)    Netlist Resource(s)
+  -------------------------------------------------------------------    -------------------
+                         (clock clk rise edge)        0.000     0.000 r  
+                                                      0.000     0.000 r  clk (IN)
+                         net (fo=830, unset)          0.973     0.973    clk
+    SLICE_X49Y125        FDRE                                         r  phase_reg[0]__0_rep/C
+  -------------------------------------------------------------------    -------------------
+    SLICE_X49Y125        FDRE (Prop_fdre_C_Q)         0.456     1.429 r  phase_reg[0]__0_rep/Q
+                         net (fo=435, routed)         0.837     2.266    phase_reg[0]__0_rep_n_0
+    SLICE_X49Y123                                                     r  g_slot[5].pe_i_i_30/I1
+    SLICE_X49Y123        LUT3 (Prop_lut3_I1_O)        0.124     2.390 f  g_slot[5].pe_i_i_30/O
+                         net (fo=28, routed)          0.740     3.130    g_slot[10].pe_i/st_in[14]
+    SLICE_X48Y124                                                     f  g_slot[10].pe_i/st_out[14]_INST_0_i_40/I0
+    SLICE_X48Y124        LUT3 (Prop_lut3_I0_O)        0.124     3.254 r  g_slot[10].pe_i/st_out[14]_INST_0_i_40/O
+                         net (fo=1, routed)           0.667     3.921    g_slot[10].pe_i/st_out[14]_INST_0_i_40_n_0
+    SLICE_X48Y124                                                     r  g_slot[10].pe_i/st_out[14]_INST_0_i_25/I0
+    SLICE_X48Y124        LUT6 (Prop_lut6_I0_O)        0.124     4.045 r  g_slot[10].pe_i/st_out[14]_INST_0_i_25/O
+                         net (fo=21, routed)          0.788     4.833    g_slot[10].pe_i/st_out[14]_INST_0_i_25_n_0
+    SLICE_X49Y124                                                     r  g_slot[10].pe_i/st_out[3]_INST_0_i_23/I2
+    SLICE_X49Y124        LUT4 (Prop_lut4_I2_O)        0.124     4.957 r  g_slot[10].pe_i/st_out[3]_INST_0_i_23/O
+                         net (fo=1, routed)           0.335     5.292    g_slot[10].pe_i/st_out[3]_INST_0_i_23_n_0
+    SLICE_X48Y126                                                     r  g_slot[10].pe_i/st_out[3]_INST_0_i_15/I5
+    SLICE_X48Y126        LUT6 (Prop_lut6_I5_O)        0.124     5.416 r  g_slot[10].pe_i/st_out[3]_INST_0_i_15/O
+                         net (fo=5, routed)           0.693     6.109    g_slot[10].pe_i/st_out[3]_INST_0_i_15_n_0
+    SLICE_X48Y126                                                     r  g_slot[10].pe_i/st_out[3]_INST_0_i_7/I2
+    SLICE_X48Y126        LUT6 (Prop_lut6_I2_O)        0.124     6.233 r  g_slot[10].pe_i/st_out[3]_INST_0_i_7/O
+                         net (fo=12, routed)          0.512     6.744    g_slot[10].pe_i/st_out[3]_INST_0_i_7_n_0
+    SLICE_X49Y128                                                     r  g_slot[10].pe_i/st_out[3]_INST_0_i_9_comp/I4
+    SLICE_X49Y128        LUT6 (Prop_lut6_I4_O)        0.124     6.868 f  g_slot[10].pe_i/st_out[3]_INST_0_i_9_comp/O
+                         net (fo=2, routed)           0.954     7.823    g_slot[10].pe_i/st_out[3]_INST_0_i_9_n_0
+    SLICE_X50Y127                                                     f  g_slot[10].pe_i/st_out[3]_INST_0_i_6_comp/I2
+    SLICE_X50Y127        LUT6 (Prop_lut6_I2_O)        0.124     7.947 r  g_slot[10].pe_i/st_out[3]_INST_0_i_6_comp/O
+                         net (fo=16, routed)          0.555     8.502    g_slot[10].pe_i/st_out[3]_INST_0_i_6_n_0
+    SLICE_X51Y129                                                     r  g_slot[10].pe_i/st_out[13]_INST_0_i_8/I1
+    SLICE_X51Y129        LUT3 (Prop_lut3_I1_O)        0.124     8.626 r  g_slot[10].pe_i/st_out[13]_INST_0_i_8/O
+                         net (fo=2, routed)           0.446     9.072    g_slot[10].pe_i/st_out[13]_INST_0_i_8_n_0
+    SLICE_X52Y128                                                     r  g_slot[10].pe_i/st_out[15]_INST_0_i_13/I4
+    SLICE_X52Y128        LUT6 (Prop_lut6_I4_O)        0.124     9.196 f  g_slot[10].pe_i/st_out[15]_INST_0_i_13/O
+                         net (fo=2, routed)           0.595     9.791    g_slot[10].pe_i/st_out[15]_INST_0_i_13_n_0
+    SLICE_X50Y128                                                     f  g_slot[10].pe_i/st_out[15]_INST_0_i_7/I4
+    SLICE_X50Y128        LUT6 (Prop_lut6_I4_O)        0.124     9.915 r  g_slot[10].pe_i/st_out[15]_INST_0_i_7/O
+                         net (fo=13, routed)          0.473    10.388    g_slot[10].pe_i/st_out[15]_INST_0_i_7_n_0
+    SLICE_X50Y128                                                     r  g_slot[10].pe_i/st_out[13]_INST_0_i_7/I2
+    SLICE_X50Y128        LUT3 (Prop_lut3_I2_O)        0.124    10.512 f  g_slot[10].pe_i/st_out[13]_INST_0_i_7/O
+                         net (fo=6, routed)           0.470    10.981    g_slot[10].pe_i/st_out[13]_INST_0_i_7_n_0
+    SLICE_X52Y129                                                     f  g_slot[10].pe_i/st_out[15]_INST_0_i_16/I0
+    SLICE_X52Y129        LUT4 (Prop_lut4_I0_O)        0.124    11.105 r  g_slot[10].pe_i/st_out[15]_INST_0_i_16/O
+                         net (fo=4, routed)           0.855    11.960    g_slot[10].pe_i/st_out[15]_INST_0_i_16_n_0
+    SLICE_X52Y131                                                     r  g_slot[10].pe_i/st_out[15]_INST_0_i_8/I1
+    SLICE_X52Y131        LUT5 (Prop_lut5_I1_O)        0.124    12.084 r  g_slot[10].pe_i/st_out[15]_INST_0_i_8/O
+                         net (fo=15, routed)          0.348    12.432    g_slot[10].pe_i/st_out[15]_INST_0_i_8_n_0
+    SLICE_X51Y130                                                     r  g_slot[10].pe_i/st_out[14]_INST_0_i_22/I4
+    SLICE_X51Y130        LUT6 (Prop_lut6_I4_O)        0.124    12.556 r  g_slot[10].pe_i/st_out[14]_INST_0_i_22/O
+                         net (fo=1, routed)           0.548    13.104    g_slot[10].pe_i/st_out[14]_INST_0_i_22_n_0
+    SLICE_X52Y130                                                     r  g_slot[10].pe_i/st_out[14]_INST_0_i_8/I3
+    SLICE_X52Y130        LUT6 (Prop_lut6_I3_O)        0.124    13.228 r  g_slot[10].pe_i/st_out[14]_INST_0_i_8/O
+                         net (fo=11, routed)          0.379    13.607    g_slot[10].pe_i/st_out[14]_INST_0_i_8_n_0
+    SLICE_X53Y130                                                     r  g_slot[10].pe_i/st_out[14]_INST_0_i_2/I0
+    SLICE_X53Y130        LUT2 (Prop_lut2_I0_O)        0.124    13.731 r  g_slot[10].pe_i/st_out[14]_INST_0_i_2/O
+                         net (fo=10, routed)          0.490    14.221    g_slot[10].pe_i/st_out[14]_INST_0_i_2_n_0
+    SLICE_X53Y129                                                     r  g_slot[10].pe_i/st_out[4]_INST_0_i_1/I3
+    SLICE_X53Y129        LUT6 (Prop_lut6_I3_O)        0.124    14.345 r  g_slot[10].pe_i/st_out[4]_INST_0_i_1/O
+                         net (fo=4, routed)           1.002    15.347    g_slot[10].pe_i/st_out[4]_INST_0_i_1_n_0
+    SLICE_X52Y128                                                     r  g_slot[10].pe_i/st_out[8]_INST_0_i_3/I3
+    SLICE_X52Y128        LUT6 (Prop_lut6_I3_O)        0.124    15.471 f  g_slot[10].pe_i/st_out[8]_INST_0_i_3/O
+                         net (fo=2, routed)           0.500    15.972    g_slot[10].pe_i/st_out[8]_INST_0_i_3_n_0
+    SLICE_X52Y128                                                     f  g_slot[10].pe_i/st_out[8]_INST_0/I2
+    SLICE_X52Y128        LUT6 (Prop_lut6_I2_O)        0.124    16.096 r  g_slot[10].pe_i/st_out[8]_INST_0/O
+                         net (fo=2, routed)           0.190    16.286    slot_nxt[10][8]
+    SLICE_X53Y128        FDRE                                         r  g_slot[10].own_reg[24]/D
+  -------------------------------------------------------------------    -------------------
+
+                         (clock clk rise edge)       10.000    10.000 r  
+                                                      0.000    10.000 r  clk (IN)
+                         net (fo=830, unset)          0.924    10.924    clk
+    SLICE_X53Y128        FDRE                                         r  g_slot[10].own_reg[24]/C
+                         clock pessimism              0.000    10.924    
+                         clock uncertainty           -0.035    10.889    
+    SLICE_X53Y128        FDRE (Setup_fdre_C_D)       -0.081    10.808    g_slot[10].own_reg[24]
+  -------------------------------------------------------------------
+                         required time                         10.808    
+                         arrival time                         -16.286    
+  -------------------------------------------------------------------
+                         slack                                 -5.478    
+
+Slack (VIOLATED) :        -5.358ns  (required time - arrival time)
+  Source:                 g_eslot[23].eown_reg[0]/C
+                            (rising edge-triggered cell FDRE clocked by clk  {rise@0.000ns fall@5.000ns period=10.000ns})
+  Destination:            g_slot[26].bshB_reg[26][0]/D
+                            (rising edge-triggered cell FDRE clocked by clk  {rise@0.000ns fall@5.000ns period=10.000ns})
+  Path Group:             clk
+  Path Type:              Setup (Max at Slow Process Corner)
+  Requirement:            10.000ns  (clk rise@10.000ns - clk rise@0.000ns)
+  Data Path Delay:        15.261ns  (logic 2.998ns (19.644%)  route 12.263ns (80.355%))
+  Logic Levels:           20  (LUT2=2 LUT3=2 LUT4=1 LUT6=15)
+  Clock Path Skew:        -0.049ns (DCD - SCD + CPR)
+    Destination Clock Delay (DCD):    0.924ns = ( 10.924 - 10.000 ) 
+    Source Clock Delay      (SCD):    0.973ns
+    Clock Pessimism Removal (CPR):    0.000ns
+  Clock Uncertainty:      0.035ns  ((TSJ^2 + TIJ^2)^1/2 + DJ) / 2 + PE
+    Total System Jitter     (TSJ):    0.071ns
+    Total Input Jitter      (TIJ):    0.000ns
+    Discrete Jitter          (DJ):    0.000ns
+    Phase Error              (PE):    0.000ns
+
+    Location             Delay type                Incr(ns)  Path(ns)    Netlist Resource(s)
+  -------------------------------------------------------------------    -------------------
+                         (clock clk rise edge)        0.000     0.000 r  
+                                                      0.000     0.000 r  clk (IN)
+                         net (fo=830, unset)          0.973     0.973    clk
+    SLICE_X46Y130        FDRE                                         r  g_eslot[23].eown_reg[0]/C
+  -------------------------------------------------------------------    -------------------
+    SLICE_X46Y130        FDRE (Prop_fdre_C_Q)         0.518     1.491 r  g_eslot[23].eown_reg[0]/Q
+                         net (fo=3, routed)           0.666     2.157    obs_growth[34]
+    SLICE_X44Y129                                                     r  g_slot[21].pe_i_i_15/I2
+    SLICE_X44Y129        LUT3 (Prop_lut3_I2_O)        0.124     2.281 f  g_slot[21].pe_i_i_15/O
+                         net (fo=11, routed)          0.536     2.817    g_slot[26].pe_i/e_grown[0]
+    SLICE_X45Y129                                                     f  g_slot[26].pe_i/st_out[12]_INST_0_i_10/I0
+    SLICE_X45Y129        LUT4 (Prop_lut4_I0_O)        0.124     2.941 r  g_slot[26].pe_i/st_out[12]_INST_0_i_10/O
+                         net (fo=1, routed)           0.818     3.759    g_slot[26].pe_i/st_out[12]_INST_0_i_10_n_0
+    SLICE_X46Y128                                                     r  g_slot[26].pe_i/st_out[12]_INST_0_i_4/I0
+    SLICE_X46Y128        LUT6 (Prop_lut6_I0_O)        0.124     3.883 r  g_slot[26].pe_i/st_out[12]_INST_0_i_4/O
+                         net (fo=27, routed)          0.536     4.418    g_slot[26].pe_i/st_out[12]_INST_0_i_4_n_0
+    SLICE_X44Y129                                                     r  g_slot[26].pe_i/st_out[12]_INST_0_i_58/I1
+    SLICE_X44Y129        LUT3 (Prop_lut3_I1_O)        0.124     4.542 r  g_slot[26].pe_i/st_out[12]_INST_0_i_58/O
+                         net (fo=3, routed)           0.515     5.057    g_slot[26].pe_i/st_out[12]_INST_0_i_58_n_0
+    SLICE_X44Y128                                                     r  g_slot[26].pe_i/st_out[12]_INST_0_i_34/I0
+    SLICE_X44Y128        LUT6 (Prop_lut6_I0_O)        0.124     5.181 f  g_slot[26].pe_i/st_out[12]_INST_0_i_34/O
+                         net (fo=2, routed)           0.457     5.638    g_slot[26].pe_i/st_out[12]_INST_0_i_34_n_0
+    SLICE_X44Y128                                                     f  g_slot[26].pe_i/st_out[12]_INST_0_i_16/I3
+    SLICE_X44Y128        LUT6 (Prop_lut6_I3_O)        0.124     5.762 r  g_slot[26].pe_i/st_out[12]_INST_0_i_16/O
+                         net (fo=18, routed)          0.698     6.460    g_slot[26].pe_i/st_out[12]_INST_0_i_16_n_0
+    SLICE_X43Y129                                                     r  g_slot[26].pe_i/st_out[15]_INST_0_i_38/I4
+    SLICE_X43Y129        LUT6 (Prop_lut6_I4_O)        0.124     6.584 f  g_slot[26].pe_i/st_out[15]_INST_0_i_38/O
+                         net (fo=1, routed)           0.805     7.389    g_slot[26].pe_i/st_out[15]_INST_0_i_38_n_0
+    SLICE_X42Y127                                                     f  g_slot[26].pe_i/st_out[15]_INST_0_i_34/I3
+    SLICE_X42Y127        LUT6 (Prop_lut6_I3_O)        0.124     7.513 r  g_slot[26].pe_i/st_out[15]_INST_0_i_34/O
+                         net (fo=3, routed)           0.327     7.840    g_slot[26].pe_i/st_out[15]_INST_0_i_34_n_0
+    SLICE_X42Y128                                                     r  g_slot[26].pe_i/st_out[15]_INST_0_i_28/I2
+    SLICE_X42Y128        LUT6 (Prop_lut6_I2_O)        0.124     7.964 f  g_slot[26].pe_i/st_out[15]_INST_0_i_28/O
+                         net (fo=2, routed)           0.487     8.451    g_slot[26].pe_i/st_out[15]_INST_0_i_28_n_0
+    SLICE_X42Y128                                                     f  g_slot[26].pe_i/st_out[15]_INST_0_i_19/I0
+    SLICE_X42Y128        LUT6 (Prop_lut6_I0_O)        0.124     8.575 r  g_slot[26].pe_i/st_out[15]_INST_0_i_19/O
+                         net (fo=1, routed)           0.689     9.265    g_slot[26].pe_i/st_out[15]_INST_0_i_19_n_0
+    SLICE_X43Y127                                                     r  g_slot[26].pe_i/st_out[15]_INST_0_i_14/I3
+    SLICE_X43Y127        LUT6 (Prop_lut6_I3_O)        0.124     9.389 f  g_slot[26].pe_i/st_out[15]_INST_0_i_14/O
+                         net (fo=12, routed)          0.344     9.733    g_slot[26].pe_i/st_out[15]_INST_0_i_14_n_0
+    SLICE_X43Y129                                                     f  g_slot[26].pe_i/st_out[12]_INST_0_i_6/I1
+    SLICE_X43Y129        LUT2 (Prop_lut2_I1_O)        0.124     9.857 r  g_slot[26].pe_i/st_out[12]_INST_0_i_6/O
+                         net (fo=12, routed)          0.583    10.440    g_slot[26].pe_i/st_out[12]_INST_0_i_6_n_0
+    SLICE_X39Y129                                                     r  g_slot[26].pe_i/st_out[12]_INST_0_i_25/I4
+    SLICE_X39Y129        LUT6 (Prop_lut6_I4_O)        0.124    10.564 f  g_slot[26].pe_i/st_out[12]_INST_0_i_25/O
+                         net (fo=1, routed)           0.797    11.362    g_slot[26].pe_i/st_out[12]_INST_0_i_25_n_0
+    SLICE_X39Y128                                                     f  g_slot[26].pe_i/st_out[12]_INST_0_i_8/I1
+    SLICE_X39Y128        LUT6 (Prop_lut6_I1_O)        0.124    11.486 r  g_slot[26].pe_i/st_out[12]_INST_0_i_8/O
+                         net (fo=19, routed)          0.620    12.106    g_slot[26].pe_i/st_out[12]_INST_0_i_8_n_0
+    SLICE_X38Y128                                                     r  g_slot[26].pe_i/st_out[12]_INST_0_i_20/I1
+    SLICE_X38Y128        LUT6 (Prop_lut6_I1_O)        0.124    12.230 f  g_slot[26].pe_i/st_out[12]_INST_0_i_20/O
+                         net (fo=1, routed)           0.796    13.026    g_slot[26].pe_i/st_out[12]_INST_0_i_20_n_0
+    SLICE_X38Y128                                                     f  g_slot[26].pe_i/st_out[12]_INST_0_i_7/I2
+    SLICE_X38Y128        LUT6 (Prop_lut6_I2_O)        0.124    13.150 r  g_slot[26].pe_i/st_out[12]_INST_0_i_7/O
+                         net (fo=15, routed)          0.676    13.827    g_slot[26].pe_i/st_out[12]_INST_0_i_7_n_0
+    SLICE_X38Y129                                                     r  g_slot[26].pe_i/st_out[5]_INST_0_i_1_comp/I4
+    SLICE_X38Y129        LUT6 (Prop_lut6_I4_O)        0.124    13.951 r  g_slot[26].pe_i/st_out[5]_INST_0_i_1_comp/O
+                         net (fo=4, routed)           0.826    14.776    g_slot[26].pe_i/st_out[5]_INST_0_i_1_n_0
+    SLICE_X41Y129                                                     r  g_slot[26].pe_i/st_out[0]_INST_0_i_1_comp/I2
+    SLICE_X41Y129        LUT6 (Prop_lut6_I2_O)        0.124    14.900 r  g_slot[26].pe_i/st_out[0]_INST_0_i_1_comp/O
+                         net (fo=1, routed)           0.580    15.480    g_slot[26].pe_i/st_out[0]_INST_0_i_1_n_0
+    SLICE_X39Y129                                                     r  g_slot[26].pe_i/st_out[0]_INST_0/I0
+    SLICE_X39Y129        LUT6 (Prop_lut6_I0_O)        0.124    15.604 r  g_slot[26].pe_i/st_out[0]_INST_0/O
+                         net (fo=2, routed)           0.165    15.769    slot_nxt[26][0]
+    SLICE_X39Y129                                                     r  g_slot[26].bshB[26][0]_i_1/I0
+    SLICE_X39Y129        LUT2 (Prop_lut2_I0_O)        0.124    15.893 r  g_slot[26].bshB[26][0]_i_1/O
+                         net (fo=2, routed)           0.342    16.234    p_7_out
+    SLICE_X38Y130        FDRE                                         r  g_slot[26].bshB_reg[26][0]/D
+  -------------------------------------------------------------------    -------------------
+
+                         (clock clk rise edge)       10.000    10.000 r  
+                                                      0.000    10.000 r  clk (IN)
+                         net (fo=830, unset)          0.924    10.924    clk
+    SLICE_X38Y130        FDRE                                         r  g_slot[26].bshB_reg[26][0]/C
+                         clock pessimism              0.000    10.924    
+                         clock uncertainty           -0.035    10.889    
+    SLICE_X38Y130        FDRE (Setup_fdre_C_D)       -0.013    10.876    g_slot[26].bshB_reg[26][0]
+  -------------------------------------------------------------------
+                         required time                         10.876    
+                         arrival time                         -16.234    
+  -------------------------------------------------------------------
+                         slack                                 -5.358    
+
+Slack (VIOLATED) :        -5.350ns  (required time - arrival time)
+  Source:                 g_slot[5].own_reg[27]/C
+                            (rising edge-triggered cell FDSE clocked by clk  {rise@0.000ns fall@5.000ns period=10.000ns})
+  Destination:            g_slot[5].own_reg[15]/D
+                            (rising edge-triggered cell FDRE clocked by clk  {rise@0.000ns fall@5.000ns period=10.000ns})
+  Path Group:             clk
+  Path Type:              Setup (Max at Slow Process Corner)
+  Requirement:            10.000ns  (clk rise@10.000ns - clk rise@0.000ns)
+  Data Path Delay:        15.199ns  (logic 2.812ns (18.501%)  route 12.387ns (81.499%))
+  Logic Levels:           19  (LUT2=1 LUT3=2 LUT4=1 LUT5=1 LUT6=14)
+  Clock Path Skew:        -0.049ns (DCD - SCD + CPR)
+    Destination Clock Delay (DCD):    0.924ns = ( 10.924 - 10.000 ) 
+    Source Clock Delay      (SCD):    0.973ns
+    Clock Pessimism Removal (CPR):    0.000ns
+  Clock Uncertainty:      0.035ns  ((TSJ^2 + TIJ^2)^1/2 + DJ) / 2 + PE
+    Total System Jitter     (TSJ):    0.071ns
+    Total Input Jitter      (TIJ):    0.000ns
+    Discrete Jitter          (DJ):    0.000ns
+    Phase Error              (PE):    0.000ns
+
+    Location             Delay type                Incr(ns)  Path(ns)    Netlist Resource(s)
+  -------------------------------------------------------------------    -------------------
+                         (clock clk rise edge)        0.000     0.000 r  
+                                                      0.000     0.000 r  clk (IN)
+                         net (fo=830, unset)          0.973     0.973    clk
+    SLICE_X49Y126        FDSE                                         r  g_slot[5].own_reg[27]/C
+  -------------------------------------------------------------------    -------------------
+    SLICE_X49Y126        FDSE (Prop_fdse_C_Q)         0.456     1.429 f  g_slot[5].own_reg[27]/Q
+                         net (fo=3, routed)           0.587     2.016    obs_cid[74]
+    SLICE_X48Y125                                                     f  g_slot[0].pe_i_i_17/I0
+    SLICE_X48Y125        LUT3 (Prop_lut3_I0_O)        0.124     2.140 f  g_slot[0].pe_i_i_17/O
+                         net (fo=37, routed)          1.340     3.480    g_slot[5].pe_i/st_in[11]
+    SLICE_X52Y123                                                     f  g_slot[5].pe_i/st_out[14]_INST_0_i_66/I1
+    SLICE_X52Y123        LUT6 (Prop_lut6_I1_O)        0.124     3.604 r  g_slot[5].pe_i/st_out[14]_INST_0_i_66/O
+                         net (fo=1, routed)           0.669     4.273    g_slot[5].pe_i/st_out[14]_INST_0_i_66_n_0
+    SLICE_X52Y123                                                     r  g_slot[5].pe_i/st_out[14]_INST_0_i_33/I3
+    SLICE_X52Y123        LUT6 (Prop_lut6_I3_O)        0.124     4.397 r  g_slot[5].pe_i/st_out[14]_INST_0_i_33/O
+                         net (fo=20, routed)          0.378     4.775    g_slot[5].pe_i/st_out[14]_INST_0_i_33_n_0
+    SLICE_X51Y123                                                     r  g_slot[5].pe_i/st_out[14]_INST_0_i_87/I1
+    SLICE_X51Y123        LUT3 (Prop_lut3_I1_O)        0.124     4.899 r  g_slot[5].pe_i/st_out[14]_INST_0_i_87/O
+                         net (fo=4, routed)           0.466     5.365    g_slot[5].pe_i/st_out[14]_INST_0_i_87_n_0
+    SLICE_X51Y122                                                     r  g_slot[5].pe_i/st_out[14]_INST_0_i_72/I4
+    SLICE_X51Y122        LUT6 (Prop_lut6_I4_O)        0.124     5.489 f  g_slot[5].pe_i/st_out[14]_INST_0_i_72/O
+                         net (fo=1, routed)           0.653     6.142    g_slot[5].pe_i/st_out[14]_INST_0_i_72_n_0
+    SLICE_X50Y122                                                     f  g_slot[5].pe_i/st_out[14]_INST_0_i_34/I3
+    SLICE_X50Y122        LUT6 (Prop_lut6_I3_O)        0.124     6.266 r  g_slot[5].pe_i/st_out[14]_INST_0_i_34/O
+                         net (fo=18, routed)          0.518     6.784    g_slot[5].pe_i/st_out[14]_INST_0_i_34_n_0
+    SLICE_X51Y119                                                     r  g_slot[5].pe_i/st_out[11]_INST_0_i_7/I1
+    SLICE_X51Y119        LUT5 (Prop_lut5_I1_O)        0.124     6.908 f  g_slot[5].pe_i/st_out[11]_INST_0_i_7/O
+                         net (fo=3, routed)           0.599     7.506    g_slot[5].pe_i/st_out[11]_INST_0_i_7_n_0
+    SLICE_X50Y121                                                     f  g_slot[5].pe_i/st_out[14]_INST_0_i_60/I2
+    SLICE_X50Y121        LUT4 (Prop_lut4_I2_O)        0.124     7.630 r  g_slot[5].pe_i/st_out[14]_INST_0_i_60/O
+                         net (fo=1, routed)           0.670     8.300    g_slot[5].pe_i/st_out[14]_INST_0_i_60_n_0
+    SLICE_X50Y121                                                     r  g_slot[5].pe_i/st_out[14]_INST_0_i_32/I3
+    SLICE_X50Y121        LUT6 (Prop_lut6_I3_O)        0.124     8.424 r  g_slot[5].pe_i/st_out[14]_INST_0_i_32/O
+                         net (fo=16, routed)          0.379     8.803    g_slot[5].pe_i/st_out[14]_INST_0_i_32_n_0
+    SLICE_X51Y120                                                     r  g_slot[5].pe_i/st_out[14]_INST_0_i_22/I3
+    SLICE_X51Y120        LUT6 (Prop_lut6_I3_O)        0.124     8.927 f  g_slot[5].pe_i/st_out[14]_INST_0_i_22/O
+                         net (fo=1, routed)           0.980     9.908    g_slot[5].pe_i/st_out[14]_INST_0_i_22_n_0
+    SLICE_X51Y121                                                     f  g_slot[5].pe_i/st_out[14]_INST_0_i_9/I2
+    SLICE_X51Y121        LUT6 (Prop_lut6_I2_O)        0.124    10.032 f  g_slot[5].pe_i/st_out[14]_INST_0_i_9/O
+                         net (fo=13, routed)          0.388    10.420    g_slot[5].pe_i/st_out[14]_INST_0_i_9_n_0
+    SLICE_X52Y122                                                     f  g_slot[5].pe_i/st_out[12]_INST_0_i_10/I1
+    SLICE_X52Y122        LUT2 (Prop_lut2_I1_O)        0.124    10.544 r  g_slot[5].pe_i/st_out[12]_INST_0_i_10/O
+                         net (fo=9, routed)           0.609    11.153    g_slot[5].pe_i/st_out[12]_INST_0_i_10_n_0
+    SLICE_X53Y121                                                     r  g_slot[5].pe_i/st_out[14]_INST_0_i_27/I0
+    SLICE_X53Y121        LUT6 (Prop_lut6_I0_O)        0.124    11.277 r  g_slot[5].pe_i/st_out[14]_INST_0_i_27/O
+                         net (fo=1, routed)           1.033    12.310    g_slot[5].pe_i/st_out[14]_INST_0_i_27_n_0
+    SLICE_X54Y122                                                     r  g_slot[5].pe_i/st_out[14]_INST_0_i_10/I1
+    SLICE_X54Y122        LUT6 (Prop_lut6_I1_O)        0.124    12.434 r  g_slot[5].pe_i/st_out[14]_INST_0_i_10/O
+                         net (fo=15, routed)          0.488    12.922    g_slot[5].pe_i/st_out[14]_INST_0_i_10_n_0
+    SLICE_X54Y123                                                     r  g_slot[5].pe_i/st_out[14]_INST_0_i_36/I3
+    SLICE_X54Y123        LUT6 (Prop_lut6_I3_O)        0.124    13.046 r  g_slot[5].pe_i/st_out[14]_INST_0_i_36/O
+                         net (fo=2, routed)           0.506    13.552    g_slot[5].pe_i/st_out[14]_INST_0_i_36_n_0
+    SLICE_X55Y123                                                     r  g_slot[5].pe_i/st_out[14]_INST_0_i_12/I1
+    SLICE_X55Y123        LUT6 (Prop_lut6_I1_O)        0.124    13.676 f  g_slot[5].pe_i/st_out[14]_INST_0_i_12/O
+                         net (fo=14, routed)          0.657    14.333    g_slot[5].pe_i/st_out[14]_INST_0_i_12_n_0
+    SLICE_X56Y123                                                     f  g_slot[5].pe_i/st_out[15]_INST_0_i_4/I3
+    SLICE_X56Y123        LUT6 (Prop_lut6_I3_O)        0.124    14.457 r  g_slot[5].pe_i/st_out[15]_INST_0_i_4/O
+                         net (fo=2, routed)           0.352    14.809    g_slot[5].pe_i/st_out[15]_INST_0_i_4_n_0
+    SLICE_X57Y123                                                     r  g_slot[5].pe_i/st_out[15]_INST_0_i_2/I4
+    SLICE_X57Y123        LUT6 (Prop_lut6_I4_O)        0.124    14.933 f  g_slot[5].pe_i/st_out[15]_INST_0_i_2/O
+                         net (fo=1, routed)           0.458    15.391    g_slot[5].pe_i/st_out[15]_INST_0_i_2_n_0
+    SLICE_X58Y123                                                     f  g_slot[5].pe_i/st_out[15]_INST_0/I5
+    SLICE_X58Y123        LUT6 (Prop_lut6_I5_O)        0.124    15.515 r  g_slot[5].pe_i/st_out[15]_INST_0/O
+                         net (fo=2, routed)           0.657    16.172    slot_nxt[5][15]
+    SLICE_X57Y123        FDRE                                         r  g_slot[5].own_reg[15]/D
+  -------------------------------------------------------------------    -------------------
+
+                         (clock clk rise edge)       10.000    10.000 r  
+                                                      0.000    10.000 r  clk (IN)
+                         net (fo=830, unset)          0.924    10.924    clk
+    SLICE_X57Y123        FDRE                                         r  g_slot[5].own_reg[15]/C
+                         clock pessimism              0.000    10.924    
+                         clock uncertainty           -0.035    10.889    
+    SLICE_X57Y123        FDRE (Setup_fdre_C_D)       -0.067    10.822    g_slot[5].own_reg[15]
+  -------------------------------------------------------------------
+                         required time                         10.822    
+                         arrival time                         -16.172    
+  -------------------------------------------------------------------
+                         slack                                 -5.350    
+
+Slack (VIOLATED) :        -5.241ns  (required time - arrival time)
+  Source:                 phase_reg[0]__0_rep/C
+                            (rising edge-triggered cell FDRE clocked by clk  {rise@0.000ns fall@5.000ns period=10.000ns})
+  Destination:            g_slot[10].own_reg[6]/D
+                            (rising edge-triggered cell FDRE clocked by clk  {rise@0.000ns fall@5.000ns period=10.000ns})
+  Path Group:             clk
+  Path Type:              Setup (Max at Slow Process Corner)
+  Requirement:            10.000ns  (clk rise@10.000ns - clk rise@0.000ns)
+  Data Path Delay:        15.114ns  (logic 2.936ns (19.426%)  route 12.178ns (80.574%))
+  Logic Levels:           20  (LUT2=1 LUT3=4 LUT4=2 LUT5=1 LUT6=12)
+  Clock Path Skew:        -0.049ns (DCD - SCD + CPR)
+    Destination Clock Delay (DCD):    0.924ns = ( 10.924 - 10.000 ) 
+    Source Clock Delay      (SCD):    0.973ns
+    Clock Pessimism Removal (CPR):    0.000ns
+  Clock Uncertainty:      0.035ns  ((TSJ^2 + TIJ^2)^1/2 + DJ) / 2 + PE
+    Total System Jitter     (TSJ):    0.071ns
+    Total Input Jitter      (TIJ):    0.000ns
+    Discrete Jitter          (DJ):    0.000ns
+    Phase Error              (PE):    0.000ns
+
+    Location             Delay type                Incr(ns)  Path(ns)    Netlist Resource(s)
+  -------------------------------------------------------------------    -------------------
+                         (clock clk rise edge)        0.000     0.000 r  
+                                                      0.000     0.000 r  clk (IN)
+                         net (fo=830, unset)          0.973     0.973    clk
+    SLICE_X49Y125        FDRE                                         r  phase_reg[0]__0_rep/C
+  -------------------------------------------------------------------    -------------------
+    SLICE_X49Y125        FDRE (Prop_fdre_C_Q)         0.456     1.429 r  phase_reg[0]__0_rep/Q
+                         net (fo=435, routed)         0.837     2.266    phase_reg[0]__0_rep_n_0
+    SLICE_X49Y123                                                     r  g_slot[5].pe_i_i_30/I1
+    SLICE_X49Y123        LUT3 (Prop_lut3_I1_O)        0.124     2.390 f  g_slot[5].pe_i_i_30/O
+                         net (fo=28, routed)          0.740     3.130    g_slot[10].pe_i/st_in[14]
+    SLICE_X48Y124                                                     f  g_slot[10].pe_i/st_out[14]_INST_0_i_40/I0
+    SLICE_X48Y124        LUT3 (Prop_lut3_I0_O)        0.124     3.254 r  g_slot[10].pe_i/st_out[14]_INST_0_i_40/O
+                         net (fo=1, routed)           0.667     3.921    g_slot[10].pe_i/st_out[14]_INST_0_i_40_n_0
+    SLICE_X48Y124                                                     r  g_slot[10].pe_i/st_out[14]_INST_0_i_25/I0
+    SLICE_X48Y124        LUT6 (Prop_lut6_I0_O)        0.124     4.045 r  g_slot[10].pe_i/st_out[14]_INST_0_i_25/O
+                         net (fo=21, routed)          0.788     4.833    g_slot[10].pe_i/st_out[14]_INST_0_i_25_n_0
+    SLICE_X49Y124                                                     r  g_slot[10].pe_i/st_out[3]_INST_0_i_23/I2
+    SLICE_X49Y124        LUT4 (Prop_lut4_I2_O)        0.124     4.957 r  g_slot[10].pe_i/st_out[3]_INST_0_i_23/O
+                         net (fo=1, routed)           0.335     5.292    g_slot[10].pe_i/st_out[3]_INST_0_i_23_n_0
+    SLICE_X48Y126                                                     r  g_slot[10].pe_i/st_out[3]_INST_0_i_15/I5
+    SLICE_X48Y126        LUT6 (Prop_lut6_I5_O)        0.124     5.416 r  g_slot[10].pe_i/st_out[3]_INST_0_i_15/O
+                         net (fo=5, routed)           0.693     6.109    g_slot[10].pe_i/st_out[3]_INST_0_i_15_n_0
+    SLICE_X48Y126                                                     r  g_slot[10].pe_i/st_out[3]_INST_0_i_7/I2
+    SLICE_X48Y126        LUT6 (Prop_lut6_I2_O)        0.124     6.233 r  g_slot[10].pe_i/st_out[3]_INST_0_i_7/O
+                         net (fo=12, routed)          0.512     6.744    g_slot[10].pe_i/st_out[3]_INST_0_i_7_n_0
+    SLICE_X49Y128                                                     r  g_slot[10].pe_i/st_out[3]_INST_0_i_9_comp/I4
+    SLICE_X49Y128        LUT6 (Prop_lut6_I4_O)        0.124     6.868 f  g_slot[10].pe_i/st_out[3]_INST_0_i_9_comp/O
+                         net (fo=2, routed)           0.954     7.823    g_slot[10].pe_i/st_out[3]_INST_0_i_9_n_0
+    SLICE_X50Y127                                                     f  g_slot[10].pe_i/st_out[3]_INST_0_i_6_comp/I2
+    SLICE_X50Y127        LUT6 (Prop_lut6_I2_O)        0.124     7.947 r  g_slot[10].pe_i/st_out[3]_INST_0_i_6_comp/O
+                         net (fo=16, routed)          0.555     8.502    g_slot[10].pe_i/st_out[3]_INST_0_i_6_n_0
+    SLICE_X51Y129                                                     r  g_slot[10].pe_i/st_out[13]_INST_0_i_8/I1
+    SLICE_X51Y129        LUT3 (Prop_lut3_I1_O)        0.124     8.626 r  g_slot[10].pe_i/st_out[13]_INST_0_i_8/O
+                         net (fo=2, routed)           0.446     9.072    g_slot[10].pe_i/st_out[13]_INST_0_i_8_n_0
+    SLICE_X52Y128                                                     r  g_slot[10].pe_i/st_out[15]_INST_0_i_13/I4
+    SLICE_X52Y128        LUT6 (Prop_lut6_I4_O)        0.124     9.196 f  g_slot[10].pe_i/st_out[15]_INST_0_i_13/O
+                         net (fo=2, routed)           0.595     9.791    g_slot[10].pe_i/st_out[15]_INST_0_i_13_n_0
+    SLICE_X50Y128                                                     f  g_slot[10].pe_i/st_out[15]_INST_0_i_7/I4
+    SLICE_X50Y128        LUT6 (Prop_lut6_I4_O)        0.124     9.915 r  g_slot[10].pe_i/st_out[15]_INST_0_i_7/O
+                         net (fo=13, routed)          0.473    10.388    g_slot[10].pe_i/st_out[15]_INST_0_i_7_n_0
+    SLICE_X50Y128                                                     r  g_slot[10].pe_i/st_out[13]_INST_0_i_7/I2
+    SLICE_X50Y128        LUT3 (Prop_lut3_I2_O)        0.124    10.512 f  g_slot[10].pe_i/st_out[13]_INST_0_i_7/O
+                         net (fo=6, routed)           0.470    10.981    g_slot[10].pe_i/st_out[13]_INST_0_i_7_n_0
+    SLICE_X52Y129                                                     f  g_slot[10].pe_i/st_out[15]_INST_0_i_16/I0
+    SLICE_X52Y129        LUT4 (Prop_lut4_I0_O)        0.124    11.105 r  g_slot[10].pe_i/st_out[15]_INST_0_i_16/O
+                         net (fo=4, routed)           0.855    11.960    g_slot[10].pe_i/st_out[15]_INST_0_i_16_n_0
+    SLICE_X52Y131                                                     r  g_slot[10].pe_i/st_out[15]_INST_0_i_8/I1
+    SLICE_X52Y131        LUT5 (Prop_lut5_I1_O)        0.124    12.084 r  g_slot[10].pe_i/st_out[15]_INST_0_i_8/O
+                         net (fo=15, routed)          0.348    12.432    g_slot[10].pe_i/st_out[15]_INST_0_i_8_n_0
+    SLICE_X51Y130                                                     r  g_slot[10].pe_i/st_out[14]_INST_0_i_22/I4
+    SLICE_X51Y130        LUT6 (Prop_lut6_I4_O)        0.124    12.556 r  g_slot[10].pe_i/st_out[14]_INST_0_i_22/O
+                         net (fo=1, routed)           0.548    13.104    g_slot[10].pe_i/st_out[14]_INST_0_i_22_n_0
+    SLICE_X52Y130                                                     r  g_slot[10].pe_i/st_out[14]_INST_0_i_8/I3
+    SLICE_X52Y130        LUT6 (Prop_lut6_I3_O)        0.124    13.228 r  g_slot[10].pe_i/st_out[14]_INST_0_i_8/O
+                         net (fo=11, routed)          0.379    13.607    g_slot[10].pe_i/st_out[14]_INST_0_i_8_n_0
+    SLICE_X53Y130                                                     r  g_slot[10].pe_i/st_out[14]_INST_0_i_2/I0
+    SLICE_X53Y130        LUT2 (Prop_lut2_I0_O)        0.124    13.731 r  g_slot[10].pe_i/st_out[14]_INST_0_i_2/O
+                         net (fo=10, routed)          0.490    14.221    g_slot[10].pe_i/st_out[14]_INST_0_i_2_n_0
+    SLICE_X53Y129                                                     r  g_slot[10].pe_i/st_out[4]_INST_0_i_1/I3
+    SLICE_X53Y129        LUT6 (Prop_lut6_I3_O)        0.124    14.345 r  g_slot[10].pe_i/st_out[4]_INST_0_i_1/O
+                         net (fo=4, routed)           0.704    15.050    g_slot[10].pe_i/st_out[4]_INST_0_i_1_n_0
+    SLICE_X54Y128                                                     r  g_slot[10].pe_i/st_out[6]_INST_0_i_1/I4
+    SLICE_X54Y128        LUT6 (Prop_lut6_I4_O)        0.124    15.174 f  g_slot[10].pe_i/st_out[6]_INST_0_i_1/O
+                         net (fo=1, routed)           0.452    15.626    g_slot[10].pe_i/st_out[6]_INST_0_i_1_n_0
+    SLICE_X54Y128                                                     f  g_slot[10].pe_i/st_out[6]_INST_0/I0
+    SLICE_X54Y128        LUT6 (Prop_lut6_I0_O)        0.124    15.750 r  g_slot[10].pe_i/st_out[6]_INST_0/O
+                         net (fo=2, routed)           0.337    16.087    slot_nxt[10][6]
+    SLICE_X56Y127        FDRE                                         r  g_slot[10].own_reg[6]/D
+  -------------------------------------------------------------------    -------------------
+
+                         (clock clk rise edge)       10.000    10.000 r  
+                                                      0.000    10.000 r  clk (IN)
+                         net (fo=830, unset)          0.924    10.924    clk
+    SLICE_X56Y127        FDRE                                         r  g_slot[10].own_reg[6]/C
+                         clock pessimism              0.000    10.924    
+                         clock uncertainty           -0.035    10.889    
+    SLICE_X56Y127        FDRE (Setup_fdre_C_D)       -0.043    10.846    g_slot[10].own_reg[6]
+  -------------------------------------------------------------------
+                         required time                         10.846    
+                         arrival time                         -16.087    
+  -------------------------------------------------------------------
+                         slack                                 -5.241    
+
+Slack (VIOLATED) :        -5.224ns  (required time - arrival time)
+  Source:                 g_slot[5].own_reg[27]/C
+                            (rising edge-triggered cell FDSE clocked by clk  {rise@0.000ns fall@5.000ns period=10.000ns})
+  Destination:            g_slot[5].own_reg[11]/D
+                            (rising edge-triggered cell FDSE clocked by clk  {rise@0.000ns fall@5.000ns period=10.000ns})
+  Path Group:             clk
+  Path Type:              Setup (Max at Slow Process Corner)
+  Requirement:            10.000ns  (clk rise@10.000ns - clk rise@0.000ns)
+  Data Path Delay:        15.059ns  (logic 2.812ns (18.673%)  route 12.247ns (81.327%))
+  Logic Levels:           19  (LUT2=1 LUT3=2 LUT4=1 LUT5=2 LUT6=13)
+  Clock Path Skew:        -0.049ns (DCD - SCD + CPR)
+    Destination Clock Delay (DCD):    0.924ns = ( 10.924 - 10.000 ) 
+    Source Clock Delay      (SCD):    0.973ns
+    Clock Pessimism Removal (CPR):    0.000ns
+  Clock Uncertainty:      0.035ns  ((TSJ^2 + TIJ^2)^1/2 + DJ) / 2 + PE
+    Total System Jitter     (TSJ):    0.071ns
+    Total Input Jitter      (TIJ):    0.000ns
+    Discrete Jitter          (DJ):    0.000ns
+    Phase Error              (PE):    0.000ns
+
+    Location             Delay type                Incr(ns)  Path(ns)    Netlist Resource(s)
+  -------------------------------------------------------------------    -------------------
+                         (clock clk rise edge)        0.000     0.000 r  
+                                                      0.000     0.000 r  clk (IN)
+                         net (fo=830, unset)          0.973     0.973    clk
+    SLICE_X49Y126        FDSE                                         r  g_slot[5].own_reg[27]/C
+  -------------------------------------------------------------------    -------------------
+    SLICE_X49Y126        FDSE (Prop_fdse_C_Q)         0.456     1.429 f  g_slot[5].own_reg[27]/Q
+                         net (fo=3, routed)           0.587     2.016    obs_cid[74]
+    SLICE_X48Y125                                                     f  g_slot[0].pe_i_i_17/I0
+    SLICE_X48Y125        LUT3 (Prop_lut3_I0_O)        0.124     2.140 f  g_slot[0].pe_i_i_17/O
+                         net (fo=37, routed)          1.340     3.480    g_slot[5].pe_i/st_in[11]
+    SLICE_X52Y123                                                     f  g_slot[5].pe_i/st_out[14]_INST_0_i_66/I1
+    SLICE_X52Y123        LUT6 (Prop_lut6_I1_O)        0.124     3.604 r  g_slot[5].pe_i/st_out[14]_INST_0_i_66/O
+                         net (fo=1, routed)           0.669     4.273    g_slot[5].pe_i/st_out[14]_INST_0_i_66_n_0
+    SLICE_X52Y123                                                     r  g_slot[5].pe_i/st_out[14]_INST_0_i_33/I3
+    SLICE_X52Y123        LUT6 (Prop_lut6_I3_O)        0.124     4.397 r  g_slot[5].pe_i/st_out[14]_INST_0_i_33/O
+                         net (fo=20, routed)          0.378     4.775    g_slot[5].pe_i/st_out[14]_INST_0_i_33_n_0
+    SLICE_X51Y123                                                     r  g_slot[5].pe_i/st_out[14]_INST_0_i_87/I1
+    SLICE_X51Y123        LUT3 (Prop_lut3_I1_O)        0.124     4.899 r  g_slot[5].pe_i/st_out[14]_INST_0_i_87/O
+                         net (fo=4, routed)           0.466     5.365    g_slot[5].pe_i/st_out[14]_INST_0_i_87_n_0
+    SLICE_X51Y122                                                     r  g_slot[5].pe_i/st_out[14]_INST_0_i_72/I4
+    SLICE_X51Y122        LUT6 (Prop_lut6_I4_O)        0.124     5.489 f  g_slot[5].pe_i/st_out[14]_INST_0_i_72/O
+                         net (fo=1, routed)           0.653     6.142    g_slot[5].pe_i/st_out[14]_INST_0_i_72_n_0
+    SLICE_X50Y122                                                     f  g_slot[5].pe_i/st_out[14]_INST_0_i_34/I3
+    SLICE_X50Y122        LUT6 (Prop_lut6_I3_O)        0.124     6.266 r  g_slot[5].pe_i/st_out[14]_INST_0_i_34/O
+                         net (fo=18, routed)          0.518     6.784    g_slot[5].pe_i/st_out[14]_INST_0_i_34_n_0
+    SLICE_X51Y119                                                     r  g_slot[5].pe_i/st_out[11]_INST_0_i_7/I1
+    SLICE_X51Y119        LUT5 (Prop_lut5_I1_O)        0.124     6.908 f  g_slot[5].pe_i/st_out[11]_INST_0_i_7/O
+                         net (fo=3, routed)           0.599     7.506    g_slot[5].pe_i/st_out[11]_INST_0_i_7_n_0
+    SLICE_X50Y121                                                     f  g_slot[5].pe_i/st_out[14]_INST_0_i_60/I2
+    SLICE_X50Y121        LUT4 (Prop_lut4_I2_O)        0.124     7.630 r  g_slot[5].pe_i/st_out[14]_INST_0_i_60/O
+                         net (fo=1, routed)           0.670     8.300    g_slot[5].pe_i/st_out[14]_INST_0_i_60_n_0
+    SLICE_X50Y121                                                     r  g_slot[5].pe_i/st_out[14]_INST_0_i_32/I3
+    SLICE_X50Y121        LUT6 (Prop_lut6_I3_O)        0.124     8.424 r  g_slot[5].pe_i/st_out[14]_INST_0_i_32/O
+                         net (fo=16, routed)          0.379     8.803    g_slot[5].pe_i/st_out[14]_INST_0_i_32_n_0
+    SLICE_X51Y120                                                     r  g_slot[5].pe_i/st_out[14]_INST_0_i_22/I3
+    SLICE_X51Y120        LUT6 (Prop_lut6_I3_O)        0.124     8.927 f  g_slot[5].pe_i/st_out[14]_INST_0_i_22/O
+                         net (fo=1, routed)           0.980     9.908    g_slot[5].pe_i/st_out[14]_INST_0_i_22_n_0
+    SLICE_X51Y121                                                     f  g_slot[5].pe_i/st_out[14]_INST_0_i_9/I2
+    SLICE_X51Y121        LUT6 (Prop_lut6_I2_O)        0.124    10.032 f  g_slot[5].pe_i/st_out[14]_INST_0_i_9/O
+                         net (fo=13, routed)          0.388    10.420    g_slot[5].pe_i/st_out[14]_INST_0_i_9_n_0
+    SLICE_X52Y122                                                     f  g_slot[5].pe_i/st_out[12]_INST_0_i_10/I1
+    SLICE_X52Y122        LUT2 (Prop_lut2_I1_O)        0.124    10.544 r  g_slot[5].pe_i/st_out[12]_INST_0_i_10/O
+                         net (fo=9, routed)           0.609    11.153    g_slot[5].pe_i/st_out[12]_INST_0_i_10_n_0
+    SLICE_X53Y121                                                     r  g_slot[5].pe_i/st_out[14]_INST_0_i_27/I0
+    SLICE_X53Y121        LUT6 (Prop_lut6_I0_O)        0.124    11.277 r  g_slot[5].pe_i/st_out[14]_INST_0_i_27/O
+                         net (fo=1, routed)           1.033    12.310    g_slot[5].pe_i/st_out[14]_INST_0_i_27_n_0
+    SLICE_X54Y122                                                     r  g_slot[5].pe_i/st_out[14]_INST_0_i_10/I1
+    SLICE_X54Y122        LUT6 (Prop_lut6_I1_O)        0.124    12.434 r  g_slot[5].pe_i/st_out[14]_INST_0_i_10/O
+                         net (fo=15, routed)          0.488    12.922    g_slot[5].pe_i/st_out[14]_INST_0_i_10_n_0
+    SLICE_X54Y123                                                     r  g_slot[5].pe_i/st_out[14]_INST_0_i_36/I3
+    SLICE_X54Y123        LUT6 (Prop_lut6_I3_O)        0.124    13.046 r  g_slot[5].pe_i/st_out[14]_INST_0_i_36/O
+                         net (fo=2, routed)           0.506    13.552    g_slot[5].pe_i/st_out[14]_INST_0_i_36_n_0
+    SLICE_X55Y123                                                     r  g_slot[5].pe_i/st_out[14]_INST_0_i_12/I1
+    SLICE_X55Y123        LUT6 (Prop_lut6_I1_O)        0.124    13.676 f  g_slot[5].pe_i/st_out[14]_INST_0_i_12/O
+                         net (fo=14, routed)          0.556    14.232    g_slot[5].pe_i/st_out[14]_INST_0_i_12_n_0
+    SLICE_X54Y124                                                     f  g_slot[5].pe_i/st_out[14]_INST_0_i_2/I4
+    SLICE_X54Y124        LUT5 (Prop_lut5_I4_O)        0.124    14.356 r  g_slot[5].pe_i/st_out[14]_INST_0_i_2/O
+                         net (fo=5, routed)           0.499    14.855    g_slot[5].pe_i/st_out[14]_INST_0_i_2_n_0
+    SLICE_X54Y125                                                     r  g_slot[5].pe_i/st_out[11]_INST_0_i_1/I3
+    SLICE_X54Y125        LUT6 (Prop_lut6_I3_O)        0.124    14.979 f  g_slot[5].pe_i/st_out[11]_INST_0_i_1/O
+                         net (fo=1, routed)           0.162    15.141    g_slot[5].pe_i/st_out[11]_INST_0_i_1_n_0
+    SLICE_X54Y125                                                     f  g_slot[5].pe_i/st_out[11]_INST_0/I0
+    SLICE_X54Y125        LUT6 (Prop_lut6_I0_O)        0.124    15.265 r  g_slot[5].pe_i/st_out[11]_INST_0/O
+                         net (fo=2, routed)           0.768    16.032    slot_nxt[5][11]
+    SLICE_X48Y125        FDSE                                         r  g_slot[5].own_reg[11]/D
+  -------------------------------------------------------------------    -------------------
+
+                         (clock clk rise edge)       10.000    10.000 r  
+                                                      0.000    10.000 r  clk (IN)
+                         net (fo=830, unset)          0.924    10.924    clk
+    SLICE_X48Y125        FDSE                                         r  g_slot[5].own_reg[11]/C
+                         clock pessimism              0.000    10.924    
+                         clock uncertainty           -0.035    10.889    
+    SLICE_X48Y125        FDSE (Setup_fdse_C_D)       -0.081    10.808    g_slot[5].own_reg[11]
+  -------------------------------------------------------------------
+                         required time                         10.808    
+                         arrival time                         -16.032    
+  -------------------------------------------------------------------
+                         slack                                 -5.224    
+
+Slack (VIOLATED) :        -5.218ns  (required time - arrival time)
+  Source:                 g_eslot[23].eown_reg[0]/C
+                            (rising edge-triggered cell FDRE clocked by clk  {rise@0.000ns fall@5.000ns period=10.000ns})
+  Destination:            g_slot[26].bshA_reg[26][0]/D
+                            (rising edge-triggered cell FDRE clocked by clk  {rise@0.000ns fall@5.000ns period=10.000ns})
+  Path Group:             clk
+  Path Type:              Setup (Max at Slow Process Corner)
+  Requirement:            10.000ns  (clk rise@10.000ns - clk rise@0.000ns)
+  Data Path Delay:        15.121ns  (logic 2.998ns (19.826%)  route 12.123ns (80.174%))
+  Logic Levels:           20  (LUT2=2 LUT3=2 LUT4=1 LUT6=15)
+  Clock Path Skew:        -0.049ns (DCD - SCD + CPR)
+    Destination Clock Delay (DCD):    0.924ns = ( 10.924 - 10.000 ) 
+    Source Clock Delay      (SCD):    0.973ns
+    Clock Pessimism Removal (CPR):    0.000ns
+  Clock Uncertainty:      0.035ns  ((TSJ^2 + TIJ^2)^1/2 + DJ) / 2 + PE
+    Total System Jitter     (TSJ):    0.071ns
+    Total Input Jitter      (TIJ):    0.000ns
+    Discrete Jitter          (DJ):    0.000ns
+    Phase Error              (PE):    0.000ns
+
+    Location             Delay type                Incr(ns)  Path(ns)    Netlist Resource(s)
+  -------------------------------------------------------------------    -------------------
+                         (clock clk rise edge)        0.000     0.000 r  
+                                                      0.000     0.000 r  clk (IN)
+                         net (fo=830, unset)          0.973     0.973    clk
+    SLICE_X46Y130        FDRE                                         r  g_eslot[23].eown_reg[0]/C
+  -------------------------------------------------------------------    -------------------
+    SLICE_X46Y130        FDRE (Prop_fdre_C_Q)         0.518     1.491 r  g_eslot[23].eown_reg[0]/Q
+                         net (fo=3, routed)           0.666     2.157    obs_growth[34]
+    SLICE_X44Y129                                                     r  g_slot[21].pe_i_i_15/I2
+    SLICE_X44Y129        LUT3 (Prop_lut3_I2_O)        0.124     2.281 f  g_slot[21].pe_i_i_15/O
+                         net (fo=11, routed)          0.536     2.817    g_slot[26].pe_i/e_grown[0]
+    SLICE_X45Y129                                                     f  g_slot[26].pe_i/st_out[12]_INST_0_i_10/I0
+    SLICE_X45Y129        LUT4 (Prop_lut4_I0_O)        0.124     2.941 r  g_slot[26].pe_i/st_out[12]_INST_0_i_10/O
+                         net (fo=1, routed)           0.818     3.759    g_slot[26].pe_i/st_out[12]_INST_0_i_10_n_0
+    SLICE_X46Y128                                                     r  g_slot[26].pe_i/st_out[12]_INST_0_i_4/I0
+    SLICE_X46Y128        LUT6 (Prop_lut6_I0_O)        0.124     3.883 r  g_slot[26].pe_i/st_out[12]_INST_0_i_4/O
+                         net (fo=27, routed)          0.536     4.418    g_slot[26].pe_i/st_out[12]_INST_0_i_4_n_0
+    SLICE_X44Y129                                                     r  g_slot[26].pe_i/st_out[12]_INST_0_i_58/I1
+    SLICE_X44Y129        LUT3 (Prop_lut3_I1_O)        0.124     4.542 r  g_slot[26].pe_i/st_out[12]_INST_0_i_58/O
+                         net (fo=3, routed)           0.515     5.057    g_slot[26].pe_i/st_out[12]_INST_0_i_58_n_0
+    SLICE_X44Y128                                                     r  g_slot[26].pe_i/st_out[12]_INST_0_i_34/I0
+    SLICE_X44Y128        LUT6 (Prop_lut6_I0_O)        0.124     5.181 f  g_slot[26].pe_i/st_out[12]_INST_0_i_34/O
+                         net (fo=2, routed)           0.457     5.638    g_slot[26].pe_i/st_out[12]_INST_0_i_34_n_0
+    SLICE_X44Y128                                                     f  g_slot[26].pe_i/st_out[12]_INST_0_i_16/I3
+    SLICE_X44Y128        LUT6 (Prop_lut6_I3_O)        0.124     5.762 r  g_slot[26].pe_i/st_out[12]_INST_0_i_16/O
+                         net (fo=18, routed)          0.698     6.460    g_slot[26].pe_i/st_out[12]_INST_0_i_16_n_0
+    SLICE_X43Y129                                                     r  g_slot[26].pe_i/st_out[15]_INST_0_i_38/I4
+    SLICE_X43Y129        LUT6 (Prop_lut6_I4_O)        0.124     6.584 f  g_slot[26].pe_i/st_out[15]_INST_0_i_38/O
+                         net (fo=1, routed)           0.805     7.389    g_slot[26].pe_i/st_out[15]_INST_0_i_38_n_0
+    SLICE_X42Y127                                                     f  g_slot[26].pe_i/st_out[15]_INST_0_i_34/I3
+    SLICE_X42Y127        LUT6 (Prop_lut6_I3_O)        0.124     7.513 r  g_slot[26].pe_i/st_out[15]_INST_0_i_34/O
+                         net (fo=3, routed)           0.327     7.840    g_slot[26].pe_i/st_out[15]_INST_0_i_34_n_0
+    SLICE_X42Y128                                                     r  g_slot[26].pe_i/st_out[15]_INST_0_i_28/I2
+    SLICE_X42Y128        LUT6 (Prop_lut6_I2_O)        0.124     7.964 f  g_slot[26].pe_i/st_out[15]_INST_0_i_28/O
+                         net (fo=2, routed)           0.487     8.451    g_slot[26].pe_i/st_out[15]_INST_0_i_28_n_0
+    SLICE_X42Y128                                                     f  g_slot[26].pe_i/st_out[15]_INST_0_i_19/I0
+    SLICE_X42Y128        LUT6 (Prop_lut6_I0_O)        0.124     8.575 r  g_slot[26].pe_i/st_out[15]_INST_0_i_19/O
+                         net (fo=1, routed)           0.689     9.265    g_slot[26].pe_i/st_out[15]_INST_0_i_19_n_0
+    SLICE_X43Y127                                                     r  g_slot[26].pe_i/st_out[15]_INST_0_i_14/I3
+    SLICE_X43Y127        LUT6 (Prop_lut6_I3_O)        0.124     9.389 f  g_slot[26].pe_i/st_out[15]_INST_0_i_14/O
+                         net (fo=12, routed)          0.344     9.733    g_slot[26].pe_i/st_out[15]_INST_0_i_14_n_0
+    SLICE_X43Y129                                                     f  g_slot[26].pe_i/st_out[12]_INST_0_i_6/I1
+    SLICE_X43Y129        LUT2 (Prop_lut2_I1_O)        0.124     9.857 r  g_slot[26].pe_i/st_out[12]_INST_0_i_6/O
+                         net (fo=12, routed)          0.583    10.440    g_slot[26].pe_i/st_out[12]_INST_0_i_6_n_0
+    SLICE_X39Y129                                                     r  g_slot[26].pe_i/st_out[12]_INST_0_i_25/I4
+    SLICE_X39Y129        LUT6 (Prop_lut6_I4_O)        0.124    10.564 f  g_slot[26].pe_i/st_out[12]_INST_0_i_25/O
+                         net (fo=1, routed)           0.797    11.362    g_slot[26].pe_i/st_out[12]_INST_0_i_25_n_0
+    SLICE_X39Y128                                                     f  g_slot[26].pe_i/st_out[12]_INST_0_i_8/I1
+    SLICE_X39Y128        LUT6 (Prop_lut6_I1_O)        0.124    11.486 r  g_slot[26].pe_i/st_out[12]_INST_0_i_8/O
+                         net (fo=19, routed)          0.620    12.106    g_slot[26].pe_i/st_out[12]_INST_0_i_8_n_0
+    SLICE_X38Y128                                                     r  g_slot[26].pe_i/st_out[12]_INST_0_i_20/I1
+    SLICE_X38Y128        LUT6 (Prop_lut6_I1_O)        0.124    12.230 f  g_slot[26].pe_i/st_out[12]_INST_0_i_20/O
+                         net (fo=1, routed)           0.796    13.026    g_slot[26].pe_i/st_out[12]_INST_0_i_20_n_0
+    SLICE_X38Y128                                                     f  g_slot[26].pe_i/st_out[12]_INST_0_i_7/I2
+    SLICE_X38Y128        LUT6 (Prop_lut6_I2_O)        0.124    13.150 r  g_slot[26].pe_i/st_out[12]_INST_0_i_7/O
+                         net (fo=15, routed)          0.676    13.827    g_slot[26].pe_i/st_out[12]_INST_0_i_7_n_0
+    SLICE_X38Y129                                                     r  g_slot[26].pe_i/st_out[5]_INST_0_i_1_comp/I4
+    SLICE_X38Y129        LUT6 (Prop_lut6_I4_O)        0.124    13.951 r  g_slot[26].pe_i/st_out[5]_INST_0_i_1_comp/O
+                         net (fo=4, routed)           0.826    14.776    g_slot[26].pe_i/st_out[5]_INST_0_i_1_n_0
+    SLICE_X41Y129                                                     r  g_slot[26].pe_i/st_out[0]_INST_0_i_1_comp/I2
+    SLICE_X41Y129        LUT6 (Prop_lut6_I2_O)        0.124    14.900 r  g_slot[26].pe_i/st_out[0]_INST_0_i_1_comp/O
+                         net (fo=1, routed)           0.580    15.480    g_slot[26].pe_i/st_out[0]_INST_0_i_1_n_0
+    SLICE_X39Y129                                                     r  g_slot[26].pe_i/st_out[0]_INST_0/I0
+    SLICE_X39Y129        LUT6 (Prop_lut6_I0_O)        0.124    15.604 r  g_slot[26].pe_i/st_out[0]_INST_0/O
+                         net (fo=2, routed)           0.165    15.769    slot_nxt[26][0]
+    SLICE_X39Y129                                                     r  g_slot[26].bshB[26][0]_i_1/I0
+    SLICE_X39Y129        LUT2 (Prop_lut2_I0_O)        0.124    15.893 r  g_slot[26].bshB[26][0]_i_1/O
+                         net (fo=2, routed)           0.202    16.094    p_7_out
+    SLICE_X38Y129        FDRE                                         r  g_slot[26].bshA_reg[26][0]/D
+  -------------------------------------------------------------------    -------------------
+
+                         (clock clk rise edge)       10.000    10.000 r  
+                                                      0.000    10.000 r  clk (IN)
+                         net (fo=830, unset)          0.924    10.924    clk
+    SLICE_X38Y129        FDRE                                         r  g_slot[26].bshA_reg[26][0]/C
+                         clock pessimism              0.000    10.924    
+                         clock uncertainty           -0.035    10.889    
+    SLICE_X38Y129        FDRE (Setup_fdre_C_D)       -0.013    10.876    g_slot[26].bshA_reg[26][0]
+  -------------------------------------------------------------------
+                         required time                         10.876    
+                         arrival time                         -16.094    
+  -------------------------------------------------------------------
+                         slack                                 -5.218    
+
+
+
+

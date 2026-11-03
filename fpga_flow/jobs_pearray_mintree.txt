@@ -1,0 +1,16 @@
+# SNOW_MINTREE: balanced argmin tree instead of the serial comparator chain.
+#
+# The d7 post-route critical path is
+#   g_pe[N].pe_i/cid_reg -> 12-deep compare chain -> busy_c -> ... -> stage/CE
+# (report 6.14: 33 logic levels, 67% routing).  SNOW_BUSYREG removes the global
+# OR end of that path; SNOW_MINTREE attacks the other end by computing the same
+# minimum on a log-depth tree (13 leaves = self + 12 directions, strict "<" so
+# the left/lower index wins ties, exactly reproducing the serial scan's rule).
+#
+# Baseline for comparison (bus on, same flow):
+#   surface d3:  4,091 LUT / 7.243 ns / 138.1 MHz
+#   surface d5: 23,168 LUT / 9.603 ns / 104.1 MHz
+#   surface d7: 72,982 LUT / 11.446 ns / 87.4 MHz
+surface 3 2:1 xcvu9p-flga2104-2L-e 5.0 SNOW_PEARRAY;SNOW_MINTREE
+surface 5 2:1 xcvu9p-flga2104-2L-e 5.0 SNOW_PEARRAY;SNOW_MINTREE
+surface 7 2:1 xcvu9p-flga2104-2L-e 5.0 SNOW_PEARRAY;SNOW_MINTREE

@@ -1,0 +1,19 @@
+============================================================================================================
+DISTINCT DIRECTION CLASSES (dx, dy, dt) of the deduplicated matching graph
+============================================================================================================
+
+--- phenomenological ---
+  unrotated  distinct classes: d3=0  d5=0  d7=0
+             d=5 breakdown: 
+  rotated    distinct classes: d3=0  d5=0  d7=0
+             d=5 breakdown: 
+
+--- circuit-level ---
+  unrotated  distinct classes: d3=6  d5=6  d7=6
+             d=5 breakdown: (+0,+0,+1)x160, (+0,+4,-1)x123, (+0,+4,+0)x154, (+4,-4,-1)x96, (+4,+0,-1)x125, (+4,+0,+0)x156
+  rotated    distinct classes: d3=8  d5=8  d7=8
+             d=5 breakdown: (+0,+0,+1)x96, (+0,+8,-1)x24, (+4,-4,-1)x40, (+4,-4,+0)x76, (+4,-4,+1)x21, (+4,+4,-1)x59, (+4,+4,+0)x74, (+8,+0,-1)x40
+
+REMINDER: the RTL's PE has NDIR = 12 ports; the unrotated design uses all
+12 under circuit-level noise (zero margin).  A rotated class count > 12
+means the PE needs more ports, i.e. an RTL change.

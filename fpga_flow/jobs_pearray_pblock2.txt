@@ -1,0 +1,17 @@
+# Corrected pblock experiment.
+#
+# The first attempt was void twice over: (1) the flow silently created no pblock
+# at all (get_clock_regions objects are named "X0Y0", not "CLOCKREGION_X0Y0"),
+# and (2) the reason I gave for rejecting an ID-based partition was itself an
+# artifact of parsing the packed constant tables in the wrong direction.
+# Re-measured after the fix (check_node_order.py): neighbour |dID| median is 7,
+# and an ID-based stripe cut crosses only 13.2% of links at k=2 (23.1% at k=4) --
+# better than the 28-30% of a time-layer cut.  So contiguous node-ID blocks are
+# in fact a locality-preserving partition and the experiment is well posed.
+#
+# d7 is the only scale where it can matter: d3 uses 0.35% of the die and d5 2%,
+# d7 6.2% and it is the build that reported routing congestion.  Baseline:
+#   surface d7, no constraint: 72,982 LUT / 11.446 ns / 87.4 MHz  (congested)
+surface 7 2:1 xcvu9p-flga2104-2L-e 5.0 SNOW_PEARRAY;SNOW_PB2
+surface 7 2:1 xcvu9p-flga2104-2L-e 5.0 SNOW_PEARRAY;SNOW_PB4
+surface 3 2:1 xcvu9p-flga2104-2L-e 5.0 SNOW_PEARRAY;SNOW_PB2

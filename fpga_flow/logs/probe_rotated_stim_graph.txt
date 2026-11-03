@@ -1,0 +1,22 @@
+============================================================================================================
+rotated d=3, window h=3: phenomenological graph has 24 nodes (12 detectors, 12 wall) and 35 edges
+   Stim DEM, Z basis (detectors present in sheet 0): 16 detectors, 54 two-detector mechanisms, 24 one-detector, 0 zero-detector
+   alignment shift (da, db) = (0, -1), overlap 12
+   detector sets: ours 12, stim 16, identical=False  (ours-only 0, stim-only 4)
+   stim detector t range: 0..3 (our window keeps t < 3)
+   DEM edges (both endpoints in our one-basis detector set): 39
+   phenomenological edges NOT in the DEM: 18 [frozenset({(1, 2, 2), (2, 1, 2)}), frozenset({(0, 1, 0), (1, 2, 0)}), frozenset({(3, 0, 2), (2, -1, 2)})]
+   DEM edges NOT phenomenological (the hooks): 22
+   hook classes (directed as extracted): {(2, 0, -1): 6, (1, -1, -1): 6, (0, 0, 1): 4, (1, 1, -1): 3, (1, -1, 0): 2, (1, 1, 0): 1}
+   one-detector mechanisms: 12 have a PHENOMENOLOGICAL neighbour edge (boundary fault on an existing edge), 4 do not
+============================================================================================================
+rotated d=5, window h=5: phenomenological graph has 90 nodes (60 detectors, 30 wall) and 173 edges
+   Stim DEM, Z basis (detectors present in sheet 0): 72 detectors, 430 two-detector mechanisms, 72 one-detector, 0 zero-detector
+   alignment shift (da, db) = (0, -1), overlap 60
+   detector sets: ours 60, stim 72, identical=False  (ours-only 0, stim-only 12)
+   stim detector t range: 0..5 (our window keeps t < 5)
+   DEM edges (both endpoints in our one-basis detector set): 265
+   phenomenological edges NOT in the DEM: 50 [frozenset({(0, -1, 3), (1, 0, 3)}), frozenset({(3, 0, 2), (2, -1, 2)}), frozenset({(2, 3, 1), (1, 4, 1)})]
+   DEM edges NOT phenomenological (the hooks): 142
+   hook classes (directed as extracted): {(1, -1, -1): 40, (2, 0, -1): 40, (1, 1, -1): 35, (0, 0, 1): 12, (1, -1, 0): 8, (1, 1, 0): 7}
+   one-detector mechanisms: 30 have a PHENOMENOLOGICAL neighbour edge (boundary fault on an existing edge), 6 do not

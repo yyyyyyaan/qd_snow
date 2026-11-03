@@ -1,0 +1,13 @@
+#-----------------------------------------------------------
+# xsim v2020.2 (64-bit)
+# SW Build 3064766 on Wed Nov 18 09:12:45 MST 2020
+# IP Build 3064653 on Wed Nov 18 14:17:31 MST 2020
+# Start of session at: Wed Sep 16 18:58:34 2026
+# Process ID: 2996
+# Current directory: D:/ycz/doc/deepseek_workzone/decoder/fpga_flow/lint/parrctx
+# Command line: xsim.exe -mode tcl -source {xsim.dir/tbp/xsim_script.tcl}
+# Log file: D:/ycz/doc/deepseek_workzone/decoder/fpga_flow/lint/parrctx/xsim.log
+# Journal file: D:/ycz/doc/deepseek_workzone/decoder/fpga_flow/lint/parrctx\xsim.jou
+#-----------------------------------------------------------
+source xsim.dir/tbp/xsim_script.tcl
+source run.tcl

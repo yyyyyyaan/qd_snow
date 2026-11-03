@@ -1,0 +1,228 @@
+m255
+K4
+z2
+!s11f vlog 2020.1 2020.02, Feb 28 2020
+13
+!s112 1.1
+!i10d 8192
+!i10e 25
+!i10f 100
+cModel Technology
+Z0 dD:/ycz/doc/deepseek_workzone/decoder/fpga_flow/msim_naive
+vsnowflake_edge
+Z1 DXx6 sv_std 3 std 0 22 VYECXdT12H8WgbUP_5Y6:3
+DXx4 work 22 snowflake_edge_sv_unit 0 22 48S_Eg?JczBAee_WXFnGA0
+Z2 !s110 1789730894
+Z3 VDg1SIo80bB@j0V0VzS_@n1
+r1
+!s85 0
+!i10b 1
+!s100 ^M^jnS^<H249mE_UjjNie3
+IoMQlnT9_IOf=zjfQ?F@eU1
+!s105 snowflake_edge_sv_unit
+S1
+R0
+Z4 w1789730758
+Z5 8design/snowflake/snowflake_edge.sv
+Z6 Fdesign/snowflake/snowflake_edge.sv
+!i122 7
+L0 16 48
+Z7 OV;L;2020.1;71
+31
+Z8 !s108 1789730894.000000
+!s107 test_benches\snowflake\..\..\design\generated\snowflake_graph.svh|design\snowflake\..\generated\snowflake_seam.svh|design\snowflake\..\generated\snowflake_graph.svh|test_benches/snowflake/tb_snowflake_pe_array.sv|design/snowflake/snowflake_pe_array.sv|design/snowflake/snowflake_pe.sv|design/snowflake/snowflake_edge.sv|
+Z9 !s90 -sv|-quiet|+define+SNOW_SLICED|+define+SNOW_SEAM_PAT|design/snowflake/snowflake_edge.sv|design/snowflake/snowflake_pe.sv|design/snowflake/snowflake_pe_array.sv|test_benches/snowflake/tb_snowflake_pe_array.sv|
+!i113 1
+Z10 o-quiet -sv
+Z11 !s92 -quiet -sv +define+SNOW_SLICED +define+SNOW_SEAM_PAT
+Z12 tCvgOpt 0
+Xsnowflake_edge_sv_unit
+R1
+R2
+V48S_Eg?JczBAee_WXFnGA0
+r1
+!s85 0
+!i10b 1
+!s100 TT5TY:=WFW?BHO2OL=6?X0
+I48S_Eg?JczBAee_WXFnGA0
+!i103 1
+S1
+R0
+Z13 w1789730894
+R5
+R6
+Z14 Fdesign\snowflake\..\generated\snowflake_graph.svh
+!i122 7
+Z15 L0 11 0
+R7
+31
+R8
+Z16 !s107 test_benches\snowflake\..\..\design\generated\snowflake_graph.svh|design\snowflake\..\generated\snowflake_seam.svh|design\snowflake\..\generated\snowflake_graph.svh|test_benches/snowflake/tb_snowflake_pe_array.sv|design/snowflake/snowflake_pe_array.sv|design/snowflake/snowflake_pe.sv|design/snowflake/snowflake_edge.sv|
+R9
+!i113 1
+R10
+R11
+R12
+vsnowflake_pe
+R1
+DXx4 work 20 snowflake_pe_sv_unit 0 22 G>5of:6?a;YDMB8=IgE4Z3
+R2
+R3
+r1
+!s85 0
+!i10b 1
+!s100 8Dc1h0gIzYS]XFL0YEj5B2
+I_6?Z@CL;`7R1BD9W:b;]o2
+!s105 snowflake_pe_sv_unit
+S1
+R0
+R4
+Z17 8design/snowflake/snowflake_pe.sv
+Z18 Fdesign/snowflake/snowflake_pe.sv
+!i122 7
+L0 24 339
+R7
+31
+R8
+R16
+R9
+!i113 1
+R10
+R11
+R12
+vsnowflake_pe_array
+R1
+DXx4 work 26 snowflake_pe_array_sv_unit 0 22 I0Y?0SQlWiP^3DhQR4F?T1
+R2
+R3
+r1
+!s85 0
+!i10b 1
+!s100 z:DMCI5B3?78j3Men?2^91
+I>G4h_H]@zAfb354Ih@:XU1
+!s105 snowflake_pe_array_sv_unit
+S1
+R0
+R4
+Z19 8design/snowflake/snowflake_pe_array.sv
+Z20 Fdesign/snowflake/snowflake_pe_array.sv
+!i122 7
+L0 36 461
+R7
+31
+R8
+R16
+R9
+!i113 1
+R10
+R11
+R12
+Xsnowflake_pe_array_sv_unit
+R1
+R2
+VI0Y?0SQlWiP^3DhQR4F?T1
+r1
+!s85 0
+!i10b 1
+!s100 dSUCWC8HPbk[acP:WI34?0
+II0Y?0SQlWiP^3DhQR4F?T1
+!i103 1
+S1
+R0
+R13
+R19
+R20
+R14
+Fdesign\snowflake\..\generated\snowflake_seam.svh
+!i122 7
+R15
+R7
+31
+R8
+R16
+R9
+!i113 1
+R10
+R11
+R12
+Xsnowflake_pe_sv_unit
+R1
+R2
+VG>5of:6?a;YDMB8=IgE4Z3
+r1
+!s85 0
+!i10b 1
+!s100 MNkJ3Fe_GWJQbzUaa[[YY3
+IG>5of:6?a;YDMB8=IgE4Z3
+!i103 1
+S1
+R0
+R13
+R17
+R18
+R14
+!i122 7
+R15
+R7
+31
+R8
+R16
+R9
+!i113 1
+R10
+R11
+R12
+vtb_snowflake_pe_array
+R1
+DXx4 work 29 tb_snowflake_pe_array_sv_unit 0 22 C2P;3m3F1Ob6Bc;oB;a?P3
+R2
+R3
+r1
+!s85 0
+!i10b 1
+!s100 iAninHZoG8HEoXAKIaJK:2
+IOjUKA8_@?bI0NMP:73_Q>3
+!s105 tb_snowflake_pe_array_sv_unit
+S1
+R0
+R4
+Z21 8test_benches/snowflake/tb_snowflake_pe_array.sv
+Z22 Ftest_benches/snowflake/tb_snowflake_pe_array.sv
+!i122 7
+L0 19 143
+R7
+31
+R8
+R16
+R9
+!i113 1
+R10
+R11
+R12
+Xtb_snowflake_pe_array_sv_unit
+R1
+R2
+VC2P;3m3F1Ob6Bc;oB;a?P3
+r1
+!s85 0
+!i10b 1
+!s100 nezXOIKB7D@kAz@8PfbKC0
+IC2P;3m3F1Ob6Bc;oB;a?P3
+!i103 1
+S1
+R0
+R13
+R21
+R22
+Ftest_benches\snowflake\..\..\design\generated\snowflake_graph.svh
+!i122 7
+R15
+R7
+31
+R8
+R16
+R9
+!i113 1
+R10
+R11
+R12

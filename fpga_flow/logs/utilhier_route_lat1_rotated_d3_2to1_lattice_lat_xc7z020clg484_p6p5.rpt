@@ -1,0 +1,71 @@
+Copyright 1986-2020 Xilinx, Inc. All Rights Reserved.
+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+| Tool Version : Vivado v.2020.2 (win64) Build 3064766 Wed Nov 18 09:12:45 MST 2020
+| Date         : Tue Sep 22 21:44:47 2026
+| Host         : DESKTOP-TO7M6OH running 64-bit major release  (build 9200)
+| Command      : report_utilization -hierarchical -file {D:\ycz\doc\deepseek_workzone\decoder\fpga_flow\logs/utilhier_route_lat1_rotated_d3_2to1_lattice_lat_xc7z020clg484_p6p5.rpt}
+| Design       : snowflake_pe_array_lat1
+| Device       : 7z020clg484-1
+| Design State : Routed
+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+Utilization Design Information
+
+Table of Contents
+-----------------
+1. Utilization by Hierarchy
+
+1. Utilization by Hierarchy
+---------------------------
+
++-----------------------------+--------------------+------------+------------+---------+------+-----+--------+--------+------------+
+|           Instance          |       Module       | Total LUTs | Logic LUTs | LUTRAMs | SRLs | FFs | RAMB36 | RAMB18 | DSP Blocks |
++-----------------------------+--------------------+------------+------------+---------+------+-----+--------+--------+------------+
+| snowflake_pe_array_lat1     |              (top) |       2964 |       2964 |       0 |    0 | 829 |      0 |      0 |          0 |
+|   (snowflake_pe_array_lat1) |              (top) |        739 |        739 |       0 |    0 | 829 |      0 |      0 |          0 |
+|   g_eslot[0].ed_i           |  snowflake_edge__1 |          6 |          6 |       0 |    0 |   0 |      0 |      0 |          0 |
+|   g_eslot[10].ed_i          | snowflake_edge__11 |          8 |          8 |       0 |    0 |   0 |      0 |      0 |          0 |
+|   g_eslot[11].ed_i          | snowflake_edge__12 |          7 |          7 |       0 |    0 |   0 |      0 |      0 |          0 |
+|   g_eslot[12].ed_i          | snowflake_edge__13 |          6 |          6 |       0 |    0 |   0 |      0 |      0 |          0 |
+|   g_eslot[13].ed_i          | snowflake_edge__14 |          5 |          5 |       0 |    0 |   0 |      0 |      0 |          0 |
+|   g_eslot[14].ed_i          | snowflake_edge__15 |          5 |          5 |       0 |    0 |   0 |      0 |      0 |          0 |
+|   g_eslot[15].ed_i          | snowflake_edge__16 |          6 |          6 |       0 |    0 |   0 |      0 |      0 |          0 |
+|   g_eslot[16].ed_i          | snowflake_edge__17 |          5 |          5 |       0 |    0 |   0 |      0 |      0 |          0 |
+|   g_eslot[17].ed_i          | snowflake_edge__18 |          6 |          6 |       0 |    0 |   0 |      0 |      0 |          0 |
+|   g_eslot[18].ed_i          | snowflake_edge__19 |          6 |          6 |       0 |    0 |   0 |      0 |      0 |          0 |
+|   g_eslot[19].ed_i          | snowflake_edge__20 |          7 |          7 |       0 |    0 |   0 |      0 |      0 |          0 |
+|   g_eslot[1].ed_i           |  snowflake_edge__2 |          6 |          6 |       0 |    0 |   0 |      0 |      0 |          0 |
+|   g_eslot[20].ed_i          | snowflake_edge__21 |          7 |          7 |       0 |    0 |   0 |      0 |      0 |          0 |
+|   g_eslot[21].ed_i          | snowflake_edge__22 |          6 |          6 |       0 |    0 |   0 |      0 |      0 |          0 |
+|   g_eslot[22].ed_i          | snowflake_edge__23 |          6 |          6 |       0 |    0 |   0 |      0 |      0 |          0 |
+|   g_eslot[23].ed_i          | snowflake_edge__24 |          7 |          7 |       0 |    0 |   0 |      0 |      0 |          0 |
+|   g_eslot[24].ed_i          | snowflake_edge__25 |          7 |          7 |       0 |    0 |   0 |      0 |      0 |          0 |
+|   g_eslot[25].ed_i          |     snowflake_edge |          7 |          7 |       0 |    0 |   0 |      0 |      0 |          0 |
+|   g_eslot[2].ed_i           |  snowflake_edge__3 |          7 |          7 |       0 |    0 |   0 |      0 |      0 |          0 |
+|   g_eslot[3].ed_i           |  snowflake_edge__4 |          6 |          6 |       0 |    0 |   0 |      0 |      0 |          0 |
+|   g_eslot[4].ed_i           |  snowflake_edge__5 |          7 |          7 |       0 |    0 |   0 |      0 |      0 |          0 |
+|   g_eslot[5].ed_i           |  snowflake_edge__6 |          7 |          7 |       0 |    0 |   0 |      0 |      0 |          0 |
+|   g_eslot[6].ed_i           |  snowflake_edge__7 |          7 |          7 |       0 |    0 |   0 |      0 |      0 |          0 |
+|   g_eslot[7].ed_i           |  snowflake_edge__8 |          6 |          6 |       0 |    0 |   0 |      0 |      0 |          0 |
+|   g_eslot[8].ed_i           |  snowflake_edge__9 |          7 |          7 |       0 |    0 |   0 |      0 |      0 |          0 |
+|   g_eslot[9].ed_i           | snowflake_edge__10 |          7 |          7 |       0 |    0 |   0 |      0 |      0 |          0 |
+|   g_slot[0].pe_i            |    snowflake_pe__1 |         67 |         67 |       0 |    0 |   0 |      0 |      0 |          0 |
+|   g_slot[10].pe_i           |    snowflake_pe__9 |        227 |        227 |       0 |    0 |   0 |      0 |      0 |          0 |
+|   g_slot[13].pe_i           |   snowflake_pe__11 |        161 |        161 |       0 |    0 |   0 |      0 |      0 |          0 |
+|   g_slot[15].pe_i           |   snowflake_pe__12 |         68 |         68 |       0 |    0 |   0 |      0 |      0 |          0 |
+|   g_slot[16].pe_i           |   snowflake_pe__13 |         70 |         70 |       0 |    0 |   0 |      0 |      0 |          0 |
+|   g_slot[18].pe_i           |   snowflake_pe__14 |        146 |        146 |       0 |    0 |   0 |      0 |      0 |          0 |
+|   g_slot[21].pe_i           |   snowflake_pe__17 |        193 |        193 |       0 |    0 |   0 |      0 |      0 |          0 |
+|   g_slot[23].pe_i           |   snowflake_pe__18 |         98 |         98 |       0 |    0 |   0 |      0 |      0 |          0 |
+|   g_slot[24].pe_i           |   snowflake_pe__19 |         88 |         88 |       0 |    0 |   0 |      0 |      0 |          0 |
+|   g_slot[26].pe_i           |   snowflake_pe__20 |        196 |        196 |       0 |    0 |   0 |      0 |      0 |          0 |
+|   g_slot[29].pe_i           |   snowflake_pe__22 |        149 |        149 |       0 |    0 |   0 |      0 |      0 |          0 |
+|   g_slot[2].pe_i            |    snowflake_pe__3 |        154 |        154 |       0 |    0 |   0 |      0 |      0 |          0 |
+|   g_slot[31].pe_i           |   snowflake_pe__24 |         76 |         76 |       0 |    0 |   0 |      0 |      0 |          0 |
+|   g_slot[5].pe_i            |    snowflake_pe__5 |        231 |        231 |       0 |    0 |   0 |      0 |      0 |          0 |
+|   g_slot[7].pe_i            |    snowflake_pe__6 |         89 |         89 |       0 |    0 |   0 |      0 |      0 |          0 |
+|   g_slot[8].pe_i            |    snowflake_pe__7 |         93 |         93 |       0 |    0 |   0 |      0 |      0 |          0 |
++-----------------------------+--------------------+------------+------------+---------+------+-----+--------+--------+------------+
+* Note: The sum of lower-level cells may be larger than their parent cells total, due to cross-hierarchy LUT combining
+
+

@@ -1,0 +1,305 @@
+
+****** Vivado v2020.2 (64-bit)
+  **** SW Build 3064766 on Wed Nov 18 09:12:45 MST 2020
+  **** IP Build 3064653 on Wed Nov 18 14:17:31 MST 2020
+    ** Copyright 1986-2020 Xilinx, Inc. All Rights Reserved.
+
+source {D:\ycz\doc\deepseek_workzone\decoder\fpga_flow\netlist_synth.tcl}
+# set repo   $::env(FLOW_REPO)
+# set top    $::env(FLOW_TOP)
+# set part   $::env(FLOW_PART)
+# set tag    $::env(FLOW_TAG)
+# set outdir $::env(FLOW_OUT)
+# set srcs   [expr {[info exists ::env(FLOW_SRCS)] ? [split $::env(FLOW_SRCS) ";"] \
+#                   : [list "$repo/design/snowflake/snowflake_core.sv"]}]
+# set defs   [expr {[info exists ::env(FLOW_DEFS)] ? [split $::env(FLOW_DEFS) ";"] : [list]}]
+# file mkdir $outdir
+# if {[info exists ::env(FLOW_GRAPH)] && $::env(FLOW_GRAPH) ne ""} {
+#   set dst "$repo/design/generated/snowflake_graph.svh"
+#   if {![string equal -nocase [file normalize $::env(FLOW_GRAPH)] [file normalize $dst]]} {
+#     file copy -force $::env(FLOW_GRAPH) $dst
+#   }
+#   puts "NETLIST_GRAPH_PINNED [file tail $::env(FLOW_GRAPH)]"
+# }
+NETLIST_GRAPH_PINNED rep_d3.svh
+# set_property include_dirs [list "$repo/design/generated" "$repo/design/snowflake"] \
+#     [current_fileset]
+# foreach s $srcs { read_verilog -sv $s }
+# set synth_args [list -top $top -part $part -mode out_of_context -flatten_hierarchy none]
+# if {[llength $defs]} { lappend synth_args -verilog_define [join $defs " "] }
+# synth_design {*}$synth_args
+Command: synth_design -top snowflake_pe_array_lat1 -part xcvu9p-flga2104-2L-e -mode out_of_context -flatten_hierarchy none -verilog_define {SNOW_LATTICE SNOW_LAT}
+Starting synth_design
+Attempting to get a license for feature 'Synthesis' and/or device 'xcvu9p'
+INFO: [Common 17-349] Got license for feature 'Synthesis' and/or device 'xcvu9p'
+INFO: [Synth 8-7079] Multithreading enabled for synth_design using a maximum of 2 processes.
+INFO: [Synth 8-7078] Launching helper process for spawning children vivado processes
+INFO: [Synth 8-7075] Helper process launched with PID 1616
+---------------------------------------------------------------------------------
+Starting Synthesize : Time (s): cpu = 00:00:03 ; elapsed = 00:00:04 . Memory (MB): peak = 1142.348 ; gain = 0.000
+---------------------------------------------------------------------------------
+INFO: [Synth 8-6157] synthesizing module 'snowflake_pe_array_lat1' [D:/ycz/doc/deepseek_workzone/decoder/Helios_scalable_QEC-main/Helios_scalable_QEC-main/design/snowflake/snowflake_pe_array_lat1.sv:45]
+	Parameter ONE_ONE bound to: 0 - type: integer 
+	Parameter NSLOT bound to: 4 - type: integer 
+	Parameter ES bound to: 5 - type: integer 
+	Parameter NCTX bound to: 3 - type: integer 
+	Parameter NDIR bound to: 4 - type: integer 
+	Parameter CW bound to: 5 - type: integer 
+	Parameter PW bound to: 3 - type: integer 
+	Parameter STW bound to: 15 - type: integer 
+	Parameter NBM bound to: 81 - type: integer 
+	Parameter EBM bound to: 81 - type: integer 
+	Parameter AW bound to: 8 - type: integer 
+	Parameter RVW bound to: 2 - type: integer 
+	Parameter SLW bound to: 2 - type: integer 
+	Parameter SO_BUSY bound to: 0 - type: integer 
+	Parameter SO_UNR bound to: 1 - type: integer 
+	Parameter SO_GRW bound to: 2 - type: integer 
+	Parameter SO_PTR bound to: 3 - type: integer 
+	Parameter SO_DEF bound to: 6 - type: integer 
+	Parameter SO_WHL bound to: 7 - type: integer 
+	Parameter SO_ACT bound to: 8 - type: integer 
+	Parameter SO_CID bound to: 9 - type: integer 
+	Parameter SO_PB bound to: 14 - type: integer 
+	Parameter IO_ABOVE bound to: 5 - type: integer 
+	Parameter IO_BND bound to: 6 - type: integer 
+	Parameter IO_TOP bound to: 7 - type: integer 
+	Parameter IO_BOT bound to: 8 - type: integer 
+	Parameter IO_SYN bound to: 9 - type: integer 
+	Parameter ST_IDLE bound to: 3'b000 
+	Parameter ST_DROP bound to: 3'b001 
+	Parameter ST_GW bound to: 3'b010 
+	Parameter ST_MW bound to: 3'b011 
+	Parameter ST_GH bound to: 3'b100 
+	Parameter ST_MH bound to: 3'b101 
+INFO: [Synth 8-6157] synthesizing module 'snowflake_pe' [D:/ycz/doc/deepseek_workzone/decoder/Helios_scalable_QEC-main/Helios_scalable_QEC-main/design/snowflake/snowflake_pe.sv:31]
+	Parameter ONE_ONE bound to: 0 - type: integer 
+	Parameter ID bound to: 0 - type: integer 
+	Parameter HAS_ABOVE bound to: 0 - type: integer 
+	Parameter IS_BND bound to: 0 - type: integer 
+	Parameter IS_TOP bound to: 0 - type: integer 
+	Parameter IS_BOT bound to: 0 - type: integer 
+	Parameter SYN_IDX bound to: -1 - type: integer 
+	Parameter ZZZ_ANCHOR bound to: 0 - type: integer 
+	Parameter STW bound to: 15 - type: integer 
+	Parameter OFF_BUSY bound to: 0 - type: integer 
+	Parameter OFF_UNR bound to: 1 - type: integer 
+	Parameter OFF_GRW bound to: 2 - type: integer 
+	Parameter OFF_PTR bound to: 3 - type: integer 
+	Parameter OFF_DEF bound to: 6 - type: integer 
+	Parameter OFF_WHL bound to: 7 - type: integer 
+	Parameter OFF_ACT bound to: 8 - type: integer 
+	Parameter OFF_CID bound to: 9 - type: integer 
+	Parameter OFF_PB bound to: 14 - type: integer 
+	Parameter ST_IDLE bound to: 3'b000 
+	Parameter ST_DROP bound to: 3'b001 
+	Parameter ST_GW bound to: 3'b010 
+	Parameter ST_MW bound to: 3'b011 
+	Parameter ST_GH bound to: 3'b100 
+	Parameter ST_MH bound to: 3'b101 
+INFO: [Synth 8-6155] done synthesizing module 'snowflake_pe' (1#1) [D:/ycz/doc/deepseek_workzone/decoder/Helios_scalable_QEC-main/Helios_scalable_QEC-main/design/snowflake/snowflake_pe.sv:31]
+INFO: [Synth 8-6157] synthesizing module 'snowflake_edge' [D:/ycz/doc/deepseek_workzone/decoder/Helios_scalable_QEC-main/Helios_scalable_QEC-main/design/snowflake/snowflake_edge.sv:23]
+	Parameter ZZZ_ANCHOR bound to: 0 - type: integer 
+	Parameter ST_DROP bound to: 3'b001 
+	Parameter ST_GW bound to: 3'b010 
+	Parameter ST_MW bound to: 3'b011 
+	Parameter ST_GH bound to: 3'b100 
+	Parameter ST_MH bound to: 3'b101 
+INFO: [Synth 8-6155] done synthesizing module 'snowflake_edge' (2#1) [D:/ycz/doc/deepseek_workzone/decoder/Helios_scalable_QEC-main/Helios_scalable_QEC-main/design/snowflake/snowflake_edge.sv:23]
+INFO: [Synth 8-6155] done synthesizing module 'snowflake_pe_array_lat1' (3#1) [D:/ycz/doc/deepseek_workzone/decoder/Helios_scalable_QEC-main/Helios_scalable_QEC-main/design/snowflake/snowflake_pe_array_lat1.sv:45]
+---------------------------------------------------------------------------------
+Finished Synthesize : Time (s): cpu = 00:00:04 ; elapsed = 00:00:06 . Memory (MB): peak = 1142.348 ; gain = 0.000
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Constraint Validation : Time (s): cpu = 00:00:05 ; elapsed = 00:00:06 . Memory (MB): peak = 1142.348 ; gain = 0.000
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Loading Part and Timing Information
+---------------------------------------------------------------------------------
+Loading part: xcvu9p-flga2104-2L-e
+INFO: [Synth 8-6742] Reading net delay rules and data
+---------------------------------------------------------------------------------
+INFO: [Device 21-403] Loading part xcvu9p-flga2104-2L-e
+Finished Loading Part and Timing Information : Time (s): cpu = 00:00:05 ; elapsed = 00:00:06 . Memory (MB): peak = 1142.348 ; gain = 0.000
+---------------------------------------------------------------------------------
+INFO: [Synth 8-802] inferred FSM for state register 'stage_reg' in module 'snowflake_pe_array_lat1'
+---------------------------------------------------------------------------------------------------
+                   State |                     New Encoding |                Previous Encoding 
+---------------------------------------------------------------------------------------------------
+                 ST_IDLE |                              000 |                              000
+                 ST_DROP |                              110 |                              001
+                   ST_GW |                              101 |                              010
+                   ST_MW |                              100 |                              011
+                   ST_GH |                              011 |                              100
+                   ST_MH |                              001 |                              101
+                  iSTATE |                              010 |                              111
+*
+---------------------------------------------------------------------------------------------------
+INFO: [Synth 8-3354] encoded FSM with state register 'stage_reg' using encoding 'sequential' in module 'snowflake_pe_array_lat1'
+---------------------------------------------------------------------------------
+Finished RTL Optimization Phase 2 : Time (s): cpu = 00:00:07 ; elapsed = 00:00:08 . Memory (MB): peak = 1142.348 ; gain = 0.000
+---------------------------------------------------------------------------------
+No constraint files found.
+---------------------------------------------------------------------------------
+Start RTL Component Statistics 
+---------------------------------------------------------------------------------
+Detailed RTL Component Info : 
++---Adders : 
+	   2 Input    8 Bit       Adders := 1     
+	   2 Input    5 Bit       Adders := 4     
+	   2 Input    3 Bit       Adders := 9     
+	   2 Input    2 Bit       Adders := 5     
+	   3 Input    2 Bit       Adders := 5     
++---XORs : 
+	   2 Input      1 Bit         XORs := 29    
++---Registers : 
+	               45 Bit    Registers := 8     
+	                9 Bit    Registers := 10    
+	                8 Bit    Registers := 2     
+	                5 Bit    Registers := 2     
+	                3 Bit    Registers := 9     
+	                2 Bit    Registers := 2     
+	                1 Bit    Registers := 3     
++---Muxes : 
+	   2 Input   45 Bit        Muxes := 1     
+	   4 Input   45 Bit        Muxes := 1     
+	   4 Input   15 Bit        Muxes := 14    
+	   4 Input   14 Bit        Muxes := 4     
+	   2 Input    9 Bit        Muxes := 1     
+	   4 Input    9 Bit        Muxes := 1     
+	   2 Input    8 Bit        Muxes := 2     
+	   7 Input    8 Bit        Muxes := 1     
+	   2 Input    5 Bit        Muxes := 108   
+	   4 Input    5 Bit        Muxes := 4     
+	   2 Input    4 Bit        Muxes := 16    
+	   5 Input    4 Bit        Muxes := 4     
+	   2 Input    3 Bit        Muxes := 99    
+	   4 Input    3 Bit        Muxes := 14    
+	   7 Input    3 Bit        Muxes := 2     
+	   2 Input    2 Bit        Muxes := 25    
+	   5 Input    2 Bit        Muxes := 12    
+	   2 Input    1 Bit        Muxes := 341   
+	   4 Input    1 Bit        Muxes := 16    
+	   5 Input    1 Bit        Muxes := 28    
+	   7 Input    1 Bit        Muxes := 4     
+	   3 Input    1 Bit        Muxes := 1     
+---------------------------------------------------------------------------------
+Finished RTL Component Statistics 
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Part Resource Summary
+---------------------------------------------------------------------------------
+Part Resources:
+DSPs: 6840 (col length:120)
+BRAMs: 4320 (col length: RAMB18 360 RAMB36 180)
+---------------------------------------------------------------------------------
+Finished Part Resource Summary
+---------------------------------------------------------------------------------
+No constraint files found.
+---------------------------------------------------------------------------------
+Start Cross Boundary and Area Optimization
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Cross Boundary and Area Optimization : Time (s): cpu = 00:00:31 ; elapsed = 00:00:34 . Memory (MB): peak = 1885.641 ; gain = 743.293
+---------------------------------------------------------------------------------
+No constraint files found.
+---------------------------------------------------------------------------------
+Start Timing Optimization
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Timing Optimization : Time (s): cpu = 00:00:32 ; elapsed = 00:00:35 . Memory (MB): peak = 1885.641 ; gain = 743.293
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Technology Mapping
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Technology Mapping : Time (s): cpu = 00:00:32 ; elapsed = 00:00:35 . Memory (MB): peak = 1885.641 ; gain = 743.293
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start IO Insertion
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Final Netlist Cleanup
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Final Netlist Cleanup
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished IO Insertion : Time (s): cpu = 00:00:35 ; elapsed = 00:00:38 . Memory (MB): peak = 1885.641 ; gain = 743.293
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Renaming Generated Instances
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Renaming Generated Instances : Time (s): cpu = 00:00:35 ; elapsed = 00:00:38 . Memory (MB): peak = 1885.641 ; gain = 743.293
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Handling Custom Attributes
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Handling Custom Attributes : Time (s): cpu = 00:00:35 ; elapsed = 00:00:39 . Memory (MB): peak = 1885.641 ; gain = 743.293
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Writing Synthesis Report
+---------------------------------------------------------------------------------
+
+Report BlackBoxes: 
++-+--------------+----------+
+| |BlackBox name |Instances |
++-+--------------+----------+
++-+--------------+----------+
+
+Report Cell Usage: 
++------+-------+------+
+|      |Cell   |Count |
++------+-------+------+
+|1     |CARRY8 |     8|
+|2     |LUT1   |     5|
+|3     |LUT2   |    39|
+|4     |LUT3   |    74|
+|5     |LUT4   |   145|
+|6     |LUT5   |   244|
+|7     |LUT6   |   311|
+|8     |FDRE   |   389|
+|9     |FDSE   |    46|
++------+-------+------+
+
+Report Instance Areas: 
++------+--------------------+------------------+------+
+|      |Instance            |Module            |Cells |
++------+--------------------+------------------+------+
+|1     |top                 |                  |  1261|
+|2     |  \g_slot[0].pe_i   |snowflake_pe__1   |    74|
+|3     |  \g_slot[1].pe_i   |snowflake_pe__2   |   165|
+|4     |  \g_slot[2].pe_i   |snowflake_pe__3   |   158|
+|5     |  \g_slot[3].pe_i   |snowflake_pe      |    75|
+|6     |  \g_eslot[0].ed_i  |snowflake_edge__1 |     8|
+|7     |  \g_eslot[1].ed_i  |snowflake_edge__2 |     8|
+|8     |  \g_eslot[2].ed_i  |snowflake_edge__3 |     8|
+|9     |  \g_eslot[3].ed_i  |snowflake_edge__4 |     8|
+|10    |  \g_eslot[4].ed_i  |snowflake_edge    |     8|
++------+--------------------+------------------+------+
+---------------------------------------------------------------------------------
+Finished Writing Synthesis Report : Time (s): cpu = 00:00:35 ; elapsed = 00:00:39 . Memory (MB): peak = 1885.641 ; gain = 743.293
+---------------------------------------------------------------------------------
+Synthesis finished with 0 errors, 0 critical warnings and 0 warnings.
+Synthesis Optimization Runtime : Time (s): cpu = 00:00:35 ; elapsed = 00:00:39 . Memory (MB): peak = 1885.641 ; gain = 743.293
+Synthesis Optimization Complete : Time (s): cpu = 00:00:35 ; elapsed = 00:00:39 . Memory (MB): peak = 1885.641 ; gain = 743.293
+INFO: [Project 1-571] Translating synthesized netlist
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.010 . Memory (MB): peak = 1885.973 ; gain = 0.000
+INFO: [Netlist 29-17] Analyzing 8 Unisim elements for replacement
+INFO: [Netlist 29-28] Unisim Transformation completed in 0 CPU seconds
+INFO: [Project 1-570] Preparing netlist for logic optimization
+INFO: [Opt 31-138] Pushed 0 inverter(s) to 0 load pin(s).
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00 . Memory (MB): peak = 1965.422 ; gain = 0.000
+INFO: [Project 1-111] Unisim Transformation Summary:
+No Unisim elements were transformed.
+
+INFO: [Common 17-83] Releasing license: Synthesis
+21 Infos, 0 Warnings, 0 Critical Warnings and 0 Errors encountered.
+synth_design completed successfully
+synth_design: Time (s): cpu = 00:00:38 ; elapsed = 00:00:43 . Memory (MB): peak = 1965.422 ; gain = 823.074
+# write_verilog -force -mode funcsim "$outdir/netlist_$tag.v"
+# puts "NETLIST_WRITTEN $outdir/netlist_$tag.v"
+NETLIST_WRITTEN D:\ycz\doc\deepseek_workzone\decoder\fpga_flow\logs/netlist_lat1_rep_d3_s3_netlist.v
+INFO: [Common 17-206] Exiting Vivado at Sun Sep 20 20:54:38 2026...

@@ -1,0 +1,13 @@
+#-----------------------------------------------------------
+# xsim v2020.2 (64-bit)
+# SW Build 3064766 on Wed Nov 18 09:12:45 MST 2020
+# IP Build 3064653 on Wed Nov 18 14:17:31 MST 2020
+# Start of session at: Tue Sep 22 19:42:49 2026
+# Process ID: 18436
+# Current directory: D:/ycz/doc/deepseek_workzone/decoder/fpga_flow/netlist_lat1
+# Command line: xsim.exe -mode tcl -source {xsim.dir/tb_net_lat1/xsim_script.tcl}
+# Log file: D:/ycz/doc/deepseek_workzone/decoder/fpga_flow/netlist_lat1/xsim.log
+# Journal file: D:/ycz/doc/deepseek_workzone/decoder/fpga_flow/netlist_lat1\xsim.jou
+#-----------------------------------------------------------
+source xsim.dir/tb_net_lat1/xsim_script.tcl
+source sim_run.tcl

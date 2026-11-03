@@ -1,0 +1,8 @@
+# area-fit sweep, synthesis only (implementation of flat surface d>=5 does not
+# finish in a reasonable time -- itself a finding). cheap configs first.
+rep 3 2:1 xcvu9p-flga2104-2L-e 5.0
+surface 3 2:1 xcvu9p-flga2104-2L-e 5.0
+rep 5 2:1 xcvu9p-flga2104-2L-e 5.0
+rep 7 2:1 xcvu9p-flga2104-2L-e 5.0
+surface 5 2:1 xcvu9p-flga2104-2L-e 5.0
+surface 7 2:1 xcvu9p-flga2104-2L-e 5.0

@@ -1,0 +1,1 @@
+"tb_snowflake_pe_array_lat1" -s "rtl_diag" --debug "typical" --timescale "1ns/1ps" 

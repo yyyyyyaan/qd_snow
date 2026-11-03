@@ -1,0 +1,16 @@
+xilinx rtfpga
+INFO: [Synth 8-3886] merging instance 'g_eslot[52].g_ectx[0].bank_reg[392][3]' (FDRE) to 'g_eslot[52].g_ectx[0].bank_reg[392][4]'
+INFO: [Synth 8-3886] merging instance 'g_eslot[52].g_ectx[0].bank_reg[392][4]' (FDRE) to 'g_eslot[52].g_ectx[0].bank_reg[392][5]'
+INFO: [Synth 8-3886] merging instance 'g_eslot[52].g_ectx[0].bank_reg[392][5]' (FDRE) to 'g_eslot[52].g_ectx[0].bank_reg[392][6]'
+INFO: [Synth 8-3886] merging instance 'g_eslot[52].g_ectx[0].bank_reg[392][6]' (FDRE) to 'g_eslot[52].g_ectx[0].bank_reg[392][7]'
+INFO: [Synth 8-3886] merging instance 'g_eslot[52].g_ectx[0].bank_reg[392][7]' (FDRE) to 'g_eslot[52].g_ectx[0].bank_reg[392][8]'
+INFO: [Synth 8-3886] merging instance 'g_eslot[52].g_ectx[0].bank_reg[392][8]' (FDRE) to 'g_eslot[52].g_ectx[0].bank_reg[392][9]'
+INFO: [Synth 8-3886] merging instance 'g_eslot[52].g_ectx[0].bank_reg[392][9]' (FDRE) to 'g_eslot[52].g_ectx[0].bank_reg[392][10]'
+INFO: [Synth 8-3886] merging instance 'g_eslot[52].g_ectx[0].bank_reg[392][10]' (FDRE) to 'g_eslot[52].g_ectx[0].bank_reg[392][11]'
+INFO: [Synth 8-3886] merging instance 'g_eslot[52].g_ectx[0].bank_reg[392][11]' (FDRE) to 'g_eslot[52].g_ectx[0].bank_reg[392][12]'
+INFO: [Synth 8-3886] merging instance 'g_eslot[52].g_ectx[0].bank_reg[392][12]' (FDRE) to 'g_eslot[52].g_ectx[0].bank_reg[392][13]'
+INFO: [Synth 8-3886] merging instance 'g_eslot[52].g_ectx[0].bank_reg[392][13]' (FDRE) to 'g_eslot[52].g_ectx[0].bank_reg[392][14]'
+INFO: [Synth 8-3886] merging instance 'g_eslot[52].g_ectx[0].bank_reg[392][14]' (FDRE) to 'g_eslot[52].g_ectx[0].bank_reg[392][15]'
+INFO: [Synth 8-3886] merging instance 'g_eslot[52].g_ectx[0].bank_reg[392][15]' (FDRE) to 'g_eslot[52].g_ectx[0].bank_reg[392][16]'
+INFO: [Synth 8-3886] merging instance 'g_eslot[52].g_ectx[0].bank_reg[392][16]' (FDRE) to 'g_eslot[52].g_ectx[0].bank_reg[392][17]'
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (\g_eslot[52].g_ectx[0].bank_reg[392][17] )

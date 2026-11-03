@@ -1,0 +1,29 @@
+Copyright 1986-2020 Xilinx, Inc. All Rights Reserved.
+------------------------------------------------------------------------------------------------------------------------------------------------------------------
+| Tool Version : Vivado v.2020.2 (win64) Build 3064766 Wed Nov 18 09:12:45 MST 2020
+| Date         : Tue Sep 15 21:43:56 2026
+| Host         : DESKTOP-TO7M6OH running 64-bit major release  (build 9200)
+| Command      : report_design_analysis -logic_level_distribution -file {D:\ycz\doc\deepseek_workzone\decoder\fpga_flow\logs/logic_levels_rep_d3_2to1_xcvu9p.rpt}
+| Design       : snowflake_core
+| Device       : xcvu9p
+| Design State : Routed
+------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+Report Design Analysis
+
+Table of Contents
+-----------------
+1. Logic Level Distribution
+
+1. Logic Level Distribution
+---------------------------
+
++-----------------+-------------+-----+-----+----+----+----+---+---+---+---+----+----+----+----+----+
+| End Point Clock | Requirement |  0  |  1  |  2 |  3 |  4 | 5 | 6 | 7 | 9 | 10 | 11 | 12 | 13 | 14 |
++-----------------+-------------+-----+-----+----+----+----+---+---+---+---+----+----+----+----+----+
+| clk             | 5.000ns     | 219 | 174 | 31 | 37 | 29 | 7 | 2 | 2 | 6 | 19 | 20 | 33 |  5 | 17 |
++-----------------+-------------+-----+-----+----+----+----+---+---+---+---+----+----+----+----+----+
+* Columns represent the logic levels per end point clock
+** Distribution is for top worst 601 paths
+
+

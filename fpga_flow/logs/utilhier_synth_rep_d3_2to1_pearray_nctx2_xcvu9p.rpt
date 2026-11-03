@@ -1,0 +1,53 @@
+Copyright 1986-2020 Xilinx, Inc. All Rights Reserved.
+------------------------------------------------------------------------------------------------------------------------------------------------------------------
+| Tool Version : Vivado v.2020.2 (win64) Build 3064766 Wed Nov 18 09:12:45 MST 2020
+| Date         : Wed Sep 16 21:32:51 2026
+| Host         : DESKTOP-TO7M6OH running 64-bit major release  (build 9200)
+| Command      : report_utilization -hierarchical -file {D:\ycz\doc\deepseek_workzone\decoder\fpga_flow\logs/utilhier_synth_rep_d3_2to1_pearray_nctx2_xcvu9p.rpt}
+| Design       : snowflake_pe_array_ctx
+| Device       : xcvu9pflga2104-2L
+| Design State : Synthesized
+------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+Utilization Design Information
+
+Table of Contents
+-----------------
+1. Utilization by Hierarchy
+
+1. Utilization by Hierarchy
+---------------------------
+
++----------------------------+-----------------------------------+------------+------------+---------+------+-----+--------+--------+------+------------+
+|          Instance          |               Module              | Total LUTs | Logic LUTs | LUTRAMs | SRLs | FFs | RAMB36 | RAMB18 | URAM | DSP Blocks |
++----------------------------+-----------------------------------+------------+------------+---------+------+-----+--------+--------+------+------------+
+| snowflake_pe_array_ctx     |                             (top) |       1215 |       1215 |       0 |    0 | 457 |      0 |      0 |    0 |          0 |
+|   (snowflake_pe_array_ctx) |                             (top) |         84 |         84 |       0 |    0 |  55 |      0 |      0 |    0 |          0 |
+|   g_edge[0].ed_i           |             snowflake_edge_ctx__1 |          8 |          8 |       0 |    0 |   6 |      0 |      0 |    0 |          0 |
+|   g_edge[10].ed_i          |            snowflake_edge_ctx__11 |         10 |         10 |       0 |    0 |   6 |      0 |      0 |    0 |          0 |
+|   g_edge[11].ed_i          |            snowflake_edge_ctx__12 |         10 |         10 |       0 |    0 |   6 |      0 |      0 |    0 |          0 |
+|   g_edge[12].ed_i          |                snowflake_edge_ctx |         10 |         10 |       0 |    0 |   6 |      0 |      0 |    0 |          0 |
+|   g_edge[1].ed_i           |             snowflake_edge_ctx__2 |         10 |         10 |       0 |    0 |   6 |      0 |      0 |    0 |          0 |
+|   g_edge[2].ed_i           |             snowflake_edge_ctx__3 |         10 |         10 |       0 |    0 |   6 |      0 |      0 |    0 |          0 |
+|   g_edge[3].ed_i           |             snowflake_edge_ctx__4 |          8 |          8 |       0 |    0 |   6 |      0 |      0 |    0 |          0 |
+|   g_edge[4].ed_i           |             snowflake_edge_ctx__5 |          8 |          8 |       0 |    0 |   6 |      0 |      0 |    0 |          0 |
+|   g_edge[5].ed_i           |             snowflake_edge_ctx__6 |         10 |         10 |       0 |    0 |   6 |      0 |      0 |    0 |          0 |
+|   g_edge[6].ed_i           |             snowflake_edge_ctx__7 |         10 |         10 |       0 |    0 |   6 |      0 |      0 |    0 |          0 |
+|   g_edge[7].ed_i           |             snowflake_edge_ctx__8 |         10 |         10 |       0 |    0 |   6 |      0 |      0 |    0 |          0 |
+|   g_edge[8].ed_i           |             snowflake_edge_ctx__9 |          8 |          8 |       0 |    0 |   6 |      0 |      0 |    0 |          0 |
+|   g_edge[9].ed_i           |            snowflake_edge_ctx__10 |         10 |         10 |       0 |    0 |   6 |      0 |      0 |    0 |          0 |
+|   g_pe[0].pe_i             |                  snowflake_pe_ctx |         46 |         46 |       0 |    0 |  24 |      0 |      0 |    0 |          0 |
+|   g_pe[10].pe_i            |  snowflake_pe_ctx__parameterized9 |        110 |        110 |       0 |    0 |  28 |      0 |      0 |    0 |          0 |
+|   g_pe[11].pe_i            | snowflake_pe_ctx__parameterized10 |        111 |        111 |       0 |    0 |  28 |      0 |      0 |    0 |          0 |
+|   g_pe[1].pe_i             |  snowflake_pe_ctx__parameterized0 |         40 |         40 |       0 |    0 |  24 |      0 |      0 |    0 |          0 |
+|   g_pe[2].pe_i             |  snowflake_pe_ctx__parameterized1 |         57 |         57 |       0 |    0 |  28 |      0 |      0 |    0 |          0 |
+|   g_pe[3].pe_i             |  snowflake_pe_ctx__parameterized2 |         53 |         53 |       0 |    0 |  28 |      0 |      0 |    0 |          0 |
+|   g_pe[4].pe_i             |  snowflake_pe_ctx__parameterized3 |         62 |         62 |       0 |    0 |  28 |      0 |      0 |    0 |          0 |
+|   g_pe[5].pe_i             |  snowflake_pe_ctx__parameterized4 |         56 |         56 |       0 |    0 |  28 |      0 |      0 |    0 |          0 |
+|   g_pe[6].pe_i             |  snowflake_pe_ctx__parameterized5 |        101 |        101 |       0 |    0 |  26 |      0 |      0 |    0 |          0 |
+|   g_pe[7].pe_i             |  snowflake_pe_ctx__parameterized6 |         97 |         97 |       0 |    0 |  26 |      0 |      0 |    0 |          0 |
+|   g_pe[8].pe_i             |  snowflake_pe_ctx__parameterized7 |        138 |        138 |       0 |    0 |  28 |      0 |      0 |    0 |          0 |
+|   g_pe[9].pe_i             |  snowflake_pe_ctx__parameterized8 |        138 |        138 |       0 |    0 |  28 |      0 |      0 |    0 |          0 |
++----------------------------+-----------------------------------+------------+------------+---------+------+-----+--------+--------+------+------------+
+
+

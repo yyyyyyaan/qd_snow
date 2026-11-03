@@ -1,0 +1,56 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1280 720" font-family="微软雅黑, Arial, PingFang SC, Noto Sans CJK SC, sans-serif" data-pptx-page-role="content">
+  <rect id="bg" data-pptx-role="background" x="0" y="0" width="1280" height="720" fill="#FFFFFF"/>
+
+  <g id="page-head" data-pptx-bounds="72 36 1136 80">
+    <text x="72" y="52" font-size="15" fill="#5A6672" letter-spacing="1.4">06 / 与相关工作的定位</text>
+    <text x="72" y="100" font-size="38" font-weight="bold" fill="#12263A">UF 解码不是唯一路线，也不是所有场景都适用</text>
+    <rect x="1184" y="40" width="8" height="8" fill="#5A6672"/>
+    <text x="1208" y="49" font-size="15" fill="#5A6672" text-anchor="end">定位</text>
+    <line x1="72" y1="118" x2="1208" y2="118" stroke="#D8DEE5" stroke-width="1"/>
+  </g>
+
+  <g id="route-mwpm" data-pptx-bounds="72 176 1136 76">
+    <line x1="72" y1="176" x2="1208" y2="176" stroke="#D8DEE5" stroke-width="1"/>
+    <text x="72" y="216" font-size="26" font-weight="bold" fill="#12263A">MWPM</text>
+    <text x="360" y="216" font-size="22" fill="#1B2632">适合：精度基准、离线评估</text>
+    <text x="800" y="216" font-size="22" fill="#B23A2E">不适合：全局匹配，难以拍级流水</text>
+    <text x="72" y="242" font-size="15" fill="#5A6672">最小权完美匹配</text>
+  </g>
+
+  <g id="route-mle" data-pptx-bounds="72 266 1136 76">
+    <line x1="72" y1="266" x2="1208" y2="266" stroke="#D8DEE5" stroke-width="1"/>
+    <text x="72" y="306" font-size="26" font-weight="bold" fill="#12263A">MLE / 张量网络</text>
+    <text x="360" y="306" font-size="22" fill="#1B2632">适合：接近最优、小规模</text>
+    <text x="800" y="306" font-size="22" fill="#B23A2E">不适合：计算量大，偏离线</text>
+    <text x="72" y="332" font-size="15" fill="#5A6672">最大似然</text>
+  </g>
+
+  <g id="route-asic" data-pptx-bounds="72 356 1136 76">
+    <line x1="72" y1="356" x2="1208" y2="356" stroke="#D8DEE5" stroke-width="1"/>
+    <text x="72" y="396" font-size="26" font-weight="bold" fill="#12263A">专用架构</text>
+    <text x="360" y="396" font-size="22" fill="#1B2632">适合：面积与时序是主约束</text>
+    <text x="800" y="396" font-size="22" fill="#B23A2E">不适合：换码型要重新设计</text>
+    <text x="72" y="422" font-size="15" fill="#5A6672">Helios、Snowflake 都属于这一类</text>
+  </g>
+
+  <g id="route-multifpga" data-pptx-bounds="72 446 1136 76">
+    <line x1="72" y1="446" x2="1208" y2="446" stroke="#D8DEE5" stroke-width="1"/>
+    <text x="72" y="486" font-size="26" font-weight="bold" fill="#12263A">多 FPGA</text>
+    <text x="360" y="486" font-size="22" fill="#1B2632">适合：单芯片放不下且能容忍延迟</text>
+    <text x="800" y="486" font-size="22" fill="#B23A2E">不适合：I/O 与跨片延迟</text>
+    <text x="72" y="512" font-size="15" fill="#5A6672">Helios 论文第 10 页明确否定</text>
+  </g>
+
+  <g id="surgery" data-pptx-bounds="72 540 1136 80">
+    <rect x="72" y="540" width="1136" height="80" fill="#F2F4F7"/>
+    <rect x="72" y="540" width="4" height="80" fill="#B23A2E"/>
+    <text x="104" y="574" font-size="15" fill="#B23A2E" letter-spacing="1.2">尚未适配：晶格手术</text>
+    <text x="104" y="604" font-size="22" fill="#1B2632">L0 可直接复用；L1 可人工生成合并图；L2 属研究级，且没有黄金模型。</text>
+  </g>
+
+  <g id="page-foot" data-pptx-role="footer" data-pptx-bounds="72 636 1136 44">
+    <line x1="72" y1="640" x2="1208" y2="640" stroke="#D8DEE5" stroke-width="1"/>
+    <text x="72" y="666" font-size="15" fill="#5A6672">只讲定位，不评价他人工作的实现质量</text>
+    <text x="1208" y="666" font-size="15" fill="#5A6672" text-anchor="end">24 / 26</text>
+  </g>
+</svg>

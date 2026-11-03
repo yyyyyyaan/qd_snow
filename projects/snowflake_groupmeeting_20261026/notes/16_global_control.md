@@ -1,0 +1,1 @@
+Algorithm 6 的控制器。它只等一个条件：全阵列不再有单元说自己这一拍会变。代码就两行 assign：all_busy 用寄存的 busy，any_c_busy 用组合的 busy_c。默认用后者，更即时，但要付一条横跨全阵列的 OR 树——d7 的关键路径就是它，33 级，三分之二是布线。MINTS 和 BUSYREG 都是在拆这条链。

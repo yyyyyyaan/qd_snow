@@ -1,0 +1,112 @@
+`timescale 1ns / 1ps
+//=============================================================================
+// snowflake_edge.sv -- one decoding-graph EDGE of the PE-array Snowflake
+// decoder.  It owns the 2-bit growth value and the correction flag of the
+// edge, exactly like the flat core's per-edge state, and it is wired to both
+// endpoint PEs (the PEs only supply their growth pulse and their push
+// request).
+//
+// Semantics (identical to snowflake_core.sv):
+//   DROP      : the edge takes over the state of the edge above it
+//   GROW*     : growth += (pulse_u + pulse_v), saturating at 2
+//   MERGING*  : ecorr ^= (flip_u ^ flip_v)   -- two simultaneous flips cancel
+//
+// Two build variants, selected by `ifdef and sharing one body:
+//   * default: `growth`/`ecorr` are this module's registers, exposed as the
+//     ports o_growth/o_ecorr (the port names every existing instantiation uses);
+//   * SNOW_LAT: the SHARED LATTICE keeps the state in the array's register bank,
+//     so the module is a pure datapath -- state in on st_in, next state out on
+//     st_out -- and the state ports are gone.  Every rule below is unchanged.
+//=============================================================================
+`include "../generated/snowflake_graph.svh"
+
+module snowflake_edge #(
+    // A parameter is always emitted before the conditional ports, because a port
+    // list that begins with a conditional entry is not portable.  It is unused.
+    parameter integer ZZZ_ANCHOR = 0
+) (
+    input  wire       clk,
+    input  wire       reset,
+    input  wire [2:0] stage,
+    input  wire       u_pulse,
+    input  wire       v_pulse,
+    input  wire       flip_u,
+    input  wire       flip_v,
+    input  wire [1:0] above_growth,
+    input  wire       above_ecorr,
+`ifdef SNOW_LAT
+    // stateless datapath variant: st[1:0] = growth, st[2] = ecorr
+    input  wire [2:0] st_in,
+    output wire [2:0] st_out
+`else
+    // per-edge state
+    output reg  [1:0] o_growth,
+    output reg        o_ecorr
+`endif
+`ifdef SNOW_SLICED
+    // next-growth view for the seam D-shadow (snowflake-n prototype, report
+    // 6.16): a posedge register sampling this always equals the state register.
+    , output wire [1:0] o_n_growth
+`endif
+`ifdef SNOW_SERIAL
+    // serial (ping-pong) slice execution: commit only during this edge's
+    // owner-slice phase; o_n_ecorr is the ecorr next-state view for the seam.
+    , input  wire       commit_en
+    , output wire       o_n_ecorr
+`endif
+);
+
+  localparam [2:0] ST_DROP = 3'd1, ST_GW = 3'd2, ST_MW = 3'd3, ST_GH = 3'd4, ST_MH = 3'd5;
+
+`ifdef SNOW_LAT
+  wire [1:0] growth = st_in[1:0];
+  wire       ecorr  = st_in[2];
+`else
+  reg [1:0] growth;
+  reg       ecorr;
+  assign o_growth = growth;
+  assign o_ecorr  = ecorr;
+`endif
+
+  wire        growing = (stage == ST_GW) || (stage == ST_GH);
+  wire        merging = (stage == ST_MW) || (stage == ST_MH);
+  wire [1:0]  inc     = {1'b0, u_pulse} + {1'b0, v_pulse};
+  wire [1:0]  grown_n = (growth + inc > 2'd2) ? 2'd2 : (growth + inc);
+
+  // next-state views (mirror the state-update branches below exactly)
+  wire [1:0] n_growth_w = (reset)                ? 2'd0        :
+                          (stage == ST_DROP)     ? above_growth :
+                          (growing && (growth < 2'd2)) ? grown_n : growth;
+  wire       n_ecorr_w  = (reset)            ? 1'b0        :
+                          (stage == ST_DROP) ? above_ecorr :
+                          (merging && (flip_u ^ flip_v)) ? ~ecorr : ecorr;
+
+`ifdef SNOW_LAT
+  assign st_out = {n_ecorr_w, n_growth_w};
+`else
+`ifdef SNOW_SLICED
+  assign o_n_growth = n_growth_w;
+`endif
+`ifdef SNOW_SERIAL
+  assign o_n_ecorr = n_ecorr_w;
+`endif
+  always @(posedge clk) begin
+    if (reset) begin
+      growth <= 2'd0;
+      ecorr  <= 1'b0;
+    end
+`ifdef SNOW_SERIAL
+    else if (!commit_en) ;   // another slice owns this edge's state this phase
+`endif
+    else if (stage == ST_DROP) begin
+      growth <= above_growth;
+      ecorr  <= above_ecorr;
+    end else if (growing) begin
+      if (growth < 2'd2) growth <= grown_n;
+    end else if (merging) begin
+      if (flip_u ^ flip_v) ecorr <= ecorr ^ 1'b1;
+    end
+  end
+`endif
+
+endmodule

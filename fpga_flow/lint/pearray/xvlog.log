@@ -1,0 +1,7 @@
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "D:/ycz/doc/deepseek_workzone/decoder/Helios_scalable_QEC-main/Helios_scalable_QEC-main/design/snowflake/snowflake_pe_array.sv" into library work
+INFO: [VRFC 10-311] analyzing module snowflake_pe_array
+INFO: [VRFC 10-2458] undeclared symbol any_c_busy, assumed default net type wire [D:/ycz/doc/deepseek_workzone/decoder/Helios_scalable_QEC-main/Helios_scalable_QEC-main/design/snowflake/snowflake_pe_array.sv:102]
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "D:/ycz/doc/deepseek_workzone/decoder/Helios_scalable_QEC-main/Helios_scalable_QEC-main/design/snowflake/snowflake_pe.sv" into library work
+INFO: [VRFC 10-311] analyzing module snowflake_pe
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "D:/ycz/doc/deepseek_workzone/decoder/Helios_scalable_QEC-main/Helios_scalable_QEC-main/design/snowflake/snowflake_edge.sv" into library work
+INFO: [VRFC 10-311] analyzing module snowflake_edge

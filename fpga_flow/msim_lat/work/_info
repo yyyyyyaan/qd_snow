@@ -1,0 +1,230 @@
+m255
+K4
+z2
+!s11f vlog 2020.1 2020.02, Feb 28 2020
+13
+!s112 1.1
+!i10d 8192
+!i10e 25
+!i10f 100
+cModel Technology
+Z0 dD:/ycz/doc/deepseek_workzone/decoder/fpga_flow/msim_lat
+vsnowflake_edge
+Z1 DXx6 sv_std 3 std 0 22 VYECXdT12H8WgbUP_5Y6:3
+DXx4 work 22 snowflake_edge_sv_unit 0 22 KlblJ0oWXTlWI?52?MKH72
+Z2 !s110 1789874232
+Z3 VDg1SIo80bB@j0V0VzS_@n1
+r1
+!s85 0
+!i10b 1
+!s100 cT1eTaQ1IXXen<@TmEO7Z2
+I29EZPd]:3@:0FP]06e^CN0
+!s105 snowflake_edge_sv_unit
+S1
+R0
+w1789786737
+Z4 8design\snowflake\snowflake_edge.sv
+Z5 Fdesign\snowflake\snowflake_edge.sv
+!i122 246
+L0 23 90
+Z6 OV;L;2020.1;71
+31
+Z7 !s108 1789874232.000000
+!s107 test_benches\snowflake\..\..\design\generated\snowflake_lattice.svh|test_benches\snowflake\..\..\design\generated\snowflake_graph.svh|design\snowflake\..\generated\snowflake_lattice.svh|design\snowflake\..\generated\snowflake_graph.svh|test_benches\snowflake\tb_snowflake_pe_array_lat.sv|design\snowflake\snowflake_pe_array_lat.sv|design\snowflake\snowflake_pe.sv|design\snowflake\snowflake_edge.sv|
+Z8 !s90 -sv|-quiet|+define+SNOW_LAT|+define+SNOW_LATTICE|+define+SNOW_LAT_2PASS|+define+SNOW_LAT_2PASS_NEG|design\snowflake\snowflake_edge.sv|design\snowflake\snowflake_pe.sv|design\snowflake\snowflake_pe_array_lat.sv|test_benches\snowflake\tb_snowflake_pe_array_lat.sv|
+!i113 1
+Z9 o-quiet -sv
+Z10 !s92 -quiet -sv +define+SNOW_LAT +define+SNOW_LATTICE +define+SNOW_LAT_2PASS +define+SNOW_LAT_2PASS_NEG
+Z11 tCvgOpt 0
+Xsnowflake_edge_sv_unit
+R1
+R2
+VKlblJ0oWXTlWI?52?MKH72
+r1
+!s85 0
+!i10b 1
+!s100 Sl7_fO_XGkh?XG3fA@^4U2
+IKlblJ0oWXTlWI?52?MKH72
+!i103 1
+S1
+R0
+w1789874226
+R4
+R5
+Z12 Fdesign\snowflake\..\generated\snowflake_graph.svh
+!i122 246
+Z13 L0 11 0
+R6
+31
+R7
+Z14 !s107 test_benches\snowflake\..\..\design\generated\snowflake_lattice.svh|test_benches\snowflake\..\..\design\generated\snowflake_graph.svh|design\snowflake\..\generated\snowflake_lattice.svh|design\snowflake\..\generated\snowflake_graph.svh|test_benches\snowflake\tb_snowflake_pe_array_lat.sv|design\snowflake\snowflake_pe_array_lat.sv|design\snowflake\snowflake_pe.sv|design\snowflake\snowflake_edge.sv|
+R8
+!i113 1
+R9
+R10
+R11
+vsnowflake_pe
+R1
+DXx4 work 20 snowflake_pe_sv_unit 0 22 <a5ln;]L=]2V[YDSa`ZG[2
+R2
+R3
+r1
+!s85 0
+!i10b 1
+!s100 @Z:7Wb=FEIYh6V7f_KhGP0
+IDMgn<T33=PDe9Z?<_ac:i3
+!s105 snowflake_pe_sv_unit
+S1
+R0
+w1789868283
+Z15 8design\snowflake\snowflake_pe.sv
+Z16 Fdesign\snowflake\snowflake_pe.sv
+!i122 246
+L0 31 684
+R6
+31
+R7
+R14
+R8
+!i113 1
+R9
+R10
+R11
+vsnowflake_pe_array_lat
+R1
+DXx4 work 30 snowflake_pe_array_lat_sv_unit 0 22 ]H5543VSLS;L]Qel3>D_Q0
+R2
+R3
+r1
+!s85 0
+!i10b 1
+!s100 `nTN7b0OCAQng2BVQ4fll3
+I?DL:O>K@@N`E]zLg<cITX3
+!s105 snowflake_pe_array_lat_sv_unit
+S1
+R0
+w1789868509
+Z17 8design\snowflake\snowflake_pe_array_lat.sv
+Z18 Fdesign\snowflake\snowflake_pe_array_lat.sv
+!i122 246
+L0 47 720
+R6
+31
+R7
+R14
+R8
+!i113 1
+R9
+R10
+R11
+Xsnowflake_pe_array_lat_sv_unit
+R1
+R2
+V]H5543VSLS;L]Qel3>D_Q0
+r1
+!s85 0
+!i10b 1
+!s100 MW>AS0V>NO=l@N[6In?S[0
+I]H5543VSLS;L]Qel3>D_Q0
+!i103 1
+S1
+R0
+Z19 w1789874229
+R17
+R18
+Z20 Fdesign\snowflake\..\generated\snowflake_lattice.svh
+R12
+!i122 246
+R13
+R6
+31
+R7
+R14
+R8
+!i113 1
+R9
+R10
+R11
+Xsnowflake_pe_sv_unit
+R1
+R2
+V<a5ln;]L=]2V[YDSa`ZG[2
+r1
+!s85 0
+!i10b 1
+!s100 8WJD`o>U7;KPSTF7]]C0<3
+I<a5ln;]L=]2V[YDSa`ZG[2
+!i103 1
+S1
+R0
+R19
+R15
+R16
+R12
+R20
+!i122 246
+R13
+R6
+31
+R7
+R14
+R8
+!i113 1
+R9
+R10
+R11
+vtb_snowflake_pe_array_lat
+R1
+DXx4 work 33 tb_snowflake_pe_array_lat_sv_unit 0 22 U7oSAATUIhbo67TGkng6F1
+R2
+R3
+r1
+!s85 0
+!i10b 1
+!s100 mXU=fhL6:bReJkJQJO:fj2
+IJYVD4]HXUL_[^7gi:P:AY2
+!s105 tb_snowflake_pe_array_lat_sv_unit
+S1
+R0
+w1789816744
+Z21 8test_benches\snowflake\tb_snowflake_pe_array_lat.sv
+Z22 Ftest_benches\snowflake\tb_snowflake_pe_array_lat.sv
+!i122 246
+L0 20 124
+R6
+31
+R7
+R14
+R8
+!i113 1
+R9
+R10
+R11
+Xtb_snowflake_pe_array_lat_sv_unit
+R1
+R2
+VU7oSAATUIhbo67TGkng6F1
+r1
+!s85 0
+!i10b 1
+!s100 b1VLQ36D`c<XghJcX?5b43
+IU7oSAATUIhbo67TGkng6F1
+!i103 1
+S1
+R0
+R19
+R21
+R22
+Ftest_benches\snowflake\..\..\design\generated\snowflake_graph.svh
+Ftest_benches\snowflake\..\..\design\generated\snowflake_lattice.svh
+!i122 246
+R13
+R6
+31
+R7
+R14
+R8
+!i113 1
+R9
+R10
+R11

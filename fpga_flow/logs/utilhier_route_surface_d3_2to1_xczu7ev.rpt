@@ -1,0 +1,28 @@
+Copyright 1986-2020 Xilinx, Inc. All Rights Reserved.
+---------------------------------------------------------------------------------------------------------------------------------------------------------
+| Tool Version : Vivado v.2020.2 (win64) Build 3064766 Wed Nov 18 09:12:45 MST 2020
+| Date         : Wed Sep 16 01:25:16 2026
+| Host         : DESKTOP-TO7M6OH running 64-bit major release  (build 9200)
+| Command      : report_utilization -hierarchical -file {D:\ycz\doc\deepseek_workzone\decoder\fpga_flow\logs/utilhier_route_surface_d3_2to1_xczu7ev.rpt}
+| Design       : snowflake_core
+| Device       : xczu7evffvc1156-2
+| Design State : Routed
+---------------------------------------------------------------------------------------------------------------------------------------------------------
+
+Utilization Design Information
+
+Table of Contents
+-----------------
+1. Utilization by Hierarchy
+
+1. Utilization by Hierarchy
+---------------------------
+
++----------------+--------+------------+------------+---------+------+-----+--------+--------+------+------------+
+|    Instance    | Module | Total LUTs | Logic LUTs | LUTRAMs | SRLs | FFs | RAMB36 | RAMB18 | URAM | DSP Blocks |
++----------------+--------+------------+------------+---------+------+-----+--------+--------+------+------------+
+| snowflake_core |  (top) |       3450 |       3450 |       0 |    0 | 805 |      0 |      0 |    0 |          0 |
++----------------+--------+------------+------------+---------+------+-----+--------+--------+------+------------+
+* Note: The sum of lower-level cells may be larger than their parent cells total, due to cross-hierarchy LUT combining
+
+

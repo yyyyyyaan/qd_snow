@@ -1,0 +1,13 @@
+﻿09:54:26  === lat1 synth rep d=3 n=2 ===
+09:55:38  === lat1 synth rep d=3 n=2 ===
+09:59:43      [lat1] header OK for rep d=3 n=2
+09:59:43      [run ] lat1_rep_d3_2to1_lattice_lat_xcvu9p  top=snowflake_pe_array_lat1 part=xcvu9p-flga2104-2L-e period=5.0 mode=synth defs=[SNOW_LATTICE;SNOW_LAT] graph=[D:\ycz\doc\deepseek_workzone\decoder\fpga_flow\graphs\rep_d3.svh]
+09:59:43      [done] lat1_rep_d3_2to1_lattice_lat_xcvu9p  wns=0.434 lut=1125 ff=387 fmax=219.0MHz  (4.0 min)
+09:59:43      elapsed 4.1 min
+09:59:43  === lat1 synth surface d=3 n=2 ===
+10:21:03  === lat1 synth rep d=3 n=2 ===
+10:34:42      [lat1] header OK for rep d=3 n=2
+10:34:42      [run ] lat1_rep_d3_2to1_lattice_lat_xcvu9p  top=snowflake_pe_array_lat1 part=xcvu9p-flga2104-2L-e period=5.0 mode=synth defs=[SNOW_LATTICE;SNOW_LAT] graph=[D:\ycz\doc\deepseek_workzone\decoder\fpga_flow\graphs\rep_d3.svh]
+10:34:42      [done] lat1_rep_d3_2to1_lattice_lat_xcvu9p  wns=2.701 lut=203 ff=962 fmax=435.0MHz  (13.6 min)
+10:34:42      elapsed 13.7 min
+10:34:42  === lat1 synth surface d=3 n=2 ===

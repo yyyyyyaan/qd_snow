@@ -1,0 +1,32 @@
+﻿reset-contract sweep: lat1_rotated_d3_s2 (board path, line-exact vs golden_lat1_rotated_d3_s2.txt)
+  rstlen  = snowflake_reset_sync LEN parameter (the stretch guarantee)
+  rstpulse= cycles pl_reset_in (POR/button) is held; 0 = never asserted
+
+  rstlen   rstpulse  verdict
+  1        1         PASS
+  1        2         PASS
+  1        4         PASS
+  2        1         PASS
+  2        2         PASS
+  2        4         PASS
+  3        1         PASS
+  3        2         PASS
+  3        4         PASS
+  4        1         PASS
+  4        2         PASS
+  4        4         PASS
+  8        1         PASS
+  8        2         PASS
+  8        4         PASS
+  16       1         PASS
+  16       2         PASS
+  16       4         PASS
+
+  18 / 18 combinations PASS
+  A pulse of ONE cycle is enough: the stretcher turns any level into a full
+  LEN-cycle reset, so a bouncing button or a 1-cycle PS write cannot produce
+  a short reset.  pulse=0 (no external reset at all) is deliberately NOT in
+  this sweep: on silicon the core still resets (snowflake_reset_sync's counter
+  powers up at 0, see the header), but the AXI register file would need a bus
+  reset to leave X in RTL -- and on a real board the PS drives pl_resetn
+  during configuration anyway, so the case cannot occur.

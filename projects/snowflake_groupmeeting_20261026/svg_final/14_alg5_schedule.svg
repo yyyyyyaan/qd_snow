@@ -1,0 +1,31 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1280 720" font-family="微软雅黑, Arial, PingFang SC, Noto Sans CJK SC, sans-serif" data-pptx-page-role="content">
+  <rect id="bg" data-pptx-role="background" x="0" y="0" width="1280" height="720" fill="#FFFFFF" />
+
+  <g id="page-head" data-pptx-bounds="72 36 1136 80">
+    <text x="72" y="52" font-size="15" fill="#5A6672" letter-spacing="1.4">03 / 硬件架构与关键模块</text>
+    <text x="72" y="100" font-size="38" font-weight="bold" fill="#12263A">Algorithm 5：2:1 调度，把半个边的差距补上</text>
+    <rect x="1160" y="40" width="8" height="8" fill="#2C6E9B" />
+    <text x="1208" y="49" font-size="15" fill="#2C6E9B" text-anchor="end">已完成</text>
+    <line x1="72" y1="118" x2="1208" y2="118" stroke="#D8DEE5" stroke-width="1" />
+  </g>
+
+  <g id="schedule-code" data-pptx-bounds="72 176 688 434">
+    <rect x="72" y="176" width="688" height="434" fill="#F2F4F7" />
+    <text x="96" y="206" font-size="15" fill="#5A6672">snowflake_pe.sv:407-433（两轮生长各一个分支）</text>
+    <text font-family="Consolas, Cascadia Mono, Courier New, monospace" font-size="15" fill="#12263A" x="96" y="242">ST_GW: begin                              // :407-424</text><text font-family="Consolas, Cascadia Mono, Courier New, monospace" font-size="15" fill="#12263A" x="96" y="263">  if (K_IS_BOT &amp;&amp; SNOW_PTR_DOWN_MASK[ptr]) begin</text><text font-family="Consolas, Cascadia Mono, Courier New, monospace" font-size="15" fill="#12263A" x="96" y="284">    n_cid = SNOW_RESET_CID; n_ptr = SNOW_PTR_C;</text><text font-family="Consolas, Cascadia Mono, Courier New, monospace" font-size="15" fill="#12263A" x="96" y="305">  end</text><text font-family="Consolas, Cascadia Mono, Courier New, monospace" font-size="15" fill="#12263A" x="96" y="326">  if (ONE_ONE ? active : (active &amp;&amp; whole)) begin</text><text font-family="Consolas, Cascadia Mono, Courier New, monospace" font-size="15" fill="#12263A" x="96" y="347">    pulse   = 1'b1;</text><text font-family="Consolas, Cascadia Mono, Courier New, monospace" font-size="15" fill="#12263A" x="96" y="368">    n_whole = ~whole;                      // 整簇变半簇</text><text font-family="Consolas, Cascadia Mono, Courier New, monospace" font-size="15" fill="#12263A" x="96" y="389">    if (!ONE_ONE) n_grown = 1'b1;          // 本轮长过了</text><text font-family="Consolas, Cascadia Mono, Courier New, monospace" font-size="15" fill="#12263A" x="96" y="410">  end</text><text font-family="Consolas, Cascadia Mono, Courier New, monospace" font-size="15" fill="#12263A" x="96" y="431">end</text><text font-family="Consolas, Cascadia Mono, Courier New, monospace" font-size="15" fill="#12263A" x="96" y="462">ST_GH: begin                              // :427-433</text><text font-family="Consolas, Cascadia Mono, Courier New, monospace" font-size="15" fill="#12263A" x="96" y="483">  n_unrooted = 1'b0;</text><text font-family="Consolas, Cascadia Mono, Courier New, monospace" font-size="15" fill="#12263A" x="96" y="504">  if (active &amp;&amp; !whole &amp;&amp; !grown) begin</text><text font-family="Consolas, Cascadia Mono, Courier New, monospace" font-size="15" fill="#12263A" x="96" y="525">    pulse   = 1'b1;</text><text font-family="Consolas, Cascadia Mono, Courier New, monospace" font-size="15" fill="#12263A" x="96" y="546">    n_whole = 1'b1;                        // 半簇交回整簇</text><text font-family="Consolas, Cascadia Mono, Courier New, monospace" font-size="15" fill="#12263A" x="96" y="567">  end</text><text font-family="Consolas, Cascadia Mono, Courier New, monospace" font-size="15" fill="#12263A" x="96" y="588">end</text></g>
+
+  <g id="schedule-rules" data-pptx-bounds="800 176 408 434">
+    <text x="800" y="206" font-size="26" font-weight="bold" fill="#12263A">两轮，不是一轮</text>
+    <text x="800" y="252" font-size="22" font-weight="bold" fill="#12263A">第 1 轮：只长整簇</text>
+    <text x="800" y="282" font-size="22" fill="#1B2632">长过就把 grown 置位，本轮不再长</text>
+    <text x="800" y="332" font-size="22" font-weight="bold" fill="#12263A">第 2 轮：只长半簇</text>
+    <text x="800" y="362" font-size="22" fill="#1B2632">没长过的那一半，补上剩下半条边</text>
+    <text x="800" y="412" font-size="22" font-weight="bold" fill="#12263A">为什么要两轮</text>
+    <text x="800" y="442" font-size="22" fill="#1B2632">1:1 在半条边距时会过冲，簇越涨越大</text>
+    <text font-size="15" fill="#5A6672" x="800" y="490">ONE_ONE=1 是 1:1 对照开关，本页不展开</text><text font-size="15" fill="#5A6672" x="800" y="518">2:1 下不会出现混合簇（论文 Proposition 1）</text></g>
+
+  <g id="page-foot" data-pptx-role="footer" data-pptx-bounds="72 636 1136 44">
+    <line x1="72" y1="640" x2="1208" y2="640" stroke="#D8DEE5" stroke-width="1" />
+    <text x="72" y="666" font-size="15" fill="#5A6672">pulse 同时发给这条节点的所有出边；边自己把 +½ 累加并饱和在 2</text>
+  </g>
+</svg>

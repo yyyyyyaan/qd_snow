@@ -1,0 +1,116 @@
+Copyright 1986-2020 Xilinx, Inc. All Rights Reserved.
+----------------------------------------------------------------------------------------------------------------------------------------------------------------------
+| Tool Version : Vivado v.2020.2 (win64) Build 3064766 Wed Nov 18 09:12:45 MST 2020
+| Date         : Wed Sep 16 21:29:57 2026
+| Host         : DESKTOP-TO7M6OH running 64-bit major release  (build 9200)
+| Command      : report_utilization -hierarchical -file {D:\ycz\doc\deepseek_workzone\decoder\fpga_flow\logs/utilhier_route_surface_d3_2to1_pearray_nctx2_xcvu9p.rpt}
+| Design       : snowflake_pe_array_ctx
+| Device       : xcvu9pflga2104-2L
+| Design State : Routed
+----------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+Utilization Design Information
+
+Table of Contents
+-----------------
+1. Utilization by Hierarchy
+
+1. Utilization by Hierarchy
+---------------------------
+
++----------------------------+-----------------------------------+------------+------------+---------+------+------+--------+--------+------+------------+
+|          Instance          |               Module              | Total LUTs | Logic LUTs | LUTRAMs | SRLs |  FFs | RAMB36 | RAMB18 | URAM | DSP Blocks |
++----------------------------+-----------------------------------+------------+------------+---------+------+------+--------+--------+------+------------+
+| snowflake_pe_array_ctx     |                             (top) |       5249 |       5249 |       0 |    0 | 1591 |      0 |      0 |    0 |          0 |
+|   (snowflake_pe_array_ctx) |                             (top) |        150 |        150 |       0 |    0 |   91 |      0 |      0 |    0 |          0 |
+|   g_edge[0].ed_i           |             snowflake_edge_ctx__6 |          9 |          9 |       0 |    0 |    6 |      0 |      0 |    0 |          0 |
+|   g_edge[10].ed_i          |            snowflake_edge_ctx__16 |          9 |          9 |       0 |    0 |    6 |      0 |      0 |    0 |          0 |
+|   g_edge[11].ed_i          |            snowflake_edge_ctx__32 |          9 |          9 |       0 |    0 |    6 |      0 |      0 |    0 |          0 |
+|   g_edge[12].ed_i          |            snowflake_edge_ctx__44 |          9 |          9 |       0 |    0 |    6 |      0 |      0 |    0 |          0 |
+|   g_edge[13].ed_i          |            snowflake_edge_ctx__18 |          9 |          9 |       0 |    0 |    6 |      0 |      0 |    0 |          0 |
+|   g_edge[14].ed_i          |            snowflake_edge_ctx__19 |         10 |         10 |       0 |    0 |    6 |      0 |      0 |    0 |          0 |
+|   g_edge[15].ed_i          |            snowflake_edge_ctx__20 |          9 |          9 |       0 |    0 |    6 |      0 |      0 |    0 |          0 |
+|   g_edge[16].ed_i          |            snowflake_edge_ctx__43 |         10 |         10 |       0 |    0 |    6 |      0 |      0 |    0 |          0 |
+|   g_edge[17].ed_i          |            snowflake_edge_ctx__42 |          9 |          9 |       0 |    0 |    6 |      0 |      0 |    0 |          0 |
+|   g_edge[18].ed_i          |                snowflake_edge_ctx |         10 |         10 |       0 |    0 |    6 |      0 |      0 |    0 |          0 |
+|   g_edge[19].ed_i          |            snowflake_edge_ctx__22 |         10 |         10 |       0 |    0 |    6 |      0 |      0 |    0 |          0 |
+|   g_edge[1].ed_i           |             snowflake_edge_ctx__7 |          9 |          9 |       0 |    0 |    6 |      0 |      0 |    0 |          0 |
+|   g_edge[20].ed_i          |            snowflake_edge_ctx__23 |         10 |         10 |       0 |    0 |    6 |      0 |      0 |    0 |          0 |
+|   g_edge[21].ed_i          |            snowflake_edge_ctx__24 |         11 |         11 |       0 |    0 |    6 |      0 |      0 |    0 |          0 |
+|   g_edge[22].ed_i          |            snowflake_edge_ctx__31 |         10 |         10 |       0 |    0 |    6 |      0 |      0 |    0 |          0 |
+|   g_edge[23].ed_i          |            snowflake_edge_ctx__30 |         11 |         11 |       0 |    0 |    6 |      0 |      0 |    0 |          0 |
+|   g_edge[24].ed_i          |            snowflake_edge_ctx__41 |         10 |         10 |       0 |    0 |    6 |      0 |      0 |    0 |          0 |
+|   g_edge[25].ed_i          |            snowflake_edge_ctx__29 |          9 |          9 |       0 |    0 |    6 |      0 |      0 |    0 |          0 |
+|   g_edge[26].ed_i          |            snowflake_edge_ctx__25 |         11 |         11 |       0 |    0 |    6 |      0 |      0 |    0 |          0 |
+|   g_edge[27].ed_i          |            snowflake_edge_ctx__26 |         11 |         11 |       0 |    0 |    6 |      0 |      0 |    0 |          0 |
+|   g_edge[28].ed_i          |            snowflake_edge_ctx__27 |         10 |         10 |       0 |    0 |    6 |      0 |      0 |    0 |          0 |
+|   g_edge[29].ed_i          |            snowflake_edge_ctx__28 |         11 |         11 |       0 |    0 |    6 |      0 |      0 |    0 |          0 |
+|   g_edge[2].ed_i           |             snowflake_edge_ctx__8 |          9 |          9 |       0 |    0 |    6 |      0 |      0 |    0 |          0 |
+|   g_edge[30].ed_i          |            snowflake_edge_ctx__46 |         11 |         11 |       0 |    0 |    6 |      0 |      0 |    0 |          0 |
+|   g_edge[31].ed_i          |            snowflake_edge_ctx__40 |         10 |         10 |       0 |    0 |    6 |      0 |      0 |    0 |          0 |
+|   g_edge[32].ed_i          |            snowflake_edge_ctx__39 |         11 |         11 |       0 |    0 |    6 |      0 |      0 |    0 |          0 |
+|   g_edge[33].ed_i          |            snowflake_edge_ctx__50 |         11 |         11 |       0 |    0 |    6 |      0 |      0 |    0 |          0 |
+|   g_edge[34].ed_i          |            snowflake_edge_ctx__49 |         10 |         10 |       0 |    0 |    6 |      0 |      0 |    0 |          0 |
+|   g_edge[35].ed_i          |            snowflake_edge_ctx__21 |         11 |         11 |       0 |    0 |    6 |      0 |      0 |    0 |          0 |
+|   g_edge[36].ed_i          |            snowflake_edge_ctx__17 |         11 |         11 |       0 |    0 |    6 |      0 |      0 |    0 |          0 |
+|   g_edge[37].ed_i          |             snowflake_edge_ctx__5 |         10 |         10 |       0 |    0 |    6 |      0 |      0 |    0 |          0 |
+|   g_edge[38].ed_i          |            snowflake_edge_ctx__33 |         11 |         11 |       0 |    0 |    6 |      0 |      0 |    0 |          0 |
+|   g_edge[39].ed_i          |            snowflake_edge_ctx__34 |         10 |         10 |       0 |    0 |    6 |      0 |      0 |    0 |          0 |
+|   g_edge[3].ed_i           |             snowflake_edge_ctx__9 |         11 |         11 |       0 |    0 |    6 |      0 |      0 |    0 |          0 |
+|   g_edge[40].ed_i          |            snowflake_edge_ctx__36 |         11 |         11 |       0 |    0 |    6 |      0 |      0 |    0 |          0 |
+|   g_edge[41].ed_i          |            snowflake_edge_ctx__35 |         11 |         11 |       0 |    0 |    6 |      0 |      0 |    0 |          0 |
+|   g_edge[42].ed_i          |             snowflake_edge_ctx__4 |         11 |         11 |       0 |    0 |    6 |      0 |      0 |    0 |          0 |
+|   g_edge[43].ed_i          |             snowflake_edge_ctx__3 |         11 |         11 |       0 |    0 |    6 |      0 |      0 |    0 |          0 |
+|   g_edge[44].ed_i          |             snowflake_edge_ctx__2 |         11 |         11 |       0 |    0 |    6 |      0 |      0 |    0 |          0 |
+|   g_edge[45].ed_i          |             snowflake_edge_ctx__1 |         10 |         10 |       0 |    0 |    6 |      0 |      0 |    0 |          0 |
+|   g_edge[46].ed_i          |            snowflake_edge_ctx__45 |         10 |         10 |       0 |    0 |    6 |      0 |      0 |    0 |          0 |
+|   g_edge[47].ed_i          |            snowflake_edge_ctx__37 |         11 |         11 |       0 |    0 |    6 |      0 |      0 |    0 |          0 |
+|   g_edge[48].ed_i          |            snowflake_edge_ctx__38 |         11 |         11 |       0 |    0 |    6 |      0 |      0 |    0 |          0 |
+|   g_edge[49].ed_i          |            snowflake_edge_ctx__48 |         10 |         10 |       0 |    0 |    6 |      0 |      0 |    0 |          0 |
+|   g_edge[4].ed_i           |            snowflake_edge_ctx__10 |         10 |         10 |       0 |    0 |    6 |      0 |      0 |    0 |          0 |
+|   g_edge[50].ed_i          |            snowflake_edge_ctx__47 |         11 |         11 |       0 |    0 |    6 |      0 |      0 |    0 |          0 |
+|   g_edge[5].ed_i           |            snowflake_edge_ctx__11 |         11 |         11 |       0 |    0 |    6 |      0 |      0 |    0 |          0 |
+|   g_edge[6].ed_i           |            snowflake_edge_ctx__12 |         11 |         11 |       0 |    0 |    6 |      0 |      0 |    0 |          0 |
+|   g_edge[7].ed_i           |            snowflake_edge_ctx__13 |         11 |         11 |       0 |    0 |    6 |      0 |      0 |    0 |          0 |
+|   g_edge[8].ed_i           |            snowflake_edge_ctx__14 |         11 |         11 |       0 |    0 |    6 |      0 |      0 |    0 |          0 |
+|   g_edge[9].ed_i           |            snowflake_edge_ctx__15 |          9 |          9 |       0 |    0 |    6 |      0 |      0 |    0 |          0 |
+|   g_pe[0].pe_i             |                  snowflake_pe_ctx |         53 |         53 |       0 |    0 |   28 |      0 |      0 |    0 |          0 |
+|   g_pe[10].pe_i            |  snowflake_pe_ctx__parameterized9 |         72 |         72 |       0 |    0 |   34 |      0 |      0 |    0 |          0 |
+|   g_pe[11].pe_i            | snowflake_pe_ctx__parameterized10 |         71 |         71 |       0 |    0 |   34 |      0 |      0 |    0 |          0 |
+|   g_pe[12].pe_i            | snowflake_pe_ctx__parameterized11 |         82 |         82 |       0 |    0 |   34 |      0 |      0 |    0 |          0 |
+|   g_pe[13].pe_i            | snowflake_pe_ctx__parameterized12 |         77 |         77 |       0 |    0 |   34 |      0 |      0 |    0 |          0 |
+|   g_pe[14].pe_i            | snowflake_pe_ctx__parameterized13 |         78 |         78 |       0 |    0 |   34 |      0 |      0 |    0 |          0 |
+|   g_pe[15].pe_i            | snowflake_pe_ctx__parameterized14 |         80 |         80 |       0 |    0 |   34 |      0 |      0 |    0 |          0 |
+|   g_pe[16].pe_i            | snowflake_pe_ctx__parameterized15 |         78 |         78 |       0 |    0 |   34 |      0 |      0 |    0 |          0 |
+|   g_pe[17].pe_i            | snowflake_pe_ctx__parameterized16 |         78 |         78 |       0 |    0 |   34 |      0 |      0 |    0 |          0 |
+|   g_pe[18].pe_i            | snowflake_pe_ctx__parameterized17 |        174 |        174 |       0 |    0 |   34 |      0 |      0 |    0 |          0 |
+|   g_pe[19].pe_i            | snowflake_pe_ctx__parameterized18 |        197 |        197 |       0 |    0 |   34 |      0 |      0 |    0 |          0 |
+|   g_pe[1].pe_i             |  snowflake_pe_ctx__parameterized0 |         52 |         52 |       0 |    0 |   28 |      0 |      0 |    0 |          0 |
+|   g_pe[20].pe_i            | snowflake_pe_ctx__parameterized19 |        163 |        163 |       0 |    0 |   34 |      0 |      0 |    0 |          0 |
+|   g_pe[21].pe_i            | snowflake_pe_ctx__parameterized20 |        176 |        176 |       0 |    0 |   34 |      0 |      0 |    0 |          0 |
+|   g_pe[22].pe_i            | snowflake_pe_ctx__parameterized21 |        188 |        188 |       0 |    0 |   34 |      0 |      0 |    0 |          0 |
+|   g_pe[23].pe_i            | snowflake_pe_ctx__parameterized22 |        165 |        165 |       0 |    0 |   34 |      0 |      0 |    0 |          0 |
+|   g_pe[24].pe_i            | snowflake_pe_ctx__parameterized23 |        201 |        201 |       0 |    0 |   34 |      0 |      0 |    0 |          0 |
+|   g_pe[25].pe_i            | snowflake_pe_ctx__parameterized24 |        216 |        216 |       0 |    0 |   34 |      0 |      0 |    0 |          0 |
+|   g_pe[26].pe_i            | snowflake_pe_ctx__parameterized25 |        215 |        215 |       0 |    0 |   34 |      0 |      0 |    0 |          0 |
+|   g_pe[27].pe_i            | snowflake_pe_ctx__parameterized26 |        204 |        204 |       0 |    0 |   34 |      0 |      0 |    0 |          0 |
+|   g_pe[28].pe_i            | snowflake_pe_ctx__parameterized27 |        220 |        220 |       0 |    0 |   34 |      0 |      0 |    0 |          0 |
+|   g_pe[29].pe_i            | snowflake_pe_ctx__parameterized28 |        218 |        218 |       0 |    0 |   34 |      0 |      0 |    0 |          0 |
+|   g_pe[2].pe_i             |  snowflake_pe_ctx__parameterized1 |         58 |         58 |       0 |    0 |   28 |      0 |      0 |    0 |          0 |
+|   g_pe[30].pe_i            | snowflake_pe_ctx__parameterized29 |        179 |        179 |       0 |    0 |   34 |      0 |      0 |    0 |          0 |
+|   g_pe[31].pe_i            | snowflake_pe_ctx__parameterized30 |        217 |        217 |       0 |    0 |   34 |      0 |      0 |    0 |          0 |
+|   g_pe[32].pe_i            | snowflake_pe_ctx__parameterized31 |        178 |        178 |       0 |    0 |   34 |      0 |      0 |    0 |          0 |
+|   g_pe[33].pe_i            | snowflake_pe_ctx__parameterized32 |        176 |        176 |       0 |    0 |   34 |      0 |      0 |    0 |          0 |
+|   g_pe[34].pe_i            | snowflake_pe_ctx__parameterized33 |        212 |        212 |       0 |    0 |   34 |      0 |      0 |    0 |          0 |
+|   g_pe[35].pe_i            | snowflake_pe_ctx__parameterized34 |        179 |        179 |       0 |    0 |   34 |      0 |      0 |    0 |          0 |
+|   g_pe[3].pe_i             |  snowflake_pe_ctx__parameterized2 |         54 |         54 |       0 |    0 |   30 |      0 |      0 |    0 |          0 |
+|   g_pe[4].pe_i             |  snowflake_pe_ctx__parameterized3 |         57 |         57 |       0 |    0 |   30 |      0 |      0 |    0 |          0 |
+|   g_pe[5].pe_i             |  snowflake_pe_ctx__parameterized4 |         54 |         54 |       0 |    0 |   30 |      0 |      0 |    0 |          0 |
+|   g_pe[6].pe_i             |  snowflake_pe_ctx__parameterized5 |         69 |         69 |       0 |    0 |   34 |      0 |      0 |    0 |          0 |
+|   g_pe[7].pe_i             |  snowflake_pe_ctx__parameterized6 |         71 |         71 |       0 |    0 |   34 |      0 |      0 |    0 |          0 |
+|   g_pe[8].pe_i             |  snowflake_pe_ctx__parameterized7 |         70 |         70 |       0 |    0 |   34 |      0 |      0 |    0 |          0 |
+|   g_pe[9].pe_i             |  snowflake_pe_ctx__parameterized8 |         71 |         71 |       0 |    0 |   34 |      0 |      0 |    0 |          0 |
++----------------------------+-----------------------------------+------------+------------+---------+------+------+--------+--------+------+------------+
+* Note: The sum of lower-level cells may be larger than their parent cells total, due to cross-hierarchy LUT combining
+
+

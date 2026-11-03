@@ -1,0 +1,49 @@
+Reading pref.tcl
+
+# 2020.1
+
+# vsim -c -quiet -do "run 700 ns; quit -f" work.tb_snowflake_pe_array 
+# Start time: 20:53:37 on Sep 18,2026
+# run 700 ns
+# [PRB] cyc=1 stage=0 sub=0 scan=0 last=0 pe0.grown=0 mgr=x ng=0 cid=0
+# [PRB] cyc=2 stage=0 sub=0 scan=0 last=0 pe0.grown=0 mgr=x ng=0 cid=0
+# [PRB] cyc=3 stage=0 sub=0 scan=0 last=0 pe0.grown=0 mgr=x ng=0 cid=0
+# [PRB] cyc=4 stage=0 sub=0 scan=0 last=0 pe0.grown=0 mgr=x ng=0 cid=0
+# [PRB] cyc=5 stage=0 sub=0 scan=0 last=0 pe0.grown=0 mgr=x ng=0 cid=0
+# [PRB] cyc=6 stage=0 sub=0 scan=0 last=0 pe0.grown=0 mgr=x ng=0 cid=0
+# [PRB] cyc=7 stage=0 sub=0 scan=0 last=0 pe0.grown=0 mgr=x ng=0 cid=0
+# [PRB] cyc=8 stage=1 sub=0 scan=0 last=0 pe0.grown=0 mgr=x ng=0 cid=0
+# [PRB] cyc=9 stage=2 sub=0 scan=0 last=0 pe0.grown=0 mgr=x ng=0 cid=0
+# [PRB] cyc=10 stage=3 sub=0 scan=1 last=0 pe0.grown=0 mgr=x ng=0 cid=0
+# [PRB] cyc=11 stage=3 sub=1 scan=0 last=1 pe0.grown=0 mgr=0 ng=0 cid=0
+# [PRB] cyc=12 stage=4 sub=0 scan=0 last=0 pe0.grown=0 mgr=0 ng=0 cid=0
+# [PRB] cyc=13 stage=5 sub=0 scan=1 last=0 pe0.grown=0 mgr=0 ng=0 cid=0
+# [PRB] cyc=14 stage=5 sub=1 scan=0 last=1 pe0.grown=0 mgr=0 ng=0 cid=0
+# [PRB] cyc=15 stage=0 sub=0 scan=0 last=0 pe0.grown=0 mgr=0 ng=0 cid=0
+# [PRB] cyc=16 stage=0 sub=0 scan=0 last=0 pe0.grown=0 mgr=0 ng=0 cid=0
+# [PRB] cyc=17 stage=1 sub=0 scan=0 last=0 pe0.grown=0 mgr=0 ng=0 cid=0
+# [PRB] cyc=18 stage=2 sub=0 scan=0 last=0 pe0.grown=0 mgr=0 ng=0 cid=0
+# [PRB] cyc=19 stage=3 sub=0 scan=1 last=0 pe0.grown=0 mgr=0 ng=0 cid=0
+# [PRB] cyc=20 stage=3 sub=1 scan=0 last=1 pe0.grown=0 mgr=0 ng=0 cid=0
+# [PRB] cyc=21 stage=3 sub=0 scan=1 last=0 pe0.grown=0 mgr=0 ng=0 cid=0
+# [PRB] cyc=22 stage=3 sub=1 scan=0 last=1 pe0.grown=0 mgr=0 ng=0 cid=0
+# [PRB] cyc=23 stage=4 sub=0 scan=0 last=0 pe0.grown=0 mgr=0 ng=0 cid=0
+# [PRB] cyc=24 stage=5 sub=0 scan=1 last=0 pe0.grown=0 mgr=0 ng=0 cid=0
+# [PRB] cyc=25 stage=5 sub=1 scan=0 last=1 pe0.grown=0 mgr=0 ng=0 cid=0
+# [PRB] cyc=26 stage=0 sub=0 scan=0 last=0 pe0.grown=0 mgr=0 ng=0 cid=0
+# [PRB] cyc=27 stage=0 sub=0 scan=0 last=0 pe0.grown=0 mgr=0 ng=0 cid=0
+# [PRB] cyc=28 stage=1 sub=0 scan=0 last=0 pe0.grown=0 mgr=0 ng=0 cid=0
+# [PRB] cyc=29 stage=2 sub=0 scan=0 last=0 pe0.grown=0 mgr=0 ng=0 cid=0
+# [PRB] cyc=30 stage=3 sub=0 scan=1 last=0 pe0.grown=0 mgr=0 ng=0 cid=0
+# [PRB] cyc=31 stage=3 sub=1 scan=0 last=1 pe0.grown=0 mgr=0 ng=0 cid=0
+# [PRB] cyc=32 stage=3 sub=0 scan=1 last=0 pe0.grown=0 mgr=0 ng=0 cid=0
+# [PRB] cyc=33 stage=3 sub=1 scan=0 last=1 pe0.grown=0 mgr=0 ng=0 cid=0
+# [PRB] cyc=34 stage=4 sub=0 scan=0 last=0 pe0.grown=0 mgr=0 ng=0 cid=0
+# [PRB] cyc=35 stage=5 sub=0 scan=1 last=0 pe0.grown=0 mgr=0 ng=0 cid=0
+# [PRB] cyc=36 stage=5 sub=1 scan=0 last=1 pe0.grown=0 mgr=0 ng=0 cid=0
+# [PRB] cyc=37 stage=0 sub=0 scan=0 last=0 pe0.grown=0 mgr=0 ng=0 cid=0
+# [PRB] cyc=38 stage=0 sub=0 scan=0 last=0 pe0.grown=0 mgr=0 ng=0 cid=0
+# [PRB] cyc=39 stage=1 sub=0 scan=0 last=0 pe0.grown=0 mgr=0 ng=0 cid=0
+#  quit -f
+# End time: 20:53:37 on Sep 18,2026, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0

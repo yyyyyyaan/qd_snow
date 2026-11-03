@@ -1,0 +1,360 @@
+{
+  "schema": "ppt-master.pptx-postflight-report.v1",
+  "status": "passed-with-warnings",
+  "output": {
+    "path": "D:\\ycz\\doc\\deepseek_workzone\\decoder\\projects\\snowflake_groupmeeting_20261026\\exports\\snowflake_groupmeeting_20261026_142259.pptx",
+    "bytes": 139671
+  },
+  "source": {
+    "svg_slide_count": 26,
+    "layout_definition_count": 0,
+    "fingerprint": {
+      "algorithm": "sha256",
+      "digest": "b28dcdc1cee837c846df29de9e8b7dd1238b5df2d0c442a5f9ff86b46ca56775",
+      "file_count": 26,
+      "files": [
+        {
+          "file": "01_cover.svg",
+          "sha256": "e405cb7f91fd626516f12b9862fd5b216d2ccf85cf7b02d974c553789857d86c"
+        },
+        {
+          "file": "02_summary.svg",
+          "sha256": "3de4020a94b268df3eeed0f4f46ffdfbea0dc8874518b1d5b6de320a4e90cc90"
+        },
+        {
+          "file": "03_why_qec.svg",
+          "sha256": "5c97bf3c242a7a1115c38e91018e2d25ebf8a99382b3f5eb54db18372ab85409"
+        },
+        {
+          "file": "04_decoding_graph.svg",
+          "sha256": "e18e4df8231014588dd3b4865fec79acbeb12c1637258a49328cf679ffc2a643"
+        },
+        {
+          "file": "05_constraints.svg",
+          "sha256": "e5b0a77c94a4c1e64ed42f263e80bc08189988d403582ec8fcd22f541b646aa0"
+        },
+        {
+          "file": "06_ownership.svg",
+          "sha256": "4fad04c75276e5bb24edebaa182bf0ede3e2171ef658ab0958335f8f296e8544"
+        },
+        {
+          "file": "07_union_find.svg",
+          "sha256": "5ab59b6d8269cb1f69e03bf83c594285f5e39e637afe5be7c654c2ff36f565f7"
+        },
+        {
+          "file": "08_streaming_window.svg",
+          "sha256": "6349b905687987d0e3b8fad69cfdcca5a208711a2c1378dbcffddc1151378774"
+        },
+        {
+          "file": "09_cycle_contract.svg",
+          "sha256": "fa091f774bf22338f1f37bdb03c3687ff3a00442d6086be8568d927d84431696"
+        },
+        {
+          "file": "10_offline_online.svg",
+          "sha256": "0f6ac05e4501e22bc7d0e345c34620a4ed1adf882708e2acfb6a12324c682721"
+        },
+        {
+          "file": "11_array_overview.svg",
+          "sha256": "3681272ce40bacdc24c7540e2763877289d00431a452b5ef65174d29f851fc03"
+        },
+        {
+          "file": "12_pe_internal.svg",
+          "sha256": "a1fce2ce4c95e52caa3c0744db904416c29caf82ac3edff7925454c6dea69525"
+        },
+        {
+          "file": "13_neighbor_links.svg",
+          "sha256": "a2f2b19fc6a13f2810f1b6d9171c3b858cea3c38728384d9048fdeec9b687ecb"
+        },
+        {
+          "file": "14_global_control.svg",
+          "sha256": "485361b234c05d5a682ef4e262c43609fcb61a5f43a23b995b9efaf4141d7972"
+        },
+        {
+          "file": "15_three_forms.svg",
+          "sha256": "e12c4a8c0c89501e2ee9a58cf9df12ace2249b53ba35d25ba35b1718deafe63e"
+        },
+        {
+          "file": "16_generator.svg",
+          "sha256": "66c23a5e7eb72decd8c2a7d2a720909c098e6ab3256f7872add08604e86f7bfd"
+        },
+        {
+          "file": "17_eleven_forms.svg",
+          "sha256": "79c46a4256ca08fa443f60d0b94b3439d9c323710e2bfe9d9705df8c6893f05b"
+        },
+        {
+          "file": "18_timing.svg",
+          "sha256": "a36843fa7307070951852ab96dd090718dfb6c52567634f463514012f5429644"
+        },
+        {
+          "file": "19_board_integration.svg",
+          "sha256": "e3593cf9328a1d2f0f515950ad4ba59a85b7f6798b8eb0d17db7604a170621fa"
+        },
+        {
+          "file": "20_line_exact.svg",
+          "sha256": "fbb9999f6c151c9ebb5ca7a04e54e684077b2249c254c54935678e1869ad4596"
+        },
+        {
+          "file": "21_negative_control.svg",
+          "sha256": "3ca206670aa87f6331626a1b789a2a415417d371b495b4268e4b4ea6bc05e427"
+        },
+        {
+          "file": "22_progress.svg",
+          "sha256": "a26b56ee8510ca5a7e1ef5c70b1eea53aaa902873b5786f224b9710109c06c2c"
+        },
+        {
+          "file": "23_helios_compare.svg",
+          "sha256": "92f29e057493a1898ce94fe76e4ad54b0f99cf1e00a6f74346701b5b4f3910be"
+        },
+        {
+          "file": "24_other_routes.svg",
+          "sha256": "6d846a4fd50f5587c41be4c29e260218023bef300d9cb5a5c93a6fff4c39a79b"
+        },
+        {
+          "file": "25_risks.svg",
+          "sha256": "a299c8aedb3c7ec3cc8e4d8284e21a6fa98e09db6879e099ef4aff0937a9b093"
+        },
+        {
+          "file": "26_summary.svg",
+          "sha256": "607dfd08960be1c0fc3529e03ef7adbc9bb394b563a7b78c1eefd9e9bf4f00ea"
+        }
+      ]
+    },
+    "authoring_roundtrip": null
+  },
+  "package": {
+    "zip_integrity": "passed",
+    "corrupt_member": null,
+    "slides": 26,
+    "notes": 26,
+    "masters": 1,
+    "layouts": 1
+  },
+  "checks": {
+    "zip_integrity": "passed",
+    "slide_count": "passed",
+    "internal_relationships": "enforced-at-build",
+    "structured_package": "not-applicable",
+    "transitions": "enforced-at-build",
+    "animations": "enforced-at-build",
+    "project_svg_contract": "enforced-at-build",
+    "compatibility_normalization": "not-applicable",
+    "authoring_roundtrip": "not-applicable",
+    "quality_gate": "passed",
+    "quality_warnings": "warning",
+    "template_tokens": "passed",
+    "external_images": "passed",
+    "font_portability": "passed"
+  },
+  "quality": {
+    "status": "loaded",
+    "path": "validation\\svg_quality_report.json",
+    "schema": "ppt-master.svg-quality-report.v1",
+    "stage": "final",
+    "source_match": "passed",
+    "source_fingerprint": {
+      "algorithm": "sha256",
+      "digest": "b28dcdc1cee837c846df29de9e8b7dd1238b5df2d0c442a5f9ff86b46ca56775",
+      "file_count": 26,
+      "files": [
+        {
+          "file": "01_cover.svg",
+          "sha256": "e405cb7f91fd626516f12b9862fd5b216d2ccf85cf7b02d974c553789857d86c"
+        },
+        {
+          "file": "02_summary.svg",
+          "sha256": "3de4020a94b268df3eeed0f4f46ffdfbea0dc8874518b1d5b6de320a4e90cc90"
+        },
+        {
+          "file": "03_why_qec.svg",
+          "sha256": "5c97bf3c242a7a1115c38e91018e2d25ebf8a99382b3f5eb54db18372ab85409"
+        },
+        {
+          "file": "04_decoding_graph.svg",
+          "sha256": "e18e4df8231014588dd3b4865fec79acbeb12c1637258a49328cf679ffc2a643"
+        },
+        {
+          "file": "05_constraints.svg",
+          "sha256": "e5b0a77c94a4c1e64ed42f263e80bc08189988d403582ec8fcd22f541b646aa0"
+        },
+        {
+          "file": "06_ownership.svg",
+          "sha256": "4fad04c75276e5bb24edebaa182bf0ede3e2171ef658ab0958335f8f296e8544"
+        },
+        {
+          "file": "07_union_find.svg",
+          "sha256": "5ab59b6d8269cb1f69e03bf83c594285f5e39e637afe5be7c654c2ff36f565f7"
+        },
+        {
+          "file": "08_streaming_window.svg",
+          "sha256": "6349b905687987d0e3b8fad69cfdcca5a208711a2c1378dbcffddc1151378774"
+        },
+        {
+          "file": "09_cycle_contract.svg",
+          "sha256": "fa091f774bf22338f1f37bdb03c3687ff3a00442d6086be8568d927d84431696"
+        },
+        {
+          "file": "10_offline_online.svg",
+          "sha256": "0f6ac05e4501e22bc7d0e345c34620a4ed1adf882708e2acfb6a12324c682721"
+        },
+        {
+          "file": "11_array_overview.svg",
+          "sha256": "3681272ce40bacdc24c7540e2763877289d00431a452b5ef65174d29f851fc03"
+        },
+        {
+          "file": "12_pe_internal.svg",
+          "sha256": "a1fce2ce4c95e52caa3c0744db904416c29caf82ac3edff7925454c6dea69525"
+        },
+        {
+          "file": "13_neighbor_links.svg",
+          "sha256": "a2f2b19fc6a13f2810f1b6d9171c3b858cea3c38728384d9048fdeec9b687ecb"
+        },
+        {
+          "file": "14_global_control.svg",
+          "sha256": "485361b234c05d5a682ef4e262c43609fcb61a5f43a23b995b9efaf4141d7972"
+        },
+        {
+          "file": "15_three_forms.svg",
+          "sha256": "e12c4a8c0c89501e2ee9a58cf9df12ace2249b53ba35d25ba35b1718deafe63e"
+        },
+        {
+          "file": "16_generator.svg",
+          "sha256": "66c23a5e7eb72decd8c2a7d2a720909c098e6ab3256f7872add08604e86f7bfd"
+        },
+        {
+          "file": "17_eleven_forms.svg",
+          "sha256": "79c46a4256ca08fa443f60d0b94b3439d9c323710e2bfe9d9705df8c6893f05b"
+        },
+        {
+          "file": "18_timing.svg",
+          "sha256": "a36843fa7307070951852ab96dd090718dfb6c52567634f463514012f5429644"
+        },
+        {
+          "file": "19_board_integration.svg",
+          "sha256": "e3593cf9328a1d2f0f515950ad4ba59a85b7f6798b8eb0d17db7604a170621fa"
+        },
+        {
+          "file": "20_line_exact.svg",
+          "sha256": "fbb9999f6c151c9ebb5ca7a04e54e684077b2249c254c54935678e1869ad4596"
+        },
+        {
+          "file": "21_negative_control.svg",
+          "sha256": "3ca206670aa87f6331626a1b789a2a415417d371b495b4268e4b4ea6bc05e427"
+        },
+        {
+          "file": "22_progress.svg",
+          "sha256": "a26b56ee8510ca5a7e1ef5c70b1eea53aaa902873b5786f224b9710109c06c2c"
+        },
+        {
+          "file": "23_helios_compare.svg",
+          "sha256": "92f29e057493a1898ce94fe76e4ad54b0f99cf1e00a6f74346701b5b4f3910be"
+        },
+        {
+          "file": "24_other_routes.svg",
+          "sha256": "6d846a4fd50f5587c41be4c29e260218023bef300d9cb5a5c93a6fff4c39a79b"
+        },
+        {
+          "file": "25_risks.svg",
+          "sha256": "a299c8aedb3c7ec3cc8e4d8284e21a6fa98e09db6879e099ef4aff0937a9b093"
+        },
+        {
+          "file": "26_summary.svg",
+          "sha256": "607dfd08960be1c0fc3529e03ef7adbc9bb394b563a7b78c1eefd9e9bf4f00ea"
+        }
+      ]
+    },
+    "summary": {
+      "total": 26,
+      "passed": 23,
+      "warnings": 3,
+      "errors": 0
+    },
+    "categories": {
+      "blocking": {
+        "count": 0,
+        "issues": []
+      },
+      "introduced": {
+        "count": 4,
+        "issues": [
+          {
+            "file": "04_decoding_graph.svg",
+            "message": "Noncanonical compact authoring: Authoring SVG contains noncanonical or redundant inherited style declarations (28 change(s)); examples (group:attr None -> value hoists the shared value onto that group; child:attr value -> None drops the copy the child now inherits): detectors-top:fill None -> '#12263A'; circle[123]:fill '#12263A' -> None; circle[124]:fill '#12263A' -> None (advisory; normalize with `python3 scripts/compact_svg_styles.py <svg_output> --inplace`, re-stamp pages that carry Chart/Table fallbacks, and rerun the final gate, or leave the explicit form)"
+          },
+          {
+            "file": "04_decoding_graph.svg",
+            "message": "Noncanonical compact authoring: Authoring SVG contains safely compactable page-space metadata (4 attribute(s)); examples: g[42]:transform 'translate(0,-46)' -> 'translate(0 -46)'; g[62]:transform 'translate(0,-92)' -> 'translate(0 -92)'; g[82]:transform 'translate(0,-138)' -> 'translate(0 -138)' (advisory; normalize with `python3 scripts/compact_svg_coordinates.py <svg_output> --inplace --keep-native-frames`, re-stamp pages that carry Chart/Table fallbacks, and rerun the final gate, or leave the explicit form)"
+          },
+          {
+            "file": "09_cycle_contract.svg",
+            "message": "Noncanonical compact authoring: Authoring SVG contains noncanonical or redundant inherited style declarations (7 change(s)); examples (group:attr None -> value hoists the shared value onto that group; child:attr value -> None drops the copy the child now inherits): contract-list:font-size None -> '22'; text[20]:font-size '22' -> None; text[21]:font-size '22' -> None (advisory; normalize with `python3 scripts/compact_svg_styles.py <svg_output> --inplace`, re-stamp pages that carry Chart/Table fallbacks, and rerun the final gate, or leave the explicit form)"
+          },
+          {
+            "file": "11_array_overview.svg",
+            "message": "Noncanonical compact authoring: Authoring SVG contains noncanonical or redundant inherited style declarations (3 change(s)); examples (group:attr None -> value hoists the shared value onto that group; child:attr value -> None drops the copy the child now inherits): grid-caption:fill None -> '#5A6672'; text[108]:fill '#5A6672' -> None; text[109]:fill '#5A6672' -> None (advisory; normalize with `python3 scripts/compact_svg_styles.py <svg_output> --inplace`, re-stamp pages that carry Chart/Table fallbacks, and rerun the final gate, or leave the explicit form)"
+          }
+        ]
+      },
+      "inherited": {
+        "count": 0,
+        "issues": []
+      },
+      "source-import": {
+        "count": 0,
+        "summary": {
+          "warning_count": 0,
+          "by_code": {}
+        }
+      }
+    }
+  },
+  "resources": {
+    "unresolved_template_tokens": [],
+    "fonts": {
+      "stacks": [
+        "Consolas, Cascadia Mono, Courier New, monospace",
+        "微软雅黑, Arial, PingFang SC, Noto Sans CJK SC, sans-serif"
+      ],
+      "generic_only_stacks": [],
+      "unsafe_exported_faces": []
+    },
+    "images": {
+      "data_uri": 0,
+      "local": 0,
+      "external": 0,
+      "external_references": []
+    }
+  },
+  "export_policy": {
+    "project_svg_contract": "strict",
+    "dangerous_normalization_count": 0
+  },
+  "deck_motion": {
+    "transition": {
+      "effect": "fade",
+      "effect_options": {},
+      "duration": 0.4,
+      "auto_advance": null,
+      "sound": null
+    },
+    "animation": {
+      "effect": "none",
+      "effect_request": null,
+      "duration": 0.4,
+      "stagger": 0.5,
+      "trigger": "after-previous"
+    },
+    "cli_overrides": {
+      "transition": false,
+      "transition_duration": false,
+      "auto_advance": false,
+      "transition_sound": false,
+      "animation": false,
+      "animation_duration": false,
+      "animation_stagger": false,
+      "animation_trigger": false
+    },
+    "narration_timings": false
+  },
+  "backup_path": "D:\\ycz\\doc\\deepseek_workzone\\decoder\\projects\\snowflake_groupmeeting_20261026\\backup\\20261026_142259\\svg_output",
+  "conversion_trace_path": null
+}

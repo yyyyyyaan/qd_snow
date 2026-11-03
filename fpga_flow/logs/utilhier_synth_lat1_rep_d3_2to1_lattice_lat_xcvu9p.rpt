@@ -1,0 +1,46 @@
+Copyright 1986-2020 Xilinx, Inc. All Rights Reserved.
+---------------------------------------------------------------------------------------------------------------------------------------------------------------------
+| Tool Version : Vivado v.2020.2 (win64) Build 3064766 Wed Nov 18 09:12:45 MST 2020
+| Date         : Mon Sep 21 21:04:45 2026
+| Host         : DESKTOP-TO7M6OH running 64-bit major release  (build 9200)
+| Command      : report_utilization -hierarchical -file {D:\ycz\doc\deepseek_workzone\decoder\fpga_flow\logs/utilhier_synth_lat1_rep_d3_2to1_lattice_lat_xcvu9p.rpt}
+| Design       : snowflake_pe_array_lat1
+| Device       : xcvu9pflga2104-2L
+| Design State : Synthesized
+---------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+Utilization Design Information
+
+Table of Contents
+-----------------
+1. Utilization by Hierarchy
+
+1. Utilization by Hierarchy
+---------------------------
+
++-----------------------------+-------------------+------------+------------+---------+------+-----+--------+--------+------+------------+
+|           Instance          |       Module      | Total LUTs | Logic LUTs | LUTRAMs | SRLs | FFs | RAMB36 | RAMB18 | URAM | DSP Blocks |
++-----------------------------+-------------------+------------+------------+---------+------+-----+--------+--------+------+------------+
+| snowflake_pe_array_lat1     |             (top) |       1149 |       1149 |       0 |    0 | 406 |      0 |      0 |    0 |          0 |
+|   (snowflake_pe_array_lat1) |             (top) |        289 |        289 |       0 |    0 | 406 |      0 |      0 |    0 |          0 |
+|   g_eslot[0].ed_i           | snowflake_edge__1 |          6 |          6 |       0 |    0 |   0 |      0 |      0 |    0 |          0 |
+|   g_eslot[1].ed_i           | snowflake_edge__2 |          6 |          6 |       0 |    0 |   0 |      0 |      0 |    0 |          0 |
+|   g_eslot[2].ed_i           | snowflake_edge__3 |          6 |          6 |       0 |    0 |   0 |      0 |      0 |    0 |          0 |
+|   g_eslot[3].ed_i           | snowflake_edge__4 |          6 |          6 |       0 |    0 |   0 |      0 |      0 |    0 |          0 |
+|   g_eslot[4].ed_i           | snowflake_edge__5 |          6 |          6 |       0 |    0 |   0 |      0 |      0 |    0 |          0 |
+|   g_eslot[5].ed_i           | snowflake_edge__6 |          6 |          6 |       0 |    0 |   0 |      0 |      0 |    0 |          0 |
+|   g_eslot[6].ed_i           | snowflake_edge__7 |          6 |          6 |       0 |    0 |   0 |      0 |      0 |    0 |          0 |
+|   g_eslot[7].ed_i           | snowflake_edge__8 |          6 |          6 |       0 |    0 |   0 |      0 |      0 |    0 |          0 |
+|   g_eslot[8].ed_i           | snowflake_edge__9 |          5 |          5 |       0 |    0 |   0 |      0 |      0 |    0 |          0 |
+|   g_eslot[9].ed_i           |    snowflake_edge |          5 |          5 |       0 |    0 |   0 |      0 |      0 |    0 |          0 |
+|   g_slot[0].pe_i            |   snowflake_pe__1 |         60 |         60 |       0 |    0 |   0 |      0 |      0 |    0 |          0 |
+|   g_slot[1].pe_i            |   snowflake_pe__2 |        143 |        143 |       0 |    0 |   0 |      0 |      0 |    0 |          0 |
+|   g_slot[2].pe_i            |   snowflake_pe__3 |        150 |        150 |       0 |    0 |   0 |      0 |      0 |    0 |          0 |
+|   g_slot[3].pe_i            |   snowflake_pe__4 |         60 |         60 |       0 |    0 |   0 |      0 |      0 |    0 |          0 |
+|   g_slot[4].pe_i            |   snowflake_pe__5 |         55 |         55 |       0 |    0 |   0 |      0 |      0 |    0 |          0 |
+|   g_slot[5].pe_i            |   snowflake_pe__6 |        142 |        142 |       0 |    0 |   0 |      0 |      0 |    0 |          0 |
+|   g_slot[6].pe_i            |   snowflake_pe__7 |        135 |        135 |       0 |    0 |   0 |      0 |      0 |    0 |          0 |
+|   g_slot[7].pe_i            |      snowflake_pe |         57 |         57 |       0 |    0 |   0 |      0 |      0 |    0 |          0 |
++-----------------------------+-------------------+------------+------------+---------+------+-----+--------+--------+------+------------+
+
+

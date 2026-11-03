@@ -1,0 +1,12 @@
+#-----------------------------------------------------------
+# Vivado v2020.2 (64-bit)
+# SW Build 3064766 on Wed Nov 18 09:12:45 MST 2020
+# IP Build 3064653 on Wed Nov 18 14:17:31 MST 2020
+# Start of session at: Wed Sep 16 22:27:02 2026
+# Process ID: 14244
+# Current directory: D:/ycz/doc/deepseek_workzone/decoder
+# Command line: vivado.exe -mode batch -source fpga_flow\synth_helios_pe.tcl -log fpga_flow\logs\helios_pe_d21.log -journal fpga_flow\logs\helios_pe_d21.jou
+# Log file: D:/ycz/doc/deepseek_workzone/decoder/fpga_flow/logs/helios_pe_d21.log
+# Journal file: D:/ycz/doc/deepseek_workzone/decoder\fpga_flow\logs\helios_pe_d21.jou
+#-----------------------------------------------------------
+source {fpga_flow\synth_helios_pe.tcl}

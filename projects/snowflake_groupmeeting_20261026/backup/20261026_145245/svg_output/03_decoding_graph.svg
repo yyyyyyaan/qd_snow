@@ -1,0 +1,110 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1280 720" font-family="微软雅黑, Arial, PingFang SC, Noto Sans CJK SC, sans-serif" data-pptx-page-role="content">
+  <defs>
+    <marker id="arrow-graph" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto">
+      <path d="M0 0L10 5L0 10z" fill="#12263A"/>
+    </marker>
+  </defs>
+  <rect id="bg" data-pptx-role="background" x="0" y="0" width="1280" height="720" fill="#FFFFFF"/>
+
+  <g id="page-head" data-pptx-bounds="72 36 1136 80">
+    <text x="72" y="52" font-size="15" fill="#5A6672" letter-spacing="1.4">01 / 背景与问题定义</text>
+    <text x="72" y="100" font-size="38" font-weight="bold" fill="#12263A">一次解码 = 在 2 空间 + 1 时间的图上找连通块</text>
+    <rect x="1184" y="40" width="8" height="8" fill="#5A6672"/>
+    <text x="1208" y="49" font-size="15" fill="#5A6672" text-anchor="end">基础</text>
+    <line x1="72" y1="118" x2="1208" y2="118" stroke="#D8DEE5" stroke-width="1"/>
+  </g>
+
+  <g id="graph-stack" data-pptx-bounds="100 214 640 420">
+    <text x="140" y="232" font-size="15" fill="#5A6672" letter-spacing="1.2">5 个时间层，叠在同一张空间网格上</text>
+    <rect x="164" y="316" width="360" height="220" fill="none" stroke="#D8DEE5" stroke-width="1"/>
+    <rect x="188" y="292" width="360" height="220" fill="none" stroke="#D8DEE5" stroke-width="1"/>
+    <rect x="212" y="268" width="360" height="220" fill="none" stroke="#D8DEE5" stroke-width="1"/>
+    <rect x="236" y="244" width="360" height="220" fill="none" stroke="#D8DEE5" stroke-width="1"/>
+    <line x1="140" y1="340" x2="236" y2="244" stroke="#5A6672" stroke-width="1"/>
+    <line x1="500" y1="340" x2="596" y2="244" stroke="#5A6672" stroke-width="1"/>
+    <line x1="500" y1="560" x2="596" y2="464" stroke="#5A6672" stroke-width="1"/>
+    <rect x="140" y="340" width="360" height="220" fill="#FFFFFF" stroke="#12263A" stroke-width="1.6"/>
+    <line x1="180" y1="395" x2="460" y2="395" stroke="#5A6672" stroke-width="1"/>
+    <line x1="180" y1="430" x2="460" y2="430" stroke="#5A6672" stroke-width="1"/>
+    <line x1="180" y1="465" x2="460" y2="465" stroke="#5A6672" stroke-width="1"/>
+    <line x1="180" y1="500" x2="460" y2="500" stroke="#5A6672" stroke-width="1"/>
+    <line x1="180" y1="395" x2="180" y2="500" stroke="#5A6672" stroke-width="1"/>
+    <line x1="250" y1="395" x2="250" y2="500" stroke="#5A6672" stroke-width="1"/>
+    <line x1="320" y1="395" x2="320" y2="500" stroke="#5A6672" stroke-width="1"/>
+    <line x1="390" y1="395" x2="390" y2="500" stroke="#5A6672" stroke-width="1"/>
+    <line x1="460" y1="395" x2="460" y2="500" stroke="#5A6672" stroke-width="1"/>
+    <line x1="180" y1="365" x2="180" y2="395" stroke="#2C6E9B" stroke-width="1.2"/>
+    <line x1="250" y1="365" x2="250" y2="395" stroke="#2C6E9B" stroke-width="1.2"/>
+    <line x1="320" y1="365" x2="320" y2="395" stroke="#2C6E9B" stroke-width="1.2"/>
+    <line x1="390" y1="365" x2="390" y2="395" stroke="#2C6E9B" stroke-width="1.2"/>
+    <line x1="460" y1="365" x2="460" y2="395" stroke="#2C6E9B" stroke-width="1.2"/>
+    <line x1="180" y1="500" x2="180" y2="535" stroke="#2C6E9B" stroke-width="1.2"/>
+    <line x1="250" y1="500" x2="250" y2="535" stroke="#2C6E9B" stroke-width="1.2"/>
+    <line x1="320" y1="500" x2="320" y2="535" stroke="#2C6E9B" stroke-width="1.2"/>
+    <line x1="390" y1="500" x2="390" y2="535" stroke="#2C6E9B" stroke-width="1.2"/>
+    <line x1="460" y1="500" x2="460" y2="535" stroke="#2C6E9B" stroke-width="1.2"/>
+    <circle cx="180" cy="365" r="3" fill="#2C6E9B"/>
+    <circle cx="250" cy="365" r="3" fill="#2C6E9B"/>
+    <circle cx="320" cy="365" r="3" fill="#2C6E9B"/>
+    <circle cx="390" cy="365" r="3" fill="#2C6E9B"/>
+    <circle cx="460" cy="365" r="3" fill="#2C6E9B"/>
+    <circle cx="180" cy="535" r="3" fill="#2C6E9B"/>
+    <circle cx="250" cy="535" r="3" fill="#2C6E9B"/>
+    <circle cx="320" cy="535" r="3" fill="#2C6E9B"/>
+    <circle cx="390" cy="535" r="3" fill="#2C6E9B"/>
+    <circle cx="460" cy="535" r="3" fill="#2C6E9B"/>
+    <circle cx="180" cy="395" r="3" fill="#12263A"/>
+    <circle cx="250" cy="395" r="3" fill="#12263A"/>
+    <circle cx="320" cy="395" r="3" fill="#12263A"/>
+    <circle cx="390" cy="395" r="3" fill="#12263A"/>
+    <circle cx="460" cy="395" r="3" fill="#12263A"/>
+    <circle cx="180" cy="430" r="3" fill="#12263A"/>
+    <circle cx="250" cy="430" r="3" fill="#12263A"/>
+    <circle cx="320" cy="430" r="3" fill="#12263A"/>
+    <circle cx="390" cy="430" r="3" fill="#12263A"/>
+    <circle cx="460" cy="430" r="3" fill="#12263A"/>
+    <circle cx="180" cy="465" r="3" fill="#12263A"/>
+    <circle cx="250" cy="465" r="3" fill="#12263A"/>
+    <circle cx="320" cy="465" r="3" fill="#12263A"/>
+    <circle cx="390" cy="465" r="3" fill="#12263A"/>
+    <circle cx="460" cy="465" r="3" fill="#12263A"/>
+    <circle cx="180" cy="500" r="3" fill="#12263A"/>
+    <circle cx="250" cy="500" r="3" fill="#12263A"/>
+    <circle cx="320" cy="500" r="3" fill="#12263A"/>
+    <circle cx="390" cy="500" r="3" fill="#12263A"/>
+    <circle cx="460" cy="500" r="3" fill="#12263A"/>
+    <line x1="600" y1="560" x2="690" y2="470" stroke="#12263A" stroke-width="1.4" marker-end="url(#arrow-graph)"/>
+    <text x="606" y="596" font-size="15" fill="#5A6672">时间</text>
+    <text x="606" y="620" font-size="15" fill="#5A6672">5 层</text>
+    <text x="140" y="616" font-size="15" fill="#5A6672">最前层：20 个探测器 + 上下边界各 5 个</text>
+  </g>
+
+  <g id="graph-legend" data-pptx-bounds="800 160 408 120">
+    <circle cx="808" cy="182" r="4" fill="#12263A"/>
+    <text x="824" y="188" font-size="15" fill="#5A6672">探测器节点</text>
+    <circle cx="808" cy="210" r="4" fill="#2C6E9B"/>
+    <text x="824" y="216" font-size="15" fill="#5A6672">边界节点</text>
+    <line x1="800" y1="238" x2="816" y2="238" stroke="#5A6672" stroke-width="1.2"/>
+    <text x="824" y="244" font-size="15" fill="#5A6672">解码图的边</text>
+    <line x1="800" y1="272" x2="816" y2="266" stroke="#12263A" stroke-width="1.4" marker-end="url(#arrow-graph)"/>
+    <text x="824" y="274" font-size="15" fill="#5A6672">时间轴 = 测量轮次</text>
+  </g>
+
+  <g id="definitions" data-pptx-bounds="800 300 408 160">
+    <text x="800" y="336" font-size="22" font-weight="bold" fill="#12263A">综合症：稳定子测量结果</text>
+    <text x="800" y="366" font-size="22" fill="#1B2632">相对上一次的变化</text>
+    <text x="800" y="410" font-size="22" font-weight="bold" fill="#12263A">探测器：一次变化事件</text>
+    <text x="800" y="440" font-size="22" fill="#1B2632">在图上就是一个节点</text>
+  </g>
+
+  <g id="scale-note" data-pptx-bounds="800 470 408 150">
+    <line x1="800" y1="470" x2="1208" y2="470" stroke="#D8DEE5" stroke-width="1"/>
+    <text x="800" y="508" font-size="22" fill="#1B2632">d = 5 未旋转，共 150 个节点<tspan x="800" dy="32">= 5 层 ×（20 探测器 + 2×5 边界）</tspan></text>
+    <text x="800" y="590" font-size="15" fill="#5A6672">每个节点按 12 个方向登记邻居<tspan x="800" dy="22">边界节点只登记存在的方向</tspan></text>
+  </g>
+
+  <g id="page-foot" data-pptx-role="footer" data-pptx-bounds="72 636 1136 44">
+    <line x1="72" y1="640" x2="1208" y2="640" stroke="#D8DEE5" stroke-width="1"/>
+    <text x="72" y="666" font-size="15" fill="#5A6672">图中为示意；规模数字来自生成的图常量表</text>
+  </g>
+</svg>

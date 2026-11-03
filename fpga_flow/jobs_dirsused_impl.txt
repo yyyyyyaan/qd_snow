@@ -1,0 +1,10 @@
+# Measure what --dirs used is worth (the "12 directions declared, 6 ever used"
+# finding): do the dead ports really fold away, or do they cost routing?
+#
+# The marker define SNOW_DIRSUSED is inert in RTL -- it only tags the artifacts
+# so they do not overwrite the baseline.  The actual change comes from the graph
+# passed with -Graph (generated with `--dirs used`).
+#
+# Baselines: surface d3 impl 4,091 LUT / 7.243 ns / 138.1 MHz
+#            surface d7 synth 73,310 LUT (utilhier total)
+surface 3 2:1 xcvu9p-flga2104-2L-e 5.0 SNOW_PEARRAY;SNOW_DIRSUSED

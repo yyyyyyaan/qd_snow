@@ -1,0 +1,197 @@
+﻿====================================================================================================================
+surface d=3 n=2  noise=phenomenological graph: 36 nodes, 51 edges, max degree 6
+  P1 layer isomorphism PASS | box 3x4 = 12 slots/layer, 3 layers, gmax=2, fill 100.0% (every slot a node)
+  max degree 6 <= NDIR 12: PASS   (distinct directions used: 6)
+  edge classes actually used, by (d_layer, d_rank) [d_layer >= 0]:
+     dL=0 dR=+1 :    27 edges  = class 0 (E/W)
+     dL=0 dR=+4 :    12 edges  = class 1 (N/S)
+     dL=1 dR=+0 :    12 edges  = class 2 (vertical, a pure time step)
+  P2 with the PRE-FIX 3-class rule (negative control): PASS
+  P2 with the GENERALISED rule (class = (dL,dR), anchor = lower layer) -- WHAT THE GENERATOR NOW IMPLEMENTS: PASS   (per-layer set identical: True)
+       edge slots: ES_PER_LAYER 19 -> ES 38 for gmax=2 ; cells 76, live 51 (fill 67.1%)
+  P3 `above` = same edge one layer up: 32 links, PASS
+  -> geometry PASS   (pre-fix generator: PASS)
+====================================================================================================================
+surface d=3 n=2  noise=circuit-level    graph: 36 nodes, 69 edges, max degree 10
+  P1 layer isomorphism PASS | box 3x4 = 12 slots/layer, 3 layers, gmax=2, fill 100.0% (every slot a node)
+  max degree 10 <= NDIR 12: PASS   (distinct directions used: 12)
+  edge classes actually used, by (d_layer, d_rank) [d_layer >= 0]:
+     dL=1 dR=-4 :     8 edges  = class (1,-4): space-time HOOK -- the pre-fix generator filed this under class 2 and collided
+     dL=0 dR=+1 :    27 edges  = class 0 (E/W)
+     dL=0 dR=+4 :    12 edges  = class 1 (N/S)
+     dL=1 dR=+0 :    12 edges  = class 2 (vertical, a pure time step)
+     dL=1 dR=+1 :     6 edges  = class (1,+1): space-time HOOK -- the pre-fix generator filed this under class 2 and collided
+     dL=1 dR=+5 :     4 edges  = class (1,+5): space-time HOOK -- the pre-fix generator filed this under class 2 and collided
+  P2 with the PRE-FIX 3-class rule (negative control): **FAIL** (0 unclassifiable edge(s), 10 cells shared by 2+ edges, per-layer set equal: True)
+       cell (slice 0, tlocal 0, orient 2, rank 1): 30-24, 30-27, 30-28
+       cell (slice 0, tlocal 0, orient 2, rank 5): 24-31, 31-25, 31-28, 31-29
+       cell (slice 0, tlocal 0, orient 2, rank 6): 27-34, 34-28
+       cell (slice 0, tlocal 0, orient 2, rank 9): 25-32, 32-26, 32-29
+       cell (slice 0, tlocal 0, orient 2, rank 10): 28-35, 35-29
+       cell (slice 0, tlocal 1, orient 2, rank 1): 24-18, 24-21, 24-22
+  P2 with the GENERALISED rule (class = (dL,dR), anchor = lower layer) -- WHAT THE GENERATOR NOW IMPLEMENTS: PASS   (per-layer set identical: True)
+       edge slots: ES_PER_LAYER 28 -> ES 56 for gmax=2 ; cells 112, live 69 (fill 61.6%)
+  P3 `above` = same edge one layer up: 41 links, PASS
+  -> geometry PASS   (pre-fix generator: FAIL)
+====================================================================================================================
+surface d=5 n=2  noise=phenomenological graph: 150 nodes, 285 edges, max degree 6
+  P1 layer isomorphism PASS | box 5x6 = 30 slots/layer, 5 layers, gmax=3, fill 100.0% (every slot a node)
+  max degree 6 <= NDIR 12: PASS   (distinct directions used: 6)
+  edge classes actually used, by (d_layer, d_rank) [d_layer >= 0]:
+     dL=0 dR=+1 :   125 edges  = class 0 (E/W)
+     dL=0 dR=+6 :    80 edges  = class 1 (N/S)
+     dL=1 dR=+0 :    80 edges  = class 2 (vertical, a pure time step)
+  P2 with the PRE-FIX 3-class rule (negative control): PASS
+  P2 with the GENERALISED rule (class = (dL,dR), anchor = lower layer) -- WHAT THE GENERATOR NOW IMPLEMENTS: PASS   (per-layer set identical: True)
+       edge slots: ES_PER_LAYER 61 -> ES 183 for gmax=3 ; cells 366, live 285 (fill 77.9%)
+  P3 `above` = same edge one layer up: 224 links, PASS
+  -> geometry PASS   (pre-fix generator: PASS)
+====================================================================================================================
+surface d=5 n=2  noise=circuit-level    graph: 150 nodes, 457 edges, max degree 12
+  P1 layer isomorphism PASS | box 5x6 = 30 slots/layer, 5 layers, gmax=3, fill 100.0% (every slot a node)
+  max degree 12 <= NDIR 12: PASS   (distinct directions used: 12)
+  edge classes actually used, by (d_layer, d_rank) [d_layer >= 0]:
+     dL=1 dR=-6 :    64 edges  = class (1,-6): space-time HOOK -- the pre-fix generator filed this under class 2 and collided
+     dL=0 dR=+1 :   125 edges  = class 0 (E/W)
+     dL=0 dR=+6 :    80 edges  = class 1 (N/S)
+     dL=1 dR=+0 :    80 edges  = class 2 (vertical, a pure time step)
+     dL=1 dR=+1 :    60 edges  = class (1,+1): space-time HOOK -- the pre-fix generator filed this under class 2 and collided
+     dL=1 dR=+7 :    48 edges  = class (1,+7): space-time HOOK -- the pre-fix generator filed this under class 2 and collided
+  P2 with the PRE-FIX 3-class rule (negative control): **FAIL** (0 unclassifiable edge(s), 76 cells shared by 2+ edges, per-layer set equal: True)
+       cell (slice 0, tlocal 0, orient 2, rank 1): 130-110, 130-115, 130-116
+       cell (slice 0, tlocal 0, orient 2, rank 2): 135-115, 135-120, 135-121
+       cell (slice 0, tlocal 0, orient 2, rank 3): 140-120, 140-125, 140-126
+       cell (slice 0, tlocal 0, orient 2, rank 7): 110-131, 131-111, 131-116, 131-117
+       cell (slice 0, tlocal 0, orient 2, rank 8): 115-136, 136-116, 136-121, 136-122
+       cell (slice 0, tlocal 0, orient 2, rank 9): 120-141, 141-121, 141-126, 141-127
+  P2 with the GENERALISED rule (class = (dL,dR), anchor = lower layer) -- WHAT THE GENERATOR NOW IMPLEMENTS: PASS   (per-layer set identical: True)
+       edge slots: ES_PER_LAYER 104 -> ES 312 for gmax=3 ; cells 624, live 457 (fill 73.2%)
+  P3 `above` = same edge one layer up: 353 links, PASS
+  -> geometry PASS   (pre-fix generator: FAIL)
+====================================================================================================================
+surface d=7 n=2  noise=phenomenological graph: 392 nodes, 847 edges, max degree 6
+  P1 layer isomorphism PASS | box 7x8 = 56 slots/layer, 7 layers, gmax=4, fill 100.0% (every slot a node)
+  max degree 6 <= NDIR 12: PASS   (distinct directions used: 6)
+  edge classes actually used, by (d_layer, d_rank) [d_layer >= 0]:
+     dL=0 dR=+1 :   343 edges  = class 0 (E/W)
+     dL=0 dR=+8 :   252 edges  = class 1 (N/S)
+     dL=1 dR=+0 :   252 edges  = class 2 (vertical, a pure time step)
+  P2 with the PRE-FIX 3-class rule (negative control): PASS
+  P2 with the GENERALISED rule (class = (dL,dR), anchor = lower layer) -- WHAT THE GENERATOR NOW IMPLEMENTS: PASS   (per-layer set identical: True)
+       edge slots: ES_PER_LAYER 127 -> ES 508 for gmax=4 ; cells 1016, live 847 (fill 83.4%)
+  P3 `above` = same edge one layer up: 720 links, PASS
+  -> geometry PASS   (pre-fix generator: PASS)
+====================================================================================================================
+surface d=7 n=2  noise=circuit-level    graph: 392 nodes, 1453 edges, max degree 12
+  P1 layer isomorphism PASS | box 7x8 = 56 slots/layer, 7 layers, gmax=4, fill 100.0% (every slot a node)
+  max degree 12 <= NDIR 12: PASS   (distinct directions used: 12)
+  edge classes actually used, by (d_layer, d_rank) [d_layer >= 0]:
+     dL=1 dR=-8 :   216 edges  = class (1,-8): space-time HOOK -- the pre-fix generator filed this under class 2 and collided
+     dL=0 dR=+1 :   343 edges  = class 0 (E/W)
+     dL=0 dR=+8 :   252 edges  = class 1 (N/S)
+     dL=1 dR=+0 :   252 edges  = class 2 (vertical, a pure time step)
+     dL=1 dR=+1 :   210 edges  = class (1,+1): space-time HOOK -- the pre-fix generator filed this under class 2 and collided
+     dL=1 dR=+9 :   180 edges  = class (1,+9): space-time HOOK -- the pre-fix generator filed this under class 2 and collided
+  P2 with the PRE-FIX 3-class rule (negative control): **FAIL** (0 unclassifiable edge(s), 246 cells shared by 2+ edges, per-layer set equal: True)
+       cell (slice 0, tlocal 0, orient 2, rank 1): 350-308, 350-315, 350-316
+       cell (slice 0, tlocal 0, orient 2, rank 2): 357-315, 357-322, 357-323
+       cell (slice 0, tlocal 0, orient 2, rank 3): 364-322, 364-329, 364-330
+       cell (slice 0, tlocal 0, orient 2, rank 4): 371-329, 371-336, 371-337
+       cell (slice 0, tlocal 0, orient 2, rank 5): 378-336, 378-343, 378-344
+       cell (slice 0, tlocal 0, orient 2, rank 9): 308-351, 351-309, 351-316, 351-317
+  P2 with the GENERALISED rule (class = (dL,dR), anchor = lower layer) -- WHAT THE GENERATOR NOW IMPLEMENTS: PASS   (per-layer set identical: True)
+       edge slots: ES_PER_LAYER 228 -> ES 912 for gmax=4 ; cells 1824, live 1453 (fill 79.7%)
+  P3 `above` = same edge one layer up: 1225 links, PASS
+  -> geometry PASS   (pre-fix generator: FAIL)
+====================================================================================================================
+repetition d=3 n=2  noise=phenomenological graph: 12 nodes, 13 edges, max degree 4
+  P1 layer isomorphism PASS | box 1x4 = 4 slots/layer, 3 layers, gmax=2, fill 100.0% (every slot a node)
+  max degree 4 <= NDIR 12: PASS   (distinct directions used: 4)
+  edge classes actually used, by (d_layer, d_rank) [d_layer >= 0]:
+     dL=0 dR=+1 :     9 edges  = class 0 (E/W)
+     dL=1 dR=+0 :     4 edges  = class 2 (vertical, a pure time step)
+  P2 with the PRE-FIX 3-class rule (negative control): PASS
+  P2 with the GENERALISED rule (class = (dL,dR), anchor = lower layer) -- WHAT THE GENERATOR NOW IMPLEMENTS: PASS   (per-layer set identical: True)
+       edge slots: ES_PER_LAYER 5 -> ES 10 for gmax=2 ; cells 20, live 13 (fill 65.0%)
+  P3 `above` = same edge one layer up: 8 links, PASS
+  -> geometry PASS   (pre-fix generator: PASS)
+rep d=3 circuit-level: localuf raises NotImplementedError: Yet to implement circuit-level noise for repetition code.
+====================================================================================================================
+repetition d=5 n=2  noise=phenomenological graph: 30 nodes, 41 edges, max degree 4
+  P1 layer isomorphism PASS | box 1x6 = 6 slots/layer, 5 layers, gmax=3, fill 100.0% (every slot a node)
+  max degree 4 <= NDIR 12: PASS   (distinct directions used: 4)
+  edge classes actually used, by (d_layer, d_rank) [d_layer >= 0]:
+     dL=0 dR=+1 :    25 edges  = class 0 (E/W)
+     dL=1 dR=+0 :    16 edges  = class 2 (vertical, a pure time step)
+  P2 with the PRE-FIX 3-class rule (negative control): PASS
+  P2 with the GENERALISED rule (class = (dL,dR), anchor = lower layer) -- WHAT THE GENERATOR NOW IMPLEMENTS: PASS   (per-layer set identical: True)
+       edge slots: ES_PER_LAYER 9 -> ES 27 for gmax=3 ; cells 54, live 41 (fill 75.9%)
+  P3 `above` = same edge one layer up: 32 links, PASS
+  -> geometry PASS   (pre-fix generator: PASS)
+rep d=5 circuit-level: localuf raises NotImplementedError: Yet to implement circuit-level noise for repetition code.
+
+NOT TESTABLE (localuf has no such graph): rep d3 circuit-level; rep d5 circuit-level
+CIRCUIT_LEVEL_GEOMETRY_VERDICT PASS
+====================================================================================================================
+surface d=3 n=2  noise=phenomenological graph: 24 nodes, 35 edges, max degree 6
+  P1 layer isomorphism PASS | box 4x4 = 16 slots/layer, 3 layers, gmax=2, fill 50.0% (PARITY SUBLATTICE: half the box is empty, which is FINE -- dead slots are free, report 6.28)
+  max degree 6 <= NDIR 12: PASS   (distinct directions used: 6)
+  edge classes actually used, by (d_layer, d_rank) [d_layer >= 0]:
+     dL=0 dR=+3 :    12 edges  = class (0,3): in-plane DIAGONAL -- the pre-fix generator died on this
+     dL=0 dR=+5 :    15 edges  = class (0,5): in-plane DIAGONAL -- the pre-fix generator died on this
+     dL=1 dR=+0 :     8 edges  = class 2 (vertical, a pure time step)
+  P2 with the PRE-FIX 3-class rule (negative control): **FAIL** (27 unclassifiable edge(s), 0 cells shared by 2+ edges, per-layer set equal: True)
+       edge 0-12: (dL,dR) = (0,+5) -- |drank| = 5 is not 1 or NY = 4 on the same layer
+       edge 1-13: (dL,dR) = (0,+5) -- |drank| = 5 is not 1 or NY = 4 on the same layer
+       edge 2-15: (dL,dR) = (0,+3) -- |drank| = 3 is not 1 or NY = 4 on the same layer
+       edge 4-16: (dL,dR) = (0,+5) -- |drank| = 5 is not 1 or NY = 4 on the same layer
+  P2 with the GENERALISED rule (class = (dL,dR), anchor = lower layer) -- WHAT THE GENERATOR NOW IMPLEMENTS: PASS   (per-layer set identical: True)
+       edge slots: ES_PER_LAYER 13 -> ES 26 for gmax=2 ; cells 52, live 35 (fill 67.3%)
+  P3 `above` = same edge one layer up: 22 links, PASS
+  -> geometry PASS   (pre-fix generator: FAIL)
+rotated d=3 circuit-level: localuf raises NotImplementedError: rotated: circuit-level edges are the next step (see fpga_flow/rotated_p4_plan.md; do NOT silently fall back to phenomenological)
+
+NOT TESTABLE (localuf has no such graph): rotated d3 circuit-level
+CIRCUIT_LEVEL_GEOMETRY_VERDICT PASS
+====================================================================================================================
+surface d=5 n=2  noise=phenomenological graph: 90 nodes, 173 edges, max degree 6
+  P1 layer isomorphism PASS | box 6x6 = 36 slots/layer, 5 layers, gmax=3, fill 50.0% (PARITY SUBLATTICE: half the box is empty, which is FINE -- dead slots are free, report 6.28)
+  max degree 6 <= NDIR 12: PASS   (distinct directions used: 6)
+  edge classes actually used, by (d_layer, d_rank) [d_layer >= 0]:
+     dL=0 dR=+5 :    60 edges  = class (0,5): in-plane DIAGONAL -- the pre-fix generator died on this
+     dL=0 dR=+7 :    65 edges  = class (0,7): in-plane DIAGONAL -- the pre-fix generator died on this
+     dL=1 dR=+0 :    48 edges  = class 2 (vertical, a pure time step)
+  P2 with the PRE-FIX 3-class rule (negative control): **FAIL** (125 unclassifiable edge(s), 0 cells shared by 2+ edges, per-layer set equal: True)
+       edge 0-30: (dL,dR) = (0,+7) -- |drank| = 7 is not 1 or NY = 6 on the same layer
+       edge 1-31: (dL,dR) = (0,+7) -- |drank| = 7 is not 1 or NY = 6 on the same layer
+       edge 2-32: (dL,dR) = (0,+7) -- |drank| = 7 is not 1 or NY = 6 on the same layer
+       edge 3-40: (dL,dR) = (0,+5) -- |drank| = 5 is not 1 or NY = 6 on the same layer
+  P2 with the GENERALISED rule (class = (dL,dR), anchor = lower layer) -- WHAT THE GENERATOR NOW IMPLEMENTS: PASS   (per-layer set identical: True)
+       edge slots: ES_PER_LAYER 37 -> ES 111 for gmax=3 ; cells 222, live 173 (fill 77.9%)
+  P3 `above` = same edge one layer up: 136 links, PASS
+  -> geometry PASS   (pre-fix generator: FAIL)
+rotated d=5 circuit-level: localuf raises NotImplementedError: rotated: circuit-level edges are the next step (see fpga_flow/rotated_p4_plan.md; do NOT silently fall back to phenomenological)
+
+NOT TESTABLE (localuf has no such graph): rotated d5 circuit-level
+CIRCUIT_LEVEL_GEOMETRY_VERDICT PASS
+====================================================================================================================
+surface d=7 n=2  noise=phenomenological graph: 224 nodes, 487 edges, max degree 6
+  P1 layer isomorphism PASS | box 8x8 = 64 slots/layer, 7 layers, gmax=4, fill 50.0% (PARITY SUBLATTICE: half the box is empty, which is FINE -- dead slots are free, report 6.28)
+  max degree 6 <= NDIR 12: PASS   (distinct directions used: 6)
+  edge classes actually used, by (d_layer, d_rank) [d_layer >= 0]:
+     dL=0 dR=+7 :   168 edges  = class (0,7): in-plane DIAGONAL -- the pre-fix generator died on this
+     dL=0 dR=+9 :   175 edges  = class (0,9): in-plane DIAGONAL -- the pre-fix generator died on this
+     dL=1 dR=+0 :   144 edges  = class 2 (vertical, a pure time step)
+  P2 with the PRE-FIX 3-class rule (negative control): **FAIL** (343 unclassifiable edge(s), 0 cells shared by 2+ edges, per-layer set equal: True)
+       edge 0-56: (dL,dR) = (0,+9) -- |drank| = 9 is not 1 or NY = 8 on the same layer
+       edge 1-57: (dL,dR) = (0,+9) -- |drank| = 9 is not 1 or NY = 8 on the same layer
+       edge 2-58: (dL,dR) = (0,+9) -- |drank| = 9 is not 1 or NY = 8 on the same layer
+       edge 3-59: (dL,dR) = (0,+9) -- |drank| = 9 is not 1 or NY = 8 on the same layer
+  P2 with the GENERALISED rule (class = (dL,dR), anchor = lower layer) -- WHAT THE GENERATOR NOW IMPLEMENTS: PASS   (per-layer set identical: True)
+       edge slots: ES_PER_LAYER 73 -> ES 292 for gmax=4 ; cells 584, live 487 (fill 83.4%)
+  P3 `above` = same edge one layer up: 414 links, PASS
+  -> geometry PASS   (pre-fix generator: FAIL)
+rotated d=7 circuit-level: localuf raises NotImplementedError: rotated: circuit-level edges are the next step (see fpga_flow/rotated_p4_plan.md; do NOT silently fall back to phenomenological)
+
+NOT TESTABLE (localuf has no such graph): rotated d7 circuit-level
+CIRCUIT_LEVEL_GEOMETRY_VERDICT PASS

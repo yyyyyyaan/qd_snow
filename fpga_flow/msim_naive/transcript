@@ -1,0 +1,9 @@
+# vsim -c -quiet -do "run -all; quit -f" work.tb_snowflake_pe_array 
+# Start time: 19:28:15 on Sep 18,2026
+# run -all
+# SEAM stats: live_cycles=130 push_xfer_cycles=1 flip_xfer_cycles=1
+# RTL trace written to rtl_trace.txt (12 rounds, ONE_ONE=0, NN=36, NE=51, clk_cycles=161)
+# ** Note: $finish    : test_benches/snowflake/tb_snowflake_pe_array.sv(152)
+#    Time: 1605 ns  Iteration: 1  Instance: /tb_snowflake_pe_array
+# End time: 19:28:16 on Sep 18,2026, Elapsed time: 0:00:01
+# Errors: 0, Warnings: 0

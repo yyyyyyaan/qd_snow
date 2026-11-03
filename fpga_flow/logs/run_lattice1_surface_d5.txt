@@ -1,0 +1,21 @@
+﻿17:43:04  start: surface d5 n=2, floor 1200MB, cap 200min
+17:46:05  !! free memory 521MB < floor -- killing Vivado to save the machine
+17:46:07  elapsed 3.1 min; killed=True
+17:46:07  post-check OK: header is still surface d5 n=2
+17:46:07  last CSV row for the tag:
+17:46:07    lat1_surface_d5_2to1_lattice_lat_xcvu9p,surface,5,2:1,snowflake_pe_array_lat1,xcvu9p-flga2104-2L-e,5.0,synth,FAIL,NA,NA,NA,NA,NA,NA,NA,NA,NA,D:\ycz\doc\deepseek_workzone\decoder\fpga_flow\logs\flow_synth_lat1_surface_d5_2to1_lattice_lat_xcvu9p.log
+17:52:08  start: surface d5 n=2, floor 400MB, cap 180min
+17:52:38    t=0.5min vivado=984MB free=10185MB
+18:02:10    t=10.0min vivado=4554MB free=6995MB
+18:12:12    t=20.1min vivado=3873MB free=6982MB
+18:22:13    t=30.1min vivado=5375MB free=4821MB
+18:32:15    t=40.1min vivado=6747MB free=1881MB
+18:42:17    t=50.1min vivado=7331MB free=2464MB
+18:52:18    t=60.2min vivado=4963MB free=4145MB
+19:02:20    t=70.2min vivado=4177MB free=4274MB
+19:12:22    t=80.2min vivado=0MB free=9615MB
+19:12:22    [done] lat1_surface_d5_2to1_lattice_lat_xcvu9p  wns=-5.614 lut=20524 ff=5197 fmax=94.2MHz  (79.9 min)
+19:12:22  elapsed 80.2 min; killed=False
+19:12:22  post-check OK: header is still surface d5 n=2
+19:12:22  last CSV row for the tag:
+19:12:22    lat1_surface_d5_2to1_lattice_lat_xcvu9p,surface,5,2:1,snowflake_pe_array_lat1,xcvu9p-flga2104-2L-e,5.0,synth,-5.614,35,10.614,94.2,20524,5197,0,0,0,0,D:\ycz\doc\deepseek_workzone\decoder\fpga_flow\logs\flow_synth_lat1_surface_d5_2to1_lattice_lat_xcvu9p.log

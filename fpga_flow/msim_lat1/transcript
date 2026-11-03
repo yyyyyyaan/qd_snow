@@ -1,0 +1,23 @@
+# vsim -c -quiet -do "run -all; quit -f" work.tb_snowflake_pe_array_lat1 
+# Start time: 21:50:45 on Sep 23,2026
+# ** Warning: Design size of 36719 statements exceeds ModelSim-Intel FPGA Starter Edition recommended capacity.
+# Expect performance to be adversely affected.
+# run -all
+# [cyc] round=0 cycles=16
+# [cyc] round=1 cycles=20
+# [cyc] round=2 cycles=20
+# [cyc] round=3 cycles=28
+# [cyc] round=4 cycles=36
+# [cyc] round=5 cycles=36
+# [cyc] round=6 cycles=16
+# [cyc] round=7 cycles=40
+# [cyc] round=8 cycles=20
+# [cyc] round=9 cycles=36
+# [cyc] round=10 cycles=36
+# [cyc] round=11 cycles=16
+# LAT stats: live_cycles=296 push_xfer_cycles=148 flip_xfer_cycles=148
+# RTL trace written to rtl_trace.txt (12 rounds, ONE_ONE=0, NN=150, NE=285, clk_cycles=327)
+# ** Note: $finish    : test_benches/snowflake/tb_snowflake_pe_array_lat1.sv(215)
+#    Time: 3265 ns  Iteration: 1  Instance: /tb_snowflake_pe_array_lat1
+# End time: 21:51:18 on Sep 23,2026, Elapsed time: 0:00:33
+# Errors: 0, Warnings: 1

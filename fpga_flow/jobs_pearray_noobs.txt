@@ -1,0 +1,18 @@
+# Is d7's routing congestion caused by the DEBUG observation bus?
+#
+# Evidence from the d7 baseline run: Vivado dumped 282 congested nets, they sit
+# in 44 of the 392 PEs and the names are g_pe[N]/o_cid[k] -- the cluster-ID
+# output bits.  Those bits drive BOTH the neighbour ports and the observation
+# bus, and that bus is SNOW_NN*CID_W + SNOW_NN*PTR_W + 7*SNOW_NN + 2*NE + NE
+# bits wide (for d7: 5488 + 1960 + 2744 + 1694 + 847 ~= 12.7K bits) from every
+# PE to the top-level debug port.
+#
+# SNOW_NO_OBS turns that bus off (DEBUG_OBS=0).  It is a synthesis-only
+# ablation -- the line-exact testbench needs obs_* to filter its trace, so this
+# configuration is never simulated, only measured.
+#
+# Baseline for comparison (same flow, bus ON):
+#   surface d5: 23168 LUT / 9.603 ns / 104.1 MHz   (43.7 min)
+#   surface d7: 72982 LUT / 11.446 ns / 87.4 MHz   (102.9 min)
+surface 5 2:1 xcvu9p-flga2104-2L-e 5.0 SNOW_PEARRAY;SNOW_NO_OBS
+surface 7 2:1 xcvu9p-flga2104-2L-e 5.0 SNOW_PEARRAY;SNOW_NO_OBS

@@ -1,0 +1,86 @@
+qwen lines 614   current lines 652
+=== replace qwen[0:8] current[0:5]
+  Q| """Snowflake 解码图生成器（对标 Helios 的 build_scripts/generate.py）
+  Q| 
+  Q| 从参考实现 localuf 导出解码图的**结构与所有查表**，生成 SystemVerilog include 文件，
+  Q| 供 design/snowflake/snowflake_core.sv 使用。换码型/码距只需要重跑本脚本。
+  Q| 
+  Q| 用法:
+  Q|     python generate_snowflake.py --d 3                      # repetition (默认)
+  Q|     python generate_snowflake.py --code surface --d 3       # 表面码(2D, 多方向)
+  C| ﻿"""Snowflake 瑙ｇ爜鍥剧敓鎴愬櫒锛堝鏍?Helios 鐨?build_scripts/generate.py锛?
+  C| 浠庡弬鑰冨疄鐜?localuf 瀵煎嚭瑙ｇ爜鍥剧殑**缁撴瀯涓庢墍鏈夋煡琛?*锛岀敓鎴?SystemVerilog include 鏂囦欢锛?渚?design/snowflake/snowflake_core.sv 浣跨敤銆傛崲鐮佸瀷/鐮佽窛鍙渶瑕侀噸璺戞湰鑴氭湰銆?
+  C| 鐢ㄦ硶:
+  C|     python generate_snowflake.py --d 3                      # repetition (榛樿)
+  C|     python generate_snowflake.py --code surface --d 3       # 琛ㄩ潰鐮?2D, 澶氭柟鍚?
+=== replace qwen[10:21] current[7:16]
+  Q| 同时输出 <name>_part.json：每个节点所属分区（按时间轴分层）与跨分区边清单，
+  Q| 供后续多 FPGA 划分使用。
+  Q| 
+  Q| 生成内容（Verilog include）:
+  Q|     SNOW_NN / SNOW_NE / SNOW_NCOMMIT / SNOW_NSYN   规模
+  Q|     SNOW_CID_W / SNOW_NW / SNOW_EW / SNOW_PTR_W    位宽
+  Q|     SNOW_IS_BND / SNOW_IS_TOP / SNOW_IS_BOT        节点分类
+  Q|     SNOW_NODE_BELOW / SNOW_CID_DELTA               drop 关系
+  C| 鍚屾椂杈撳嚭 <name>_part.json锛氭瘡涓妭鐐规墍灞炲垎鍖猴紙鎸夋椂闂磋酱鍒嗗眰锛変笌璺ㄥ垎鍖鸿竟娓呭崟锛?渚涘悗缁 FPGA 鍒掑垎浣跨敤銆?
+  C| 鐢熸垚鍐呭锛圴erilog include锛?
+  C|     SNOW_NN / SNOW_NE / SNOW_NCOMMIT / SNOW_NSYN   瑙勬ā
+  C|     SNOW_CID_W / SNOW_NW / SNOW_EW / SNOW_PTR_W    浣嶅
+  C|     SNOW_IS_BND / SNOW_IS_TOP / SNOW_IS_BOT        鑺傜偣鍒嗙被
+  C|     SNOW_NODE_BELOW / SNOW_CID_DELTA               drop 鍏崇郴
+  C|     SNOW_NDIR / SNOW_NB / SNOW_EDGE_OF             鏂瑰悜琛?鏂瑰悜鏁扮敱鍙傝€冨疄鐜板喅瀹?
+  C|     SNOW_EDGE_U/V/ABOVE, SNOW_IS_COMMIT/IDX        杈硅〃涓庢彁浜ゅ尯
+=== replace qwen[48:50] current[43:44]
+  Q| # Python 侧用负数做"不存在"哨兵（不能用可能合法的 id！发射时映射为全 1）
+  Q| NO_NODE = -1
+  C| # Python 渚х敤璐熸暟鍋?涓嶅瓨鍦?鍝ㄥ叺锛堜笉鑳界敤鍙兘鍚堟硶鐨?id锛佸彂灏勬椂鏄犲皠涓哄叏 1锛?NO_NODE = -1
+=== insert qwen[51:51] current[45:58]
+  C| 
+  C| # Header FORMAT version, written into every generated header as
+  C| # `// SNOW_GRAPH_FORMAT <n>` so a CACHED header can be told apart from a stale
+  C| # one.  `fpga_flow/synth_lattice1.ps1` pins `graphs/<code>_d<d>_<noise>.svh` and
+  C| # reuses it, and a stale pin is silent until synthesis fails: after the
+  C| # SNOW_PTR_DOWN_MASK repair (report 6.32) the new `snowflake_pe.sv` met an old
+  C| # pinned header and Vivado said `[Synth 8-1031] SNOW_PTR_DOWN_MASK is not
+  C| # declared`.  Bump this whenever the header's CONTENTS change shape:
+=== replace qwen[80:81] current[87:88]
+  Q|     """localuf 的 id_below 公式: id < limit 时 delta=small, 否则 delta=big.
+  C|     """localuf 鐨?id_below 鍏紡: id < limit 鏃?delta=small, 鍚﹀垯 delta=big.
+=== replace qwen[191:192] current[198:199]
+  Q|     # 分区信息（供多 FPGA 划分）: 按时间层划分
+  C|     # 鍒嗗尯淇℃伅锛堜緵澶?FPGA 鍒掑垎锛? 鎸夋椂闂村眰鍒掑垎
+=== replace qwen[212:213] current[219:220]
+  Q|     """生成查表函数（负值=哨兵 -> 全 1）。双参数键编码为 a0*16+a1。"""
+  C|     """鐢熸垚鏌ヨ〃鍑芥暟锛堣礋鍊?鍝ㄥ叺 -> 鍏?1锛夈€傚弻鍙傛暟閿紪鐮佷负 a0*16+a1銆?""
+=== insert qwen[245:245] current[252:253]
+  C|           f"// SNOW_GRAPH_FORMAT {GRAPH_FORMAT}",
+=== replace qwen[272:273] current[280:281]
+  Q|     # 指针编码: 0 = C(root), d+1 = 方向 d
+  C|     # 鎸囬拡缂栫爜: 0 = C(root), d+1 = 鏂瑰悜 d
+=== replace qwen[275:276] current[283:314]
+  Q|     L.append(f"localparam [SNOW_PTR_W-1:0] SNOW_PTR_D = {dir_d};   // 'D' = 向下")
+  C|     L.append(f"localparam [SNOW_PTR_W-1:0] SNOW_PTR_D = {dir_d};   // 'D' = 鍚戜笅")
+  C|     # find_broken_pointers(): localuf unroots a bottom-sheet node when its
+  C|     # pointer CONTAINS a 'D' (`if 'D' in self.NODE.pointer`, i.e. the direction's
+  C|     # time step is -1).  The RTL used to compare the pointer against the single
+  C|     # constant SNOW_PTR_D above, which is the same test only when 'D' is the ONLY
+  C|     # direction name containing a 'D':
+  C|     #   unrotated phenomenological  N,S,E,W,U,D          -> equal
+  C|     #   rotated   phenomenological  NW,NE,SW,SE,U,D      -> equal
+=== replace qwen[354:355] current[392:393]
+  Q|     L.append("  // drop 时 cid 的映射步长: 与 localuf 的 Snowflake.id_below 公式一致")
+  C|     L.append("  // drop 鏃?cid 鐨勬槧灏勬闀? 涓?localuf 鐨?Snowflake.id_below 鍏紡涓€鑷?)
+=== replace qwen[362:363] current[400:401]
+  Q|     L.append("  // 指针码 -> 方向名(3 字符), 供 testbench 打印")
+  C|     L.append("  // 鎸囬拡鐮?-> 鏂瑰悜鍚?3 瀛楃), 渚?testbench 鎵撳嵃")
+=== replace qwen[374:377] current[412:414]
+  Q|     # 分区表（供多 FPGA / hub-leaf 划分：按时间层分 leaf）
+  Q|     L.append(f"localparam integer SNOW_NPART = {g['n_layers']};")
+  Q|     L.append("  // 节点 -> 所属 leaf（按时间层）")
+  C|     # 鍒嗗尯琛紙渚涘 FPGA / hub-leaf 鍒掑垎锛氭寜鏃堕棿灞傚垎 leaf锛?    L.append(f"localparam integer SNOW_NPART = {g['n_layers']};")
+  C|     L.append("  // 鑺傜偣 -> 鎵€灞?leaf锛堟寜鏃堕棿灞傦級")
+=== replace qwen[431:432] current[468:469]
+  Q|     L.append("  // 跨 leaf 的边（索引表），供 hub 转发连接")
+  C|     L.append("  // 璺?leaf 鐨勮竟锛堢储寮曡〃锛夛紝渚?hub 杞彂杩炴帴")
+=== insert qwen[614:614] current[651:652]
+  C| 

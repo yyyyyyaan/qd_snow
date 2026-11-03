@@ -1,0 +1,28 @@
+Copyright 1986-2020 Xilinx, Inc. All Rights Reserved.
+------------------------------------------------------------------------------------------------------------------------------------------------------------------
+| Tool Version : Vivado v.2020.2 (win64) Build 3064766 Wed Nov 18 09:12:45 MST 2020
+| Date         : Wed Sep 16 20:02:47 2026
+| Host         : DESKTOP-TO7M6OH running 64-bit major release  (build 9200)
+| Command      : report_utilization -hierarchical -file {D:\ycz\doc\deepseek_workzone\decoder\fpga_flow\logs/utilhier_route_rep_d3_2to1_pearray_xcvu9p_ffull.rpt}
+| Design       : snowflake_pe_array
+| Device       : xcvu9pflga2104-2L
+| Design State : Routed
+------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+Utilization Design Information
+
+Table of Contents
+-----------------
+1. Utilization by Hierarchy
+
+1. Utilization by Hierarchy
+---------------------------
+
++--------------------+--------+------------+------------+---------+------+-----+--------+--------+------+------------+
+|      Instance      | Module | Total LUTs | Logic LUTs | LUTRAMs | SRLs | FFs | RAMB36 | RAMB18 | URAM | DSP Blocks |
++--------------------+--------+------------+------------+---------+------+-----+--------+--------+------+------------+
+| snowflake_pe_array |  (top) |        901 |        901 |       0 |    0 | 228 |      0 |      0 |    0 |          0 |
++--------------------+--------+------------+------------+---------+------+-----+--------+--------+------+------------+
+* Note: The sum of lower-level cells may be larger than their parent cells total, due to cross-hierarchy LUT combining
+
+

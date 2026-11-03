@@ -1,0 +1,359 @@
+xilinx rtfpga
+WARNING: [Synth 8-7129] Port clk in module snowflake_edge__60 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port clk in module snowflake_edge__59 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port clk in module snowflake_edge__58 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port clk in module snowflake_edge__57 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port clk in module snowflake_edge__56 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port clk in module snowflake_edge__55 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port clk in module snowflake_edge__54 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port clk in module snowflake_edge__53 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port clk in module snowflake_edge__52 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port clk in module snowflake_edge__51 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port clk in module snowflake_edge__50 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port clk in module snowflake_edge__49 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port clk in module snowflake_edge__48 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port clk in module snowflake_edge__47 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port clk in module snowflake_edge__46 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port clk in module snowflake_edge__45 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port clk in module snowflake_edge__44 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port clk in module snowflake_edge__43 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port clk in module snowflake_edge__42 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port clk in module snowflake_edge__41 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port clk in module snowflake_edge__40 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port clk in module snowflake_edge__39 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port clk in module snowflake_edge__38 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port clk in module snowflake_edge__37 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port clk in module snowflake_edge__36 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port clk in module snowflake_edge__35 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port clk in module snowflake_edge__34 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port clk in module snowflake_edge__33 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port clk in module snowflake_edge__32 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port clk in module snowflake_edge__31 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port clk in module snowflake_edge__30 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port clk in module snowflake_edge__29 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port clk in module snowflake_edge__28 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port clk in module snowflake_edge__27 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port clk in module snowflake_edge__26 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port clk in module snowflake_edge__25 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port clk in module snowflake_edge__24 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port clk in module snowflake_edge__23 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port clk in module snowflake_edge__22 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port clk in module snowflake_edge__21 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port clk in module snowflake_edge__20 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port clk in module snowflake_edge__19 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port clk in module snowflake_edge__18 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port clk in module snowflake_edge__17 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port clk in module snowflake_edge__16 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port clk in module snowflake_edge__15 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port clk in module snowflake_edge__14 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port clk in module snowflake_edge__13 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port clk in module snowflake_edge__12 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port clk in module snowflake_edge__11 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port clk in module snowflake_edge__10 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port clk in module snowflake_edge__9 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port clk in module snowflake_edge__8 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port clk in module snowflake_edge__7 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port clk in module snowflake_edge__6 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port clk in module snowflake_edge__5 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port clk in module snowflake_edge__4 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port clk in module snowflake_edge__3 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port clk in module snowflake_edge__2 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port clk in module snowflake_edge__1 is either unconnected or has no load
+INFO: [Synth 8-3886] merging instance 'g_eslot[62].g_ectx[0].bank_reg[412][3]' (FDRE) to 'g_eslot[18].g_ectx[0].bank_reg[180][3]'
+INFO: [Synth 8-3886] merging instance 'g_eslot[62].g_ectx[0].bank_reg[412][4]' (FDRE) to 'g_eslot[18].g_ectx[0].bank_reg[180][3]'
+INFO: [Synth 8-3886] merging instance 'g_eslot[62].g_ectx[0].bank_reg[412][5]' (FDRE) to 'g_eslot[18].g_ectx[0].bank_reg[180][3]'
+INFO: [Synth 8-3886] merging instance 'g_eslot[62].g_ectx[0].bank_reg[412][6]' (FDRE) to 'g_eslot[18].g_ectx[0].bank_reg[180][3]'
+INFO: [Synth 8-3886] merging instance 'g_eslot[62].g_ectx[0].bank_reg[412][7]' (FDRE) to 'g_eslot[18].g_ectx[0].bank_reg[180][3]'
+INFO: [Synth 8-3886] merging instance 'g_eslot[62].g_ectx[0].bank_reg[412][8]' (FDRE) to 'g_eslot[18].g_ectx[0].bank_reg[180][3]'
+INFO: [Synth 8-3886] merging instance 'g_eslot[62].g_ectx[0].bank_reg[412][9]' (FDRE) to 'g_eslot[18].g_ectx[0].bank_reg[180][3]'
+INFO: [Synth 8-3886] merging instance 'g_eslot[62].g_ectx[0].bank_reg[412][10]' (FDRE) to 'g_eslot[18].g_ectx[0].bank_reg[180][3]'
+INFO: [Synth 8-3886] merging instance 'g_eslot[62].g_ectx[0].bank_reg[412][11]' (FDRE) to 'g_eslot[18].g_ectx[0].bank_reg[180][3]'
+INFO: [Synth 8-3886] merging instance 'g_eslot[62].g_ectx[0].bank_reg[412][12]' (FDRE) to 'g_eslot[18].g_ectx[0].bank_reg[180][3]'
+INFO: [Synth 8-3886] merging instance 'g_eslot[62].g_ectx[0].bank_reg[412][13]' (FDRE) to 'g_eslot[18].g_ectx[0].bank_reg[180][3]'
+INFO: [Synth 8-3886] merging instance 'g_eslot[62].g_ectx[0].bank_reg[412][14]' (FDRE) to 'g_eslot[18].g_ectx[0].bank_reg[180][3]'
+INFO: [Synth 8-3886] merging instance 'g_eslot[62].g_ectx[0].bank_reg[412][15]' (FDRE) to 'g_eslot[18].g_ectx[0].bank_reg[180][3]'
+INFO: [Synth 8-3886] merging instance 'g_eslot[62].g_ectx[0].bank_reg[412][16]' (FDRE) to 'g_eslot[18].g_ectx[0].bank_reg[180][3]'
+INFO: [Synth 8-3886] merging instance 'g_eslot[62].g_ectx[0].bank_reg[412][17]' (FDRE) to 'g_eslot[18].g_ectx[0].bank_reg[180][3]'
+INFO: [Synth 8-3886] merging instance 'g_eslot[0].g_ectx[0].bank_reg[144][3]' (FDRE) to 'g_eslot[18].g_ectx[0].bank_reg[180][3]'
+INFO: [Synth 8-3886] merging instance 'g_eslot[0].g_ectx[0].bank_reg[144][4]' (FDRE) to 'g_eslot[18].g_ectx[0].bank_reg[180][3]'
+INFO: [Synth 8-3886] merging instance 'g_eslot[0].g_ectx[0].bank_reg[144][5]' (FDRE) to 'g_eslot[18].g_ectx[0].bank_reg[180][3]'
+INFO: [Synth 8-3886] merging instance 'g_eslot[0].g_ectx[0].bank_reg[144][6]' (FDRE) to 'g_eslot[18].g_ectx[0].bank_reg[180][3]'
+INFO: [Synth 8-3886] merging instance 'g_eslot[0].g_ectx[0].bank_reg[144][7]' (FDRE) to 'g_eslot[18].g_ectx[0].bank_reg[180][3]'
+INFO: [Synth 8-3886] merging instance 'g_eslot[0].g_ectx[0].bank_reg[144][8]' (FDRE) to 'g_eslot[18].g_ectx[0].bank_reg[180][3]'
+INFO: [Synth 8-3886] merging instance 'g_eslot[0].g_ectx[0].bank_reg[144][9]' (FDRE) to 'g_eslot[18].g_ectx[0].bank_reg[180][3]'
+INFO: [Synth 8-3886] merging instance 'g_eslot[0].g_ectx[0].bank_reg[144][10]' (FDRE) to 'g_eslot[18].g_ectx[0].bank_reg[180][3]'
+INFO: [Synth 8-3886] merging instance 'g_eslot[0].g_ectx[0].bank_reg[144][11]' (FDRE) to 'g_eslot[18].g_ectx[0].bank_reg[180][3]'
+INFO: [Synth 8-3886] merging instance 'g_eslot[0].g_ectx[0].bank_reg[144][12]' (FDRE) to 'g_eslot[18].g_ectx[0].bank_reg[180][3]'
+INFO: [Synth 8-3886] merging instance 'g_eslot[0].g_ectx[0].bank_reg[144][13]' (FDRE) to 'g_eslot[18].g_ectx[0].bank_reg[180][3]'
+INFO: [Synth 8-3886] merging instance 'g_eslot[0].g_ectx[0].bank_reg[144][14]' (FDRE) to 'g_eslot[18].g_ectx[0].bank_reg[180][3]'
+INFO: [Synth 8-3886] merging instance 'g_eslot[0].g_ectx[0].bank_reg[144][15]' (FDRE) to 'g_eslot[18].g_ectx[0].bank_reg[180][3]'
+INFO: [Synth 8-3886] merging instance 'g_eslot[0].g_ectx[0].bank_reg[144][16]' (FDRE) to 'g_eslot[18].g_ectx[0].bank_reg[180][3]'
+INFO: [Synth 8-3886] merging instance 'g_eslot[0].g_ectx[0].bank_reg[144][17]' (FDRE) to 'g_eslot[18].g_ectx[0].bank_reg[180][3]'
+INFO: [Synth 8-3886] merging instance 'g_eslot[18].g_ectx[0].bank_reg[180][3]' (FDRE) to 'g_eslot[29].g_ectx[0].bank_reg[202][3]'
+INFO: [Synth 8-3886] merging instance 'g_eslot[18].g_ectx[0].bank_reg[180][4]' (FDRE) to 'g_eslot[29].g_ectx[0].bank_reg[202][3]'
+INFO: [Synth 8-3886] merging instance 'g_eslot[18].g_ectx[0].bank_reg[180][5]' (FDRE) to 'g_eslot[29].g_ectx[0].bank_reg[202][3]'
+INFO: [Synth 8-3886] merging instance 'g_eslot[18].g_ectx[0].bank_reg[180][6]' (FDRE) to 'g_eslot[29].g_ectx[0].bank_reg[202][3]'
+INFO: [Synth 8-3886] merging instance 'g_eslot[18].g_ectx[0].bank_reg[180][7]' (FDRE) to 'g_eslot[29].g_ectx[0].bank_reg[202][3]'
+INFO: [Synth 8-3886] merging instance 'g_eslot[18].g_ectx[0].bank_reg[180][8]' (FDRE) to 'g_eslot[29].g_ectx[0].bank_reg[202][3]'
+INFO: [Synth 8-3886] merging instance 'g_eslot[18].g_ectx[0].bank_reg[180][9]' (FDRE) to 'g_eslot[29].g_ectx[0].bank_reg[202][3]'
+INFO: [Synth 8-3886] merging instance 'g_eslot[18].g_ectx[0].bank_reg[180][10]' (FDRE) to 'g_eslot[29].g_ectx[0].bank_reg[202][3]'
+INFO: [Synth 8-3886] merging instance 'g_eslot[18].g_ectx[0].bank_reg[180][11]' (FDRE) to 'g_eslot[29].g_ectx[0].bank_reg[202][3]'
+INFO: [Synth 8-3886] merging instance 'g_eslot[18].g_ectx[0].bank_reg[180][12]' (FDRE) to 'g_eslot[29].g_ectx[0].bank_reg[202][3]'
+INFO: [Synth 8-3886] merging instance 'g_eslot[18].g_ectx[0].bank_reg[180][13]' (FDRE) to 'g_eslot[29].g_ectx[0].bank_reg[202][3]'
+INFO: [Synth 8-3886] merging instance 'g_eslot[18].g_ectx[0].bank_reg[180][14]' (FDRE) to 'g_eslot[29].g_ectx[0].bank_reg[202][3]'
+INFO: [Synth 8-3886] merging instance 'g_eslot[18].g_ectx[0].bank_reg[180][15]' (FDRE) to 'g_eslot[29].g_ectx[0].bank_reg[202][3]'
+INFO: [Synth 8-3886] merging instance 'g_eslot[18].g_ectx[0].bank_reg[180][16]' (FDRE) to 'g_eslot[29].g_ectx[0].bank_reg[202][3]'
+INFO: [Synth 8-3886] merging instance 'g_eslot[18].g_ectx[0].bank_reg[180][17]' (FDRE) to 'g_eslot[29].g_ectx[0].bank_reg[202][3]'
+INFO: [Synth 8-3886] merging instance 'g_eslot[13].g_ectx[1].bank_reg[459][3]' (FDRE) to 'g_eslot[10].g_ectx[1].bank_reg[453][3]'
+INFO: [Synth 8-3886] merging instance 'g_eslot[13].g_ectx[1].bank_reg[459][4]' (FDRE) to 'g_eslot[10].g_ectx[1].bank_reg[453][3]'
+INFO: [Synth 8-3886] merging instance 'g_eslot[13].g_ectx[1].bank_reg[459][5]' (FDRE) to 'g_eslot[10].g_ectx[1].bank_reg[453][3]'
+INFO: [Synth 8-3886] merging instance 'g_eslot[13].g_ectx[1].bank_reg[459][6]' (FDRE) to 'g_eslot[10].g_ectx[1].bank_reg[453][3]'
+INFO: [Synth 8-3886] merging instance 'g_eslot[13].g_ectx[1].bank_reg[459][7]' (FDRE) to 'g_eslot[10].g_ectx[1].bank_reg[453][3]'
+INFO: [Synth 8-3886] merging instance 'g_eslot[13].g_ectx[1].bank_reg[459][8]' (FDRE) to 'g_eslot[10].g_ectx[1].bank_reg[453][3]'
+INFO: [Synth 8-3886] merging instance 'g_eslot[13].g_ectx[1].bank_reg[459][9]' (FDRE) to 'g_eslot[10].g_ectx[1].bank_reg[453][3]'
+INFO: [Synth 8-3886] merging instance 'g_eslot[13].g_ectx[1].bank_reg[459][10]' (FDRE) to 'g_eslot[10].g_ectx[1].bank_reg[453][3]'
+INFO: [Synth 8-3886] merging instance 'g_eslot[13].g_ectx[1].bank_reg[459][11]' (FDRE) to 'g_eslot[10].g_ectx[1].bank_reg[453][3]'
+INFO: [Synth 8-3886] merging instance 'g_eslot[13].g_ectx[1].bank_reg[459][12]' (FDRE) to 'g_eslot[10].g_ectx[1].bank_reg[453][3]'
+INFO: [Synth 8-3886] merging instance 'g_eslot[13].g_ectx[1].bank_reg[459][13]' (FDRE) to 'g_eslot[10].g_ectx[1].bank_reg[453][3]'
+INFO: [Synth 8-3886] merging instance 'g_eslot[13].g_ectx[1].bank_reg[459][14]' (FDRE) to 'g_eslot[10].g_ectx[1].bank_reg[453][3]'
+INFO: [Synth 8-3886] merging instance 'g_eslot[13].g_ectx[1].bank_reg[459][15]' (FDRE) to 'g_eslot[10].g_ectx[1].bank_reg[453][3]'
+INFO: [Synth 8-3886] merging instance 'g_eslot[13].g_ectx[1].bank_reg[459][16]' (FDRE) to 'g_eslot[10].g_ectx[1].bank_reg[453][3]'
+INFO: [Synth 8-3886] merging instance 'g_eslot[13].g_ectx[1].bank_reg[459][17]' (FDRE) to 'g_eslot[10].g_ectx[1].bank_reg[453][3]'
+INFO: [Synth 8-3886] merging instance 'g_eslot[1].g_ectx[1].bank_reg[435][3]' (FDRE) to 'g_eslot[10].g_ectx[1].bank_reg[453][3]'
+INFO: [Synth 8-3886] merging instance 'g_eslot[1].g_ectx[1].bank_reg[435][4]' (FDRE) to 'g_eslot[10].g_ectx[1].bank_reg[453][3]'
+INFO: [Synth 8-3886] merging instance 'g_eslot[1].g_ectx[1].bank_reg[435][5]' (FDRE) to 'g_eslot[10].g_ectx[1].bank_reg[453][3]'
+INFO: [Synth 8-3886] merging instance 'g_eslot[1].g_ectx[1].bank_reg[435][6]' (FDRE) to 'g_eslot[10].g_ectx[1].bank_reg[453][3]'
+INFO: [Synth 8-3886] merging instance 'g_eslot[1].g_ectx[1].bank_reg[435][7]' (FDRE) to 'g_eslot[10].g_ectx[1].bank_reg[453][3]'
+INFO: [Synth 8-3886] merging instance 'g_eslot[1].g_ectx[1].bank_reg[435][8]' (FDRE) to 'g_eslot[10].g_ectx[1].bank_reg[453][3]'
+INFO: [Synth 8-3886] merging instance 'g_eslot[1].g_ectx[1].bank_reg[435][9]' (FDRE) to 'g_eslot[10].g_ectx[1].bank_reg[453][3]'
+INFO: [Synth 8-3886] merging instance 'g_eslot[1].g_ectx[1].bank_reg[435][10]' (FDRE) to 'g_eslot[10].g_ectx[1].bank_reg[453][3]'
+INFO: [Synth 8-3886] merging instance 'g_eslot[1].g_ectx[1].bank_reg[435][11]' (FDRE) to 'g_eslot[10].g_ectx[1].bank_reg[453][3]'
+INFO: [Synth 8-3886] merging instance 'g_eslot[1].g_ectx[1].bank_reg[435][12]' (FDRE) to 'g_eslot[10].g_ectx[1].bank_reg[453][3]'
+INFO: [Synth 8-3886] merging instance 'g_eslot[1].g_ectx[1].bank_reg[435][13]' (FDRE) to 'g_eslot[10].g_ectx[1].bank_reg[453][3]'
+INFO: [Synth 8-3886] merging instance 'g_eslot[1].g_ectx[1].bank_reg[435][14]' (FDRE) to 'g_eslot[10].g_ectx[1].bank_reg[453][3]'
+INFO: [Synth 8-3886] merging instance 'g_eslot[1].g_ectx[1].bank_reg[435][15]' (FDRE) to 'g_eslot[10].g_ectx[1].bank_reg[453][3]'
+INFO: [Synth 8-3886] merging instance 'g_eslot[1].g_ectx[1].bank_reg[435][16]' (FDRE) to 'g_eslot[10].g_ectx[1].bank_reg[453][3]'
+INFO: [Synth 8-3886] merging instance 'g_eslot[1].g_ectx[1].bank_reg[435][17]' (FDRE) to 'g_eslot[10].g_ectx[1].bank_reg[453][3]'
+INFO: [Synth 8-3886] merging instance 'g_eslot[49].g_ectx[0].bank_reg[386][3]' (FDRE) to 'g_eslot[29].g_ectx[0].bank_reg[202][3]'
+INFO: [Synth 8-3886] merging instance 'g_eslot[49].g_ectx[0].bank_reg[386][4]' (FDRE) to 'g_eslot[29].g_ectx[0].bank_reg[202][3]'
+INFO: [Synth 8-3886] merging instance 'g_eslot[49].g_ectx[0].bank_reg[386][5]' (FDRE) to 'g_eslot[29].g_ectx[0].bank_reg[202][3]'
+INFO: [Synth 8-3886] merging instance 'g_eslot[49].g_ectx[0].bank_reg[386][6]' (FDRE) to 'g_eslot[29].g_ectx[0].bank_reg[202][3]'
+INFO: [Synth 8-3886] merging instance 'g_eslot[49].g_ectx[0].bank_reg[386][7]' (FDRE) to 'g_eslot[29].g_ectx[0].bank_reg[202][3]'
+INFO: [Synth 8-3886] merging instance 'g_eslot[49].g_ectx[0].bank_reg[386][8]' (FDRE) to 'g_eslot[29].g_ectx[0].bank_reg[202][3]'
+INFO: [Synth 8-3886] merging instance 'g_eslot[49].g_ectx[0].bank_reg[386][9]' (FDRE) to 'g_eslot[29].g_ectx[0].bank_reg[202][3]'
+INFO: [Synth 8-3886] merging instance 'g_eslot[49].g_ectx[0].bank_reg[386][10]' (FDRE) to 'g_eslot[29].g_ectx[0].bank_reg[202][3]'
+INFO: [Synth 8-3886] merging instance 'g_eslot[49].g_ectx[0].bank_reg[386][11]' (FDRE) to 'g_eslot[29].g_ectx[0].bank_reg[202][3]'
+INFO: [Synth 8-3886] merging instance 'g_eslot[49].g_ectx[0].bank_reg[386][12]' (FDRE) to 'g_eslot[29].g_ectx[0].bank_reg[202][3]'
+INFO: [Synth 8-3886] merging instance 'g_eslot[49].g_ectx[0].bank_reg[386][13]' (FDRE) to 'g_eslot[29].g_ectx[0].bank_reg[202][3]'
+INFO: [Synth 8-3886] merging instance 'g_eslot[49].g_ectx[0].bank_reg[386][14]' (FDRE) to 'g_eslot[29].g_ectx[0].bank_reg[202][3]'
+INFO: [Synth 8-3886] merging instance 'g_eslot[49].g_ectx[0].bank_reg[386][15]' (FDRE) to 'g_eslot[29].g_ectx[0].bank_reg[202][3]'
+INFO: [Synth 8-3886] merging instance 'g_eslot[49].g_ectx[0].bank_reg[386][16]' (FDRE) to 'g_eslot[29].g_ectx[0].bank_reg[202][3]'
+INFO: [Synth 8-3886] merging instance 'g_eslot[49].g_ectx[0].bank_reg[386][17]' (FDRE) to 'g_eslot[29].g_ectx[0].bank_reg[202][3]'
+INFO: [Synth 8-3886] merging instance 'g_eslot[37].g_ectx[0].bank_reg[362][3]' (FDRE) to 'g_eslot[29].g_ectx[0].bank_reg[202][3]'
+INFO: [Synth 8-3886] merging instance 'g_eslot[37].g_ectx[0].bank_reg[362][4]' (FDRE) to 'g_eslot[29].g_ectx[0].bank_reg[202][3]'
+INFO: [Synth 8-3886] merging instance 'g_eslot[37].g_ectx[0].bank_reg[362][5]' (FDRE) to 'g_eslot[29].g_ectx[0].bank_reg[202][3]'
+INFO: [Synth 8-3886] merging instance 'g_eslot[37].g_ectx[0].bank_reg[362][6]' (FDRE) to 'g_eslot[29].g_ectx[0].bank_reg[202][3]'
+INFO: [Synth 8-3886] merging instance 'g_eslot[37].g_ectx[0].bank_reg[362][7]' (FDRE) to 'g_eslot[29].g_ectx[0].bank_reg[202][3]'
+INFO: [Synth 8-3886] merging instance 'g_eslot[37].g_ectx[0].bank_reg[362][8]' (FDRE) to 'g_eslot[29].g_ectx[0].bank_reg[202][3]'
+INFO: [Synth 8-3886] merging instance 'g_eslot[37].g_ectx[0].bank_reg[362][9]' (FDRE) to 'g_eslot[29].g_ectx[0].bank_reg[202][3]'
+INFO: [Synth 8-3886] merging instance 'g_eslot[37].g_ectx[0].bank_reg[362][10]' (FDRE) to 'g_eslot[29].g_ectx[0].bank_reg[202][3]'
+INFO: [Synth 8-3886] merging instance 'g_eslot[37].g_ectx[0].bank_reg[362][11]' (FDRE) to 'g_eslot[29].g_ectx[0].bank_reg[202][3]'
+INFO: [Synth 8-3886] merging instance 'g_eslot[37].g_ectx[0].bank_reg[362][12]' (FDRE) to 'g_eslot[29].g_ectx[0].bank_reg[202][3]'
+INFO: [Common 17-14] Message 'Synth 8-3886' appears 100 times and further instances of the messages will be disabled. Use the Tcl command set_msg_config to change the current settings.
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (\g_eslot[29].g_ectx[0].bank_reg[202][17] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (\g_eslot[6].g_ectx[1].bank_reg[445][17] )
+CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin Q with 1st driver pin 'commit_hold_reg[18]/Q' [D:/ycz/doc/deepseek_workzone/decoder/Helios_scalable_QEC-main/Helios_scalable_QEC-main/design/snowflake/snowflake_pe_array_lat.sv:568]
+CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin Q with 2nd driver pin 'GND' [D:/ycz/doc/deepseek_workzone/decoder/Helios_scalable_QEC-main/Helios_scalable_QEC-main/design/snowflake/snowflake_pe_array_lat.sv:568]
+CRITICAL WARNING: [Synth 8-6858] multi-driven net Q is connected to at least one constant driver which has been preserved, other driver is ignored [D:/ycz/doc/deepseek_workzone/decoder/Helios_scalable_QEC-main/Helios_scalable_QEC-main/design/snowflake/snowflake_pe_array_lat.sv:568]
+CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin Q with 1st driver pin 'commit_hold_reg[17]/Q' [D:/ycz/doc/deepseek_workzone/decoder/Helios_scalable_QEC-main/Helios_scalable_QEC-main/design/snowflake/snowflake_pe_array_lat.sv:568]
+CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin Q with 2nd driver pin 'GND' [D:/ycz/doc/deepseek_workzone/decoder/Helios_scalable_QEC-main/Helios_scalable_QEC-main/design/snowflake/snowflake_pe_array_lat.sv:568]
+CRITICAL WARNING: [Synth 8-6858] multi-driven net Q is connected to at least one constant driver which has been preserved, other driver is ignored [D:/ycz/doc/deepseek_workzone/decoder/Helios_scalable_QEC-main/Helios_scalable_QEC-main/design/snowflake/snowflake_pe_array_lat.sv:568]
+CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin Q with 1st driver pin 'commit_hold_reg[16]/Q' [D:/ycz/doc/deepseek_workzone/decoder/Helios_scalable_QEC-main/Helios_scalable_QEC-main/design/snowflake/snowflake_pe_array_lat.sv:568]
+CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin Q with 2nd driver pin 'GND' [D:/ycz/doc/deepseek_workzone/decoder/Helios_scalable_QEC-main/Helios_scalable_QEC-main/design/snowflake/snowflake_pe_array_lat.sv:568]
+CRITICAL WARNING: [Synth 8-6858] multi-driven net Q is connected to at least one constant driver which has been preserved, other driver is ignored [D:/ycz/doc/deepseek_workzone/decoder/Helios_scalable_QEC-main/Helios_scalable_QEC-main/design/snowflake/snowflake_pe_array_lat.sv:568]
+CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin Q with 1st driver pin 'commit_hold_reg[15]/Q' [D:/ycz/doc/deepseek_workzone/decoder/Helios_scalable_QEC-main/Helios_scalable_QEC-main/design/snowflake/snowflake_pe_array_lat.sv:568]
+CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin Q with 2nd driver pin 'GND' [D:/ycz/doc/deepseek_workzone/decoder/Helios_scalable_QEC-main/Helios_scalable_QEC-main/design/snowflake/snowflake_pe_array_lat.sv:568]
+CRITICAL WARNING: [Synth 8-6858] multi-driven net Q is connected to at least one constant driver which has been preserved, other driver is ignored [D:/ycz/doc/deepseek_workzone/decoder/Helios_scalable_QEC-main/Helios_scalable_QEC-main/design/snowflake/snowflake_pe_array_lat.sv:568]
+CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin Q with 1st driver pin 'commit_hold_reg[14]/Q' [D:/ycz/doc/deepseek_workzone/decoder/Helios_scalable_QEC-main/Helios_scalable_QEC-main/design/snowflake/snowflake_pe_array_lat.sv:568]
+CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin Q with 2nd driver pin 'GND' [D:/ycz/doc/deepseek_workzone/decoder/Helios_scalable_QEC-main/Helios_scalable_QEC-main/design/snowflake/snowflake_pe_array_lat.sv:568]
+CRITICAL WARNING: [Synth 8-6858] multi-driven net Q is connected to at least one constant driver which has been preserved, other driver is ignored [D:/ycz/doc/deepseek_workzone/decoder/Helios_scalable_QEC-main/Helios_scalable_QEC-main/design/snowflake/snowflake_pe_array_lat.sv:568]
+CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin Q with 1st driver pin 'commit_hold_reg[13]/Q' [D:/ycz/doc/deepseek_workzone/decoder/Helios_scalable_QEC-main/Helios_scalable_QEC-main/design/snowflake/snowflake_pe_array_lat.sv:568]
+CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin Q with 2nd driver pin 'GND' [D:/ycz/doc/deepseek_workzone/decoder/Helios_scalable_QEC-main/Helios_scalable_QEC-main/design/snowflake/snowflake_pe_array_lat.sv:568]
+CRITICAL WARNING: [Synth 8-6858] multi-driven net Q is connected to at least one constant driver which has been preserved, other driver is ignored [D:/ycz/doc/deepseek_workzone/decoder/Helios_scalable_QEC-main/Helios_scalable_QEC-main/design/snowflake/snowflake_pe_array_lat.sv:568]
+CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin Q with 1st driver pin 'commit_hold_reg[12]/Q' [D:/ycz/doc/deepseek_workzone/decoder/Helios_scalable_QEC-main/Helios_scalable_QEC-main/design/snowflake/snowflake_pe_array_lat.sv:568]
+CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin Q with 2nd driver pin 'GND' [D:/ycz/doc/deepseek_workzone/decoder/Helios_scalable_QEC-main/Helios_scalable_QEC-main/design/snowflake/snowflake_pe_array_lat.sv:568]
+CRITICAL WARNING: [Synth 8-6858] multi-driven net Q is connected to at least one constant driver which has been preserved, other driver is ignored [D:/ycz/doc/deepseek_workzone/decoder/Helios_scalable_QEC-main/Helios_scalable_QEC-main/design/snowflake/snowflake_pe_array_lat.sv:568]
+CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin Q with 1st driver pin 'commit_hold_reg[11]/Q' [D:/ycz/doc/deepseek_workzone/decoder/Helios_scalable_QEC-main/Helios_scalable_QEC-main/design/snowflake/snowflake_pe_array_lat.sv:568]
+CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin Q with 2nd driver pin 'GND' [D:/ycz/doc/deepseek_workzone/decoder/Helios_scalable_QEC-main/Helios_scalable_QEC-main/design/snowflake/snowflake_pe_array_lat.sv:568]
+CRITICAL WARNING: [Synth 8-6858] multi-driven net Q is connected to at least one constant driver which has been preserved, other driver is ignored [D:/ycz/doc/deepseek_workzone/decoder/Helios_scalable_QEC-main/Helios_scalable_QEC-main/design/snowflake/snowflake_pe_array_lat.sv:568]
+CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin Q with 1st driver pin 'commit_hold_reg[10]/Q' [D:/ycz/doc/deepseek_workzone/decoder/Helios_scalable_QEC-main/Helios_scalable_QEC-main/design/snowflake/snowflake_pe_array_lat.sv:568]
+CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin Q with 2nd driver pin 'GND' [D:/ycz/doc/deepseek_workzone/decoder/Helios_scalable_QEC-main/Helios_scalable_QEC-main/design/snowflake/snowflake_pe_array_lat.sv:568]
+CRITICAL WARNING: [Synth 8-6858] multi-driven net Q is connected to at least one constant driver which has been preserved, other driver is ignored [D:/ycz/doc/deepseek_workzone/decoder/Helios_scalable_QEC-main/Helios_scalable_QEC-main/design/snowflake/snowflake_pe_array_lat.sv:568]
+CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin Q with 1st driver pin 'commit_hold_reg[9]/Q' [D:/ycz/doc/deepseek_workzone/decoder/Helios_scalable_QEC-main/Helios_scalable_QEC-main/design/snowflake/snowflake_pe_array_lat.sv:568]
+CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin Q with 2nd driver pin 'GND' [D:/ycz/doc/deepseek_workzone/decoder/Helios_scalable_QEC-main/Helios_scalable_QEC-main/design/snowflake/snowflake_pe_array_lat.sv:568]
+CRITICAL WARNING: [Synth 8-6858] multi-driven net Q is connected to at least one constant driver which has been preserved, other driver is ignored [D:/ycz/doc/deepseek_workzone/decoder/Helios_scalable_QEC-main/Helios_scalable_QEC-main/design/snowflake/snowflake_pe_array_lat.sv:568]
+CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin Q with 1st driver pin 'commit_hold_reg[8]/Q' [D:/ycz/doc/deepseek_workzone/decoder/Helios_scalable_QEC-main/Helios_scalable_QEC-main/design/snowflake/snowflake_pe_array_lat.sv:568]
+CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin Q with 2nd driver pin 'GND' [D:/ycz/doc/deepseek_workzone/decoder/Helios_scalable_QEC-main/Helios_scalable_QEC-main/design/snowflake/snowflake_pe_array_lat.sv:568]
+CRITICAL WARNING: [Synth 8-6858] multi-driven net Q is connected to at least one constant driver which has been preserved, other driver is ignored [D:/ycz/doc/deepseek_workzone/decoder/Helios_scalable_QEC-main/Helios_scalable_QEC-main/design/snowflake/snowflake_pe_array_lat.sv:568]
+CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin Q with 1st driver pin 'commit_hold_reg[7]/Q' [D:/ycz/doc/deepseek_workzone/decoder/Helios_scalable_QEC-main/Helios_scalable_QEC-main/design/snowflake/snowflake_pe_array_lat.sv:568]
+CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin Q with 2nd driver pin 'GND' [D:/ycz/doc/deepseek_workzone/decoder/Helios_scalable_QEC-main/Helios_scalable_QEC-main/design/snowflake/snowflake_pe_array_lat.sv:568]
+CRITICAL WARNING: [Synth 8-6858] multi-driven net Q is connected to at least one constant driver which has been preserved, other driver is ignored [D:/ycz/doc/deepseek_workzone/decoder/Helios_scalable_QEC-main/Helios_scalable_QEC-main/design/snowflake/snowflake_pe_array_lat.sv:568]
+CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin Q with 1st driver pin 'commit_hold_reg[6]/Q' [D:/ycz/doc/deepseek_workzone/decoder/Helios_scalable_QEC-main/Helios_scalable_QEC-main/design/snowflake/snowflake_pe_array_lat.sv:568]
+CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin Q with 2nd driver pin 'GND' [D:/ycz/doc/deepseek_workzone/decoder/Helios_scalable_QEC-main/Helios_scalable_QEC-main/design/snowflake/snowflake_pe_array_lat.sv:568]
+CRITICAL WARNING: [Synth 8-6858] multi-driven net Q is connected to at least one constant driver which has been preserved, other driver is ignored [D:/ycz/doc/deepseek_workzone/decoder/Helios_scalable_QEC-main/Helios_scalable_QEC-main/design/snowflake/snowflake_pe_array_lat.sv:568]
+CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin Q with 1st driver pin 'commit_hold_reg[5]/Q' [D:/ycz/doc/deepseek_workzone/decoder/Helios_scalable_QEC-main/Helios_scalable_QEC-main/design/snowflake/snowflake_pe_array_lat.sv:568]
+CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin Q with 2nd driver pin 'GND' [D:/ycz/doc/deepseek_workzone/decoder/Helios_scalable_QEC-main/Helios_scalable_QEC-main/design/snowflake/snowflake_pe_array_lat.sv:568]
+CRITICAL WARNING: [Synth 8-6858] multi-driven net Q is connected to at least one constant driver which has been preserved, other driver is ignored [D:/ycz/doc/deepseek_workzone/decoder/Helios_scalable_QEC-main/Helios_scalable_QEC-main/design/snowflake/snowflake_pe_array_lat.sv:568]
+CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin Q with 1st driver pin 'commit_hold_reg[4]/Q' [D:/ycz/doc/deepseek_workzone/decoder/Helios_scalable_QEC-main/Helios_scalable_QEC-main/design/snowflake/snowflake_pe_array_lat.sv:568]
+CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin Q with 2nd driver pin 'GND' [D:/ycz/doc/deepseek_workzone/decoder/Helios_scalable_QEC-main/Helios_scalable_QEC-main/design/snowflake/snowflake_pe_array_lat.sv:568]
+CRITICAL WARNING: [Synth 8-6858] multi-driven net Q is connected to at least one constant driver which has been preserved, other driver is ignored [D:/ycz/doc/deepseek_workzone/decoder/Helios_scalable_QEC-main/Helios_scalable_QEC-main/design/snowflake/snowflake_pe_array_lat.sv:568]
+CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin Q with 1st driver pin 'commit_hold_reg[3]/Q' [D:/ycz/doc/deepseek_workzone/decoder/Helios_scalable_QEC-main/Helios_scalable_QEC-main/design/snowflake/snowflake_pe_array_lat.sv:568]
+CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin Q with 2nd driver pin 'GND' [D:/ycz/doc/deepseek_workzone/decoder/Helios_scalable_QEC-main/Helios_scalable_QEC-main/design/snowflake/snowflake_pe_array_lat.sv:568]
+CRITICAL WARNING: [Synth 8-6858] multi-driven net Q is connected to at least one constant driver which has been preserved, other driver is ignored [D:/ycz/doc/deepseek_workzone/decoder/Helios_scalable_QEC-main/Helios_scalable_QEC-main/design/snowflake/snowflake_pe_array_lat.sv:568]
+CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin Q with 1st driver pin 'commit_hold_reg[2]/Q' [D:/ycz/doc/deepseek_workzone/decoder/Helios_scalable_QEC-main/Helios_scalable_QEC-main/design/snowflake/snowflake_pe_array_lat.sv:568]
+CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin Q with 2nd driver pin 'GND' [D:/ycz/doc/deepseek_workzone/decoder/Helios_scalable_QEC-main/Helios_scalable_QEC-main/design/snowflake/snowflake_pe_array_lat.sv:568]
+CRITICAL WARNING: [Synth 8-6858] multi-driven net Q is connected to at least one constant driver which has been preserved, other driver is ignored [D:/ycz/doc/deepseek_workzone/decoder/Helios_scalable_QEC-main/Helios_scalable_QEC-main/design/snowflake/snowflake_pe_array_lat.sv:568]
+CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin Q with 1st driver pin 'commit_hold_reg[1]/Q' [D:/ycz/doc/deepseek_workzone/decoder/Helios_scalable_QEC-main/Helios_scalable_QEC-main/design/snowflake/snowflake_pe_array_lat.sv:568]
+CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin Q with 2nd driver pin 'GND' [D:/ycz/doc/deepseek_workzone/decoder/Helios_scalable_QEC-main/Helios_scalable_QEC-main/design/snowflake/snowflake_pe_array_lat.sv:568]
+CRITICAL WARNING: [Synth 8-6858] multi-driven net Q is connected to at least one constant driver which has been preserved, other driver is ignored [D:/ycz/doc/deepseek_workzone/decoder/Helios_scalable_QEC-main/Helios_scalable_QEC-main/design/snowflake/snowflake_pe_array_lat.sv:568]
+CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin Q with 1st driver pin 'commit_hold_reg[0]/Q' [D:/ycz/doc/deepseek_workzone/decoder/Helios_scalable_QEC-main/Helios_scalable_QEC-main/design/snowflake/snowflake_pe_array_lat.sv:568]
+CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin Q with 2nd driver pin 'GND' [D:/ycz/doc/deepseek_workzone/decoder/Helios_scalable_QEC-main/Helios_scalable_QEC-main/design/snowflake/snowflake_pe_array_lat.sv:568]
+CRITICAL WARNING: [Synth 8-6858] multi-driven net Q is connected to at least one constant driver which has been preserved, other driver is ignored [D:/ycz/doc/deepseek_workzone/decoder/Helios_scalable_QEC-main/Helios_scalable_QEC-main/design/snowflake/snowflake_pe_array_lat.sv:568]
+CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin Q with 1st driver pin 'g_eslot[36].g_ectx[0].bank_reg[360][17]/Q' [D:/ycz/doc/deepseek_workzone/decoder/Helios_scalable_QEC-main/Helios_scalable_QEC-main/design/snowflake/snowflake_pe_array_lat.sv:430]
+CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin Q with 2nd driver pin 'GND' [D:/ycz/doc/deepseek_workzone/decoder/Helios_scalable_QEC-main/Helios_scalable_QEC-main/design/snowflake/snowflake_pe_array_lat.sv:430]
+CRITICAL WARNING: [Synth 8-6858] multi-driven net Q is connected to at least one constant driver which has been preserved, other driver is ignored [D:/ycz/doc/deepseek_workzone/decoder/Helios_scalable_QEC-main/Helios_scalable_QEC-main/design/snowflake/snowflake_pe_array_lat.sv:430]
+CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin Q with 1st driver pin 'g_eslot[36].g_ectx[0].bank_reg[360][16]/Q' [D:/ycz/doc/deepseek_workzone/decoder/Helios_scalable_QEC-main/Helios_scalable_QEC-main/design/snowflake/snowflake_pe_array_lat.sv:430]
+CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin Q with 2nd driver pin 'GND' [D:/ycz/doc/deepseek_workzone/decoder/Helios_scalable_QEC-main/Helios_scalable_QEC-main/design/snowflake/snowflake_pe_array_lat.sv:430]
+CRITICAL WARNING: [Synth 8-6858] multi-driven net Q is connected to at least one constant driver which has been preserved, other driver is ignored [D:/ycz/doc/deepseek_workzone/decoder/Helios_scalable_QEC-main/Helios_scalable_QEC-main/design/snowflake/snowflake_pe_array_lat.sv:430]
+CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin Q with 1st driver pin 'g_eslot[36].g_ectx[0].bank_reg[360][15]/Q' [D:/ycz/doc/deepseek_workzone/decoder/Helios_scalable_QEC-main/Helios_scalable_QEC-main/design/snowflake/snowflake_pe_array_lat.sv:430]
+CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin Q with 2nd driver pin 'GND' [D:/ycz/doc/deepseek_workzone/decoder/Helios_scalable_QEC-main/Helios_scalable_QEC-main/design/snowflake/snowflake_pe_array_lat.sv:430]
+CRITICAL WARNING: [Synth 8-6858] multi-driven net Q is connected to at least one constant driver which has been preserved, other driver is ignored [D:/ycz/doc/deepseek_workzone/decoder/Helios_scalable_QEC-main/Helios_scalable_QEC-main/design/snowflake/snowflake_pe_array_lat.sv:430]
+CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin Q with 1st driver pin 'g_eslot[36].g_ectx[0].bank_reg[360][14]/Q' [D:/ycz/doc/deepseek_workzone/decoder/Helios_scalable_QEC-main/Helios_scalable_QEC-main/design/snowflake/snowflake_pe_array_lat.sv:430]
+CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin Q with 2nd driver pin 'GND' [D:/ycz/doc/deepseek_workzone/decoder/Helios_scalable_QEC-main/Helios_scalable_QEC-main/design/snowflake/snowflake_pe_array_lat.sv:430]
+CRITICAL WARNING: [Synth 8-6858] multi-driven net Q is connected to at least one constant driver which has been preserved, other driver is ignored [D:/ycz/doc/deepseek_workzone/decoder/Helios_scalable_QEC-main/Helios_scalable_QEC-main/design/snowflake/snowflake_pe_array_lat.sv:430]
+CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin Q with 1st driver pin 'g_eslot[36].g_ectx[0].bank_reg[360][13]/Q' [D:/ycz/doc/deepseek_workzone/decoder/Helios_scalable_QEC-main/Helios_scalable_QEC-main/design/snowflake/snowflake_pe_array_lat.sv:430]
+CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin Q with 2nd driver pin 'GND' [D:/ycz/doc/deepseek_workzone/decoder/Helios_scalable_QEC-main/Helios_scalable_QEC-main/design/snowflake/snowflake_pe_array_lat.sv:430]
+CRITICAL WARNING: [Synth 8-6858] multi-driven net Q is connected to at least one constant driver which has been preserved, other driver is ignored [D:/ycz/doc/deepseek_workzone/decoder/Helios_scalable_QEC-main/Helios_scalable_QEC-main/design/snowflake/snowflake_pe_array_lat.sv:430]
+CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin Q with 1st driver pin 'g_eslot[36].g_ectx[0].bank_reg[360][12]/Q' [D:/ycz/doc/deepseek_workzone/decoder/Helios_scalable_QEC-main/Helios_scalable_QEC-main/design/snowflake/snowflake_pe_array_lat.sv:430]
+CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin Q with 2nd driver pin 'GND' [D:/ycz/doc/deepseek_workzone/decoder/Helios_scalable_QEC-main/Helios_scalable_QEC-main/design/snowflake/snowflake_pe_array_lat.sv:430]
+CRITICAL WARNING: [Synth 8-6858] multi-driven net Q is connected to at least one constant driver which has been preserved, other driver is ignored [D:/ycz/doc/deepseek_workzone/decoder/Helios_scalable_QEC-main/Helios_scalable_QEC-main/design/snowflake/snowflake_pe_array_lat.sv:430]
+CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin Q with 1st driver pin 'g_eslot[36].g_ectx[0].bank_reg[360][11]/Q' [D:/ycz/doc/deepseek_workzone/decoder/Helios_scalable_QEC-main/Helios_scalable_QEC-main/design/snowflake/snowflake_pe_array_lat.sv:430]
+CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin Q with 2nd driver pin 'GND' [D:/ycz/doc/deepseek_workzone/decoder/Helios_scalable_QEC-main/Helios_scalable_QEC-main/design/snowflake/snowflake_pe_array_lat.sv:430]
+CRITICAL WARNING: [Synth 8-6858] multi-driven net Q is connected to at least one constant driver which has been preserved, other driver is ignored [D:/ycz/doc/deepseek_workzone/decoder/Helios_scalable_QEC-main/Helios_scalable_QEC-main/design/snowflake/snowflake_pe_array_lat.sv:430]
+CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin Q with 1st driver pin 'g_eslot[36].g_ectx[0].bank_reg[360][10]/Q' [D:/ycz/doc/deepseek_workzone/decoder/Helios_scalable_QEC-main/Helios_scalable_QEC-main/design/snowflake/snowflake_pe_array_lat.sv:430]
+CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin Q with 2nd driver pin 'GND' [D:/ycz/doc/deepseek_workzone/decoder/Helios_scalable_QEC-main/Helios_scalable_QEC-main/design/snowflake/snowflake_pe_array_lat.sv:430]
+CRITICAL WARNING: [Synth 8-6858] multi-driven net Q is connected to at least one constant driver which has been preserved, other driver is ignored [D:/ycz/doc/deepseek_workzone/decoder/Helios_scalable_QEC-main/Helios_scalable_QEC-main/design/snowflake/snowflake_pe_array_lat.sv:430]
+CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin Q with 1st driver pin 'g_eslot[36].g_ectx[0].bank_reg[360][9]/Q' [D:/ycz/doc/deepseek_workzone/decoder/Helios_scalable_QEC-main/Helios_scalable_QEC-main/design/snowflake/snowflake_pe_array_lat.sv:430]
+CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin Q with 2nd driver pin 'GND' [D:/ycz/doc/deepseek_workzone/decoder/Helios_scalable_QEC-main/Helios_scalable_QEC-main/design/snowflake/snowflake_pe_array_lat.sv:430]
+CRITICAL WARNING: [Synth 8-6858] multi-driven net Q is connected to at least one constant driver which has been preserved, other driver is ignored [D:/ycz/doc/deepseek_workzone/decoder/Helios_scalable_QEC-main/Helios_scalable_QEC-main/design/snowflake/snowflake_pe_array_lat.sv:430]
+CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin Q with 1st driver pin 'g_eslot[36].g_ectx[0].bank_reg[360][8]/Q' [D:/ycz/doc/deepseek_workzone/decoder/Helios_scalable_QEC-main/Helios_scalable_QEC-main/design/snowflake/snowflake_pe_array_lat.sv:430]
+CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin Q with 2nd driver pin 'GND' [D:/ycz/doc/deepseek_workzone/decoder/Helios_scalable_QEC-main/Helios_scalable_QEC-main/design/snowflake/snowflake_pe_array_lat.sv:430]
+CRITICAL WARNING: [Synth 8-6858] multi-driven net Q is connected to at least one constant driver which has been preserved, other driver is ignored [D:/ycz/doc/deepseek_workzone/decoder/Helios_scalable_QEC-main/Helios_scalable_QEC-main/design/snowflake/snowflake_pe_array_lat.sv:430]
+CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin Q with 1st driver pin 'g_eslot[36].g_ectx[0].bank_reg[360][7]/Q' [D:/ycz/doc/deepseek_workzone/decoder/Helios_scalable_QEC-main/Helios_scalable_QEC-main/design/snowflake/snowflake_pe_array_lat.sv:430]
+CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin Q with 2nd driver pin 'GND' [D:/ycz/doc/deepseek_workzone/decoder/Helios_scalable_QEC-main/Helios_scalable_QEC-main/design/snowflake/snowflake_pe_array_lat.sv:430]
+CRITICAL WARNING: [Synth 8-6858] multi-driven net Q is connected to at least one constant driver which has been preserved, other driver is ignored [D:/ycz/doc/deepseek_workzone/decoder/Helios_scalable_QEC-main/Helios_scalable_QEC-main/design/snowflake/snowflake_pe_array_lat.sv:430]
+CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin Q with 1st driver pin 'g_eslot[36].g_ectx[0].bank_reg[360][6]/Q' [D:/ycz/doc/deepseek_workzone/decoder/Helios_scalable_QEC-main/Helios_scalable_QEC-main/design/snowflake/snowflake_pe_array_lat.sv:430]
+CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin Q with 2nd driver pin 'GND' [D:/ycz/doc/deepseek_workzone/decoder/Helios_scalable_QEC-main/Helios_scalable_QEC-main/design/snowflake/snowflake_pe_array_lat.sv:430]
+CRITICAL WARNING: [Synth 8-6858] multi-driven net Q is connected to at least one constant driver which has been preserved, other driver is ignored [D:/ycz/doc/deepseek_workzone/decoder/Helios_scalable_QEC-main/Helios_scalable_QEC-main/design/snowflake/snowflake_pe_array_lat.sv:430]
+CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin Q with 1st driver pin 'g_eslot[36].g_ectx[0].bank_reg[360][5]/Q' [D:/ycz/doc/deepseek_workzone/decoder/Helios_scalable_QEC-main/Helios_scalable_QEC-main/design/snowflake/snowflake_pe_array_lat.sv:430]
+CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin Q with 2nd driver pin 'GND' [D:/ycz/doc/deepseek_workzone/decoder/Helios_scalable_QEC-main/Helios_scalable_QEC-main/design/snowflake/snowflake_pe_array_lat.sv:430]
+CRITICAL WARNING: [Synth 8-6858] multi-driven net Q is connected to at least one constant driver which has been preserved, other driver is ignored [D:/ycz/doc/deepseek_workzone/decoder/Helios_scalable_QEC-main/Helios_scalable_QEC-main/design/snowflake/snowflake_pe_array_lat.sv:430]
+CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin Q with 1st driver pin 'g_eslot[36].g_ectx[0].bank_reg[360][4]/Q' [D:/ycz/doc/deepseek_workzone/decoder/Helios_scalable_QEC-main/Helios_scalable_QEC-main/design/snowflake/snowflake_pe_array_lat.sv:430]
+CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin Q with 2nd driver pin 'GND' [D:/ycz/doc/deepseek_workzone/decoder/Helios_scalable_QEC-main/Helios_scalable_QEC-main/design/snowflake/snowflake_pe_array_lat.sv:430]
+CRITICAL WARNING: [Synth 8-6858] multi-driven net Q is connected to at least one constant driver which has been preserved, other driver is ignored [D:/ycz/doc/deepseek_workzone/decoder/Helios_scalable_QEC-main/Helios_scalable_QEC-main/design/snowflake/snowflake_pe_array_lat.sv:430]
+CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin Q with 1st driver pin 'g_eslot[36].g_ectx[0].bank_reg[360][3]/Q' [D:/ycz/doc/deepseek_workzone/decoder/Helios_scalable_QEC-main/Helios_scalable_QEC-main/design/snowflake/snowflake_pe_array_lat.sv:430]
+CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin Q with 2nd driver pin 'GND' [D:/ycz/doc/deepseek_workzone/decoder/Helios_scalable_QEC-main/Helios_scalable_QEC-main/design/snowflake/snowflake_pe_array_lat.sv:430]
+CRITICAL WARNING: [Synth 8-6858] multi-driven net Q is connected to at least one constant driver which has been preserved, other driver is ignored [D:/ycz/doc/deepseek_workzone/decoder/Helios_scalable_QEC-main/Helios_scalable_QEC-main/design/snowflake/snowflake_pe_array_lat.sv:430]
+CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin Q with 1st driver pin 'g_eslot[1].g_ectx[0].bank_reg[146][17]/Q' [D:/ycz/doc/deepseek_workzone/decoder/Helios_scalable_QEC-main/Helios_scalable_QEC-main/design/snowflake/snowflake_pe_array_lat.sv:430]
+CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin Q with 2nd driver pin 'GND' [D:/ycz/doc/deepseek_workzone/decoder/Helios_scalable_QEC-main/Helios_scalable_QEC-main/design/snowflake/snowflake_pe_array_lat.sv:430]
+CRITICAL WARNING: [Synth 8-6858] multi-driven net Q is connected to at least one constant driver which has been preserved, other driver is ignored [D:/ycz/doc/deepseek_workzone/decoder/Helios_scalable_QEC-main/Helios_scalable_QEC-main/design/snowflake/snowflake_pe_array_lat.sv:430]
+CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin Q with 1st driver pin 'g_eslot[1].g_ectx[0].bank_reg[146][16]/Q' [D:/ycz/doc/deepseek_workzone/decoder/Helios_scalable_QEC-main/Helios_scalable_QEC-main/design/snowflake/snowflake_pe_array_lat.sv:430]
+CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin Q with 2nd driver pin 'GND' [D:/ycz/doc/deepseek_workzone/decoder/Helios_scalable_QEC-main/Helios_scalable_QEC-main/design/snowflake/snowflake_pe_array_lat.sv:430]
+CRITICAL WARNING: [Synth 8-6858] multi-driven net Q is connected to at least one constant driver which has been preserved, other driver is ignored [D:/ycz/doc/deepseek_workzone/decoder/Helios_scalable_QEC-main/Helios_scalable_QEC-main/design/snowflake/snowflake_pe_array_lat.sv:430]
+CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin Q with 1st driver pin 'g_eslot[1].g_ectx[0].bank_reg[146][15]/Q' [D:/ycz/doc/deepseek_workzone/decoder/Helios_scalable_QEC-main/Helios_scalable_QEC-main/design/snowflake/snowflake_pe_array_lat.sv:430]
+CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin Q with 2nd driver pin 'GND' [D:/ycz/doc/deepseek_workzone/decoder/Helios_scalable_QEC-main/Helios_scalable_QEC-main/design/snowflake/snowflake_pe_array_lat.sv:430]
+CRITICAL WARNING: [Synth 8-6858] multi-driven net Q is connected to at least one constant driver which has been preserved, other driver is ignored [D:/ycz/doc/deepseek_workzone/decoder/Helios_scalable_QEC-main/Helios_scalable_QEC-main/design/snowflake/snowflake_pe_array_lat.sv:430]
+CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin Q with 1st driver pin 'g_eslot[1].g_ectx[0].bank_reg[146][14]/Q' [D:/ycz/doc/deepseek_workzone/decoder/Helios_scalable_QEC-main/Helios_scalable_QEC-main/design/snowflake/snowflake_pe_array_lat.sv:430]
+CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin Q with 2nd driver pin 'GND' [D:/ycz/doc/deepseek_workzone/decoder/Helios_scalable_QEC-main/Helios_scalable_QEC-main/design/snowflake/snowflake_pe_array_lat.sv:430]
+CRITICAL WARNING: [Synth 8-6858] multi-driven net Q is connected to at least one constant driver which has been preserved, other driver is ignored [D:/ycz/doc/deepseek_workzone/decoder/Helios_scalable_QEC-main/Helios_scalable_QEC-main/design/snowflake/snowflake_pe_array_lat.sv:430]
+CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin Q with 1st driver pin 'g_eslot[1].g_ectx[0].bank_reg[146][13]/Q' [D:/ycz/doc/deepseek_workzone/decoder/Helios_scalable_QEC-main/Helios_scalable_QEC-main/design/snowflake/snowflake_pe_array_lat.sv:430]
+CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin Q with 2nd driver pin 'GND' [D:/ycz/doc/deepseek_workzone/decoder/Helios_scalable_QEC-main/Helios_scalable_QEC-main/design/snowflake/snowflake_pe_array_lat.sv:430]
+CRITICAL WARNING: [Synth 8-6858] multi-driven net Q is connected to at least one constant driver which has been preserved, other driver is ignored [D:/ycz/doc/deepseek_workzone/decoder/Helios_scalable_QEC-main/Helios_scalable_QEC-main/design/snowflake/snowflake_pe_array_lat.sv:430]
+CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin Q with 1st driver pin 'g_eslot[1].g_ectx[0].bank_reg[146][12]/Q' [D:/ycz/doc/deepseek_workzone/decoder/Helios_scalable_QEC-main/Helios_scalable_QEC-main/design/snowflake/snowflake_pe_array_lat.sv:430]
+CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin Q with 2nd driver pin 'GND' [D:/ycz/doc/deepseek_workzone/decoder/Helios_scalable_QEC-main/Helios_scalable_QEC-main/design/snowflake/snowflake_pe_array_lat.sv:430]
+CRITICAL WARNING: [Synth 8-6858] multi-driven net Q is connected to at least one constant driver which has been preserved, other driver is ignored [D:/ycz/doc/deepseek_workzone/decoder/Helios_scalable_QEC-main/Helios_scalable_QEC-main/design/snowflake/snowflake_pe_array_lat.sv:430]
+CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin Q with 1st driver pin 'g_eslot[1].g_ectx[0].bank_reg[146][11]/Q' [D:/ycz/doc/deepseek_workzone/decoder/Helios_scalable_QEC-main/Helios_scalable_QEC-main/design/snowflake/snowflake_pe_array_lat.sv:430]
+CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin Q with 2nd driver pin 'GND' [D:/ycz/doc/deepseek_workzone/decoder/Helios_scalable_QEC-main/Helios_scalable_QEC-main/design/snowflake/snowflake_pe_array_lat.sv:430]
+CRITICAL WARNING: [Synth 8-6858] multi-driven net Q is connected to at least one constant driver which has been preserved, other driver is ignored [D:/ycz/doc/deepseek_workzone/decoder/Helios_scalable_QEC-main/Helios_scalable_QEC-main/design/snowflake/snowflake_pe_array_lat.sv:430]
+CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin Q with 1st driver pin 'g_eslot[1].g_ectx[0].bank_reg[146][10]/Q' [D:/ycz/doc/deepseek_workzone/decoder/Helios_scalable_QEC-main/Helios_scalable_QEC-main/design/snowflake/snowflake_pe_array_lat.sv:430]
+CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin Q with 2nd driver pin 'GND' [D:/ycz/doc/deepseek_workzone/decoder/Helios_scalable_QEC-main/Helios_scalable_QEC-main/design/snowflake/snowflake_pe_array_lat.sv:430]
+CRITICAL WARNING: [Synth 8-6858] multi-driven net Q is connected to at least one constant driver which has been preserved, other driver is ignored [D:/ycz/doc/deepseek_workzone/decoder/Helios_scalable_QEC-main/Helios_scalable_QEC-main/design/snowflake/snowflake_pe_array_lat.sv:430]
+CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin Q with 1st driver pin 'g_eslot[1].g_ectx[0].bank_reg[146][9]/Q' [D:/ycz/doc/deepseek_workzone/decoder/Helios_scalable_QEC-main/Helios_scalable_QEC-main/design/snowflake/snowflake_pe_array_lat.sv:430]
+CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin Q with 2nd driver pin 'GND' [D:/ycz/doc/deepseek_workzone/decoder/Helios_scalable_QEC-main/Helios_scalable_QEC-main/design/snowflake/snowflake_pe_array_lat.sv:430]
+CRITICAL WARNING: [Synth 8-6858] multi-driven net Q is connected to at least one constant driver which has been preserved, other driver is ignored [D:/ycz/doc/deepseek_workzone/decoder/Helios_scalable_QEC-main/Helios_scalable_QEC-main/design/snowflake/snowflake_pe_array_lat.sv:430]
+CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin Q with 1st driver pin 'g_eslot[1].g_ectx[0].bank_reg[146][8]/Q' [D:/ycz/doc/deepseek_workzone/decoder/Helios_scalable_QEC-main/Helios_scalable_QEC-main/design/snowflake/snowflake_pe_array_lat.sv:430]
+CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin Q with 2nd driver pin 'GND' [D:/ycz/doc/deepseek_workzone/decoder/Helios_scalable_QEC-main/Helios_scalable_QEC-main/design/snowflake/snowflake_pe_array_lat.sv:430]
+CRITICAL WARNING: [Synth 8-6858] multi-driven net Q is connected to at least one constant driver which has been preserved, other driver is ignored [D:/ycz/doc/deepseek_workzone/decoder/Helios_scalable_QEC-main/Helios_scalable_QEC-main/design/snowflake/snowflake_pe_array_lat.sv:430]
+CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin Q with 1st driver pin 'g_eslot[1].g_ectx[0].bank_reg[146][7]/Q' [D:/ycz/doc/deepseek_workzone/decoder/Helios_scalable_QEC-main/Helios_scalable_QEC-main/design/snowflake/snowflake_pe_array_lat.sv:430]
+CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin Q with 2nd driver pin 'GND' [D:/ycz/doc/deepseek_workzone/decoder/Helios_scalable_QEC-main/Helios_scalable_QEC-main/design/snowflake/snowflake_pe_array_lat.sv:430]
+CRITICAL WARNING: [Synth 8-6858] multi-driven net Q is connected to at least one constant driver which has been preserved, other driver is ignored [D:/ycz/doc/deepseek_workzone/decoder/Helios_scalable_QEC-main/Helios_scalable_QEC-main/design/snowflake/snowflake_pe_array_lat.sv:430]
+CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin Q with 1st driver pin 'g_eslot[1].g_ectx[0].bank_reg[146][6]/Q' [D:/ycz/doc/deepseek_workzone/decoder/Helios_scalable_QEC-main/Helios_scalable_QEC-main/design/snowflake/snowflake_pe_array_lat.sv:430]
+CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin Q with 2nd driver pin 'GND' [D:/ycz/doc/deepseek_workzone/decoder/Helios_scalable_QEC-main/Helios_scalable_QEC-main/design/snowflake/snowflake_pe_array_lat.sv:430]
+CRITICAL WARNING: [Synth 8-6858] multi-driven net Q is connected to at least one constant driver which has been preserved, other driver is ignored [D:/ycz/doc/deepseek_workzone/decoder/Helios_scalable_QEC-main/Helios_scalable_QEC-main/design/snowflake/snowflake_pe_array_lat.sv:430]
+CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin Q with 1st driver pin 'g_eslot[1].g_ectx[0].bank_reg[146][5]/Q' [D:/ycz/doc/deepseek_workzone/decoder/Helios_scalable_QEC-main/Helios_scalable_QEC-main/design/snowflake/snowflake_pe_array_lat.sv:430]
+CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin Q with 2nd driver pin 'GND' [D:/ycz/doc/deepseek_workzone/decoder/Helios_scalable_QEC-main/Helios_scalable_QEC-main/design/snowflake/snowflake_pe_array_lat.sv:430]
+CRITICAL WARNING: [Synth 8-6858] multi-driven net Q is connected to at least one constant driver which has been preserved, other driver is ignored [D:/ycz/doc/deepseek_workzone/decoder/Helios_scalable_QEC-main/Helios_scalable_QEC-main/design/snowflake/snowflake_pe_array_lat.sv:430]
+CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin Q with 1st driver pin 'g_eslot[1].g_ectx[0].bank_reg[146][4]/Q' [D:/ycz/doc/deepseek_workzone/decoder/Helios_scalable_QEC-main/Helios_scalable_QEC-main/design/snowflake/snowflake_pe_array_lat.sv:430]
+CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin Q with 2nd driver pin 'GND' [D:/ycz/doc/deepseek_workzone/decoder/Helios_scalable_QEC-main/Helios_scalable_QEC-main/design/snowflake/snowflake_pe_array_lat.sv:430]
+CRITICAL WARNING: [Synth 8-6858] multi-driven net Q is connected to at least one constant driver which has been preserved, other driver is ignored [D:/ycz/doc/deepseek_workzone/decoder/Helios_scalable_QEC-main/Helios_scalable_QEC-main/design/snowflake/snowflake_pe_array_lat.sv:430]
+CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin Q with 1st driver pin 'g_eslot[1].g_ectx[0].bank_reg[146][3]/Q' [D:/ycz/doc/deepseek_workzone/decoder/Helios_scalable_QEC-main/Helios_scalable_QEC-main/design/snowflake/snowflake_pe_array_lat.sv:430]
+CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin Q with 2nd driver pin 'GND' [D:/ycz/doc/deepseek_workzone/decoder/Helios_scalable_QEC-main/Helios_scalable_QEC-main/design/snowflake/snowflake_pe_array_lat.sv:430]
+CRITICAL WARNING: [Synth 8-6858] multi-driven net Q is connected to at least one constant driver which has been preserved, other driver is ignored [D:/ycz/doc/deepseek_workzone/decoder/Helios_scalable_QEC-main/Helios_scalable_QEC-main/design/snowflake/snowflake_pe_array_lat.sv:430]
+CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin Q with 1st driver pin 'g_eslot[13].g_ectx[0].bank_reg[170][17]/Q' [D:/ycz/doc/deepseek_workzone/decoder/Helios_scalable_QEC-main/Helios_scalable_QEC-main/design/snowflake/snowflake_pe_array_lat.sv:430]
+CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin Q with 2nd driver pin 'GND' [D:/ycz/doc/deepseek_workzone/decoder/Helios_scalable_QEC-main/Helios_scalable_QEC-main/design/snowflake/snowflake_pe_array_lat.sv:430]
+INFO: [Common 17-14] Message 'Synth 8-6859' appears 100 times and further instances of the messages will be disabled. Use the Tcl command set_msg_config to change the current settings.
+CRITICAL WARNING: [Synth 8-6858] multi-driven net Q is connected to at least one constant driver which has been preserved, other driver is ignored [D:/ycz/doc/deepseek_workzone/decoder/Helios_scalable_QEC-main/Helios_scalable_QEC-main/design/snowflake/snowflake_pe_array_lat.sv:430]
+CRITICAL WARNING: [Synth 8-6858] multi-driven net Q is connected to at least one constant driver which has been preserved, other driver is ignored [D:/ycz/doc/deepseek_workzone/decoder/Helios_scalable_QEC-main/Helios_scalable_QEC-main/design/snowflake/snowflake_pe_array_lat.sv:430]
+CRITICAL WARNING: [Synth 8-6858] multi-driven net Q is connected to at least one constant driver which has been preserved, other driver is ignored [D:/ycz/doc/deepseek_workzone/decoder/Helios_scalable_QEC-main/Helios_scalable_QEC-main/design/snowflake/snowflake_pe_array_lat.sv:430]
+CRITICAL WARNING: [Synth 8-6858] multi-driven net Q is connected to at least one constant driver which has been preserved, other driver is ignored [D:/ycz/doc/deepseek_workzone/decoder/Helios_scalable_QEC-main/Helios_scalable_QEC-main/design/snowflake/snowflake_pe_array_lat.sv:430]
+CRITICAL WARNING: [Synth 8-6858] multi-driven net Q is connected to at least one constant driver which has been preserved, other driver is ignored [D:/ycz/doc/deepseek_workzone/decoder/Helios_scalable_QEC-main/Helios_scalable_QEC-main/design/snowflake/snowflake_pe_array_lat.sv:430]
+CRITICAL WARNING: [Synth 8-6858] multi-driven net Q is connected to at least one constant driver which has been preserved, other driver is ignored [D:/ycz/doc/deepseek_workzone/decoder/Helios_scalable_QEC-main/Helios_scalable_QEC-main/design/snowflake/snowflake_pe_array_lat.sv:430]
+CRITICAL WARNING: [Synth 8-6858] multi-driven net Q is connected to at least one constant driver which has been preserved, other driver is ignored [D:/ycz/doc/deepseek_workzone/decoder/Helios_scalable_QEC-main/Helios_scalable_QEC-main/design/snowflake/snowflake_pe_array_lat.sv:430]
+CRITICAL WARNING: [Synth 8-6858] multi-driven net Q is connected to at least one constant driver which has been preserved, other driver is ignored [D:/ycz/doc/deepseek_workzone/decoder/Helios_scalable_QEC-main/Helios_scalable_QEC-main/design/snowflake/snowflake_pe_array_lat.sv:430]
+CRITICAL WARNING: [Synth 8-6858] multi-driven net Q is connected to at least one constant driver which has been preserved, other driver is ignored [D:/ycz/doc/deepseek_workzone/decoder/Helios_scalable_QEC-main/Helios_scalable_QEC-main/design/snowflake/snowflake_pe_array_lat.sv:430]
+CRITICAL WARNING: [Synth 8-6858] multi-driven net Q is connected to at least one constant driver which has been preserved, other driver is ignored [D:/ycz/doc/deepseek_workzone/decoder/Helios_scalable_QEC-main/Helios_scalable_QEC-main/design/snowflake/snowflake_pe_array_lat.sv:430]
+CRITICAL WARNING: [Synth 8-6858] multi-driven net Q is connected to at least one constant driver which has been preserved, other driver is ignored [D:/ycz/doc/deepseek_workzone/decoder/Helios_scalable_QEC-main/Helios_scalable_QEC-main/design/snowflake/snowflake_pe_array_lat.sv:430]
+CRITICAL WARNING: [Synth 8-6858] multi-driven net Q is connected to at least one constant driver which has been preserved, other driver is ignored [D:/ycz/doc/deepseek_workzone/decoder/Helios_scalable_QEC-main/Helios_scalable_QEC-main/design/snowflake/snowflake_pe_array_lat.sv:430]
+CRITICAL WARNING: [Synth 8-6858] multi-driven net Q is connected to at least one constant driver which has been preserved, other driver is ignored [D:/ycz/doc/deepseek_workzone/decoder/Helios_scalable_QEC-main/Helios_scalable_QEC-main/design/snowflake/snowflake_pe_array_lat.sv:430]
+CRITICAL WARNING: [Synth 8-6858] multi-driven net Q is connected to at least one constant driver which has been preserved, other driver is ignored [D:/ycz/doc/deepseek_workzone/decoder/Helios_scalable_QEC-main/Helios_scalable_QEC-main/design/snowflake/snowflake_pe_array_lat.sv:430]
+CRITICAL WARNING: [Synth 8-6858] multi-driven net Q is connected to at least one constant driver which has been preserved, other driver is ignored [D:/ycz/doc/deepseek_workzone/decoder/Helios_scalable_QEC-main/Helios_scalable_QEC-main/design/snowflake/snowflake_pe_array_lat.sv:430]
+CRITICAL WARNING: [Synth 8-6858] multi-driven net Q is connected to at least one constant driver which has been preserved, other driver is ignored [D:/ycz/doc/deepseek_workzone/decoder/Helios_scalable_QEC-main/Helios_scalable_QEC-main/design/snowflake/snowflake_pe_array_lat.sv:430]
+CRITICAL WARNING: [Synth 8-6858] multi-driven net Q is connected to at least one constant driver which has been preserved, other driver is ignored [D:/ycz/doc/deepseek_workzone/decoder/Helios_scalable_QEC-main/Helios_scalable_QEC-main/design/snowflake/snowflake_pe_array_lat.sv:430]
+CRITICAL WARNING: [Synth 8-6858] multi-driven net Q is connected to at least one constant driver which has been preserved, other driver is ignored [D:/ycz/doc/deepseek_workzone/decoder/Helios_scalable_QEC-main/Helios_scalable_QEC-main/design/snowflake/snowflake_pe_array_lat.sv:430]
+CRITICAL WARNING: [Synth 8-6858] multi-driven net Q is connected to at least one constant driver which has been preserved, other driver is ignored [D:/ycz/doc/deepseek_workzone/decoder/Helios_scalable_QEC-main/Helios_scalable_QEC-main/design/snowflake/snowflake_pe_array_lat.sv:430]
+CRITICAL WARNING: [Synth 8-6858] multi-driven net Q is connected to at least one constant driver which has been preserved, other driver is ignored [D:/ycz/doc/deepseek_workzone/decoder/Helios_scalable_QEC-main/Helios_scalable_QEC-main/design/snowflake/snowflake_pe_array_lat.sv:430]
+CRITICAL WARNING: [Synth 8-6858] multi-driven net Q is connected to at least one constant driver which has been preserved, other driver is ignored [D:/ycz/doc/deepseek_workzone/decoder/Helios_scalable_QEC-main/Helios_scalable_QEC-main/design/snowflake/snowflake_pe_array_lat.sv:430]
+CRITICAL WARNING: [Synth 8-6858] multi-driven net Q is connected to at least one constant driver which has been preserved, other driver is ignored [D:/ycz/doc/deepseek_workzone/decoder/Helios_scalable_QEC-main/Helios_scalable_QEC-main/design/snowflake/snowflake_pe_array_lat.sv:430]
+CRITICAL WARNING: [Synth 8-6858] multi-driven net Q is connected to at least one constant driver which has been preserved, other driver is ignored [D:/ycz/doc/deepseek_workzone/decoder/Helios_scalable_QEC-main/Helios_scalable_QEC-main/design/snowflake/snowflake_pe_array_lat.sv:430]
+CRITICAL WARNING: [Synth 8-6858] multi-driven net Q is connected to at least one constant driver which has been preserved, other driver is ignored [D:/ycz/doc/deepseek_workzone/decoder/Helios_scalable_QEC-main/Helios_scalable_QEC-main/design/snowflake/snowflake_pe_array_lat.sv:430]
+CRITICAL WARNING: [Synth 8-6858] multi-driven net Q is connected to at least one constant driver which has been preserved, other driver is ignored [D:/ycz/doc/deepseek_workzone/decoder/Helios_scalable_QEC-main/Helios_scalable_QEC-main/design/snowflake/snowflake_pe_array_lat.sv:430]
+CRITICAL WARNING: [Synth 8-6858] multi-driven net Q is connected to at least one constant driver which has been preserved, other driver is ignored [D:/ycz/doc/deepseek_workzone/decoder/Helios_scalable_QEC-main/Helios_scalable_QEC-main/design/snowflake/snowflake_pe_array_lat.sv:430]
+CRITICAL WARNING: [Synth 8-6858] multi-driven net Q is connected to at least one constant driver which has been preserved, other driver is ignored [D:/ycz/doc/deepseek_workzone/decoder/Helios_scalable_QEC-main/Helios_scalable_QEC-main/design/snowflake/snowflake_pe_array_lat.sv:430]
+CRITICAL WARNING: [Synth 8-6858] multi-driven net Q is connected to at least one constant driver which has been preserved, other driver is ignored [D:/ycz/doc/deepseek_workzone/decoder/Helios_scalable_QEC-main/Helios_scalable_QEC-main/design/snowflake/snowflake_pe_array_lat.sv:430]
+CRITICAL WARNING: [Synth 8-6858] multi-driven net Q is connected to at least one constant driver which has been preserved, other driver is ignored [D:/ycz/doc/deepseek_workzone/decoder/Helios_scalable_QEC-main/Helios_scalable_QEC-main/design/snowflake/snowflake_pe_array_lat.sv:430]
+CRITICAL WARNING: [Synth 8-6858] multi-driven net Q is connected to at least one constant driver which has been preserved, other driver is ignored [D:/ycz/doc/deepseek_workzone/decoder/Helios_scalable_QEC-main/Helios_scalable_QEC-main/design/snowflake/snowflake_pe_array_lat.sv:430]
+CRITICAL WARNING: [Synth 8-6858] multi-driven net Q is connected to at least one constant driver which has been preserved, other driver is ignored [D:/ycz/doc/deepseek_workzone/decoder/Helios_scalable_QEC-main/Helios_scalable_QEC-main/design/snowflake/snowflake_pe_array_lat.sv:430]
+CRITICAL WARNING: [Synth 8-6858] multi-driven net Q is connected to at least one constant driver which has been preserved, other driver is ignored [D:/ycz/doc/deepseek_workzone/decoder/Helios_scalable_QEC-main/Helios_scalable_QEC-main/design/snowflake/snowflake_pe_array_lat.sv:430]
+CRITICAL WARNING: [Synth 8-6858] multi-driven net Q is connected to at least one constant driver which has been preserved, other driver is ignored [D:/ycz/doc/deepseek_workzone/decoder/Helios_scalable_QEC-main/Helios_scalable_QEC-main/design/snowflake/snowflake_pe_array_lat.sv:430]
+CRITICAL WARNING: [Synth 8-6858] multi-driven net Q is connected to at least one constant driver which has been preserved, other driver is ignored [D:/ycz/doc/deepseek_workzone/decoder/Helios_scalable_QEC-main/Helios_scalable_QEC-main/design/snowflake/snowflake_pe_array_lat.sv:430]
+CRITICAL WARNING: [Synth 8-6858] multi-driven net Q is connected to at least one constant driver which has been preserved, other driver is ignored [D:/ycz/doc/deepseek_workzone/decoder/Helios_scalable_QEC-main/Helios_scalable_QEC-main/design/snowflake/snowflake_pe_array_lat.sv:430]
+CRITICAL WARNING: [Synth 8-6858] multi-driven net Q is connected to at least one constant driver which has been preserved, other driver is ignored [D:/ycz/doc/deepseek_workzone/decoder/Helios_scalable_QEC-main/Helios_scalable_QEC-main/design/snowflake/snowflake_pe_array_lat.sv:430]
+CRITICAL WARNING: [Synth 8-6858] multi-driven net Q is connected to at least one constant driver which has been preserved, other driver is ignored [D:/ycz/doc/deepseek_workzone/decoder/Helios_scalable_QEC-main/Helios_scalable_QEC-main/design/snowflake/snowflake_pe_array_lat.sv:430]
+CRITICAL WARNING: [Synth 8-6858] multi-driven net Q is connected to at least one constant driver which has been preserved, other driver is ignored [D:/ycz/doc/deepseek_workzone/decoder/Helios_scalable_QEC-main/Helios_scalable_QEC-main/design/snowflake/snowflake_pe_array_lat.sv:430]
+CRITICAL WARNING: [Synth 8-6858] multi-driven net Q is connected to at least one constant driver which has been preserved, other driver is ignored [D:/ycz/doc/deepseek_workzone/decoder/Helios_scalable_QEC-main/Helios_scalable_QEC-main/design/snowflake/snowflake_pe_array_lat.sv:430]
+CRITICAL WARNING: [Synth 8-6858] multi-driven net Q is connected to at least one constant driver which has been preserved, other driver is ignored [D:/ycz/doc/deepseek_workzone/decoder/Helios_scalable_QEC-main/Helios_scalable_QEC-main/design/snowflake/snowflake_pe_array_lat.sv:430]
+CRITICAL WARNING: [Synth 8-6858] multi-driven net Q is connected to at least one constant driver which has been preserved, other driver is ignored [D:/ycz/doc/deepseek_workzone/decoder/Helios_scalable_QEC-main/Helios_scalable_QEC-main/design/snowflake/snowflake_pe_array_lat.sv:430]
+CRITICAL WARNING: [Synth 8-6858] multi-driven net Q is connected to at least one constant driver which has been preserved, other driver is ignored [D:/ycz/doc/deepseek_workzone/decoder/Helios_scalable_QEC-main/Helios_scalable_QEC-main/design/snowflake/snowflake_pe_array_lat.sv:430]
+CRITICAL WARNING: [Synth 8-6858] multi-driven net Q is connected to at least one constant driver which has been preserved, other driver is ignored [D:/ycz/doc/deepseek_workzone/decoder/Helios_scalable_QEC-main/Helios_scalable_QEC-main/design/snowflake/snowflake_pe_array_lat.sv:430]
+CRITICAL WARNING: [Synth 8-6858] multi-driven net Q is connected to at least one constant driver which has been preserved, other driver is ignored [D:/ycz/doc/deepseek_workzone/decoder/Helios_scalable_QEC-main/Helios_scalable_QEC-main/design/snowflake/snowflake_pe_array_lat.sv:430]
+CRITICAL WARNING: [Synth 8-6858] multi-driven net Q is connected to at least one constant driver which has been preserved, other driver is ignored [D:/ycz/doc/deepseek_workzone/decoder/Helios_scalable_QEC-main/Helios_scalable_QEC-main/design/snowflake/snowflake_pe_array_lat.sv:430]

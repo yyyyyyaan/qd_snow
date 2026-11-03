@@ -1,0 +1,4 @@
+tag,verdict,detail
+rep_d3_2to1_netlist,PASS,REGRESS_VERDICT PASS golden_lines=2314 rtl_lines=2314 golden_commits=6 rtl_commits=6 golden=golden_tmp.txt rtl=netlist_trace.txt
+surface_d3_2to1_netlist,PASS,REGRESS_VERDICT PASS golden_lines=7832 rtl_lines=7832 golden_commits=6 rtl_commits=6 golden=golden_tmp.txt rtl=netlist_trace.txt
+rep_d5_2to1_netlist,PASS,REGRESS_VERDICT PASS golden_lines=6624 rtl_lines=6624 golden_commits=4 rtl_commits=4 golden=golden_tmp.txt rtl=netlist_trace.txt
